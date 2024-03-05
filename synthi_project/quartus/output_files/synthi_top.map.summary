@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Tue Mar  5 15:18:00 2024
+Analysis & Synthesis Status : Successful - Tue Mar  5 17:49:19 2024
 Quartus Prime Version : 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 Revision Name : synthi_top
 Top-level Entity Name : synthi_top
 Family : MAX 10
-Total logic elements : 191
-    Total combinational functions : 159
-    Dedicated logic registers : 107
-Total registers : 107
+Total logic elements : 263
+    Total combinational functions : 231
+    Dedicated logic registers : 134
+Total registers : 134
 Total pins : 50
 Total virtual pins : 0
 Total memory bits : 0

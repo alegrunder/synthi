@@ -10,6 +10,12 @@ fsm_state.S_ACK_BYTE 0 0 1 0 0 0 0 1
 fsm_state.S_WAIT_FOR_STOP 0 1 0 0 0 0 0 1 
 fsm_state.S_STOP 1 0 0 0 0 0 0 1 
 
+State Machine - |synthi_top|codec_controller:codec_controller_1|fsm_state
+Name fsm_state.st_state_end fsm_state.st_wait_write fsm_state.st_idle 
+fsm_state.st_idle 0 0 0 
+fsm_state.st_wait_write 0 1 1 
+fsm_state.st_state_end 1 0 1 
+
 State Machine - |synthi_top|uart_top:uart_top_1|uart_controller_fsm:uart_controller_fsm_inst1|fsm_state
 Name fsm_state.st_check_rx fsm_state.st_wait_rx_byte fsm_state.st_start_pulse fsm_state.st_idle 
 fsm_state.st_idle 0 0 0 0 

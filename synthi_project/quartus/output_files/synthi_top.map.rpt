@@ -1,5 +1,5 @@
 Analysis & Synthesis report for synthi_top
-Tue Mar  5 15:18:00 2024
+Tue Mar  5 17:49:20 2024
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -14,18 +14,17 @@ Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. State Machine - |synthi_top|i2c_master:i2c_master_1|fsm_state
-  9. State Machine - |synthi_top|uart_top:uart_top_1|uart_controller_fsm:uart_controller_fsm_inst1|fsm_state
- 10. Registers Removed During Synthesis
- 11. Removed Registers Triggering Further Register Optimizations
- 12. General Register Statistics
- 13. Inverted Register Statistics
- 14. Multiplexer Restructuring Statistics (Restructuring Performed)
- 15. Parameter Settings for User Entity Instance: uart_top:uart_top_1|shiftreg_uart:shiftreg_uart_inst1
- 16. Port Connectivity Checks: "uart_top:uart_top_1|flanken_detekt_vhdl:flanken_detekt_vhdl_inst1"
- 17. Port Connectivity Checks: "uart_top:uart_top_1"
- 18. Post-Synthesis Netlist Statistics for Top Partition
- 19. Elapsed Time Per Partition
- 20. Analysis & Synthesis Messages
+  9. State Machine - |synthi_top|codec_controller:codec_controller_1|fsm_state
+ 10. State Machine - |synthi_top|uart_top:uart_top_1|uart_controller_fsm:uart_controller_fsm_inst1|fsm_state
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: uart_top:uart_top_1|shiftreg_uart:shiftreg_uart_inst1
+ 15. Port Connectivity Checks: "uart_top:uart_top_1|flanken_detekt_vhdl:flanken_detekt_vhdl_inst1"
+ 16. Port Connectivity Checks: "uart_top:uart_top_1"
+ 17. Post-Synthesis Netlist Statistics for Top Partition
+ 18. Elapsed Time Per Partition
+ 19. Analysis & Synthesis Messages
 
 
 
@@ -52,15 +51,15 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Mar  5 15:18:00 2024          ;
+; Analysis & Synthesis Status        ; Successful - Tue Mar  5 17:49:19 2024          ;
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; synthi_top                                     ;
 ; Top-level Entity Name              ; synthi_top                                     ;
 ; Family                             ; MAX 10                                         ;
-; Total logic elements               ; 191                                            ;
-;     Total combinational functions  ; 159                                            ;
-;     Dedicated logic registers      ; 107                                            ;
-; Total registers                    ; 107                                            ;
+; Total logic elements               ; 263                                            ;
+;     Total combinational functions  ; 231                                            ;
+;     Dedicated logic registers      ; 134                                            ;
+; Total registers                    ; 134                                            ;
 ; Total pins                         ; 50                                             ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0                                              ;
@@ -204,20 +203,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+--------------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                                    ;
 +---------------------------------------------+--------------------------------------------------------------------------+
-; Estimated Total logic elements              ; 191                                                                      ;
+; Estimated Total logic elements              ; 263                                                                      ;
 ;                                             ;                                                                          ;
-; Total combinational functions               ; 159                                                                      ;
+; Total combinational functions               ; 231                                                                      ;
 ; Logic element usage by number of LUT inputs ;                                                                          ;
-;     -- 4 input functions                    ; 87                                                                       ;
-;     -- 3 input functions                    ; 22                                                                       ;
-;     -- <=2 input functions                  ; 50                                                                       ;
+;     -- 4 input functions                    ; 127                                                                      ;
+;     -- 3 input functions                    ; 44                                                                       ;
+;     -- <=2 input functions                  ; 60                                                                       ;
 ;                                             ;                                                                          ;
 ; Logic elements by mode                      ;                                                                          ;
-;     -- normal mode                          ; 122                                                                      ;
+;     -- normal mode                          ; 194                                                                      ;
 ;     -- arithmetic mode                      ; 37                                                                       ;
 ;                                             ;                                                                          ;
-; Total registers                             ; 107                                                                      ;
-;     -- Dedicated logic registers            ; 107                                                                      ;
+; Total registers                             ; 134                                                                      ;
+;     -- Dedicated logic registers            ; 134                                                                      ;
 ;     -- I/O registers                        ; 0                                                                        ;
 ;                                             ;                                                                          ;
 ; I/O pins                                    ; 50                                                                       ;
@@ -225,9 +224,9 @@ https://fpgasoftware.intel.com/eula.
 ; Embedded Multiplier 9-bit elements          ; 0                                                                        ;
 ;                                             ;                                                                          ;
 ; Maximum fan-out node                        ; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[2] ;
-; Maximum fan-out                             ; 71                                                                       ;
-; Total fan-out                               ; 938                                                                      ;
-; Average fan-out                             ; 2.56                                                                     ;
+; Maximum fan-out                             ; 98                                                                       ;
+; Total fan-out                               ; 1280                                                                     ;
+; Average fan-out                             ; 2.75                                                                     ;
 +---------------------------------------------+--------------------------------------------------------------------------+
 
 
@@ -236,8 +235,9 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                            ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                           ; Entity Name         ; Library Name ;
 +-------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------------------+---------------------+--------------+
-; |synthi_top                                           ; 159 (0)             ; 107 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 50   ; 0            ; 0          ; |synthi_top                                                                   ; synthi_top          ; work         ;
-;    |i2c_master:i2c_master_1|                          ; 47 (47)             ; 32 (32)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |synthi_top|i2c_master:i2c_master_1                                           ; i2c_master          ; work         ;
+; |synthi_top                                           ; 231 (0)             ; 134 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 50   ; 0            ; 0          ; |synthi_top                                                                   ; synthi_top          ; work         ;
+;    |codec_controller:codec_controller_1|              ; 16 (16)             ; 7 (7)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |synthi_top|codec_controller:codec_controller_1                               ; codec_controller    ; work         ;
+;    |i2c_master:i2c_master_1|                          ; 103 (103)           ; 52 (52)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |synthi_top|i2c_master:i2c_master_1                                           ; i2c_master          ; work         ;
 ;    |infrastructure:infrastructure_1|                  ; 71 (0)              ; 41 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |synthi_top|infrastructure:infrastructure_1                                   ; infrastructure      ; work         ;
 ;       |clock_sync:clock_sync_1|                       ; 0 (0)               ; 2 (2)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |synthi_top|infrastructure:infrastructure_1|clock_sync:clock_sync_1           ; clock_sync          ; work         ;
 ;       |clock_sync:clock_sync_2|                       ; 0 (0)               ; 2 (2)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |synthi_top|infrastructure:infrastructure_1|clock_sync:clock_sync_2           ; clock_sync          ; work         ;
@@ -274,6 +274,18 @@ Encoding Type:  One-Hot
 
 
 Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------+
+; State Machine - |synthi_top|codec_controller:codec_controller_1|fsm_state                      ;
++-------------------------+------------------------+-------------------------+-------------------+
+; Name                    ; fsm_state.st_state_end ; fsm_state.st_wait_write ; fsm_state.st_idle ;
++-------------------------+------------------------+-------------------------+-------------------+
+; fsm_state.st_idle       ; 0                      ; 0                       ; 0                 ;
+; fsm_state.st_wait_write ; 0                      ; 1                       ; 1                 ;
+; fsm_state.st_state_end  ; 1                      ; 0                       ; 1                 ;
++-------------------------+------------------------+-------------------------+-------------------+
+
+
+Encoding Type:  One-Hot
 +------------------------------------------------------------------------------------------------------------------------------+
 ; State Machine - |synthi_top|uart_top:uart_top_1|uart_controller_fsm:uart_controller_fsm_inst1|fsm_state                      ;
 +---------------------------+-----------------------+---------------------------+--------------------------+-------------------+
@@ -286,44 +298,17 @@ Encoding Type:  One-Hot
 +---------------------------+-----------------------+---------------------------+--------------------------+-------------------+
 
 
-+---------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                              ;
-+----------------------------------------+----------------------------------------+
-; Register name                          ; Reason for Removal                     ;
-+----------------------------------------+----------------------------------------+
-; i2c_master:i2c_master_1|data[0..17]    ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 18 ;                                        ;
-+----------------------------------------+----------------------------------------+
-
-
-+-----------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                       ;
-+---------------------------------+---------------------------+---------------------------------------------------------------------+
-; Register name                   ; Reason for Removal        ; Registers Removed due to This Register                              ;
-+---------------------------------+---------------------------+---------------------------------------------------------------------+
-; i2c_master:i2c_master_1|data[0] ; Stuck at GND              ; i2c_master:i2c_master_1|data[1], i2c_master:i2c_master_1|data[2],   ;
-;                                 ; due to stuck port data_in ; i2c_master:i2c_master_1|data[3], i2c_master:i2c_master_1|data[4],   ;
-;                                 ;                           ; i2c_master:i2c_master_1|data[5], i2c_master:i2c_master_1|data[6],   ;
-;                                 ;                           ; i2c_master:i2c_master_1|data[7], i2c_master:i2c_master_1|data[8],   ;
-;                                 ;                           ; i2c_master:i2c_master_1|data[9], i2c_master:i2c_master_1|data[10],  ;
-;                                 ;                           ; i2c_master:i2c_master_1|data[11], i2c_master:i2c_master_1|data[12], ;
-;                                 ;                           ; i2c_master:i2c_master_1|data[13], i2c_master:i2c_master_1|data[14], ;
-;                                 ;                           ; i2c_master:i2c_master_1|data[15], i2c_master:i2c_master_1|data[16], ;
-;                                 ;                           ; i2c_master:i2c_master_1|data[17]                                    ;
-+---------------------------------+---------------------------+---------------------------------------------------------------------+
-
-
 +------------------------------------------------------+
 ; General Register Statistics                          ;
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 107   ;
-; Number of registers using Synchronous Clear  ; 1     ;
+; Total registers                              ; 134   ;
+; Number of registers using Synchronous Clear  ; 2     ;
 ; Number of registers using Synchronous Load   ; 6     ;
-; Number of registers using Asynchronous Clear ; 100   ;
+; Number of registers using Asynchronous Clear ; 127   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 38    ;
+; Number of registers using Clock Enable       ; 51    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -347,13 +332,14 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                 ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------+
-; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |synthi_top|uart_top:uart_top_1|baud_tick:baud_tick_inst1|count[0]                         ;
-; 3:1                ; 23 bits   ; 46 LEs        ; 23 LEs               ; 23 LEs                 ; Yes        ; |synthi_top|infrastructure:infrastructure_1|signal_checker:signal_checker_1|bit_count_i[0] ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |synthi_top|uart_top:uart_top_1|bit_counter:bit_counter_inst1|count[2]                     ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |synthi_top|uart_top:uart_top_1|baud_tick:baud_tick_inst1|count[2]                         ;
+; 3:1                ; 23 bits   ; 46 LEs        ; 23 LEs               ; 23 LEs                 ; Yes        ; |synthi_top|infrastructure:infrastructure_1|signal_checker:signal_checker_1|bit_count_i[1] ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |synthi_top|uart_top:uart_top_1|bit_counter:bit_counter_inst1|count[0]                     ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |synthi_top|i2c_master:i2c_master_1|byte_count[0]                                          ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |synthi_top|i2c_master:i2c_master_1|bit_count[2]                                           ;
-; 7:1                ; 8 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |synthi_top|i2c_master:i2c_master_1|data[23]                                               ;
-; 6:1                ; 15 bits   ; 60 LEs        ; 0 LEs                ; 60 LEs                 ; Yes        ; |synthi_top|i2c_master:i2c_master_1|data[15]                                               ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |synthi_top|i2c_master:i2c_master_1|bit_count[0]                                           ;
+; 7:1                ; 13 bits   ; 52 LEs        ; 13 LEs               ; 39 LEs                 ; Yes        ; |synthi_top|i2c_master:i2c_master_1|data[8]                                                ;
+; 7:1                ; 6 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |synthi_top|i2c_master:i2c_master_1|data[5]                                                ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |synthi_top|codec_controller:codec_controller_1|next_fsm_state                             ;
 ; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |synthi_top|uart_top:uart_top_1|uart_controller_fsm:uart_controller_fsm_inst1|Selector0    ;
 ; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |synthi_top|i2c_master:i2c_master_1|Selector30                                             ;
 ; 9:1                ; 2 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; No         ; |synthi_top|i2c_master:i2c_master_1|Selector31                                             ;
@@ -395,26 +381,26 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 50                          ;
-; cycloneiii_ff         ; 107                         ;
-;     CLR               ; 56                          ;
+; cycloneiii_ff         ; 134                         ;
+;     CLR               ; 70                          ;
 ;     CLR SLD           ; 6                           ;
-;     ENA CLR           ; 37                          ;
-;     ENA CLR SCLR      ; 1                           ;
+;     ENA CLR           ; 49                          ;
+;     ENA CLR SCLR      ; 2                           ;
 ;     plain             ; 7                           ;
 ; cycloneiii_io_obuf    ; 1                           ;
-; cycloneiii_lcell_comb ; 163                         ;
+; cycloneiii_lcell_comb ; 235                         ;
 ;     arith             ; 37                          ;
 ;         2 data inputs ; 30                          ;
 ;         3 data inputs ; 7                           ;
-;     normal            ; 126                         ;
+;     normal            ; 198                         ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 11                          ;
-;         2 data inputs ; 12                          ;
-;         3 data inputs ; 15                          ;
-;         4 data inputs ; 87                          ;
+;         1 data inputs ; 10                          ;
+;         2 data inputs ; 23                          ;
+;         3 data inputs ; 37                          ;
+;         4 data inputs ; 127                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 5.60                        ;
-; Average LUT depth     ; 2.92                        ;
+; Average LUT depth     ; 2.93                        ;
 +-----------------------+-----------------------------+
 
 
@@ -423,7 +409,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -433,7 +419,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Tue Mar  5 15:17:53 2024
+    Info: Processing started: Tue Mar  5 17:49:07 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off synthi_top -c synthi_top
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -443,8 +429,8 @@ Info (12021): Found 2 design units, including 1 entities, in source file /users/
     Info (12022): Found design unit 1: i2c_master-rtl File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/i2c_master.vhd Line: 41
     Info (12023): Found entity 1: i2c_master File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/i2c_master.vhd Line: 23
 Info (12021): Found 2 design units, including 1 entities, in source file /users/heini/documents/local_studium/pm2_pr/github/synthi/synthi_project/source/codec_controller.vhd
-    Info (12022): Found design unit 1: codec_controller-rtl File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/codec_controller.vhd Line: 43
-    Info (12023): Found entity 1: codec_controller File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/codec_controller.vhd Line: 27
+    Info (12022): Found design unit 1: codec_controller-rtl File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/codec_controller.vhd Line: 44
+    Info (12023): Found entity 1: codec_controller File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/codec_controller.vhd Line: 28
 Info (12021): Found 2 design units, including 1 entities, in source file /users/heini/documents/local_studium/pm2_pr/github/synthi/synthi_project/source/synthi_top.vhd
     Info (12022): Found design unit 1: synthi_top-struct File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 76
     Info (12023): Found entity 1: synthi_top File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 32
@@ -512,8 +498,6 @@ Info (12128): Elaborating entity "uart_controller_fsm" for hierarchy "uart_top:u
 Info (12128): Elaborating entity "shiftreg_uart" for hierarchy "uart_top:uart_top_1|shiftreg_uart:shiftreg_uart_inst1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/uart_top.vhd Line: 187
 Info (12128): Elaborating entity "output_register" for hierarchy "uart_top:uart_top_1|output_register:output_register_inst1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/uart_top.vhd Line: 196
 Info (12128): Elaborating entity "codec_controller" for hierarchy "codec_controller:codec_controller_1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 170
-Warning (10541): VHDL Signal Declaration warning at codec_controller.vhd(35): used implicit default value for signal "write_o" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/codec_controller.vhd Line: 35
-Warning (10541): VHDL Signal Declaration warning at codec_controller.vhd(36): used implicit default value for signal "write_data_o" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/codec_controller.vhd Line: 36
 Info (12128): Elaborating entity "i2c_master" for hierarchy "i2c_master:i2c_master_1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 181
 Info (13000): Registers with preset signals will power-up high File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/i2c_master.vhd Line: 301
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
@@ -534,11 +518,8 @@ Warning (13024): Output pins are stuck at VCC or GND
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 16 input pin(s) that do not drive logic
+Warning (21074): Design contains 13 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "KEY_1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 37
-    Warning (15610): No output dependent on input pin "SW[0]" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 38
     Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 38
     Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 38
     Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 38
@@ -551,15 +532,15 @@ Warning (21074): Design contains 16 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "BT_TXD" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 44
     Warning (15610): No output dependent on input pin "BT_RST_N" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 45
     Warning (15610): No output dependent on input pin "AUD_ADCDAT" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 52
-Info (21057): Implemented 242 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 315 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 19 input pins
     Info (21059): Implemented 30 output pins
     Info (21060): Implemented 1 bidirectional pins
-    Info (21061): Implemented 192 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 48 warnings
+    Info (21061): Implemented 265 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 43 warnings
     Info: Peak virtual memory: 4826 megabytes
-    Info: Processing ended: Tue Mar  5 15:18:00 2024
-    Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:06
+    Info: Processing ended: Tue Mar  5 17:49:20 2024
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:10
 
 
