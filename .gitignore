@@ -1,9 +1,0 @@
-#ignore all quartus folders
-**/quartus/*
-
-#ignore all modelsim folders
-**/modelsim/*
-
-# exception to the rules
-!quartus/.gitkeep 
-!modelsim/.gitkeep 
