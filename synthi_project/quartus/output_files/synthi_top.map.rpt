@@ -1,5 +1,5 @@
 Analysis & Synthesis report for synthi_top
-Sun Feb 25 17:12:51 2024
+Tue Mar  5 14:43:01 2024
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -49,7 +49,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Feb 25 17:12:51 2024          ;
+; Analysis & Synthesis Status        ; Successful - Tue Mar  5 14:43:01 2024          ;
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; synthi_top                                     ;
 ; Top-level Entity Name              ; synthi_top                                     ;
@@ -172,25 +172,25 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                     ;
-+-----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path  ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                             ; Library ;
-+-----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------+---------+
-; ../source/synthi_top.vhd          ; yes             ; User VHDL File  ; C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd          ;         ;
-; ../source/signal_checker.vhd      ; yes             ; User VHDL File  ; C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/signal_checker.vhd      ;         ;
-; ../source/modulo_divider.vhd      ; yes             ; User VHDL File  ; C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/modulo_divider.vhd      ;         ;
-; ../source/infrastructure.vhd      ; yes             ; User VHDL File  ; C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/infrastructure.vhd      ;         ;
-; ../source/clock_sync.vhd          ; yes             ; User VHDL File  ; C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/clock_sync.vhd          ;         ;
-; ../source/vhdl_hex2sevseg.vhd     ; yes             ; User VHDL File  ; C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/vhdl_hex2sevseg.vhd     ;         ;
-; ../source/uart_top.vhd            ; yes             ; User VHDL File  ; C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/uart_top.vhd            ;         ;
-; ../source/uart_controller_fsm.vhd ; yes             ; User VHDL File  ; C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/uart_controller_fsm.vhd ;         ;
-; ../source/shiftreg_uart.vhd       ; yes             ; User VHDL File  ; C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/shiftreg_uart.vhd       ;         ;
-; ../source/output_register.vhd     ; yes             ; User VHDL File  ; C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/output_register.vhd     ;         ;
-; ../source/flanken_detekt_vhdl.vhd ; yes             ; User VHDL File  ; C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/flanken_detekt_vhdl.vhd ;         ;
-; ../source/bit_counter.vhd         ; yes             ; User VHDL File  ; C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/bit_counter.vhd         ;         ;
-; ../source/baud_tick.vhd           ; yes             ; User VHDL File  ; C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/baud_tick.vhd           ;         ;
-+-----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------+---------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                      ;
++-----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path  ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                              ; Library ;
++-----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------+---------+
+; ../source/synthi_top.vhd          ; yes             ; User VHDL File  ; C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd          ;         ;
+; ../source/signal_checker.vhd      ; yes             ; User VHDL File  ; C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/signal_checker.vhd      ;         ;
+; ../source/modulo_divider.vhd      ; yes             ; User VHDL File  ; C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/modulo_divider.vhd      ;         ;
+; ../source/infrastructure.vhd      ; yes             ; User VHDL File  ; C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/infrastructure.vhd      ;         ;
+; ../source/clock_sync.vhd          ; yes             ; User VHDL File  ; C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/clock_sync.vhd          ;         ;
+; ../source/vhdl_hex2sevseg.vhd     ; yes             ; User VHDL File  ; C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/vhdl_hex2sevseg.vhd     ;         ;
+; ../source/uart_top.vhd            ; yes             ; User VHDL File  ; C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/uart_top.vhd            ;         ;
+; ../source/uart_controller_fsm.vhd ; yes             ; User VHDL File  ; C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/uart_controller_fsm.vhd ;         ;
+; ../source/shiftreg_uart.vhd       ; yes             ; User VHDL File  ; C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/shiftreg_uart.vhd       ;         ;
+; ../source/output_register.vhd     ; yes             ; User VHDL File  ; C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/output_register.vhd     ;         ;
+; ../source/flanken_detekt_vhdl.vhd ; yes             ; User VHDL File  ; C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/flanken_detekt_vhdl.vhd ;         ;
+; ../source/bit_counter.vhd         ; yes             ; User VHDL File  ; C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/bit_counter.vhd         ;         ;
+; ../source/baud_tick.vhd           ; yes             ; User VHDL File  ; C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/baud_tick.vhd           ;         ;
++-----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------+---------+
 
 
 +------------------------------------------------------------------------------------------------------------------------+
@@ -220,8 +220,8 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;                                                                          ;
 ; Maximum fan-out node                        ; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[2] ;
 ; Maximum fan-out                             ; 39                                                                       ;
-; Total fan-out                               ; 678                                                                      ;
-; Average fan-out                             ; 2.35                                                                     ;
+; Total fan-out                               ; 679                                                                      ;
+; Average fan-out                             ; 2.36                                                                     ;
 +---------------------------------------------+--------------------------------------------------------------------------+
 
 
@@ -373,127 +373,125 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Sun Feb 25 17:12:42 2024
+    Info: Processing started: Tue Mar  5 14:42:54 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off synthi_top -c synthi_top
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Info (12021): Found 2 design units, including 1 entities, in source file /users/alexa/onedrive/school/et22t-1/pm2/synthi_project/source/synthi_top.vhd
-    Info (12022): Found design unit 1: synthi_top-struct File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 73
-    Info (12023): Found entity 1: synthi_top File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 29
-Info (12021): Found 2 design units, including 1 entities, in source file /users/alexa/onedrive/school/et22t-1/pm2/synthi_project/source/signal_checker.vhd
-    Info (12022): Found design unit 1: signal_checker-rtl File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/signal_checker.vhd Line: 29
-    Info (12023): Found entity 1: signal_checker File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/signal_checker.vhd Line: 19
-Info (12021): Found 2 design units, including 1 entities, in source file /users/alexa/onedrive/school/et22t-1/pm2/synthi_project/source/modulo_divider.vhd
-    Info (12022): Found design unit 1: modulo_divider-rtl File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/modulo_divider.vhd Line: 27
-    Info (12023): Found entity 1: modulo_divider File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/modulo_divider.vhd Line: 18
-Info (12021): Found 2 design units, including 1 entities, in source file /users/alexa/onedrive/school/et22t-1/pm2/synthi_project/source/infrastructure.vhd
-    Info (12022): Found design unit 1: infrastructure-infra_arch File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/infrastructure.vhd Line: 43
-    Info (12023): Found entity 1: infrastructure File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/infrastructure.vhd Line: 28
-Info (12021): Found 2 design units, including 1 entities, in source file /users/alexa/onedrive/school/et22t-1/pm2/synthi_project/source/clock_sync.vhd
-    Info (12022): Found design unit 1: clock_sync-rtl File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/clock_sync.vhd Line: 23
-    Info (12023): Found entity 1: clock_sync File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/clock_sync.vhd Line: 14
-Info (12021): Found 2 design units, including 1 entities, in source file /users/alexa/onedrive/school/et22t-1/pm2/synthi_project/source/vhdl_hex2sevseg.vhd
-    Info (12022): Found design unit 1: vhdl_hex2sevseg-comb File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/vhdl_hex2sevseg.vhd Line: 32
-    Info (12023): Found entity 1: vhdl_hex2sevseg File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/vhdl_hex2sevseg.vhd Line: 24
-Info (12021): Found 2 design units, including 1 entities, in source file /users/alexa/onedrive/school/et22t-1/pm2/synthi_project/source/uart_top.vhd
-    Info (12022): Found design unit 1: uart_top-uart_arch File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/uart_top.vhd Line: 38
-    Info (12023): Found entity 1: uart_top File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/uart_top.vhd Line: 25
-Info (12021): Found 2 design units, including 1 entities, in source file /users/alexa/onedrive/school/et22t-1/pm2/synthi_project/source/uart_controller_fsm.vhd
-    Info (12022): Found design unit 1: uart_controller_fsm-rtl File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/uart_controller_fsm.vhd Line: 39
-    Info (12023): Found entity 1: uart_controller_fsm File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/uart_controller_fsm.vhd Line: 24
-Info (12021): Found 2 design units, including 1 entities, in source file /users/alexa/onedrive/school/et22t-1/pm2/synthi_project/source/shiftreg_uart.vhd
-    Info (12022): Found design unit 1: shiftreg_uart-rtl File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/shiftreg_uart.vhd Line: 33
-    Info (12023): Found entity 1: shiftreg_uart File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/shiftreg_uart.vhd Line: 21
-Info (12021): Found 2 design units, including 1 entities, in source file /users/alexa/onedrive/school/et22t-1/pm2/synthi_project/source/output_register.vhd
-    Info (12022): Found design unit 1: output_register-rtl File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/output_register.vhd Line: 37
-    Info (12023): Found entity 1: output_register File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/output_register.vhd Line: 23
-Info (12021): Found 2 design units, including 1 entities, in source file /users/alexa/onedrive/school/et22t-1/pm2/synthi_project/source/flanken_detekt_vhdl.vhd
-    Info (12022): Found design unit 1: flanken_detekt_vhdl-rtl File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/flanken_detekt_vhdl.vhd Line: 26
-    Info (12023): Found entity 1: flanken_detekt_vhdl File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/flanken_detekt_vhdl.vhd Line: 15
-Info (12021): Found 2 design units, including 1 entities, in source file /users/alexa/onedrive/school/et22t-1/pm2/synthi_project/source/bit_counter.vhd
-    Info (12022): Found design unit 1: bit_counter-rtl File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/bit_counter.vhd Line: 31
-    Info (12023): Found entity 1: bit_counter File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/bit_counter.vhd Line: 21
-Info (12021): Found 2 design units, including 1 entities, in source file /users/alexa/onedrive/school/et22t-1/pm2/synthi_project/source/baud_tick.vhd
-    Info (12022): Found design unit 1: baud_tick-rtl File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/baud_tick.vhd Line: 30
-    Info (12023): Found entity 1: baud_tick File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/baud_tick.vhd Line: 20
+Info (12021): Found 2 design units, including 1 entities, in source file /users/heini/documents/local_studium/pm2_pr/github/synthi/synthi_project/source/synthi_top.vhd
+    Info (12022): Found design unit 1: synthi_top-struct File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 74
+    Info (12023): Found entity 1: synthi_top File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 30
+Info (12021): Found 2 design units, including 1 entities, in source file /users/heini/documents/local_studium/pm2_pr/github/synthi/synthi_project/source/signal_checker.vhd
+    Info (12022): Found design unit 1: signal_checker-rtl File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/signal_checker.vhd Line: 29
+    Info (12023): Found entity 1: signal_checker File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/signal_checker.vhd Line: 19
+Info (12021): Found 2 design units, including 1 entities, in source file /users/heini/documents/local_studium/pm2_pr/github/synthi/synthi_project/source/modulo_divider.vhd
+    Info (12022): Found design unit 1: modulo_divider-rtl File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/modulo_divider.vhd Line: 29
+    Info (12023): Found entity 1: modulo_divider File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/modulo_divider.vhd Line: 19
+Info (12021): Found 2 design units, including 1 entities, in source file /users/heini/documents/local_studium/pm2_pr/github/synthi/synthi_project/source/infrastructure.vhd
+    Info (12022): Found design unit 1: infrastructure-infra_arch File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/infrastructure.vhd Line: 45
+    Info (12023): Found entity 1: infrastructure File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/infrastructure.vhd Line: 29
+Info (12021): Found 2 design units, including 1 entities, in source file /users/heini/documents/local_studium/pm2_pr/github/synthi/synthi_project/source/clock_sync.vhd
+    Info (12022): Found design unit 1: clock_sync-rtl File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/clock_sync.vhd Line: 23
+    Info (12023): Found entity 1: clock_sync File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/clock_sync.vhd Line: 14
+Info (12021): Found 2 design units, including 1 entities, in source file /users/heini/documents/local_studium/pm2_pr/github/synthi/synthi_project/source/vhdl_hex2sevseg.vhd
+    Info (12022): Found design unit 1: vhdl_hex2sevseg-comb File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/vhdl_hex2sevseg.vhd Line: 32
+    Info (12023): Found entity 1: vhdl_hex2sevseg File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/vhdl_hex2sevseg.vhd Line: 24
+Info (12021): Found 2 design units, including 1 entities, in source file /users/heini/documents/local_studium/pm2_pr/github/synthi/synthi_project/source/uart_top.vhd
+    Info (12022): Found design unit 1: uart_top-uart_arch File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/uart_top.vhd Line: 38
+    Info (12023): Found entity 1: uart_top File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/uart_top.vhd Line: 25
+Info (12021): Found 2 design units, including 1 entities, in source file /users/heini/documents/local_studium/pm2_pr/github/synthi/synthi_project/source/uart_controller_fsm.vhd
+    Info (12022): Found design unit 1: uart_controller_fsm-rtl File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/uart_controller_fsm.vhd Line: 39
+    Info (12023): Found entity 1: uart_controller_fsm File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/uart_controller_fsm.vhd Line: 24
+Info (12021): Found 2 design units, including 1 entities, in source file /users/heini/documents/local_studium/pm2_pr/github/synthi/synthi_project/source/shiftreg_uart.vhd
+    Info (12022): Found design unit 1: shiftreg_uart-rtl File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/shiftreg_uart.vhd Line: 33
+    Info (12023): Found entity 1: shiftreg_uart File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/shiftreg_uart.vhd Line: 21
+Info (12021): Found 2 design units, including 1 entities, in source file /users/heini/documents/local_studium/pm2_pr/github/synthi/synthi_project/source/output_register.vhd
+    Info (12022): Found design unit 1: output_register-rtl File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/output_register.vhd Line: 37
+    Info (12023): Found entity 1: output_register File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/output_register.vhd Line: 23
+Info (12021): Found 2 design units, including 1 entities, in source file /users/heini/documents/local_studium/pm2_pr/github/synthi/synthi_project/source/flanken_detekt_vhdl.vhd
+    Info (12022): Found design unit 1: flanken_detekt_vhdl-rtl File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/flanken_detekt_vhdl.vhd Line: 26
+    Info (12023): Found entity 1: flanken_detekt_vhdl File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/flanken_detekt_vhdl.vhd Line: 15
+Info (12021): Found 2 design units, including 1 entities, in source file /users/heini/documents/local_studium/pm2_pr/github/synthi/synthi_project/source/bit_counter.vhd
+    Info (12022): Found design unit 1: bit_counter-rtl File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/bit_counter.vhd Line: 31
+    Info (12023): Found entity 1: bit_counter File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/bit_counter.vhd Line: 21
+Info (12021): Found 2 design units, including 1 entities, in source file /users/heini/documents/local_studium/pm2_pr/github/synthi/synthi_project/source/baud_tick.vhd
+    Info (12022): Found design unit 1: baud_tick-rtl File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/baud_tick.vhd Line: 30
+    Info (12023): Found entity 1: baud_tick File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/baud_tick.vhd Line: 20
 Info (12127): Elaborating entity "synthi_top" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(44): used implicit default value for signal "AUD_XCK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 44
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(45): used implicit default value for signal "AUD_DACDAT" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 45
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(46): used implicit default value for signal "AUD_BCLK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 46
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(47): used implicit default value for signal "AUD_DACLRCK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 47
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(48): used implicit default value for signal "AUD_ADCLRCK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 48
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(51): used implicit default value for signal "AUD_SCLK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 51
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(57): used implicit default value for signal "LEDR_1" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 57
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(58): used implicit default value for signal "LEDR_2" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 58
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(59): used implicit default value for signal "LEDR_3" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 59
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(60): used implicit default value for signal "LEDR_4" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 60
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(61): used implicit default value for signal "LEDR_5" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 61
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(62): used implicit default value for signal "LEDR_6" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 62
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(63): used implicit default value for signal "LEDR_7" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 63
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(64): used implicit default value for signal "LEDR_8" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 64
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(65): used implicit default value for signal "LEDR_9" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 65
-Info (12128): Elaborating entity "infrastructure" for hierarchy "infrastructure:infrastructure_1" File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 116
-Info (12128): Elaborating entity "modulo_divider" for hierarchy "infrastructure:infrastructure_1|modulo_divider:modulo_divider_1" File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/infrastructure.vhd Line: 83
-Warning (10540): VHDL Signal Declaration warning at modulo_divider.vhd(30): used explicit default value for signal "width" because signal was never assigned a value File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/modulo_divider.vhd Line: 30
-Info (12128): Elaborating entity "clock_sync" for hierarchy "infrastructure:infrastructure_1|clock_sync:clock_sync_1" File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/infrastructure.vhd Line: 89
-Info (12128): Elaborating entity "signal_checker" for hierarchy "infrastructure:infrastructure_1|signal_checker:signal_checker_1" File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/infrastructure.vhd Line: 103
-Info (12128): Elaborating entity "uart_top" for hierarchy "uart_top:uart_top_1" File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 128
-Info (12128): Elaborating entity "flanken_detekt_vhdl" for hierarchy "uart_top:uart_top_1|flanken_detekt_vhdl:flanken_detekt_vhdl_inst1" File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/uart_top.vhd Line: 143
-Info (12128): Elaborating entity "vhdl_hex2sevseg" for hierarchy "uart_top:uart_top_1|vhdl_hex2sevseg:vhdl_hex2sevseg_inst1" File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/uart_top.vhd Line: 150
-Info (12128): Elaborating entity "baud_tick" for hierarchy "uart_top:uart_top_1|baud_tick:baud_tick_inst1" File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/uart_top.vhd Line: 160
-Info (12128): Elaborating entity "bit_counter" for hierarchy "uart_top:uart_top_1|bit_counter:bit_counter_inst1" File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/uart_top.vhd Line: 167
-Info (12128): Elaborating entity "uart_controller_fsm" for hierarchy "uart_top:uart_top_1|uart_controller_fsm:uart_controller_fsm_inst1" File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/uart_top.vhd Line: 175
-Info (12128): Elaborating entity "shiftreg_uart" for hierarchy "uart_top:uart_top_1|shiftreg_uart:shiftreg_uart_inst1" File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/uart_top.vhd Line: 187
-Info (12128): Elaborating entity "output_register" for hierarchy "uart_top:uart_top_1|output_register:output_register_inst1" File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/uart_top.vhd Line: 196
+Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(46): used implicit default value for signal "AUD_DACDAT" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 46
+Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(47): used implicit default value for signal "AUD_BCLK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 47
+Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(48): used implicit default value for signal "AUD_DACLRCK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 48
+Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(49): used implicit default value for signal "AUD_ADCLRCK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 49
+Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(52): used implicit default value for signal "AUD_SCLK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 52
+Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(58): used implicit default value for signal "LEDR_1" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 58
+Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(59): used implicit default value for signal "LEDR_2" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 59
+Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(60): used implicit default value for signal "LEDR_3" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 60
+Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(61): used implicit default value for signal "LEDR_4" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 61
+Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(62): used implicit default value for signal "LEDR_5" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 62
+Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(63): used implicit default value for signal "LEDR_6" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 63
+Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(64): used implicit default value for signal "LEDR_7" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 64
+Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(65): used implicit default value for signal "LEDR_8" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 65
+Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(66): used implicit default value for signal "LEDR_9" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 66
+Info (12128): Elaborating entity "infrastructure" for hierarchy "infrastructure:infrastructure_1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 118
+Info (12128): Elaborating entity "modulo_divider" for hierarchy "infrastructure:infrastructure_1|modulo_divider:modulo_divider_1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/infrastructure.vhd Line: 86
+Warning (10540): VHDL Signal Declaration warning at modulo_divider.vhd(32): used explicit default value for signal "width" because signal was never assigned a value File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/modulo_divider.vhd Line: 32
+Info (12128): Elaborating entity "clock_sync" for hierarchy "infrastructure:infrastructure_1|clock_sync:clock_sync_1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/infrastructure.vhd Line: 92
+Info (12128): Elaborating entity "signal_checker" for hierarchy "infrastructure:infrastructure_1|signal_checker:signal_checker_1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/infrastructure.vhd Line: 106
+Info (12128): Elaborating entity "uart_top" for hierarchy "uart_top:uart_top_1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 131
+Info (12128): Elaborating entity "flanken_detekt_vhdl" for hierarchy "uart_top:uart_top_1|flanken_detekt_vhdl:flanken_detekt_vhdl_inst1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/uart_top.vhd Line: 143
+Info (12128): Elaborating entity "vhdl_hex2sevseg" for hierarchy "uart_top:uart_top_1|vhdl_hex2sevseg:vhdl_hex2sevseg_inst1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/uart_top.vhd Line: 150
+Info (12128): Elaborating entity "baud_tick" for hierarchy "uart_top:uart_top_1|baud_tick:baud_tick_inst1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/uart_top.vhd Line: 160
+Info (12128): Elaborating entity "bit_counter" for hierarchy "uart_top:uart_top_1|bit_counter:bit_counter_inst1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/uart_top.vhd Line: 167
+Info (12128): Elaborating entity "uart_controller_fsm" for hierarchy "uart_top:uart_top_1|uart_controller_fsm:uart_controller_fsm_inst1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/uart_top.vhd Line: 175
+Info (12128): Elaborating entity "shiftreg_uart" for hierarchy "uart_top:uart_top_1|shiftreg_uart:shiftreg_uart_inst1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/uart_top.vhd Line: 187
+Info (12128): Elaborating entity "output_register" for hierarchy "uart_top:uart_top_1|output_register:output_register_inst1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/uart_top.vhd Line: 196
 Warning (13039): The following bidirectional pins have no drivers
-    Warning (13040): bidirectional pin "AUD_SDAT" has no driver File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 52
-Info (13000): Registers with preset signals will power-up high File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/signal_checker.vhd Line: 36
+    Warning (13040): bidirectional pin "AUD_SDAT" has no driver File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 53
+Info (13000): Registers with preset signals will power-up high File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/signal_checker.vhd Line: 36
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "AUD_XCK" is stuck at GND File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 44
-    Warning (13410): Pin "AUD_DACDAT" is stuck at GND File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 45
-    Warning (13410): Pin "AUD_BCLK" is stuck at GND File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 46
-    Warning (13410): Pin "AUD_DACLRCK" is stuck at GND File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 47
-    Warning (13410): Pin "AUD_ADCLRCK" is stuck at GND File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 48
-    Warning (13410): Pin "AUD_SCLK" is stuck at GND File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 51
-    Warning (13410): Pin "LEDR_1" is stuck at GND File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 57
-    Warning (13410): Pin "LEDR_2" is stuck at GND File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 58
-    Warning (13410): Pin "LEDR_3" is stuck at GND File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 59
-    Warning (13410): Pin "LEDR_4" is stuck at GND File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 60
-    Warning (13410): Pin "LEDR_5" is stuck at GND File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 61
-    Warning (13410): Pin "LEDR_6" is stuck at GND File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 62
-    Warning (13410): Pin "LEDR_7" is stuck at GND File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 63
-    Warning (13410): Pin "LEDR_8" is stuck at GND File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 64
-    Warning (13410): Pin "LEDR_9" is stuck at GND File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 65
+    Warning (13410): Pin "AUD_DACDAT" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 46
+    Warning (13410): Pin "AUD_BCLK" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 47
+    Warning (13410): Pin "AUD_DACLRCK" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 48
+    Warning (13410): Pin "AUD_ADCLRCK" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 49
+    Warning (13410): Pin "AUD_SCLK" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 52
+    Warning (13410): Pin "LEDR_1" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 58
+    Warning (13410): Pin "LEDR_2" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 59
+    Warning (13410): Pin "LEDR_3" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 60
+    Warning (13410): Pin "LEDR_4" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 61
+    Warning (13410): Pin "LEDR_5" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 62
+    Warning (13410): Pin "LEDR_6" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 63
+    Warning (13410): Pin "LEDR_7" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 64
+    Warning (13410): Pin "LEDR_8" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 65
+    Warning (13410): Pin "LEDR_9" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 66
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 16 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "KEY_1" File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 34
-    Warning (15610): No output dependent on input pin "SW[0]" File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 35
-    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 35
-    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 35
-    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 35
-    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 35
-    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 35
-    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 35
-    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 35
-    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 35
-    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 35
-    Warning (15610): No output dependent on input pin "USB_RXD" File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 37
-    Warning (15610): No output dependent on input pin "BT_RXD" File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 40
-    Warning (15610): No output dependent on input pin "BT_TXD" File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 41
-    Warning (15610): No output dependent on input pin "BT_RST_N" File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 42
-    Warning (15610): No output dependent on input pin "AUD_ADCDAT" File: C:/Users/alexa/OneDrive/School/ET22t-1/PM2/synthi_project/source/synthi_top.vhd Line: 49
+    Warning (15610): No output dependent on input pin "KEY_1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 35
+    Warning (15610): No output dependent on input pin "SW[0]" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 36
+    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 36
+    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 36
+    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 36
+    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 36
+    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 36
+    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 36
+    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 36
+    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 36
+    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 36
+    Warning (15610): No output dependent on input pin "USB_RXD" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 38
+    Warning (15610): No output dependent on input pin "BT_RXD" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 41
+    Warning (15610): No output dependent on input pin "BT_TXD" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 42
+    Warning (15610): No output dependent on input pin "BT_RST_N" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 43
+    Warning (15610): No output dependent on input pin "AUD_ADCDAT" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 50
 Info (21057): Implemented 189 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 19 input pins
     Info (21059): Implemented 30 output pins
     Info (21060): Implemented 1 bidirectional pins
     Info (21061): Implemented 139 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 52 warnings
-    Info: Peak virtual memory: 4817 megabytes
-    Info: Processing ended: Sun Feb 25 17:12:51 2024
-    Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:09
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 50 warnings
+    Info: Peak virtual memory: 4830 megabytes
+    Info: Processing ended: Tue Mar  5 14:43:01 2024
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:06
 
 

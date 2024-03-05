@@ -6,7 +6,7 @@
 -- Author     : grundale
 -- Company    : 
 -- Created    : 2018-03-08
--- Last update: 2022-02-20
+-- Last update: 2024-03-05
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -18,6 +18,7 @@
 -- Date        Version  Author          Description
 -- 2018-03-08  1.0      Hans-Joachim    Created
 -- 2024-02-20  1.1      grundale        modyfied for Lab1
+-- 2024-03-05  1.2      heinipas        added clk_12m
 -------------------------------------------------------------------------------
 
 library ieee;
@@ -75,7 +76,7 @@ architecture struct of synthi_top is
   -----------------------------------------------------------------------------
   -- Internal signal declarations
   -----------------------------------------------------------------------------;
-  signal clk_6m_sig : std_logic;
+  signal clk_6m_sig  : std_logic;
   signal reset_n_sig : std_logic;
   signal serial_sig  : std_logic;
 
@@ -88,6 +89,7 @@ architecture struct of synthi_top is
       key_0        : in  std_logic;
       usb_txd      : in  std_logic;
       clk_6m       : out std_logic;
+      clk_12m      : out std_logic;
       reset_n      : out std_logic;
       usb_txd_sync : out std_logic;
       ledr_0       : out std_logic
@@ -115,23 +117,24 @@ begin
   -- instance "infrastructure_1"
   infrastructure_1 : infrastructure
     port map (
-      clock_50 => CLOCK_50,
-      key_0 => KEY_0,
-      usb_txd => USB_TXD,
-      clk_6m => clk_6m_sig,
-      reset_n => reset_n_sig,
+      clock_50     => CLOCK_50,
+      key_0        => KEY_0,
+      usb_txd      => USB_TXD,
+      clk_6m       => clk_6m_sig,
+      clk_12m      => AUD_XCK,
+      reset_n      => reset_n_sig,
       usb_txd_sync => serial_sig,
-      ledr_0 => LEDR_0
+      ledr_0       => LEDR_0
       );
 
   -- instance "uart_top_1"
   uart_top_1 : uart_top
     port map (
-      clk_6m => clk_6m_sig,
-      reset_n => reset_n_sig,
+      clk_6m    => clk_6m_sig,
+      reset_n   => reset_n_sig,
       serial_in => serial_sig,
-      hex0 => HEX0,
-      hex1 => HEX1
+      hex0      => HEX0,
+      hex1      => HEX1
       );
 
 end architecture struct;
