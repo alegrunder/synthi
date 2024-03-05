@@ -1,5 +1,5 @@
-#ignore all files in folder quartus
-synthi_project/quartus/
+#ignore all quartus folders
+/quartus/
 
-#ignore all files in folder ...modelsim
-synthi_project/simulations/synthi_top_tb/modelsim/
+#ignore all modelsim folders
+/modelsim/
