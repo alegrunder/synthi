@@ -1,5 +1,5 @@
 #ignore all quartus folders
-/quartus/
+*/quartus/*
 
 #ignore all modelsim folders
-/modelsim/
+*/modelsim/*
