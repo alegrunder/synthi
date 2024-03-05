@@ -17,38 +17,38 @@ USB_TXD => infrastructure:infrastructure_1.usb_txd
 BT_RXD => ~NO_FANOUT~
 BT_TXD => ~NO_FANOUT~
 BT_RST_N => ~NO_FANOUT~
-AUD_XCK << AUD_XCK.DB_MAX_OUTPUT_PORT_TYPE
-AUD_DACDAT << AUD_DACDAT.DB_MAX_OUTPUT_PORT_TYPE
-AUD_BCLK << AUD_BCLK.DB_MAX_OUTPUT_PORT_TYPE
-AUD_DACLRCK << AUD_DACLRCK.DB_MAX_OUTPUT_PORT_TYPE
-AUD_ADCLRCK << AUD_ADCLRCK.DB_MAX_OUTPUT_PORT_TYPE
+AUD_XCK <= infrastructure:infrastructure_1.clk_12m
+AUD_DACDAT <= AUD_DACDAT.DB_MAX_OUTPUT_PORT_TYPE
+AUD_BCLK <= AUD_BCLK.DB_MAX_OUTPUT_PORT_TYPE
+AUD_DACLRCK <= AUD_DACLRCK.DB_MAX_OUTPUT_PORT_TYPE
+AUD_ADCLRCK <= AUD_ADCLRCK.DB_MAX_OUTPUT_PORT_TYPE
 AUD_ADCDAT => ~NO_FANOUT~
-AUD_SCLK << AUD_SCLK.DB_MAX_OUTPUT_PORT_TYPE
+AUD_SCLK <= AUD_SCLK.DB_MAX_OUTPUT_PORT_TYPE
 AUD_SDAT <> <UNC>
-HEX0[0] << uart_top:uart_top_1.hex0[0]
-HEX0[1] << uart_top:uart_top_1.hex0[1]
-HEX0[2] << uart_top:uart_top_1.hex0[2]
-HEX0[3] << uart_top:uart_top_1.hex0[3]
-HEX0[4] << uart_top:uart_top_1.hex0[4]
-HEX0[5] << uart_top:uart_top_1.hex0[5]
-HEX0[6] << uart_top:uart_top_1.hex0[6]
-HEX1[0] << uart_top:uart_top_1.hex1[0]
-HEX1[1] << uart_top:uart_top_1.hex1[1]
-HEX1[2] << uart_top:uart_top_1.hex1[2]
-HEX1[3] << uart_top:uart_top_1.hex1[3]
-HEX1[4] << uart_top:uart_top_1.hex1[4]
-HEX1[5] << uart_top:uart_top_1.hex1[5]
-HEX1[6] << uart_top:uart_top_1.hex1[6]
-LEDR_0 << infrastructure:infrastructure_1.ledr_0
-LEDR_1 << LEDR_1.DB_MAX_OUTPUT_PORT_TYPE
-LEDR_2 << LEDR_2.DB_MAX_OUTPUT_PORT_TYPE
-LEDR_3 << LEDR_3.DB_MAX_OUTPUT_PORT_TYPE
-LEDR_4 << LEDR_4.DB_MAX_OUTPUT_PORT_TYPE
-LEDR_5 << LEDR_5.DB_MAX_OUTPUT_PORT_TYPE
-LEDR_6 << LEDR_6.DB_MAX_OUTPUT_PORT_TYPE
-LEDR_7 << LEDR_7.DB_MAX_OUTPUT_PORT_TYPE
-LEDR_8 << LEDR_8.DB_MAX_OUTPUT_PORT_TYPE
-LEDR_9 << comb.DB_MAX_OUTPUT_PORT_TYPE
+HEX0[0] <= uart_top:uart_top_1.hex0[0]
+HEX0[1] <= uart_top:uart_top_1.hex0[1]
+HEX0[2] <= uart_top:uart_top_1.hex0[2]
+HEX0[3] <= uart_top:uart_top_1.hex0[3]
+HEX0[4] <= uart_top:uart_top_1.hex0[4]
+HEX0[5] <= uart_top:uart_top_1.hex0[5]
+HEX0[6] <= uart_top:uart_top_1.hex0[6]
+HEX1[0] <= uart_top:uart_top_1.hex1[0]
+HEX1[1] <= uart_top:uart_top_1.hex1[1]
+HEX1[2] <= uart_top:uart_top_1.hex1[2]
+HEX1[3] <= uart_top:uart_top_1.hex1[3]
+HEX1[4] <= uart_top:uart_top_1.hex1[4]
+HEX1[5] <= uart_top:uart_top_1.hex1[5]
+HEX1[6] <= uart_top:uart_top_1.hex1[6]
+LEDR_0 <= infrastructure:infrastructure_1.ledr_0
+LEDR_1 <= LEDR_1.DB_MAX_OUTPUT_PORT_TYPE
+LEDR_2 <= LEDR_2.DB_MAX_OUTPUT_PORT_TYPE
+LEDR_3 <= LEDR_3.DB_MAX_OUTPUT_PORT_TYPE
+LEDR_4 <= LEDR_4.DB_MAX_OUTPUT_PORT_TYPE
+LEDR_5 <= LEDR_5.DB_MAX_OUTPUT_PORT_TYPE
+LEDR_6 <= LEDR_6.DB_MAX_OUTPUT_PORT_TYPE
+LEDR_7 <= LEDR_7.DB_MAX_OUTPUT_PORT_TYPE
+LEDR_8 <= LEDR_8.DB_MAX_OUTPUT_PORT_TYPE
+LEDR_9 <= comb.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |synthi_top|infrastructure:infrastructure_1
@@ -59,6 +59,7 @@ key_0 => signal_checker:signal_checker_1.reset_n
 usb_txd => clock_sync:clock_sync_2.data_in
 usb_txd => signal_checker:signal_checker_1.data_in
 clk_6m <= modulo_divider:modulo_divider_1.clk_6m
+clk_12m <= modulo_divider:modulo_divider_1.clk_12m
 reset_n <= clock_sync:clock_sync_1.sync_out
 usb_txd_sync <= clock_sync:clock_sync_2.sync_out
 ledr_0 <= signal_checker:signal_checker_1.led_blink
@@ -69,6 +70,7 @@ clk => count[0].CLK
 clk => count[1].CLK
 clk => count[2].CLK
 clk_6m <= count[2].DB_MAX_OUTPUT_PORT_TYPE
+clk_12m <= count[1].DB_MAX_OUTPUT_PORT_TYPE
 
 
 |synthi_top|infrastructure:infrastructure_1|clock_sync:clock_sync_1

@@ -6,7 +6,7 @@
 -- Author     : grundale
 -- Company    : 
 -- Created    : 2024-02-20
--- Last update: 2024-02-20
+-- Last update: 2024-03-05
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -17,6 +17,7 @@
 -- Revisions  :
 -- Date        Version  Author     Description
 -- 2024-02-20  1.0      grundale   Created
+-- 2024-03-05  1.1      heinipas   added clk_12m for modulo divider
 -------------------------------------------------------------------------------
 
 library ieee;
@@ -31,6 +32,7 @@ entity infrastructure is
     key_0        : in  std_logic;
     usb_txd      : in  std_logic;
     clk_6m       : out std_logic;
+    clk_12m      : out std_logic;
     reset_n      : out std_logic;
     usb_txd_sync : out std_logic;
     ledr_0       : out std_logic
@@ -53,8 +55,9 @@ architecture infra_arch of infrastructure is
 
   component modulo_divider is
     port (
-      clk    : in  std_logic;
-      clk_6m : out std_logic);
+      clk     : in  std_logic;
+      clk_6m  : out std_logic;
+      clk_12m : out std_logic);
   end component modulo_divider;
 
   component clock_sync is
@@ -76,15 +79,15 @@ begin  -- architecture infra_arch
   -----------------------------------------------------------------------------
   -- Component instantiations
   -----------------------------------------------------------------------------
-  
+
   clk_6m <= clk_6m_sig;
-  
+
   -- instance "modulo_divider_1"
   modulo_divider_1 : modulo_divider
     port map (
-      clk    => clock_50,
-      clk_6m => clk_6m_sig);
-
+      clk     => clock_50,
+      clk_6m  => clk_6m_sig,
+      clk_12m => clk_12m);
   -- instance "clock_sync_1"
   clock_sync_1 : clock_sync
     port map (
