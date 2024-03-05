@@ -7,3 +7,4 @@
 # exception to the rules
 !quartus/.gitkeep 
 !modelsim/.gitkeep 
+!quartus/.qpf
