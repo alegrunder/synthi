@@ -1,29 +1,12 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
-add wave -noupdate /synthi_top_tb/CLOCK_50
-add wave -noupdate /synthi_top_tb/KEY_0
-add wave -noupdate /synthi_top_tb/USB_TXD
-add wave -noupdate /synthi_top_tb/DUT/uart_top_1/baud_tick_inst1/tick
-add wave -noupdate /synthi_top_tb/DUT/uart_top_1/baud_tick_inst1/start_pulse
-add wave -noupdate /synthi_top_tb/DUT/uart_top_1/shiftreg_uart_inst1/parallel_out
-add wave -noupdate /synthi_top_tb/DUT/uart_top_1/clk_6m
-add wave -noupdate /synthi_top_tb/DUT/uart_top_1/reset_n
-add wave -noupdate /synthi_top_tb/DUT/uart_top_1/serial_in
-add wave -noupdate /synthi_top_tb/DUT/uart_top_1/rx_data_rdy
-add wave -noupdate /synthi_top_tb/DUT/uart_top_1/rx_data
-add wave -noupdate /synthi_top_tb/DUT/uart_top_1/hex0
-add wave -noupdate /synthi_top_tb/DUT/uart_top_1/hex1
-add wave -noupdate /synthi_top_tb/DUT/uart_top_1/tick
-add wave -noupdate /synthi_top_tb/DUT/uart_top_1/start_pulse
-add wave -noupdate /synthi_top_tb/DUT/uart_top_1/falling_pulse
-add wave -noupdate /synthi_top_tb/DUT/uart_top_1/data_valid
-add wave -noupdate /synthi_top_tb/DUT/uart_top_1/shift_enable
-add wave -noupdate /synthi_top_tb/DUT/uart_top_1/bit_count
-add wave -noupdate /synthi_top_tb/DUT/uart_top_1/hex_lsb_out
-add wave -noupdate /synthi_top_tb/DUT/uart_top_1/hex_msb_out
-add wave -noupdate /synthi_top_tb/DUT/uart_top_1/parallel_data
-add wave -noupdate /synthi_top_tb/DUT/uart_top_1/rx_data_rdy
-add wave -noupdate /synthi_top_tb/DUT/uart_top_1/baud_tick_inst1/count
+add wave -noupdate /synthi_top_tb/DUT/infrastructure_1/modulo_divider_1/clk_12m
+add wave -noupdate /synthi_top_tb/DUT/infrastructure_1/reset_n
+add wave -noupdate /synthi_top_tb/DUT/codec_controller_1/fsm_state
+add wave -noupdate /synthi_top_tb/DUT/codec_controller_1/write_o
+add wave -noupdate /synthi_top_tb/DUT/codec_controller_1/write_done_i
+add wave -noupdate /synthi_top_tb/DUT/codec_controller_1/count
+add wave -noupdate /synthi_top_tb/DUT/codec_controller_1/write_data_o
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {513712 ns} 0}
 quietly wave cursor active 1
