@@ -104,20 +104,23 @@ begin
   fsm_out_logic : process (all) is
   begin  -- process fsm_out_logic
     -- default statements
-    write_o <= '0';
+    write_o                   <= '0';
+    write_data_o(15 downto 0) <= (others => '0');
 
     -- generate write_o
-    if fsm_state = st_idle then
-      write_o <= '1';
-    end if;
-
-    -- generate data for I2C (select corresponding value from array)
-    case mode is
-      when "001"  => write_data_o <= "000" & std_logic_vector(count) & C_W8731_ANALOG_BYPASS(to_integer(count));
-      when "101"  => write_data_o <= "000" & std_logic_vector(count) & C_W8731_ANALOG_MUTE_LEFT(to_integer(count));
-      when "011"  => write_data_o <= "000" & std_logic_vector(count) & C_W8731_ANALOG_MUTE_RIGHT(to_integer(count));
-      when "111"  => write_data_o <= "000" & std_logic_vector(count) & C_W8731_ANALOG_MUTE_BOTH(to_integer(count));
-      when others => write_data_o <= "000" & std_logic_vector(count) & C_W8731_ADC_DAC_0DB_48K(to_integer(count));
+    case fsm_state is
+      when st_idle =>
+        write_o <= '1';
+      when st_wait_write =>
+        -- generate data for I2C (select corresponding value from array)
+        case mode is
+          when "001"  => write_data_o <= "000" & std_logic_vector(count) & C_W8731_ANALOG_BYPASS(to_integer(count));
+          when "101"  => write_data_o <= "000" & std_logic_vector(count) & C_W8731_ANALOG_MUTE_LEFT(to_integer(count));
+          when "011"  => write_data_o <= "000" & std_logic_vector(count) & C_W8731_ANALOG_MUTE_RIGHT(to_integer(count));
+          when "111"  => write_data_o <= "000" & std_logic_vector(count) & C_W8731_ANALOG_MUTE_BOTH(to_integer(count));
+          when others => write_data_o <= "000" & std_logic_vector(count) & C_W8731_ADC_DAC_0DB_48K(to_integer(count));
+        end case;
+      when others => null;
     end case;
 
   end process fsm_out_logic;
