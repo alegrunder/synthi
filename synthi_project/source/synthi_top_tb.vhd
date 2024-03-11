@@ -6,7 +6,7 @@
 -- Author     : grundale
 -- Company    : 
 -- Created    : 2024-02-20
--- Last update: 2024-02-20
+-- Last update: 2024-03-06
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -27,6 +27,7 @@ use std.textio.all;
 use work.simulation_pkg.all;
 use work.standard_driver_pkg.all;
 use work.user_driver_pkg.all;
+use ieee.numeric_std.all;
 
 
 -------------------------------------------------------------------------------
@@ -106,6 +107,39 @@ architecture struct of synthi_top_tb is
   constant clock_freq   : natural := 50_000_000;
   constant clock_period : time    := 1000 ms/clock_freq;
 
+  component i2c_slave_bfm is
+    generic (
+      verbose : boolean);
+    port (
+      AUD_XCK   : in    std_logic;
+      I2C_SDAT  : inout std_logic := 'H';
+      I2C_SCLK  : inout std_logic := 'H';
+      reg_data0 : out   std_logic_vector(31 downto 0);
+      reg_data1 : out   std_logic_vector(31 downto 0);
+      reg_data2 : out   std_logic_vector(31 downto 0);
+      reg_data3 : out   std_logic_vector(31 downto 0);
+      reg_data4 : out   std_logic_vector(31 downto 0);
+      reg_data5 : out   std_logic_vector(31 downto 0);
+      reg_data6 : out   std_logic_vector(31 downto 0);
+      reg_data7 : out   std_logic_vector(31 downto 0);
+      reg_data8 : out   std_logic_vector(31 downto 0);
+      reg_data9 : out   std_logic_vector(31 downto 0));
+  end component i2c_slave_bfm;
+
+  signal verbose : boolean;
+  signal gpi_signals : std_logic_vector(31 downto 0);
+  signal I2C_SDAT  : std_logic := 'H';
+  signal I2C_SCLK  : std_logic := 'H';
+  signal reg_data0 : std_logic_vector(31 downto 0);
+  signal reg_data1 : std_logic_vector(31 downto 0);
+  signal reg_data2 : std_logic_vector(31 downto 0);
+  signal reg_data3 : std_logic_vector(31 downto 0);
+  signal reg_data4 : std_logic_vector(31 downto 0);
+  signal reg_data5 : std_logic_vector(31 downto 0);
+  signal reg_data6 : std_logic_vector(31 downto 0);
+  signal reg_data7 : std_logic_vector(31 downto 0);
+  signal reg_data8 : std_logic_vector(31 downto 0);
+  signal reg_data9 : std_logic_vector(31 downto 0);
 begin  -- architecture struct
 
   -- component instantiation
@@ -126,8 +160,8 @@ begin  -- architecture struct
       AUD_DACLRCK => AUD_DACLRCK,
       AUD_ADCLRCK => AUD_ADCLRCK,
       AUD_ADCDAT  => AUD_ADCDAT,
-      AUD_SCLK    => AUD_SCLK,
-      AUD_SDAT    => AUD_SDAT,
+      AUD_SCLK    => I2C_SCLK,
+      AUD_SDAT    => I2C_SDAT,
       HEX0        => HEX0,
       HEX1        => HEX1,
       LEDR_0      => LEDR_0,
@@ -141,7 +175,7 @@ begin  -- architecture struct
       LEDR_8      => LEDR_8,
       LEDR_9      => LEDR_9);
 
-
+  
 
   readcmd : process
     -- This process loops through a file and reads one line
@@ -203,23 +237,32 @@ begin  -- architecture struct
       elsif cmd.all = "run_simulation_for" then
         run_sim(tv);
 
-	  -- add further test commands below here
-	  elsif cmd.all = "uart_send_data" then
-	    uar_sim(tv, usb_txd);
+       -- add further test commands below here
+      elsif cmd.all = "uart_send_data" then
+	uar_sim(tv, usb_txd);
 
       elsif cmd.all = "check_display_hex0" then 
-	    hex_chk(tv, hex0); 
+	hex_chk(tv, hex0); 
 	  
-	  elsif cmd.all = "check_display_hex1" then 
-	    hex_chk(tv, hex1); 
+      elsif cmd.all = "check_display_hex1" then 
+        hex_chk(tv, hex1);
+        
+      elsif cmd.all = "set_switches" then
+        gpi_sim(tv, gpi_signals);        
+        
+      elsif cmd.all = "check_i2c_reg_0" then
+        gpo_chk(tv,reg_data0);
 
+      elsif cmd.all = "check_i2c_reg_1" then
+        gpo_chk(tv,reg_data1);
 
       else
         assert false
           report "NO MATCHING COMMAND FOUND IN 'testcase.dat' AT LINE: "& integer'image(lincnt)
           severity error;
       end if;
-
+      SW(9 downto 0) <= gpi_signals(9 downto 0);
+      
       if tv.fail_flag = true then --count failures in tests
         fail_counter := fail_counter + 1;
       else fail_counter := fail_counter;
@@ -239,6 +282,25 @@ begin  -- architecture struct
     wait for clock_period/2;
 
   end process clkgen;
+
+  -- instance "i2c_slave_bfm_1"
+  i2c_slave_bfm_1: i2c_slave_bfm
+    generic map (
+      verbose => verbose)
+    port map (
+      AUD_XCK   => AUD_XCK,
+      I2C_SDAT  => I2C_SDAT,
+      I2C_SCLK  => I2C_SCLK,
+      reg_data0 => reg_data0,
+      reg_data1 => reg_data1,
+      reg_data2 => reg_data2,
+      reg_data3 => reg_data3,
+      reg_data4 => reg_data4,
+      reg_data5 => reg_data5,
+      reg_data6 => reg_data6,
+      reg_data7 => reg_data7,
+      reg_data8 => reg_data8,
+      reg_data9 => reg_data9);
 
   
 

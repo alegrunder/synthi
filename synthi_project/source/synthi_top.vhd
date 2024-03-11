@@ -6,7 +6,7 @@
 -- Author     : grundale
 -- Company    : 
 -- Created    : 2018-03-08
--- Last update: 2024-03-05
+-- Last update: 2024-03-06
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -24,9 +24,10 @@
 
 library ieee;
 use ieee.std_logic_1164.all;
-library work;
 use ieee.numeric_std.all;
 use work.reg_table_pkg.all;
+library work;
+
 -------------------------------------------------------------------------------
 
 entity synthi_top is
