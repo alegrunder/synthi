@@ -102,10 +102,10 @@ package reg_table_pkg is
 -- adc sampling 48kHz
 -- interface in I2S mode, 16 bit quantisation
   constant C_W8731_ANALOG_BYPASS : t_codec_register_array := (
-    0 => "000000000" or C_LINE_IN_LINVOL_M12DB,
-    1 => "000000000" or C_LINE_IN_LINVOL_M12DB,
-    2 => "000000000" or C_HP_OUT_HPVOL_0DB,
-    3 => "000000000" or C_HP_OUT_HPVOL_0DB,
+    0 => "000000000" or C_LINE_IN_LINVOL_0DB,
+    1 => "000000000" or C_LINE_IN_LINVOL_0DB,
+    2 => "000000000" or C_HP_OUT_HPVOL_P4DB,
+    3 => "000000000" or C_HP_OUT_HPVOL_P4DB,
     4 => "000000000" or C_ANALOG_AP_MUTEMIC or C_ANALOG_AP_BYPASS,
     5 => "000000000" or C_DIGITAL_AP_DACMU or C_DIGITAL_AP_DEEMP_DIS,
     6 => "000000000" or C_POWER_DOWN_NONE,

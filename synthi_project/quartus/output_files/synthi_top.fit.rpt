@@ -1,5 +1,9 @@
 Fitter report for synthi_top
+<<<<<<< Updated upstream
 Mon Mar 11 11:03:35 2024
+=======
+Tue Mar 12 08:34:56 2024
+>>>>>>> Stashed changes
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -70,17 +74,28 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                      ;
 +------------------------------------+------------------------------------------------+
+<<<<<<< Updated upstream
 ; Fitter Status                      ; Successful - Mon Mar 11 11:03:35 2024          ;
+=======
+; Fitter Status                      ; Successful - Tue Mar 12 08:34:56 2024          ;
+>>>>>>> Stashed changes
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; synthi_top                                     ;
 ; Top-level Entity Name              ; synthi_top                                     ;
 ; Family                             ; MAX 10                                         ;
 ; Device                             ; 10M50DAF484C7G                                 ;
 ; Timing Models                      ; Final                                          ;
+<<<<<<< Updated upstream
 ; Total logic elements               ; 220 / 49,760 ( < 1 % )                         ;
 ;     Total combinational functions  ; 200 / 49,760 ( < 1 % )                         ;
 ;     Dedicated logic registers      ; 132 / 49,760 ( < 1 % )                         ;
 ; Total registers                    ; 132                                            ;
+=======
+; Total logic elements               ; 250 / 49,760 ( < 1 % )                         ;
+;     Total combinational functions  ; 226 / 49,760 ( < 1 % )                         ;
+;     Dedicated logic registers      ; 134 / 49,760 ( < 1 % )                         ;
+; Total registers                    ; 134                                            ;
+>>>>>>> Stashed changes
 ; Total pins                         ; 50 / 360 ( 14 % )                              ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0 / 1,677,312 ( 0 % )                          ;
@@ -161,8 +176,12 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+<<<<<<< Updated upstream
 ;     Processor 2            ;   2.4%      ;
 ;     Processors 3-4         ;   2.4%      ;
+=======
+;     Processors 2-4         ;   2.5%      ;
+>>>>>>> Stashed changes
 +----------------------------+-------------+
 
 
@@ -812,8 +831,13 @@ https://fpgasoftware.intel.com/eula.
 ; Type                ; Total [A + B]      ; From Design Partitions [A] ; From Rapid Recompile [B] ;
 +---------------------+--------------------+----------------------------+--------------------------+
 ; Placement (by node) ;                    ;                            ;                          ;
+<<<<<<< Updated upstream
 ;     -- Requested    ; 0.00 % ( 0 / 454 ) ; 0.00 % ( 0 / 454 )         ; 0.00 % ( 0 / 454 )       ;
 ;     -- Achieved     ; 0.00 % ( 0 / 454 ) ; 0.00 % ( 0 / 454 )         ; 0.00 % ( 0 / 454 )       ;
+=======
+;     -- Requested    ; 0.00 % ( 0 / 482 ) ; 0.00 % ( 0 / 482 )         ; 0.00 % ( 0 / 482 )       ;
+;     -- Achieved     ; 0.00 % ( 0 / 482 ) ; 0.00 % ( 0 / 482 )         ; 0.00 % ( 0 / 482 )       ;
+>>>>>>> Stashed changes
 ;                     ;                    ;                            ;                          ;
 ; Routing (by net)    ;                    ;                            ;                          ;
 ;     -- Requested    ; 0.00 % ( 0 / 0 )   ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
@@ -836,7 +860,11 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 ; Partition Name                 ; Preservation Achieved ; Preservation Level Used ; Netlist Type Used ; Preservation Method ; Notes ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
+<<<<<<< Updated upstream
 ; Top                            ; 0.00 % ( 0 / 438 )    ; N/A                     ; Source File       ; N/A                 ;       ;
+=======
+; Top                            ; 0.00 % ( 0 / 466 )    ; N/A                     ; Source File       ; N/A                 ;       ;
+>>>>>>> Stashed changes
 ; hard_block:auto_generated_inst ; 0.00 % ( 0 / 16 )     ; N/A                     ; Source File       ; N/A                 ;       ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 
@@ -852,6 +880,7 @@ The pin-out file can be found in C:/Users/heini/Documents/local_Studium/PM2_PR/G
 +---------------------------------------------+------------------------+
 ; Resource                                    ; Usage                  ;
 +---------------------------------------------+------------------------+
+<<<<<<< Updated upstream
 ; Total logic elements                        ; 220 / 49,760 ( < 1 % ) ;
 ;     -- Combinational with no register       ; 88                     ;
 ;     -- Register only                        ; 20                     ;
@@ -865,13 +894,32 @@ The pin-out file can be found in C:/Users/heini/Documents/local_Studium/PM2_PR/G
 ;                                             ;                        ;
 ; Logic elements by mode                      ;                        ;
 ;     -- normal mode                          ; 163                    ;
+=======
+; Total logic elements                        ; 250 / 49,760 ( < 1 % ) ;
+;     -- Combinational with no register       ; 116                    ;
+;     -- Register only                        ; 24                     ;
+;     -- Combinational with a register        ; 110                    ;
+;                                             ;                        ;
+; Logic element usage by number of LUT inputs ;                        ;
+;     -- 4 input functions                    ; 122                    ;
+;     -- 3 input functions                    ; 41                     ;
+;     -- <=2 input functions                  ; 63                     ;
+;     -- Register only                        ; 24                     ;
+;                                             ;                        ;
+; Logic elements by mode                      ;                        ;
+;     -- normal mode                          ; 189                    ;
+>>>>>>> Stashed changes
 ;     -- arithmetic mode                      ; 37                     ;
 ;                                             ;                        ;
 ; Total registers*                            ; 132 / 51,509 ( < 1 % ) ;
 ;     -- Dedicated logic registers            ; 132 / 49,760 ( < 1 % ) ;
 ;     -- I/O registers                        ; 0 / 1,749 ( 0 % )      ;
 ;                                             ;                        ;
+<<<<<<< Updated upstream
 ; Total LABs:  partially or completely used   ; 21 / 3,110 ( < 1 % )   ;
+=======
+; Total LABs:  partially or completely used   ; 24 / 3,110 ( < 1 % )   ;
+>>>>>>> Stashed changes
 ; Virtual pins                                ; 0                      ;
 ; I/O pins                                    ; 50 / 360 ( 14 % )      ;
 ;     -- Clock pins                           ; 1 / 8 ( 13 % )         ;
@@ -891,12 +939,21 @@ The pin-out file can be found in C:/Users/heini/Documents/local_Studium/PM2_PR/G
 ; Remote update blocks                        ; 0 / 1 ( 0 % )          ;
 ; Oscillator blocks                           ; 0 / 1 ( 0 % )          ;
 ; Impedance control blocks                    ; 0 / 1 ( 0 % )          ;
+<<<<<<< Updated upstream
 ; Average interconnect usage (total/H/V)      ; 0.1% / 0.1% / 0.1%     ;
 ; Peak interconnect usage (total/H/V)         ; 2.8% / 3.0% / 2.6%     ;
 ; Maximum fan-out                             ; 95                     ;
 ; Highest non-global fan-out                  ; 91                     ;
 ; Total fan-out                               ; 1195                   ;
 ; Average fan-out                             ; 2.53                   ;
+=======
+; Average interconnect usage (total/H/V)      ; 0.1% / 0.1% / 0.2%     ;
+; Peak interconnect usage (total/H/V)         ; 1.8% / 2.3% / 2.2%     ;
+; Maximum fan-out                             ; 97                     ;
+; Highest non-global fan-out                  ; 93                     ;
+; Total fan-out                               ; 1294                   ;
+; Average fan-out                             ; 2.56                   ;
+>>>>>>> Stashed changes
 +---------------------------------------------+------------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
 
@@ -909,6 +966,7 @@ The pin-out file can be found in C:/Users/heini/Documents/local_Studium/PM2_PR/G
 +---------------------------------------------+-----------------------+--------------------------------+
 ; Difficulty Clustering Region                ; Low                   ; Low                            ;
 ;                                             ;                       ;                                ;
+<<<<<<< Updated upstream
 ; Total logic elements                        ; 220 / 49760 ( < 1 % ) ; 0 / 49760 ( 0 % )              ;
 ;     -- Combinational with no register       ; 88                    ; 0                              ;
 ;     -- Register only                        ; 20                    ; 0                              ;
@@ -922,13 +980,32 @@ The pin-out file can be found in C:/Users/heini/Documents/local_Studium/PM2_PR/G
 ;                                             ;                       ;                                ;
 ; Logic elements by mode                      ;                       ;                                ;
 ;     -- normal mode                          ; 163                   ; 0                              ;
+=======
+; Total logic elements                        ; 250 / 49760 ( < 1 % ) ; 0 / 49760 ( 0 % )              ;
+;     -- Combinational with no register       ; 116                   ; 0                              ;
+;     -- Register only                        ; 24                    ; 0                              ;
+;     -- Combinational with a register        ; 110                   ; 0                              ;
+;                                             ;                       ;                                ;
+; Logic element usage by number of LUT inputs ;                       ;                                ;
+;     -- 4 input functions                    ; 122                   ; 0                              ;
+;     -- 3 input functions                    ; 41                    ; 0                              ;
+;     -- <=2 input functions                  ; 63                    ; 0                              ;
+;     -- Register only                        ; 24                    ; 0                              ;
+;                                             ;                       ;                                ;
+; Logic elements by mode                      ;                       ;                                ;
+;     -- normal mode                          ; 189                   ; 0                              ;
+>>>>>>> Stashed changes
 ;     -- arithmetic mode                      ; 37                    ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Total registers                             ; 132                   ; 0                              ;
 ;     -- Dedicated logic registers            ; 132 / 49760 ( < 1 % ) ; 0 / 49760 ( 0 % )              ;
 ;     -- I/O registers                        ; 0                     ; 0                              ;
 ;                                             ;                       ;                                ;
+<<<<<<< Updated upstream
 ; Total LABs:  partially or completely used   ; 21 / 3110 ( < 1 % )   ; 0 / 3110 ( 0 % )               ;
+=======
+; Total LABs:  partially or completely used   ; 24 / 3110 ( < 1 % )   ; 0 / 3110 ( 0 % )               ;
+>>>>>>> Stashed changes
 ;                                             ;                       ;                                ;
 ; Virtual pins                                ; 0                     ; 0                              ;
 ; I/O pins                                    ; 50                    ; 0                              ;
@@ -946,8 +1023,13 @@ The pin-out file can be found in C:/Users/heini/Documents/local_Studium/PM2_PR/G
 ;     -- Registered Output Connections        ; 0                     ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Internal Connections                        ;                       ;                                ;
+<<<<<<< Updated upstream
 ;     -- Total Connections                    ; 1201                  ; 8                              ;
 ;     -- Registered Connections               ; 538                   ; 0                              ;
+=======
+;     -- Total Connections                    ; 1300                  ; 8                              ;
+;     -- Registered Connections               ; 579                   ; 0                              ;
+>>>>>>> Stashed changes
 ;                                             ;                       ;                                ;
 ; External Connections                        ;                       ;                                ;
 ;     -- Top                                  ; 2                     ; 0                              ;
@@ -986,9 +1068,15 @@ The pin-out file can be found in C:/Users/heini/Documents/local_Studium/PM2_PR/G
 ; CLOCK_50   ; P11   ; 3        ; 34           ; 0            ; 28           ; 37                    ; 0                  ; yes    ; no             ; no            ; yes             ; no       ; Off          ; 3.3-V LVTTL           ; --                        ; User                 ; 0         ;
 ; KEY_0      ; B8    ; 7        ; 46           ; 54           ; 28           ; 35                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 3.3 V Schmitt Trigger ; --                        ; User                 ; 0         ;
 ; KEY_1      ; A7    ; 7        ; 49           ; 54           ; 28           ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 3.3 V Schmitt Trigger ; --                        ; User                 ; 0         ;
+<<<<<<< Updated upstream
 ; SW[0]      ; C10   ; 7        ; 51           ; 54           ; 28           ; 1                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 3.3-V LVTTL           ; --                        ; User                 ; 0         ;
 ; SW[1]      ; C11   ; 7        ; 51           ; 54           ; 21           ; 1                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 3.3-V LVTTL           ; --                        ; User                 ; 0         ;
 ; SW[2]      ; D12   ; 7        ; 51           ; 54           ; 0            ; 1                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 3.3-V LVTTL           ; --                        ; User                 ; 0         ;
+=======
+; SW[0]      ; C10   ; 7        ; 51           ; 54           ; 28           ; 6                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 3.3-V LVTTL           ; --                        ; User                 ; 0         ;
+; SW[1]      ; C11   ; 7        ; 51           ; 54           ; 21           ; 4                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 3.3-V LVTTL           ; --                        ; User                 ; 0         ;
+; SW[2]      ; D12   ; 7        ; 51           ; 54           ; 0            ; 4                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 3.3-V LVTTL           ; --                        ; User                 ; 0         ;
+>>>>>>> Stashed changes
 ; SW[3]      ; C12   ; 7        ; 54           ; 54           ; 28           ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 3.3-V LVTTL           ; --                        ; User                 ; 0         ;
 ; SW[4]      ; A12   ; 7        ; 54           ; 54           ; 21           ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 3.3-V LVTTL           ; --                        ; User                 ; 0         ;
 ; SW[5]      ; B12   ; 7        ; 49           ; 54           ; 0            ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 3.3-V LVTTL           ; --                        ; User                 ; 0         ;
@@ -1618,6 +1706,7 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +-------------------------------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+-------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                            ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M9Ks ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; ADC blocks ; Full Hierarchy Name                                                           ; Entity Name         ; Library Name ;
 +-------------------------------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+-------------------------------------------------------------------------------+---------------------+--------------+
+<<<<<<< Updated upstream
 ; |synthi_top                                           ; 220 (1)     ; 132 (0)                   ; 0 (0)         ; 0           ; 0    ; 1          ; 0            ; 0       ; 0         ; 50   ; 0            ; 88 (1)       ; 20 (0)            ; 112 (0)          ; 0          ; |synthi_top                                                                   ; synthi_top          ; work         ;
 ;    |codec_controller:codec_controller_1|              ; 10 (10)     ; 7 (7)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 8 (8)            ; 0          ; |synthi_top|codec_controller:codec_controller_1                               ; codec_controller    ; work         ;
 ;    |i2c_master:i2c_master_1|                          ; 79 (79)     ; 50 (50)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 28 (28)      ; 2 (2)             ; 49 (49)          ; 0          ; |synthi_top|i2c_master:i2c_master_1                                           ; i2c_master          ; work         ;
@@ -1635,6 +1724,25 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ;       |uart_controller_fsm:uart_controller_fsm_inst1| ; 12 (12)     ; 4 (4)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 5 (5)        ; 2 (2)             ; 5 (5)            ; 0          ; |synthi_top|uart_top:uart_top_1|uart_controller_fsm:uart_controller_fsm_inst1 ; uart_controller_fsm ; work         ;
 ;       |vhdl_hex2sevseg:vhdl_hex2sevseg_inst1|         ; 7 (7)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 4 (4)        ; 0 (0)             ; 3 (3)            ; 0          ; |synthi_top|uart_top:uart_top_1|vhdl_hex2sevseg:vhdl_hex2sevseg_inst1         ; vhdl_hex2sevseg     ; work         ;
 ;       |vhdl_hex2sevseg:vhdl_hex2sevseg_inst2|         ; 7 (7)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 5 (5)        ; 0 (0)             ; 2 (2)            ; 0          ; |synthi_top|uart_top:uart_top_1|vhdl_hex2sevseg:vhdl_hex2sevseg_inst2         ; vhdl_hex2sevseg     ; work         ;
+=======
+; |synthi_top                                           ; 250 (1)     ; 134 (0)                   ; 0 (0)         ; 0           ; 0    ; 1          ; 0            ; 0       ; 0         ; 50   ; 0            ; 116 (1)      ; 24 (0)            ; 110 (0)          ; 0          ; |synthi_top                                                                   ; synthi_top          ; work         ;
+;    |codec_controller:codec_controller_1|              ; 20 (20)     ; 7 (7)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 13 (13)      ; 0 (0)             ; 7 (7)            ; 0          ; |synthi_top|codec_controller:codec_controller_1                               ; codec_controller    ; work         ;
+;    |i2c_master:i2c_master_1|                          ; 95 (95)     ; 52 (52)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 42 (42)      ; 2 (2)             ; 51 (51)          ; 0          ; |synthi_top|i2c_master:i2c_master_1                                           ; i2c_master          ; work         ;
+;    |infrastructure:infrastructure_1|                  ; 76 (0)      ; 41 (0)                    ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 35 (0)       ; 5 (0)             ; 36 (0)           ; 0          ; |synthi_top|infrastructure:infrastructure_1                                   ; infrastructure      ; work         ;
+;       |clock_sync:clock_sync_1|                       ; 2 (2)       ; 2 (2)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 2 (2)             ; 0 (0)            ; 0          ; |synthi_top|infrastructure:infrastructure_1|clock_sync:clock_sync_1           ; clock_sync          ; work         ;
+;       |clock_sync:clock_sync_2|                       ; 2 (2)       ; 2 (2)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 2 (2)             ; 0 (0)            ; 0          ; |synthi_top|infrastructure:infrastructure_1|clock_sync:clock_sync_2           ; clock_sync          ; work         ;
+;       |modulo_divider:modulo_divider_1|               ; 4 (4)       ; 3 (3)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 1 (1)             ; 2 (2)            ; 0          ; |synthi_top|infrastructure:infrastructure_1|modulo_divider:modulo_divider_1   ; modulo_divider      ; work         ;
+;       |signal_checker:signal_checker_1|               ; 68 (68)     ; 34 (34)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 34 (34)      ; 0 (0)             ; 34 (34)          ; 0          ; |synthi_top|infrastructure:infrastructure_1|signal_checker:signal_checker_1   ; signal_checker      ; work         ;
+;    |uart_top:uart_top_1|                              ; 59 (0)      ; 34 (0)                    ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 25 (0)       ; 17 (0)            ; 17 (0)           ; 0          ; |synthi_top|uart_top:uart_top_1                                               ; uart_top            ; work         ;
+;       |baud_tick:baud_tick_inst1|                     ; 9 (9)       ; 6 (6)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 3 (3)        ; 0 (0)             ; 6 (6)            ; 0          ; |synthi_top|uart_top:uart_top_1|baud_tick:baud_tick_inst1                     ; baud_tick           ; work         ;
+;       |bit_counter:bit_counter_inst1|                 ; 8 (8)       ; 4 (4)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 3 (3)        ; 0 (0)             ; 5 (5)            ; 0          ; |synthi_top|uart_top:uart_top_1|bit_counter:bit_counter_inst1                 ; bit_counter         ; work         ;
+;       |flanken_detekt_vhdl:flanken_detekt_vhdl_inst1| ; 2 (2)       ; 2 (2)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 1 (1)             ; 1 (1)            ; 0          ; |synthi_top|uart_top:uart_top_1|flanken_detekt_vhdl:flanken_detekt_vhdl_inst1 ; flanken_detekt_vhdl ; work         ;
+;       |output_register:output_register_inst1|         ; 8 (8)       ; 8 (8)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 7 (7)             ; 1 (1)            ; 0          ; |synthi_top|uart_top:uart_top_1|output_register:output_register_inst1         ; output_register     ; work         ;
+;       |shiftreg_uart:shiftreg_uart_inst1|             ; 10 (10)     ; 10 (10)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 9 (9)             ; 1 (1)            ; 0          ; |synthi_top|uart_top:uart_top_1|shiftreg_uart:shiftreg_uart_inst1             ; shiftreg_uart       ; work         ;
+;       |uart_controller_fsm:uart_controller_fsm_inst1| ; 11 (11)     ; 4 (4)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 5 (5)        ; 0 (0)             ; 6 (6)            ; 0          ; |synthi_top|uart_top:uart_top_1|uart_controller_fsm:uart_controller_fsm_inst1 ; uart_controller_fsm ; work         ;
+;       |vhdl_hex2sevseg:vhdl_hex2sevseg_inst1|         ; 7 (7)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 7 (7)        ; 0 (0)             ; 0 (0)            ; 0          ; |synthi_top|uart_top:uart_top_1|vhdl_hex2sevseg:vhdl_hex2sevseg_inst1         ; vhdl_hex2sevseg     ; work         ;
+;       |vhdl_hex2sevseg:vhdl_hex2sevseg_inst2|         ; 7 (7)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 7 (7)        ; 0 (0)             ; 0 (0)            ; 0          ; |synthi_top|uart_top:uart_top_1|vhdl_hex2sevseg:vhdl_hex2sevseg_inst2         ; vhdl_hex2sevseg     ; work         ;
+>>>>>>> Stashed changes
 +-------------------------------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+-------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -1687,7 +1795,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; LEDR_7      ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; LEDR_8      ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; LEDR_9      ; Output   ; --            ; --            ; --                    ; --  ; --   ;
-; AUD_SDAT    ; Bidir    ; --            ; (6) 868 ps    ; --                    ; --  ; --   ;
+; AUD_SDAT    ; Bidir    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
 ; CLOCK_50    ; Input    ; (0) 0 ps      ; --            ; --                    ; --  ; --   ;
 ; KEY_0       ; Input    ; --            ; (6) 868 ps    ; --                    ; --  ; --   ;
 ; USB_TXD     ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
@@ -1716,9 +1824,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; BT_RST_N                                                                               ;                   ;         ;
 ; AUD_ADCDAT                                                                             ;                   ;         ;
 ; AUD_SDAT                                                                               ;                   ;         ;
+<<<<<<< Updated upstream
 ;      - i2c_master:i2c_master_1|Selector31~3                                            ; 1                 ; 6       ;
 ;      - i2c_master:i2c_master_1|ack~0                                                   ; 1                 ; 6       ;
 ;      - i2c_master:i2c_master_1|next_ack_error~0                                        ; 1                 ; 6       ;
+=======
+;      - i2c_master:i2c_master_1|Selector31~1                                            ; 0                 ; 6       ;
+;      - i2c_master:i2c_master_1|ack~0                                                   ; 0                 ; 6       ;
+;      - i2c_master:i2c_master_1|next_ack_error~0                                        ; 0                 ; 6       ;
+>>>>>>> Stashed changes
 ; CLOCK_50                                                                               ;                   ;         ;
 ; KEY_0                                                                                  ;                   ;         ;
 ;      - infrastructure:infrastructure_1|signal_checker:signal_checker_1|bit_count_i[0]  ; 1                 ; 6       ;
@@ -1757,14 +1871,33 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - infrastructure:infrastructure_1|signal_checker:signal_checker_1|sync_q1         ; 1                 ; 6       ;
 ;      - infrastructure:infrastructure_1|clock_sync:clock_sync_1|q_0~feeder              ; 1                 ; 6       ;
 ; USB_TXD                                                                                ;                   ;         ;
-;      - infrastructure:infrastructure_1|clock_sync:clock_sync_2|q_0                     ; 0                 ; 6       ;
 ;      - infrastructure:infrastructure_1|signal_checker:signal_checker_1|sync_q1~0       ; 0                 ; 6       ;
+;      - infrastructure:infrastructure_1|clock_sync:clock_sync_2|q_0~feeder              ; 0                 ; 6       ;
 ; SW[2]                                                                                  ;                   ;         ;
+<<<<<<< Updated upstream
 ;      - i2c_master:i2c_master_1|Selector18~0                                            ; 1                 ; 6       ;
 ; SW[1]                                                                                  ;                   ;         ;
 ;      - i2c_master:i2c_master_1|Selector18~0                                            ; 0                 ; 6       ;
 ; SW[0]                                                                                  ;                   ;         ;
 ;      - i2c_master:i2c_master_1|Selector18~0                                            ; 0                 ; 6       ;
+=======
+;      - codec_controller:codec_controller_1|Mux16~0                                     ; 1                 ; 6       ;
+;      - codec_controller:codec_controller_1|Mux16~1                                     ; 1                 ; 6       ;
+;      - codec_controller:codec_controller_1|Mux22~3                                     ; 1                 ; 6       ;
+;      - codec_controller:codec_controller_1|Mux22~4                                     ; 1                 ; 6       ;
+; SW[1]                                                                                  ;                   ;         ;
+;      - codec_controller:codec_controller_1|Mux16~0                                     ; 0                 ; 6       ;
+;      - codec_controller:codec_controller_1|Mux16~1                                     ; 0                 ; 6       ;
+;      - codec_controller:codec_controller_1|Mux22~3                                     ; 0                 ; 6       ;
+;      - codec_controller:codec_controller_1|Mux22~4                                     ; 0                 ; 6       ;
+; SW[0]                                                                                  ;                   ;         ;
+;      - i2c_master:i2c_master_1|data[6]~0                                               ; 1                 ; 6       ;
+;      - i2c_master:i2c_master_1|Selector20~3                                            ; 1                 ; 6       ;
+;      - i2c_master:i2c_master_1|Selector22~3                                            ; 1                 ; 6       ;
+;      - codec_controller:codec_controller_1|Mux14~0                                     ; 1                 ; 6       ;
+;      - i2c_master:i2c_master_1|Selector24~9                                            ; 1                 ; 6       ;
+;      - i2c_master:i2c_master_1|Selector21~8                                            ; 1                 ; 6       ;
+>>>>>>> Stashed changes
 +----------------------------------------------------------------------------------------+-------------------+---------+
 
 
@@ -1775,6 +1908,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------------------------------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
 ; CLOCK_50                                                                              ; PIN_P11            ; 37      ; Clock        ; yes    ; Global Clock         ; GCLK19           ; --                        ;
 ; KEY_0                                                                                 ; PIN_B8             ; 35      ; Async. clear ; no     ; --                   ; --               ; --                        ;
+<<<<<<< Updated upstream
 ; i2c_master:i2c_master_1|Equal2~0                                                      ; LCCOMB_X52_Y50_N22 ; 19      ; Clock enable ; no     ; --                   ; --               ; --                        ;
 ; i2c_master:i2c_master_1|bit_count[0]~0                                                ; LCCOMB_X51_Y50_N26 ; 3       ; Clock enable ; no     ; --                   ; --               ; --                        ;
 ; i2c_master:i2c_master_1|byte_count[0]~0                                               ; LCCOMB_X51_Y50_N16 ; 2       ; Clock enable ; no     ; --                   ; --               ; --                        ;
@@ -1797,6 +1931,31 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; CLOCK_50                                                                 ; PIN_P11      ; 37      ; 12                                   ; Global Clock         ; GCLK19           ; --                        ;
 ; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[2] ; FF_X44_Y1_N7 ; 95      ; 14                                   ; Global Clock         ; GCLK16           ; --                        ;
 +--------------------------------------------------------------------------+--------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
+=======
+; i2c_master:i2c_master_1|Equal2~0                                                      ; LCCOMB_X55_Y48_N28 ; 22      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; i2c_master:i2c_master_1|bit_count[2]~0                                                ; LCCOMB_X54_Y48_N20 ; 3       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; i2c_master:i2c_master_1|byte_count[0]~0                                               ; LCCOMB_X56_Y48_N8  ; 2       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; i2c_master:i2c_master_1|data[23]~4                                                    ; LCCOMB_X55_Y50_N30 ; 19      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; i2c_master:i2c_master_1|fsm_state.S_IDLE                                              ; FF_X56_Y47_N11     ; 31      ; Sync. load   ; no     ; --                   ; --               ; --                        ;
+; i2c_master:i2c_master_1|fsm_state.S_SEND_BYTE                                         ; FF_X55_Y48_N9      ; 20      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; infrastructure:infrastructure_1|clock_sync:clock_sync_1|q_1                           ; FF_X56_Y50_N19     ; 93      ; Async. clear ; no     ; --                   ; --               ; --                        ;
+; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[2]              ; FF_X1_Y38_N15      ; 97      ; Clock        ; yes    ; Global Clock         ; GCLK3            ; --                        ;
+; infrastructure:infrastructure_1|signal_checker:signal_checker_1|next_pulse_count[0]~0 ; LCCOMB_X57_Y52_N26 ; 8       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; uart_top:uart_top_1|baud_tick:baud_tick_inst1|count[0]~20                             ; LCCOMB_X57_Y50_N26 ; 6       ; Sync. load   ; no     ; --                   ; --               ; --                        ;
+; uart_top:uart_top_1|uart_controller_fsm:uart_controller_fsm_inst1|data_valid~0        ; LCCOMB_X59_Y50_N20 ; 8       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; uart_top:uart_top_1|uart_controller_fsm:uart_controller_fsm_inst1|shift_enable~0      ; LCCOMB_X57_Y50_N4  ; 10      ; Clock enable ; no     ; --                   ; --               ; --                        ;
++---------------------------------------------------------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Global & Other Fast Signals                                                                                                                                                                                     ;
++--------------------------------------------------------------------------+---------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
+; Name                                                                     ; Location      ; Fan-Out ; Fan-Out Using Intentional Clock Skew ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++--------------------------------------------------------------------------+---------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
+; CLOCK_50                                                                 ; PIN_P11       ; 37      ; 11                                   ; Global Clock         ; GCLK19           ; --                        ;
+; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[2] ; FF_X1_Y38_N15 ; 97      ; 21                                   ; Global Clock         ; GCLK3            ; --                        ;
++--------------------------------------------------------------------------+---------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
+>>>>>>> Stashed changes
 
 
 +-------------------------------------------------+
@@ -1804,6 +1963,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-------------------------+
 ; Routing Resource Type ; Usage                   ;
 +-----------------------+-------------------------+
+<<<<<<< Updated upstream
 ; Block interconnects   ; 300 / 148,641 ( < 1 % ) ;
 ; C16 interconnects     ; 14 / 5,382 ( < 1 % )    ;
 ; C4 interconnects      ; 118 / 106,704 ( < 1 % ) ;
@@ -1813,12 +1973,24 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; NSLEEPs               ; 0 / 500 ( 0 % )         ;
 ; R24 interconnects     ; 9 / 5,406 ( < 1 % )     ;
 ; R4 interconnects      ; 185 / 147,764 ( < 1 % ) ;
+=======
+; Block interconnects   ; 351 / 148,641 ( < 1 % ) ;
+; C16 interconnects     ; 17 / 5,382 ( < 1 % )    ;
+; C4 interconnects      ; 143 / 106,704 ( < 1 % ) ;
+; Direct links          ; 99 / 148,641 ( < 1 % )  ;
+; Global clocks         ; 2 / 20 ( 10 % )         ;
+; Local interconnects   ; 152 / 49,760 ( < 1 % )  ;
+; NSLEEPs               ; 0 / 500 ( 0 % )         ;
+; R24 interconnects     ; 9 / 5,406 ( < 1 % )     ;
+; R4 interconnects      ; 183 / 147,764 ( < 1 % ) ;
+>>>>>>> Stashed changes
 +-----------------------+-------------------------+
 
 
 +----------------------------------------------------------------------------+
 ; LAB Logic Elements                                                         ;
 +---------------------------------------------+------------------------------+
+<<<<<<< Updated upstream
 ; Number of Logic Elements  (Average = 10.48) ; Number of LABs  (Total = 21) ;
 +---------------------------------------------+------------------------------+
 ; 1                                           ; 4                            ;
@@ -1829,13 +2001,31 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; 6                                           ; 0                            ;
 ; 7                                           ; 2                            ;
 ; 8                                           ; 0                            ;
+=======
+; Number of Logic Elements  (Average = 10.42) ; Number of LABs  (Total = 24) ;
++---------------------------------------------+------------------------------+
+; 1                                           ; 3                            ;
+; 2                                           ; 3                            ;
+; 3                                           ; 0                            ;
+; 4                                           ; 1                            ;
+; 5                                           ; 0                            ;
+; 6                                           ; 2                            ;
+; 7                                           ; 0                            ;
+; 8                                           ; 1                            ;
+>>>>>>> Stashed changes
 ; 9                                           ; 0                            ;
 ; 10                                          ; 0                            ;
 ; 11                                          ; 0                            ;
 ; 12                                          ; 0                            ;
+<<<<<<< Updated upstream
 ; 13                                          ; 0                            ;
 ; 14                                          ; 0                            ;
 ; 15                                          ; 1                            ;
+=======
+; 13                                          ; 1                            ;
+; 14                                          ; 2                            ;
+; 15                                          ; 0                            ;
+>>>>>>> Stashed changes
 ; 16                                          ; 11                           ;
 +---------------------------------------------+------------------------------+
 
@@ -1843,6 +2033,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------------------------------------------------------------+
 ; LAB-wide Signals                                                  ;
 +------------------------------------+------------------------------+
+<<<<<<< Updated upstream
 ; LAB-wide Signals  (Average = 2.14) ; Number of LABs  (Total = 21) ;
 +------------------------------------+------------------------------+
 ; 1 Async. clear                     ; 17                           ;
@@ -1850,12 +2041,22 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; 1 Clock enable                     ; 8                            ;
 ; 1 Sync. clear                      ; 1                            ;
 ; 2 Clocks                           ; 1                            ;
+=======
+; LAB-wide Signals  (Average = 1.92) ; Number of LABs  (Total = 24) ;
++------------------------------------+------------------------------+
+; 1 Async. clear                     ; 18                           ;
+; 1 Clock                            ; 20                           ;
+; 1 Clock enable                     ; 5                            ;
+; 1 Sync. clear                      ; 2                            ;
+; 1 Sync. load                       ; 1                            ;
+>>>>>>> Stashed changes
 +------------------------------------+------------------------------+
 
 
 +-----------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                         ;
 +----------------------------------------------+------------------------------+
+<<<<<<< Updated upstream
 ; Number of Signals Sourced  (Average = 16.71) ; Number of LABs  (Total = 21) ;
 +----------------------------------------------+------------------------------+
 ; 0                                            ; 0                            ;
@@ -1863,38 +2064,70 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; 2                                            ; 2                            ;
 ; 3                                            ; 1                            ;
 ; 4                                            ; 0                            ;
+=======
+; Number of Signals Sourced  (Average = 16.00) ; Number of LABs  (Total = 24) ;
++----------------------------------------------+------------------------------+
+; 0                                            ; 0                            ;
+; 1                                            ; 2                            ;
+; 2                                            ; 1                            ;
+; 3                                            ; 2                            ;
+; 4                                            ; 1                            ;
+>>>>>>> Stashed changes
 ; 5                                            ; 0                            ;
 ; 6                                            ; 0                            ;
 ; 7                                            ; 1                            ;
 ; 8                                            ; 1                            ;
 ; 9                                            ; 1                            ;
 ; 10                                           ; 0                            ;
+<<<<<<< Updated upstream
 ; 11                                           ; 0                            ;
 ; 12                                           ; 1                            ;
 ; 13                                           ; 0                            ;
 ; 14                                           ; 0                            ;
 ; 15                                           ; 0                            ;
 ; 16                                           ; 0                            ;
+=======
+; 11                                           ; 1                            ;
+; 12                                           ; 0                            ;
+; 13                                           ; 0                            ;
+; 14                                           ; 1                            ;
+; 15                                           ; 0                            ;
+; 16                                           ; 2                            ;
+>>>>>>> Stashed changes
 ; 17                                           ; 0                            ;
 ; 18                                           ; 0                            ;
 ; 19                                           ; 0                            ;
 ; 20                                           ; 2                            ;
+<<<<<<< Updated upstream
 ; 21                                           ; 1                            ;
 ; 22                                           ; 0                            ;
 ; 23                                           ; 0                            ;
+=======
+; 21                                           ; 0                            ;
+; 22                                           ; 1                            ;
+; 23                                           ; 1                            ;
+>>>>>>> Stashed changes
 ; 24                                           ; 1                            ;
 ; 25                                           ; 2                            ;
 ; 26                                           ; 0                            ;
 ; 27                                           ; 1                            ;
+<<<<<<< Updated upstream
 ; 28                                           ; 2                            ;
 ; 29                                           ; 2                            ;
 ; 30                                           ; 1                            ;
+=======
+; 28                                           ; 1                            ;
+; 29                                           ; 1                            ;
+; 30                                           ; 0                            ;
+; 31                                           ; 1                            ;
+>>>>>>> Stashed changes
 +----------------------------------------------+------------------------------+
 
 
 +--------------------------------------------------------------------------------+
 ; LAB Signals Sourced Out                                                        ;
 +-------------------------------------------------+------------------------------+
+<<<<<<< Updated upstream
 ; Number of Signals Sourced Out  (Average = 7.29) ; Number of LABs  (Total = 21) ;
 +-------------------------------------------------+------------------------------+
 ; 0                                               ; 0                            ;
@@ -1914,20 +2147,47 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; 14                                              ; 1                            ;
 ; 15                                              ; 0                            ;
 ; 16                                              ; 1                            ;
+=======
+; Number of Signals Sourced Out  (Average = 6.92) ; Number of LABs  (Total = 24) ;
++-------------------------------------------------+------------------------------+
+; 0                                               ; 0                            ;
+; 1                                               ; 3                            ;
+; 2                                               ; 5                            ;
+; 3                                               ; 0                            ;
+; 4                                               ; 2                            ;
+; 5                                               ; 0                            ;
+; 6                                               ; 3                            ;
+; 7                                               ; 0                            ;
+; 8                                               ; 3                            ;
+; 9                                               ; 1                            ;
+; 10                                              ; 1                            ;
+; 11                                              ; 0                            ;
+; 12                                              ; 2                            ;
+; 13                                              ; 0                            ;
+; 14                                              ; 2                            ;
+; 15                                              ; 1                            ;
+; 16                                              ; 0                            ;
+; 17                                              ; 1                            ;
+>>>>>>> Stashed changes
 +-------------------------------------------------+------------------------------+
 
 
 +-----------------------------------------------------------------------------+
 ; LAB Distinct Inputs                                                         ;
 +----------------------------------------------+------------------------------+
+<<<<<<< Updated upstream
 ; Number of Distinct Inputs  (Average = 11.19) ; Number of LABs  (Total = 21) ;
+=======
+; Number of Distinct Inputs  (Average = 11.79) ; Number of LABs  (Total = 24) ;
+>>>>>>> Stashed changes
 +----------------------------------------------+------------------------------+
 ; 0                                            ; 0                            ;
 ; 1                                            ; 1                            ;
 ; 2                                            ; 0                            ;
 ; 3                                            ; 0                            ;
-; 4                                            ; 3                            ;
+; 4                                            ; 1                            ;
 ; 5                                            ; 1                            ;
+<<<<<<< Updated upstream
 ; 6                                            ; 1                            ;
 ; 7                                            ; 0                            ;
 ; 8                                            ; 0                            ;
@@ -1944,6 +2204,28 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; 19                                           ; 0                            ;
 ; 20                                           ; 1                            ;
 ; 21                                           ; 1                            ;
+=======
+; 6                                            ; 0                            ;
+; 7                                            ; 3                            ;
+; 8                                            ; 1                            ;
+; 9                                            ; 1                            ;
+; 10                                           ; 1                            ;
+; 11                                           ; 2                            ;
+; 12                                           ; 3                            ;
+; 13                                           ; 1                            ;
+; 14                                           ; 1                            ;
+; 15                                           ; 1                            ;
+; 16                                           ; 1                            ;
+; 17                                           ; 0                            ;
+; 18                                           ; 0                            ;
+; 19                                           ; 1                            ;
+; 20                                           ; 0                            ;
+; 21                                           ; 1                            ;
+; 22                                           ; 2                            ;
+; 23                                           ; 0                            ;
+; 24                                           ; 0                            ;
+; 25                                           ; 1                            ;
+>>>>>>> Stashed changes
 +----------------------------------------------+------------------------------+
 
 
@@ -2102,7 +2384,11 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------+----------------------+-------------------+
 ; Source Clock(s) ; Destination Clock(s) ; Delay Added in ns ;
 +-----------------+----------------------+-------------------+
+<<<<<<< Updated upstream
 ; CLOCK_50        ; CLOCK_50             ; 5.1               ;
+=======
+; CLOCK_50        ; CLOCK_50             ; 5.0               ;
+>>>>>>> Stashed changes
 +-----------------+----------------------+-------------------+
 Note: For more information on problematic transfers, consider running the Fitter again with the Optimize hold timing option (Settings Menu) turned off.
 This will disable optimization of problematic paths and expose them for further analysis using the Timing Analyzer.
@@ -2113,9 +2399,15 @@ This will disable optimization of problematic paths and expose them for further 
 +--------------------------------------------------------------------------+--------------------------------------------------------------------------+-------------------+
 ; Source Register                                                          ; Destination Register                                                     ; Delay Added in ns ;
 +--------------------------------------------------------------------------+--------------------------------------------------------------------------+-------------------+
+<<<<<<< Updated upstream
 ; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[2] ; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[2] ; 5.102             ;
 ; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[2] ; 2.551             ;
 ; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[0] ; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[2] ; 2.551             ;
+=======
+; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[2] ; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[2] ; 4.982             ;
+; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[2] ; 2.491             ;
+; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[0] ; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[2] ; 2.491             ;
+>>>>>>> Stashed changes
 +--------------------------------------------------------------------------+--------------------------------------------------------------------------+-------------------+
 Note: This table only shows the top 3 path(s) that have the largest delay added for hold.
 
@@ -2163,7 +2455,7 @@ Info (332144): No user constrained base clocks found in the design
 Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Info (332130): Timing requirements not specified -- quality metrics such as performance may be sacrificed to reduce compilation time.
-Info (176353): Automatically promoted node CLOCK_50~input (placed in PIN P11 (CLK7p, DIFFIO_TX_RX_B20p, DIFFOUT_B20p, High_Speed)) File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 35
+Info (176353): Automatically promoted node CLOCK_50~input (placed in PIN P11 (CLK7p, DIFFIO_TX_RX_B20p, DIFFOUT_B20p, High_Speed)) File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 36
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G19
 Info (176353): Automatically promoted node infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[2]  File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/modulo_divider.vhd Line: 54
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
@@ -2502,7 +2794,7 @@ Info (170195): Router estimated average interconnect usage is 0% of the availabl
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
-Info (11888): Total time spent on timing analysis during the Fitter is 0.26 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.27 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
@@ -2510,31 +2802,37 @@ Info (334004): Delay annotation completed successfully
 Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:02
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Warning (169177): 20 pins must meet Intel FPGA requirements for 3.3-, 3.0-, and 2.5-V interfaces. For more information, refer to AN 447: Interfacing MAX 10 Devices with 3.3/3.0/2.5-V LVTTL/LVCMOS I/O Systems.
-    Info (169178): Pin KEY_1 uses I/O standard 3.3 V Schmitt Trigger at A7 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 37
-    Info (169178): Pin SW[3] uses I/O standard 3.3-V LVTTL at C12 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 38
-    Info (169178): Pin SW[4] uses I/O standard 3.3-V LVTTL at A12 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 38
-    Info (169178): Pin SW[5] uses I/O standard 3.3-V LVTTL at B12 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 38
-    Info (169178): Pin SW[6] uses I/O standard 3.3-V LVTTL at A13 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 38
-    Info (169178): Pin SW[7] uses I/O standard 3.3-V LVTTL at A14 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 38
-    Info (169178): Pin SW[8] uses I/O standard 3.3-V LVTTL at B14 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 38
-    Info (169178): Pin SW[9] uses I/O standard 3.3-V LVTTL at F15 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 38
-    Info (169178): Pin USB_RXD uses I/O standard 3.3-V LVTTL at AB17 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 40
-    Info (169178): Pin BT_RXD uses I/O standard 3.3-V LVTTL at AB19 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 43
-    Info (169178): Pin BT_TXD uses I/O standard 3.3-V LVTTL at AA19 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 44
-    Info (169178): Pin BT_RST_N uses I/O standard 3.3-V LVTTL at Y19 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 45
-    Info (169178): Pin AUD_ADCDAT uses I/O standard 3.3-V LVTTL at AA11 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 52
-    Info (169178): Pin AUD_SDAT uses I/O standard 3.3-V LVTTL at AB7 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 55
-    Info (169178): Pin CLOCK_50 uses I/O standard 3.3-V LVTTL at P11 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 35
-    Info (169178): Pin KEY_0 uses I/O standard 3.3 V Schmitt Trigger at B8 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 36
-    Info (169178): Pin USB_TXD uses I/O standard 3.3-V LVTTL at AA17 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 41
-    Info (169178): Pin SW[2] uses I/O standard 3.3-V LVTTL at D12 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 38
-    Info (169178): Pin SW[1] uses I/O standard 3.3-V LVTTL at C11 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 38
-    Info (169178): Pin SW[0] uses I/O standard 3.3-V LVTTL at C10 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 38
+    Info (169178): Pin KEY_1 uses I/O standard 3.3 V Schmitt Trigger at A7 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 38
+    Info (169178): Pin SW[3] uses I/O standard 3.3-V LVTTL at C12 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 39
+    Info (169178): Pin SW[4] uses I/O standard 3.3-V LVTTL at A12 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 39
+    Info (169178): Pin SW[5] uses I/O standard 3.3-V LVTTL at B12 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 39
+    Info (169178): Pin SW[6] uses I/O standard 3.3-V LVTTL at A13 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 39
+    Info (169178): Pin SW[7] uses I/O standard 3.3-V LVTTL at A14 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 39
+    Info (169178): Pin SW[8] uses I/O standard 3.3-V LVTTL at B14 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 39
+    Info (169178): Pin SW[9] uses I/O standard 3.3-V LVTTL at F15 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 39
+    Info (169178): Pin USB_RXD uses I/O standard 3.3-V LVTTL at AB17 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 41
+    Info (169178): Pin BT_RXD uses I/O standard 3.3-V LVTTL at AB19 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 44
+    Info (169178): Pin BT_TXD uses I/O standard 3.3-V LVTTL at AA19 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 45
+    Info (169178): Pin BT_RST_N uses I/O standard 3.3-V LVTTL at Y19 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 46
+    Info (169178): Pin AUD_ADCDAT uses I/O standard 3.3-V LVTTL at AA11 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 53
+    Info (169178): Pin AUD_SDAT uses I/O standard 3.3-V LVTTL at AB7 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 56
+    Info (169178): Pin CLOCK_50 uses I/O standard 3.3-V LVTTL at P11 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 36
+    Info (169178): Pin KEY_0 uses I/O standard 3.3 V Schmitt Trigger at B8 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 37
+    Info (169178): Pin USB_TXD uses I/O standard 3.3-V LVTTL at AA17 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 42
+    Info (169178): Pin SW[2] uses I/O standard 3.3-V LVTTL at D12 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 39
+    Info (169178): Pin SW[1] uses I/O standard 3.3-V LVTTL at C11 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 39
+    Info (169178): Pin SW[0] uses I/O standard 3.3-V LVTTL at C10 File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 39
 Info (144001): Generated suppressed messages file C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/quartus/output_files/synthi_top.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 323 warnings
+<<<<<<< Updated upstream
     Info: Peak virtual memory: 5648 megabytes
     Info: Processing ended: Mon Mar 11 11:03:36 2024
     Info: Elapsed time: 00:00:10
+=======
+    Info: Peak virtual memory: 5649 megabytes
+    Info: Processing ended: Tue Mar 12 08:34:56 2024
+    Info: Elapsed time: 00:00:07
+>>>>>>> Stashed changes
     Info: Total CPU time (on all processors): 00:00:06
 
 

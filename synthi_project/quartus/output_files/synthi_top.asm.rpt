@@ -1,5 +1,9 @@
 Assembler report for synthi_top
+<<<<<<< Updated upstream
 Mon Mar 11 11:03:39 2024
+=======
+Tue Mar 12 08:34:59 2024
+>>>>>>> Stashed changes
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -38,7 +42,11 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
+<<<<<<< Updated upstream
 ; Assembler Status      ; Successful - Mon Mar 11 11:03:39 2024 ;
+=======
+; Assembler Status      ; Successful - Tue Mar 12 08:34:59 2024 ;
+>>>>>>> Stashed changes
 ; Revision Name         ; synthi_top                            ;
 ; Top-level Entity Name ; synthi_top                            ;
 ; Family                ; MAX 10                                ;
@@ -67,8 +75,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------+-------------------------------------------------------------------------------------------------------------------------+
 ; Option         ; Setting                                                                                                                 ;
 +----------------+-------------------------------------------------------------------------------------------------------------------------+
+<<<<<<< Updated upstream
 ; JTAG usercode  ; 0x0029414A                                                                                                              ;
 ; Checksum       ; 0x0029414A                                                                                                              ;
+=======
+; JTAG usercode  ; 0x00298AED                                                                                                              ;
+; Checksum       ; 0x00298AED                                                                                                              ;
+>>>>>>> Stashed changes
 +----------------+-------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -78,14 +91,23 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+<<<<<<< Updated upstream
     Info: Processing started: Mon Mar 11 11:03:37 2024
+=======
+    Info: Processing started: Tue Mar 12 08:34:57 2024
+>>>>>>> Stashed changes
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off synthi_top -c synthi_top
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
+<<<<<<< Updated upstream
     Info: Peak virtual memory: 4739 megabytes
     Info: Processing ended: Mon Mar 11 11:03:39 2024
+=======
+    Info: Peak virtual memory: 4735 megabytes
+    Info: Processing ended: Tue Mar 12 08:34:59 2024
+>>>>>>> Stashed changes
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 
