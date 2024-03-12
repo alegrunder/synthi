@@ -96,15 +96,15 @@
 					"strict" : false
 				},
 				{
+					"name" : "SW[3]",
+					"strict" : false
+				},
+				{
 					"name" : "KEY_0",
 					"strict" : false
 				},
 				{
 					"name" : "USB_TXD",
-					"strict" : false
-				},
-				{
-					"name" : "SW[3]",
 					"strict" : false
 				},
 				{
