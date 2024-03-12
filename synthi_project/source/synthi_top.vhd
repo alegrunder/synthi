@@ -252,8 +252,8 @@ begin
   path_control_1 : path_control
     port map (
       sw_3        => SW(3),
-      dds_l_i     => dds_l,
-      dds_r_i     => dds_r,
+      dds_l_i     => (others => '0'),
+      dds_r_i     => (others => '0'),
       adcdat_pl_i => adcdat_pl,
       adcdat_pr_i => adcdat_pr,
       dacdat_pl_o => dacdat_pl,
