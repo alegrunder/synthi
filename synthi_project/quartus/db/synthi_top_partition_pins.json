@@ -8,6 +8,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "AUD_BCLK",
+					"strict" : false
+				},
+				{
 					"name" : "AUD_SCLK",
 					"strict" : false
 				},

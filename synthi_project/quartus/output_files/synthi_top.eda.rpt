@@ -1,5 +1,5 @@
 EDA Netlist Writer report for synthi_top
-Mon Mar 11 11:03:43 2024
+Tue Mar 12 10:04:30 2024
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -37,7 +37,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Mon Mar 11 11:03:43 2024 ;
+; EDA Netlist Writer Status ; Successful - Tue Mar 12 10:04:30 2024 ;
 ; Revision Name             ; synthi_top                            ;
 ; Top-level Entity Name     ; synthi_top                            ;
 ; Family                    ; MAX 10                                ;
@@ -81,13 +81,13 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Mon Mar 11 11:03:42 2024
+    Info: Processing started: Tue Mar 12 10:04:29 2024
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off synthi_top -c synthi_top
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (204019): Generated file synthi_top.vo in folder "C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/quartus/simulation/questa/" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
     Info: Peak virtual memory: 4651 megabytes
-    Info: Processing ended: Mon Mar 11 11:03:43 2024
+    Info: Processing ended: Tue Mar 12 10:04:30 2024
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:00
 

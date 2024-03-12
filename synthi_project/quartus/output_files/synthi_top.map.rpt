@@ -1,5 +1,5 @@
 Analysis & Synthesis report for synthi_top
-Mon Mar 11 11:03:25 2024
+Tue Mar 12 10:04:15 2024
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -22,11 +22,12 @@ Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
  14. Inverted Register Statistics
  15. Multiplexer Restructuring Statistics (Restructuring Performed)
  16. Parameter Settings for User Entity Instance: uart_top:uart_top_1|shiftreg_uart:shiftreg_uart_inst1
- 17. Port Connectivity Checks: "uart_top:uart_top_1|flanken_detekt_vhdl:flanken_detekt_vhdl_inst1"
- 18. Port Connectivity Checks: "uart_top:uart_top_1"
- 19. Post-Synthesis Netlist Statistics for Top Partition
- 20. Elapsed Time Per Partition
- 21. Analysis & Synthesis Messages
+ 17. Port Connectivity Checks: "i2s_master:i2s_master_1"
+ 18. Port Connectivity Checks: "uart_top:uart_top_1|flanken_detekt_vhdl:flanken_detekt_vhdl_inst1"
+ 19. Port Connectivity Checks: "uart_top:uart_top_1"
+ 20. Post-Synthesis Netlist Statistics for Top Partition
+ 21. Elapsed Time Per Partition
+ 22. Analysis & Synthesis Messages
 
 
 
@@ -53,13 +54,13 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Mar 11 11:03:25 2024          ;
+; Analysis & Synthesis Status        ; Successful - Tue Mar 12 10:04:15 2024          ;
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; synthi_top                                     ;
 ; Top-level Entity Name              ; synthi_top                                     ;
 ; Family                             ; MAX 10                                         ;
-; Total logic elements               ; 231                                            ;
-;     Total combinational functions  ; 199                                            ;
+; Total logic elements               ; 235                                            ;
+;     Total combinational functions  ; 203                                            ;
 ;     Dedicated logic registers      ; 132                                            ;
 ; Total registers                    ; 132                                            ;
 ; Total pins                         ; 50                                             ;
@@ -181,6 +182,8 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path  ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                              ; Library ;
 +-----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------+---------+
+; ../source/path_control.vhd        ; yes             ; User VHDL File  ; C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/path_control.vhd        ;         ;
+; ../source/i2s_master.vhd          ; yes             ; User VHDL File  ; C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/i2s_master.vhd          ;         ;
 ; ../source/reg_table_pkg.vhd       ; yes             ; User VHDL File  ; C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/reg_table_pkg.vhd       ;         ;
 ; ../source/i2c_master.vhd          ; yes             ; User VHDL File  ; C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/i2c_master.vhd          ;         ;
 ; ../source/codec_controller.vhd    ; yes             ; User VHDL File  ; C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/codec_controller.vhd    ;         ;
@@ -205,16 +208,16 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+--------------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                                    ;
 +---------------------------------------------+--------------------------------------------------------------------------+
-; Estimated Total logic elements              ; 231                                                                      ;
+; Estimated Total logic elements              ; 235                                                                      ;
 ;                                             ;                                                                          ;
-; Total combinational functions               ; 199                                                                      ;
+; Total combinational functions               ; 203                                                                      ;
 ; Logic element usage by number of LUT inputs ;                                                                          ;
-;     -- 4 input functions                    ; 110                                                                      ;
-;     -- 3 input functions                    ; 31                                                                       ;
-;     -- <=2 input functions                  ; 58                                                                       ;
+;     -- 4 input functions                    ; 92                                                                       ;
+;     -- 3 input functions                    ; 51                                                                       ;
+;     -- <=2 input functions                  ; 60                                                                       ;
 ;                                             ;                                                                          ;
 ; Logic elements by mode                      ;                                                                          ;
-;     -- normal mode                          ; 162                                                                      ;
+;     -- normal mode                          ; 166                                                                      ;
 ;     -- arithmetic mode                      ; 37                                                                       ;
 ;                                             ;                                                                          ;
 ; Total registers                             ; 132                                                                      ;
@@ -226,9 +229,9 @@ https://fpgasoftware.intel.com/eula.
 ; Embedded Multiplier 9-bit elements          ; 0                                                                        ;
 ;                                             ;                                                                          ;
 ; Maximum fan-out node                        ; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[2] ;
-; Maximum fan-out                             ; 96                                                                       ;
-; Total fan-out                               ; 1163                                                                     ;
-; Average fan-out                             ; 2.69                                                                     ;
+; Maximum fan-out                             ; 97                                                                       ;
+; Total fan-out                               ; 1156                                                                     ;
+; Average fan-out                             ; 2.65                                                                     ;
 +---------------------------------------------+--------------------------------------------------------------------------+
 
 
@@ -237,14 +240,14 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                            ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                           ; Entity Name         ; Library Name ;
 +-------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------------------+---------------------+--------------+
-; |synthi_top                                           ; 199 (0)             ; 132 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 50   ; 0            ; 0          ; |synthi_top                                                                   ; synthi_top          ; work         ;
+; |synthi_top                                           ; 203 (0)             ; 132 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 50   ; 0            ; 0          ; |synthi_top                                                                   ; synthi_top          ; work         ;
 ;    |codec_controller:codec_controller_1|              ; 10 (10)             ; 7 (7)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |synthi_top|codec_controller:codec_controller_1                               ; codec_controller    ; work         ;
-;    |i2c_master:i2c_master_1|                          ; 76 (76)             ; 50 (50)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |synthi_top|i2c_master:i2c_master_1                                           ; i2c_master          ; work         ;
-;    |infrastructure:infrastructure_1|                  ; 72 (0)              ; 41 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |synthi_top|infrastructure:infrastructure_1                                   ; infrastructure      ; work         ;
+;    |i2c_master:i2c_master_1|                          ; 78 (78)             ; 50 (50)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |synthi_top|i2c_master:i2c_master_1                                           ; i2c_master          ; work         ;
+;    |infrastructure:infrastructure_1|                  ; 74 (0)              ; 41 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |synthi_top|infrastructure:infrastructure_1                                   ; infrastructure      ; work         ;
 ;       |clock_sync:clock_sync_1|                       ; 0 (0)               ; 2 (2)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |synthi_top|infrastructure:infrastructure_1|clock_sync:clock_sync_1           ; clock_sync          ; work         ;
 ;       |clock_sync:clock_sync_2|                       ; 0 (0)               ; 2 (2)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |synthi_top|infrastructure:infrastructure_1|clock_sync:clock_sync_2           ; clock_sync          ; work         ;
 ;       |modulo_divider:modulo_divider_1|               ; 3 (3)               ; 3 (3)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |synthi_top|infrastructure:infrastructure_1|modulo_divider:modulo_divider_1   ; modulo_divider      ; work         ;
-;       |signal_checker:signal_checker_1|               ; 69 (69)             ; 34 (34)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |synthi_top|infrastructure:infrastructure_1|signal_checker:signal_checker_1   ; signal_checker      ; work         ;
+;       |signal_checker:signal_checker_1|               ; 71 (71)             ; 34 (34)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |synthi_top|infrastructure:infrastructure_1|signal_checker:signal_checker_1   ; signal_checker      ; work         ;
 ;    |uart_top:uart_top_1|                              ; 41 (0)              ; 34 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |synthi_top|uart_top:uart_top_1                                               ; uart_top            ; work         ;
 ;       |baud_tick:baud_tick_inst1|                     ; 9 (9)               ; 6 (6)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |synthi_top|uart_top:uart_top_1|baud_tick:baud_tick_inst1                     ; baud_tick           ; work         ;
 ;       |bit_counter:bit_counter_inst1|                 ; 8 (8)               ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |synthi_top|uart_top:uart_top_1|bit_counter:bit_counter_inst1                 ; bit_counter         ; work         ;
@@ -379,6 +382,15 @@ Encoding Type:  One-Hot
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "i2s_master:i2s_master_1"                                                              ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; step_o ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +-----------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "uart_top:uart_top_1|flanken_detekt_vhdl:flanken_detekt_vhdl_inst1"                         ;
 +-------------+--------+----------+-------------------------------------------------------------------------------------+
@@ -411,19 +423,19 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     ENA CLR SCLR      ; 2                           ;
 ;     plain             ; 7                           ;
 ; cycloneiii_io_obuf    ; 1                           ;
-; cycloneiii_lcell_comb ; 203                         ;
+; cycloneiii_lcell_comb ; 208                         ;
 ;     arith             ; 37                          ;
 ;         2 data inputs ; 30                          ;
 ;         3 data inputs ; 7                           ;
-;     normal            ; 166                         ;
+;     normal            ; 171                         ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 10                          ;
-;         2 data inputs ; 21                          ;
-;         3 data inputs ; 24                          ;
-;         4 data inputs ; 110                         ;
+;         1 data inputs ; 11                          ;
+;         2 data inputs ; 23                          ;
+;         3 data inputs ; 44                          ;
+;         4 data inputs ; 92                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 5.00                        ;
-; Average LUT depth     ; 2.72                        ;
+; Max LUT depth         ; 5.60                        ;
+; Average LUT depth     ; 2.88                        ;
 +-----------------------+-----------------------------+
 
 
@@ -442,21 +454,27 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Mon Mar 11 11:03:15 2024
+    Info: Processing started: Tue Mar 12 10:04:08 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off synthi_top -c synthi_top
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file /users/heini/documents/local_studium/pm2_pr/github/synthi/synthi_project/source/path_control.vhd
+    Info (12022): Found design unit 1: path_control-arch File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/path_control.vhd Line: 39
+    Info (12023): Found entity 1: path_control File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/path_control.vhd Line: 25
+Info (12021): Found 2 design units, including 1 entities, in source file /users/heini/documents/local_studium/pm2_pr/github/synthi/synthi_project/source/i2s_master.vhd
+    Info (12022): Found design unit 1: i2s_master-top File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/i2s_master.vhd Line: 44
+    Info (12023): Found entity 1: i2s_master File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/i2s_master.vhd Line: 24
 Info (12021): Found 1 design units, including 0 entities, in source file /users/heini/documents/local_studium/pm2_pr/github/synthi/synthi_project/source/reg_table_pkg.vhd
     Info (12022): Found design unit 1: reg_table_pkg File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/reg_table_pkg.vhd Line: 26
 Info (12021): Found 2 design units, including 1 entities, in source file /users/heini/documents/local_studium/pm2_pr/github/synthi/synthi_project/source/i2c_master.vhd
     Info (12022): Found design unit 1: i2c_master-rtl File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/i2c_master.vhd Line: 41
     Info (12023): Found entity 1: i2c_master File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/i2c_master.vhd Line: 23
 Info (12021): Found 2 design units, including 1 entities, in source file /users/heini/documents/local_studium/pm2_pr/github/synthi/synthi_project/source/codec_controller.vhd
-    Info (12022): Found design unit 1: codec_controller-rtl File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/codec_controller.vhd Line: 44
-    Info (12023): Found entity 1: codec_controller File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/codec_controller.vhd Line: 28
+    Info (12022): Found design unit 1: codec_controller-rtl File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/codec_controller.vhd Line: 45
+    Info (12023): Found entity 1: codec_controller File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/codec_controller.vhd Line: 29
 Info (12021): Found 2 design units, including 1 entities, in source file /users/heini/documents/local_studium/pm2_pr/github/synthi/synthi_project/source/synthi_top.vhd
-    Info (12022): Found design unit 1: synthi_top-struct File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 76
-    Info (12023): Found entity 1: synthi_top File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 32
+    Info (12022): Found design unit 1: synthi_top-struct File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 77
+    Info (12023): Found entity 1: synthi_top File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 33
 Info (12021): Found 2 design units, including 1 entities, in source file /users/heini/documents/local_studium/pm2_pr/github/synthi/synthi_project/source/signal_checker.vhd
     Info (12022): Found design unit 1: signal_checker-rtl File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/signal_checker.vhd Line: 29
     Info (12023): Found entity 1: signal_checker File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/signal_checker.vhd Line: 19
@@ -494,25 +512,24 @@ Info (12021): Found 2 design units, including 1 entities, in source file /users/
     Info (12022): Found design unit 1: baud_tick-rtl File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/baud_tick.vhd Line: 30
     Info (12023): Found entity 1: baud_tick File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/baud_tick.vhd Line: 20
 Info (12127): Elaborating entity "synthi_top" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(48): used implicit default value for signal "AUD_DACDAT" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 48
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(49): used implicit default value for signal "AUD_BCLK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 49
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(50): used implicit default value for signal "AUD_DACLRCK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 50
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(51): used implicit default value for signal "AUD_ADCLRCK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 51
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(60): used implicit default value for signal "LEDR_1" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 60
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(61): used implicit default value for signal "LEDR_2" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 61
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(62): used implicit default value for signal "LEDR_3" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 62
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(63): used implicit default value for signal "LEDR_4" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 63
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(64): used implicit default value for signal "LEDR_5" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 64
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(65): used implicit default value for signal "LEDR_6" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 65
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(66): used implicit default value for signal "LEDR_7" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 66
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(67): used implicit default value for signal "LEDR_8" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 67
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(68): used implicit default value for signal "LEDR_9" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 68
-Info (12128): Elaborating entity "infrastructure" for hierarchy "infrastructure:infrastructure_1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 147
+Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(61): used implicit default value for signal "LEDR_1" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 61
+Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(62): used implicit default value for signal "LEDR_2" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 62
+Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(63): used implicit default value for signal "LEDR_3" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 63
+Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(64): used implicit default value for signal "LEDR_4" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 64
+Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(65): used implicit default value for signal "LEDR_5" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 65
+Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(66): used implicit default value for signal "LEDR_6" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 66
+Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(67): used implicit default value for signal "LEDR_7" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 67
+Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(68): used implicit default value for signal "LEDR_8" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 68
+Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(69): used implicit default value for signal "LEDR_9" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 69
+Warning (10036): Verilog HDL or VHDL warning at synthi_top.vhd(94): object "step_o_sig" assigned a value but never read File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 94
+Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(95): used implicit default value for signal "dds_l" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 95
+Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(96): used implicit default value for signal "dds_r" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 96
+Info (12128): Elaborating entity "infrastructure" for hierarchy "infrastructure:infrastructure_1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 192
 Info (12128): Elaborating entity "modulo_divider" for hierarchy "infrastructure:infrastructure_1|modulo_divider:modulo_divider_1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/infrastructure.vhd Line: 86
 Warning (10540): VHDL Signal Declaration warning at modulo_divider.vhd(32): used explicit default value for signal "width" because signal was never assigned a value File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/modulo_divider.vhd Line: 32
 Info (12128): Elaborating entity "clock_sync" for hierarchy "infrastructure:infrastructure_1|clock_sync:clock_sync_1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/infrastructure.vhd Line: 92
 Info (12128): Elaborating entity "signal_checker" for hierarchy "infrastructure:infrastructure_1|signal_checker:signal_checker_1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/infrastructure.vhd Line: 106
-Info (12128): Elaborating entity "uart_top" for hierarchy "uart_top:uart_top_1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 160
+Info (12128): Elaborating entity "uart_top" for hierarchy "uart_top:uart_top_1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 205
 Info (12128): Elaborating entity "flanken_detekt_vhdl" for hierarchy "uart_top:uart_top_1|flanken_detekt_vhdl:flanken_detekt_vhdl_inst1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/uart_top.vhd Line: 143
 Info (12128): Elaborating entity "vhdl_hex2sevseg" for hierarchy "uart_top:uart_top_1|vhdl_hex2sevseg:vhdl_hex2sevseg_inst1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/uart_top.vhd Line: 150
 Info (12128): Elaborating entity "baud_tick" for hierarchy "uart_top:uart_top_1|baud_tick:baud_tick_inst1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/uart_top.vhd Line: 160
@@ -520,50 +537,56 @@ Info (12128): Elaborating entity "bit_counter" for hierarchy "uart_top:uart_top_
 Info (12128): Elaborating entity "uart_controller_fsm" for hierarchy "uart_top:uart_top_1|uart_controller_fsm:uart_controller_fsm_inst1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/uart_top.vhd Line: 175
 Info (12128): Elaborating entity "shiftreg_uart" for hierarchy "uart_top:uart_top_1|shiftreg_uart:shiftreg_uart_inst1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/uart_top.vhd Line: 187
 Info (12128): Elaborating entity "output_register" for hierarchy "uart_top:uart_top_1|output_register:output_register_inst1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/uart_top.vhd Line: 196
-Info (12128): Elaborating entity "codec_controller" for hierarchy "codec_controller:codec_controller_1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 170
-Info (12128): Elaborating entity "i2c_master" for hierarchy "i2c_master:i2c_master_1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 181
+Info (12128): Elaborating entity "codec_controller" for hierarchy "codec_controller:codec_controller_1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 215
+Info (12128): Elaborating entity "i2c_master" for hierarchy "i2c_master:i2c_master_1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 226
+Info (12128): Elaborating entity "i2s_master" for hierarchy "i2s_master:i2s_master_1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 238
+Warning (10541): VHDL Signal Declaration warning at i2s_master.vhd(28): used implicit default value for signal "step_o" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/i2s_master.vhd Line: 28
+Warning (10541): VHDL Signal Declaration warning at i2s_master.vhd(31): used implicit default value for signal "adcdat_pl_o" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/i2s_master.vhd Line: 31
+Warning (10541): VHDL Signal Declaration warning at i2s_master.vhd(32): used implicit default value for signal "adcdat_pr_o" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/i2s_master.vhd Line: 32
+Warning (10541): VHDL Signal Declaration warning at i2s_master.vhd(38): used implicit default value for signal "dacdat_s_o" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/i2s_master.vhd Line: 38
+Warning (10541): VHDL Signal Declaration warning at i2s_master.vhd(39): used implicit default value for signal "ws_o" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/i2s_master.vhd Line: 39
+Info (12128): Elaborating entity "path_control" for hierarchy "path_control:path_control_1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 252
 Info (13000): Registers with preset signals will power-up high File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/i2c_master.vhd Line: 301
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "AUD_DACDAT" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 48
-    Warning (13410): Pin "AUD_BCLK" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 49
-    Warning (13410): Pin "AUD_DACLRCK" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 50
-    Warning (13410): Pin "AUD_ADCLRCK" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 51
-    Warning (13410): Pin "LEDR_1" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 60
-    Warning (13410): Pin "LEDR_2" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 61
-    Warning (13410): Pin "LEDR_3" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 62
-    Warning (13410): Pin "LEDR_4" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 63
-    Warning (13410): Pin "LEDR_5" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 64
-    Warning (13410): Pin "LEDR_6" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 65
-    Warning (13410): Pin "LEDR_7" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 66
-    Warning (13410): Pin "LEDR_8" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 67
-    Warning (13410): Pin "LEDR_9" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 68
+    Warning (13410): Pin "AUD_DACDAT" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 49
+    Warning (13410): Pin "AUD_DACLRCK" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 51
+    Warning (13410): Pin "AUD_ADCLRCK" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 52
+    Warning (13410): Pin "LEDR_1" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 61
+    Warning (13410): Pin "LEDR_2" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 62
+    Warning (13410): Pin "LEDR_3" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 63
+    Warning (13410): Pin "LEDR_4" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 64
+    Warning (13410): Pin "LEDR_5" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 65
+    Warning (13410): Pin "LEDR_6" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 66
+    Warning (13410): Pin "LEDR_7" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 67
+    Warning (13410): Pin "LEDR_8" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 68
+    Warning (13410): Pin "LEDR_9" is stuck at GND File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 69
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 13 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "KEY_1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 37
-    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "USB_RXD" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 40
-    Warning (15610): No output dependent on input pin "BT_RXD" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 43
-    Warning (15610): No output dependent on input pin "BT_TXD" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 44
-    Warning (15610): No output dependent on input pin "BT_RST_N" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 45
-    Warning (15610): No output dependent on input pin "AUD_ADCDAT" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 52
-Info (21057): Implemented 283 device resources after synthesis - the final resource count might be different
+    Warning (15610): No output dependent on input pin "KEY_1" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 38
+    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 39
+    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 39
+    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 39
+    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 39
+    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 39
+    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 39
+    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 39
+    Warning (15610): No output dependent on input pin "USB_RXD" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 41
+    Warning (15610): No output dependent on input pin "BT_RXD" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 44
+    Warning (15610): No output dependent on input pin "BT_TXD" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 45
+    Warning (15610): No output dependent on input pin "BT_RST_N" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 46
+    Warning (15610): No output dependent on input pin "AUD_ADCDAT" File: C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/source/synthi_top.vhd Line: 53
+Info (21057): Implemented 287 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 19 input pins
     Info (21059): Implemented 30 output pins
     Info (21060): Implemented 1 bidirectional pins
-    Info (21061): Implemented 233 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 43 warnings
-    Info: Peak virtual memory: 4826 megabytes
-    Info: Processing ended: Mon Mar 11 11:03:25 2024
-    Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:07
+    Info (21061): Implemented 237 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 46 warnings
+    Info: Peak virtual memory: 4822 megabytes
+    Info: Processing ended: Tue Mar 12 10:04:15 2024
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:06
 
 

@@ -1,12 +1,12 @@
 -------------------------------------------------------------------------------
 -- Title      : synthi_top
--- Project    : 
+-- Project    : synthi
 -------------------------------------------------------------------------------
 -- File       : synthi_top.vhd
 -- Author     : grundale
 -- Company    : 
 -- Created    : 2018-03-08
--- Last update: 2024-03-06
+-- Last update: 2024-03-12
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -86,6 +86,14 @@ architecture struct of synthi_top is
   signal ack_error   : std_logic;
   signal write       : std_logic;
   signal write_data  : std_logic_vector(15 downto 0);
+  signal adcdat_pl   : std_logic_vector(15 downto 0);
+  signal adcdat_pr   : std_logic_vector(15 downto 0);
+  signal dacdat_pl   : std_logic_vector(15 downto 0);
+  signal dacdat_pr   : std_logic_vector(15 downto 0);
+  signal ws_o_sig    : std_logic;
+  signal step_o_sig  : std_logic;
+  signal dds_l       : std_logic_vector(15 downto 0);
+  signal dds_r       : std_logic_vector(15 downto 0);
 
   -----------------------------------------------------------------------------
   -- Component declarations
@@ -138,12 +146,48 @@ architecture struct of synthi_top is
       ack_error_o  : out   std_logic);
   end component i2c_master;
 
+  component i2s_master is
+    port (
+      clk_6m      : in  std_logic;
+      rst_n       : in  std_logic;
+      step_o      : out std_logic;
+      adcdat_pl_o : out std_logic_vector(15 downto 0);
+      adcdat_pr_o : out std_logic_vector(15 downto 0);
+      dacdat_pl_i : in  std_logic_vector(15 downto 0);
+      dacdat_pr_i : in  std_logic_vector(15 downto 0);
+      dacdat_s_o  : out std_logic;
+      ws_o        : out std_logic;
+      adcdat_s_i  : in  std_logic);
+  end component i2s_master;
+
+  component path_control is
+    port (
+      sw_3        : in  std_logic;
+      dds_l_i     : in  std_logic_vector(15 downto 0);
+      dds_r_i     : in  std_logic_vector(15 downto 0);
+      adcdat_pl_i : in  std_logic_vector(15 downto 0);
+      adcdat_pr_i : in  std_logic_vector(15 downto 0);
+      dacdat_pl_o : out std_logic_vector(15 downto 0);
+      dacdat_pr_o : out std_logic_vector(15 downto 0));
+  end component path_control;
+
+
 begin
 
 -----------------------------------------------------------------------------
   -- Architecture Description
 -----------------------------------------------------------------------------
 
+  -----------------------------------------------------------------------------
+  -- Concurrent Assignments
+  -----------------------------------------------------------------------------
+  AUD_DACLRCK <= ws_o_sig;
+  AUD_ADCLRCK <= ws_o_sig;
+  AUD_BCLK     <= not(clk_6m_sig);
+
+  -----------------------------------------------------------------------------
+  -- Instances
+  -----------------------------------------------------------------------------
   -- instance "infrastructure_1"
   infrastructure_1 : infrastructure
     port map (
@@ -189,6 +233,32 @@ begin
       scl_o        => AUD_SCLK,
       write_done_o => write_done,
       ack_error_o  => ack_error);
+
+  -- instance "i2s_master_1"
+  i2s_master_1 : i2s_master
+    port map (
+      clk_6m      => clk_6m_sig,
+      rst_n       => reset_n_sig,
+      step_o      => step_o_sig,
+      adcdat_pl_o => adcdat_pl,
+      adcdat_pr_o => adcdat_pr,
+      dacdat_pl_i => dacdat_pl,
+      dacdat_pr_i => dacdat_pr,
+      dacdat_s_o  => AUD_DACDAT,
+      ws_o        => ws_o_sig,
+      adcdat_s_i  => AUD_ADCDAT);
+
+  -- instance "path_control_1"
+  path_control_1 : path_control
+    port map (
+      sw_3        => SW(3),
+      dds_l_i     => dds_l,
+      dds_r_i     => dds_r,
+      adcdat_pl_i => adcdat_pl,
+      adcdat_pr_i => adcdat_pr,
+      dacdat_pl_o => dacdat_pl,
+      dacdat_pr_o => dacdat_pr);
+
 
 end architecture struct;
 
