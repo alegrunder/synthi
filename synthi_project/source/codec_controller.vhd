@@ -21,9 +21,8 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-use work.reg_table_pkg.all;
 library work;
-
+use work.reg_table_pkg.all;
 
 
 entity codec_controller is
@@ -86,10 +85,10 @@ begin
         if ack_error_i = '1' then
           next_fsm_state <= st_state_end;
         elsif write_done_i = '1' then
-          next_count <= count + 1;
           if count >= 9 then
             next_fsm_state <= st_state_end;
           else
+            next_count <= count + 1;
             next_fsm_state <= st_idle;
           end if;
         end if;
@@ -111,18 +110,17 @@ begin
     case fsm_state is
       when st_idle =>
         write_o <= '1';
-      when st_wait_write =>
+      --when st_wait_write =>
         -- generate data for I2C (select corresponding value from array)
-        case mode is
-          when "001"  => write_data_o <= "000" & std_logic_vector(count) & C_W8731_ANALOG_BYPASS(to_integer(count));
-          when "101"  => write_data_o <= "000" & std_logic_vector(count) & C_W8731_ANALOG_MUTE_LEFT(to_integer(count));
-          when "011"  => write_data_o <= "000" & std_logic_vector(count) & C_W8731_ANALOG_MUTE_RIGHT(to_integer(count));
-          when "111"  => write_data_o <= "000" & std_logic_vector(count) & C_W8731_ANALOG_MUTE_BOTH(to_integer(count));
-          when others => write_data_o <= "000" & std_logic_vector(count) & C_W8731_ADC_DAC_0DB_48K(to_integer(count));
-        end case;
       when others => null;
     end case;
-
+    case mode is
+      when "001"  => write_data_o <= "000" & std_logic_vector(count) & C_W8731_ANALOG_BYPASS(to_integer(count));
+      when "101"  => write_data_o <= "000" & std_logic_vector(count) & C_W8731_ANALOG_MUTE_LEFT(to_integer(count));
+      when "011"  => write_data_o <= "000" & std_logic_vector(count) & C_W8731_ANALOG_MUTE_RIGHT(to_integer(count));
+      when "111"  => write_data_o <= "000" & std_logic_vector(count) & C_W8731_ANALOG_MUTE_BOTH(to_integer(count));
+      when others => write_data_o <= "000" & std_logic_vector(count) & C_W8731_ADC_DAC_0DB_48K(to_integer(count));
+    end case;
   end process fsm_out_logic;
 
 
