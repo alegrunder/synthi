@@ -8,7 +8,19 @@
 					"strict" : false
 				},
 				{
+					"name" : "AUD_DACDAT",
+					"strict" : false
+				},
+				{
 					"name" : "AUD_BCLK",
+					"strict" : false
+				},
+				{
+					"name" : "AUD_DACLRCK",
+					"strict" : false
+				},
+				{
+					"name" : "AUD_ADCLRCK",
 					"strict" : false
 				},
 				{
@@ -89,6 +101,14 @@
 				},
 				{
 					"name" : "USB_TXD",
+					"strict" : false
+				},
+				{
+					"name" : "SW[3]",
+					"strict" : false
+				},
+				{
+					"name" : "AUD_ADCDAT",
 					"strict" : false
 				},
 				{

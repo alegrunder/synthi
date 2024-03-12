@@ -793,6 +793,8 @@ set_location_assignment PIN_AA19 -to BT_TXD
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to BT_TXD
 set_location_assignment PIN_Y19 -to BT_RST_N
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to BT_RST_N
+set_global_assignment -name VHDL_FILE ../source/uni_shiftreg.vhd
+set_global_assignment -name VHDL_FILE ../source/i2s_frame_generator.vhd
 set_global_assignment -name VHDL_FILE ../source/path_control.vhd
 set_global_assignment -name VHDL_FILE ../source/i2s_master.vhd
 set_global_assignment -name VHDL_FILE ../source/reg_table_pkg.vhd

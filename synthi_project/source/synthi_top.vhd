@@ -78,7 +78,7 @@ architecture struct of synthi_top is
 
   -----------------------------------------------------------------------------
   -- Internal signal declarations
-  -----------------------------------------------------------------------------;
+  -----------------------------------------------------------------------------
   signal clk_6m_sig  : std_logic;
   signal reset_n_sig : std_logic;
   signal serial_sig  : std_logic;
