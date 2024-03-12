@@ -1,5 +1,5 @@
 Flow report for synthi_top
-Tue Mar 12 22:21:38 2024
+Tue Mar 12 11:52:18 2024
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -41,17 +41,17 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Flow Summary                                                                        ;
 +------------------------------------+------------------------------------------------+
-; Flow Status                        ; Successful - Tue Mar 12 22:21:38 2024          ;
+; Flow Status                        ; Successful - Tue Mar 12 11:52:18 2024          ;
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; synthi_top                                     ;
 ; Top-level Entity Name              ; synthi_top                                     ;
 ; Family                             ; MAX 10                                         ;
 ; Device                             ; 10M50DAF484C7G                                 ;
 ; Timing Models                      ; Final                                          ;
-; Total logic elements               ; 296 / 49,760 ( < 1 % )                         ;
-;     Total combinational functions  ; 247 / 49,760 ( < 1 % )                         ;
-;     Dedicated logic registers      ; 198 / 49,760 ( < 1 % )                         ;
-; Total registers                    ; 198                                            ;
+; Total logic elements               ; 327 / 49,760 ( < 1 % )                         ;
+;     Total combinational functions  ; 276 / 49,760 ( < 1 % )                         ;
+;     Dedicated logic registers      ; 200 / 49,760 ( < 1 % )                         ;
+; Total registers                    ; 200                                            ;
 ; Total pins                         ; 50 / 360 ( 14 % )                              ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0 / 1,677,312 ( 0 % )                          ;
@@ -67,7 +67,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 03/12/2024 22:21:14 ;
+; Start date & time ; 03/12/2024 11:51:56 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; synthi_top          ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 4771270750080.171027847417092          ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 4771270750080.171024071615628          ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -104,12 +104,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:07     ; 1.0                     ; 4830 MB             ; 00:00:06                           ;
-; Fitter               ; 00:00:09     ; 1.1                     ; 5663 MB             ; 00:00:06                           ;
-; Assembler            ; 00:00:02     ; 1.0                     ; 4718 MB             ; 00:00:01                           ;
-; Timing Analyzer      ; 00:00:02     ; 1.1                     ; 4843 MB             ; 00:00:01                           ;
-; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 4651 MB             ; 00:00:00                           ;
-; Total                ; 00:00:20     ; --                      ; --                  ; 00:00:14                           ;
+; Analysis & Synthesis ; 00:00:07     ; 1.0                     ; 4830 MB             ; 00:00:07                           ;
+; Fitter               ; 00:00:07     ; 1.1                     ; 5652 MB             ; 00:00:05                           ;
+; Assembler            ; 00:00:02     ; 1.0                     ; 4738 MB             ; 00:00:02                           ;
+; Timing Analyzer      ; 00:00:02     ; 1.1                     ; 4852 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4651 MB             ; 00:00:00                           ;
+; Total                ; 00:00:19     ; --                      ; --                  ; 00:00:15                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
