@@ -183,7 +183,7 @@ begin
   -----------------------------------------------------------------------------
   AUD_DACLRCK <= ws_o_sig;
   AUD_ADCLRCK <= ws_o_sig;
-  AUD_BCLK     <= not(clk_6m_sig);
+  AUD_BCLK    <= not(clk_6m_sig);   -- invert for I2S
 
   -----------------------------------------------------------------------------
   -- Instances

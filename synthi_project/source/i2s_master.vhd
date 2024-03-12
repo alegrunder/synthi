@@ -115,7 +115,7 @@ begin
       rst_n   => rst_n,
       par_in  => dacdat_pl_i,
       load    => load,
-      ser_in  => '0',
+      ser_in  => '0',           -- not used
       enable  => shift_l,
       ser_out => ser_out_l
      -- par_out => par_out
@@ -130,7 +130,7 @@ begin
       rst_n   => rst_n,
       par_in  => dacdat_pr_i,
       load    => load,
-      ser_in  => '0',
+      ser_in  => '0',           -- not used
       enable  => shift_r,
       ser_out => ser_out_r
      -- par_out => par_out
@@ -143,8 +143,8 @@ begin
     port map (
       clk_6m  => clk_6m,
       rst_n   => rst_n,
-      par_in  => (others => '0'),
-      load    => '0',
+      par_in  => (others => '0'), -- not used
+      load    => '0',             -- not used
       ser_in  => adcdat_s_i,
       enable  => shift_l,
       -- ser_out => ser_out_l,
@@ -158,8 +158,8 @@ begin
     port map (
       clk_6m  => clk_6m,
       rst_n   => rst_n,
-      par_in  => (others => '0'),
-      load    => '0',
+      par_in  => (others => '0'), -- not used
+      load    => '0',             -- not used
       ser_in  => adcdat_s_i,
       enable  => shift_r,
       -- ser_out => ser_out_l,

@@ -52,7 +52,7 @@ begin  -- architecture arch
     dacdat_pr_o <= dds_r_i;
 
     case sw_3 is
-      when '1' =>
+      when '1' =>   -- digital loop
         dacdat_pl_o <= adcdat_pl_i;
         dacdat_pr_o <= adcdat_pr_i;
       when others => null;

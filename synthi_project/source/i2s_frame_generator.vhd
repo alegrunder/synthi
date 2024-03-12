@@ -44,7 +44,7 @@ architecture str of i2s_frame_generator is
   -----------------------------------------------------------------------------
   -- Internal signal declarations
   -----------------------------------------------------------------------------
-  constant width                       : positive := 7;  -- 0 ... 127 is 7 bits
+  constant width                       : positive := 7;  -- 0..127 is 7 bits
   signal bit_counter, next_bit_counter : unsigned(width-1 downto 0);
 
   -----------------------------------------------------------------------------
@@ -67,13 +67,13 @@ begin  -- architecture str
     shift_r <= '0';
     load    <= '0';
 
-    -- condition ws
+    -- condition for write select
     if bit_counter >= 64 then
       ws <= '1';
     end if;
 
     -- condition load, shift_l, shift_r
-    case to_integer(bit_counter) is
+    case to_integer(bit_counter) is     -- must convert to integer for such conditions
       when 0 =>
         load <= '1';
       when 1 to 16 =>

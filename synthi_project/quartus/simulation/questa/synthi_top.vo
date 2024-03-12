@@ -17,7 +17,7 @@
 // PROGRAM "Quartus Prime"
 // VERSION "Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition"
 
-// DATE "03/12/2024 11:13:52"
+// DATE "03/12/2024 22:21:38"
 
 // 
 // Device: Altera 10M50DAF484C7G Package FBGA484
@@ -75,7 +75,7 @@ output 	AUD_DACLRCK;
 output 	AUD_ADCLRCK;
 input 	AUD_ADCDAT;
 output 	AUD_SCLK;
-output 	AUD_SDAT;
+inout 	AUD_SDAT;
 output 	[6:0] HEX0;
 output 	[6:0] HEX1;
 output 	LEDR_0;
