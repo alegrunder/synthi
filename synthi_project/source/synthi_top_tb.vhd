@@ -6,7 +6,7 @@
 -- Author     : grundale
 -- Company    : 
 -- Created    : 2024-02-20
--- Last update: 2024-03-06
+-- Last update: 2024-03-19
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -128,6 +128,8 @@ architecture struct of synthi_top_tb is
 
   signal verbose : boolean;
   signal gpi_signals : std_logic_vector(31 downto 0);
+  signal switch : std_logic_vector(31 downto 0);
+  signal dacdat_check : std_logic_vector(31 downto 0);
   signal I2C_SDAT  : std_logic := 'H';
   signal I2C_SCLK  : std_logic := 'H';
   signal reg_data_0 : std_logic_vector(31 downto 0);
@@ -265,8 +267,7 @@ SW(9 downto 0) <= gpi_signals(9 downto 0);
         hex_chk(tv, hex1);
         
       elsif cmd.all = "set_switches" then
-        gpi_sim(tv, gpi_signals); 
-               
+        gpi_sim(tv, gpi_signals);          
         
       elsif cmd.all = "check_i2c_reg_0" then
         gpo_chk(tv,reg_data_0);
@@ -297,6 +298,13 @@ SW(9 downto 0) <= gpi_signals(9 downto 0);
 
       elsif cmd.all = "check_i2c_reg_9" then
         gpo_chk(tv,reg_data_9);
+
+      elsif cmd.all = "check_i2s" then
+        i2s_chk(tv,AUD_DACLRCK,AUD_BCLK,AUD_DACDAT,dacdat_check);
+        
+      elsif cmd.all = "send_i2s" then
+        i2s_sim(tv, AUD_ADCLRCK,AUD_BCLK, AUD_ADCDAT);
+        
 
       else
         assert false

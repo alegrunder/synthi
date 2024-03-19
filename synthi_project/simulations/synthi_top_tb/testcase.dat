@@ -28,6 +28,27 @@
 #check_display_hex0 04
 #check_display_hex1 03
 
+
+reset_target        20
+
+set_switches        00 00 00 08 #AD-DA Betrieb
+run_simulation_for  00 01 f0 00
+
+check_i2c_reg_0     00 00 00 17
+check_i2c_reg_1     00 00 00 17
+check_i2c_reg_2     00 00 00 7F
+check_i2c_reg_3     00 00 00 7F
+check_i2c_reg_4     00 00 00 12
+check_i2c_reg_5     00 00 00 00
+check_i2c_reg_6     00 00 00 00
+check_i2c_reg_7     00 00 00 02
+check_i2c_reg_8     00 00 00 00
+check_i2c_reg_9     00 00 00 01
+
+
+send_i2s            11 22 33 44
+check_i2s           11 22 33 44
+
 reset_target        20
 
 set_switches        00 00 00 02 #AD-DA Betrieb
@@ -49,10 +70,10 @@ reset_target        20
 set_switches        00 00 00 01 #Analog Bypass
 run_simulation_for  00 01 f0 00
 
-check_i2c_reg_0     00 00 00 17
-check_i2c_reg_1     00 00 00 17
-check_i2c_reg_2     00 00 00 7D
-check_i2c_reg_3     00 00 00 7D
+check_i2c_reg_0     00 00 00 0F
+check_i2c_reg_1     00 00 00 0f
+check_i2c_reg_2     00 00 00 79
+check_i2c_reg_3     00 00 00 79
 check_i2c_reg_4     00 00 00 0A
 check_i2c_reg_5     00 00 00 08
 check_i2c_reg_6     00 00 00 00

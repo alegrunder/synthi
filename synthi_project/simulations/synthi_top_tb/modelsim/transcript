@@ -1,12 +1,6 @@
 do ../compile.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Errors: 0, Warnings: 1
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-<<<<<<< Updated upstream
-# Start time: 22:08:56 on Mar 06,2024
-=======
-# Start time: 11:15:24 on Mar 11,2024
->>>>>>> Stashed changes
+# Start time: 10:02:19 on Mar 19,2024
 # vcom -reportprogress 300 -2008 -explicit -work work ../../support/simulation_pkg.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -16,17 +10,10 @@ do ../compile.do
 # -- Compiling package simulation_pkg
 # -- Compiling package body simulation_pkg
 # -- Loading package simulation_pkg
-<<<<<<< Updated upstream
-# End time: 22:08:56 on Mar 06,2024, Elapsed time: 0:00:00
+# End time: 10:02:19 on Mar 19,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 22:08:56 on Mar 06,2024
-=======
-# End time: 11:15:24 on Mar 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 11:15:24 on Mar 11,2024
->>>>>>> Stashed changes
+# Start time: 10:02:19 on Mar 19,2024
 # vcom -reportprogress 300 -2008 -explicit -work work ../../support/standard_driver_pkg.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -37,17 +24,10 @@ do ../compile.do
 # -- Compiling package standard_driver_pkg
 # -- Compiling package body standard_driver_pkg
 # -- Loading package standard_driver_pkg
-<<<<<<< Updated upstream
-# End time: 22:08:56 on Mar 06,2024, Elapsed time: 0:00:00
+# End time: 10:02:19 on Mar 19,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 22:08:56 on Mar 06,2024
-=======
-# End time: 11:15:25 on Mar 11,2024, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 11:15:25 on Mar 11,2024
->>>>>>> Stashed changes
+# Start time: 10:02:20 on Mar 19,2024
 # vcom -reportprogress 300 -2008 -explicit -work work ../../support/user_driver_pkg.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -58,33 +38,19 @@ do ../compile.do
 # -- Compiling package user_driver_pkg
 # -- Compiling package body user_driver_pkg
 # -- Loading package user_driver_pkg
-<<<<<<< Updated upstream
-# End time: 22:08:56 on Mar 06,2024, Elapsed time: 0:00:00
+# End time: 10:02:20 on Mar 19,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 22:08:56 on Mar 06,2024
-=======
-# End time: 11:15:25 on Mar 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 11:15:25 on Mar 11,2024
->>>>>>> Stashed changes
+# Start time: 10:02:20 on Mar 19,2024
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/reg_table_pkg.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling package reg_table_pkg
-<<<<<<< Updated upstream
-# End time: 22:08:56 on Mar 06,2024, Elapsed time: 0:00:00
+# End time: 10:02:20 on Mar 19,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 22:08:56 on Mar 06,2024
-=======
-# End time: 11:15:25 on Mar 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 11:15:26 on Mar 11,2024
->>>>>>> Stashed changes
+# Start time: 10:02:20 on Mar 19,2024
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/codec_controller.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -93,17 +59,10 @@ do ../compile.do
 # -- Loading package reg_table_pkg
 # -- Compiling entity codec_controller
 # -- Compiling architecture rtl of codec_controller
-<<<<<<< Updated upstream
-# End time: 22:08:56 on Mar 06,2024, Elapsed time: 0:00:00
+# End time: 10:02:20 on Mar 19,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 22:08:56 on Mar 06,2024
-=======
-# End time: 11:15:26 on Mar 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 11:15:26 on Mar 11,2024
->>>>>>> Stashed changes
+# Start time: 10:02:20 on Mar 19,2024
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2c_master.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -111,105 +70,10 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity i2c_master
 # -- Compiling architecture rtl of i2c_master
-<<<<<<< Updated upstream
-# End time: 22:08:56 on Mar 06,2024, Elapsed time: 0:00:00
+# End time: 10:02:21 on Mar 19,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 22:08:56 on Mar 06,2024
-=======
-# End time: 11:15:26 on Mar 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 11:15:26 on Mar 11,2024
-# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2c_slave_bfm.vhd 
-# ** Error: (vcom-7) Failed to open design unit file "../../../source/i2c_slave_bfm.vhd" in read mode.
-# No such file or directory. (errno = ENOENT)
-# End time: 11:15:26 on Mar 11,2024, Elapsed time: 0:00:00
-# Errors: 1, Warnings: 0
-# ** Error: C:/intelFPGA/21.1/questa_fse/win64/vcom failed.
-# Error in macro ./../compile.do line 12
-# C:/intelFPGA/21.1/questa_fse/win64/vcom failed.
-#     while executing
-# "vcom -2008 -explicit -work work ../../../source/i2c_slave_bfm.vhd"
-do ../compile.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Errors: 0, Warnings: 1
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 11:16:47 on Mar 11,2024
-# vcom -reportprogress 300 -2008 -explicit -work work ../../support/simulation_pkg.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Loading package ENV
-# -- Compiling package simulation_pkg
-# -- Compiling package body simulation_pkg
-# -- Loading package simulation_pkg
-# End time: 11:16:48 on Mar 11,2024, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 11:16:48 on Mar 11,2024
-# vcom -reportprogress 300 -2008 -explicit -work work ../../support/standard_driver_pkg.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Loading package ENV
-# -- Loading package simulation_pkg
-# -- Compiling package standard_driver_pkg
-# -- Compiling package body standard_driver_pkg
-# -- Loading package standard_driver_pkg
-# End time: 11:16:48 on Mar 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 11:16:48 on Mar 11,2024
-# vcom -reportprogress 300 -2008 -explicit -work work ../../support/user_driver_pkg.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Loading package ENV
-# -- Loading package simulation_pkg
-# -- Compiling package user_driver_pkg
-# -- Compiling package body user_driver_pkg
-# -- Loading package user_driver_pkg
-# End time: 11:16:49 on Mar 11,2024, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 11:16:49 on Mar 11,2024
-# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/reg_table_pkg.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling package reg_table_pkg
-# End time: 11:16:49 on Mar 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 11:16:49 on Mar 11,2024
-# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/codec_controller.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Loading package reg_table_pkg
-# -- Compiling entity codec_controller
-# -- Compiling architecture rtl of codec_controller
-# End time: 11:16:49 on Mar 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 11:16:49 on Mar 11,2024
-# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2c_master.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity i2c_master
-# -- Compiling architecture rtl of i2c_master
-# End time: 11:16:50 on Mar 11,2024, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 11:16:50 on Mar 11,2024
->>>>>>> Stashed changes
+# Start time: 10:02:21 on Mar 19,2024
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2c_slave_bfm.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -217,17 +81,10 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity i2c_slave_bfm
 # -- Compiling architecture bfm of i2c_slave_bfm
-<<<<<<< Updated upstream
-# End time: 22:08:56 on Mar 06,2024, Elapsed time: 0:00:00
+# End time: 10:02:21 on Mar 19,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 22:08:57 on Mar 06,2024
-=======
-# End time: 11:16:50 on Mar 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 11:16:50 on Mar 11,2024
->>>>>>> Stashed changes
+# Start time: 10:02:21 on Mar 19,2024
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/baud_tick.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -235,17 +92,10 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity baud_tick
 # -- Compiling architecture rtl of baud_tick
-<<<<<<< Updated upstream
-# End time: 22:08:57 on Mar 06,2024, Elapsed time: 0:00:00
+# End time: 10:02:21 on Mar 19,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 22:08:57 on Mar 06,2024
-=======
-# End time: 11:16:50 on Mar 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 11:16:50 on Mar 11,2024
->>>>>>> Stashed changes
+# Start time: 10:02:21 on Mar 19,2024
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/bit_counter.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -253,51 +103,30 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity bit_counter
 # -- Compiling architecture rtl of bit_counter
-<<<<<<< Updated upstream
-# End time: 22:08:57 on Mar 06,2024, Elapsed time: 0:00:00
+# End time: 10:02:22 on Mar 19,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 22:08:57 on Mar 06,2024
-=======
-# End time: 11:16:51 on Mar 11,2024, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 11:16:51 on Mar 11,2024
->>>>>>> Stashed changes
+# Start time: 10:02:22 on Mar 19,2024
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/clock_sync.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity clock_sync
 # -- Compiling architecture rtl of clock_sync
-<<<<<<< Updated upstream
-# End time: 22:08:57 on Mar 06,2024, Elapsed time: 0:00:00
+# End time: 10:02:22 on Mar 19,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 22:08:57 on Mar 06,2024
-=======
-# End time: 11:16:51 on Mar 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 11:16:51 on Mar 11,2024
->>>>>>> Stashed changes
+# Start time: 10:02:22 on Mar 19,2024
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/flanken_detekt_vhdl.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity flanken_detekt_vhdl
 # -- Compiling architecture rtl of flanken_detekt_vhdl
-<<<<<<< Updated upstream
-# End time: 22:08:57 on Mar 06,2024, Elapsed time: 0:00:00
+# End time: 10:02:22 on Mar 19,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 22:08:57 on Mar 06,2024
-=======
-# End time: 11:16:51 on Mar 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 11:16:51 on Mar 11,2024
->>>>>>> Stashed changes
+# Start time: 10:02:22 on Mar 19,2024
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/modulo_divider.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -306,17 +135,10 @@ do ../compile.do
 # -- Compiling entity modulo_divider
 # -- Compiling architecture rtl of modulo_divider
 # ** Warning: ../../../source/modulo_divider.vhd(33): (vcom-1013) Subtype of "ieee.NUMERIC_STD.UNSIGNED" depends on value of signal "width".
-<<<<<<< Updated upstream
-# End time: 22:08:57 on Mar 06,2024, Elapsed time: 0:00:00
+# End time: 10:02:23 on Mar 19,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 1
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 22:08:57 on Mar 06,2024
-=======
-# End time: 11:16:52 on Mar 11,2024, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 1
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 11:16:52 on Mar 11,2024
->>>>>>> Stashed changes
+# Start time: 10:02:23 on Mar 19,2024
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/output_register.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -324,34 +146,20 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity output_register
 # -- Compiling architecture rtl of output_register
-<<<<<<< Updated upstream
-# End time: 22:08:57 on Mar 06,2024, Elapsed time: 0:00:00
+# End time: 10:02:23 on Mar 19,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 22:08:57 on Mar 06,2024
-=======
-# End time: 11:16:52 on Mar 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 11:16:52 on Mar 11,2024
->>>>>>> Stashed changes
+# Start time: 10:02:23 on Mar 19,2024
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/shiftreg_uart.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity shiftreg_uart
 # -- Compiling architecture rtl of shiftreg_uart
-<<<<<<< Updated upstream
-# End time: 22:08:57 on Mar 06,2024, Elapsed time: 0:00:00
+# End time: 10:02:23 on Mar 19,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 22:08:57 on Mar 06,2024
-=======
-# End time: 11:16:52 on Mar 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 11:16:52 on Mar 11,2024
->>>>>>> Stashed changes
+# Start time: 10:02:23 on Mar 19,2024
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/signal_checker.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -359,17 +167,10 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity signal_checker
 # -- Compiling architecture rtl of signal_checker
-<<<<<<< Updated upstream
-# End time: 22:08:58 on Mar 06,2024, Elapsed time: 0:00:01
+# End time: 10:02:23 on Mar 19,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 22:08:58 on Mar 06,2024
-=======
-# End time: 11:16:53 on Mar 11,2024, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 11:16:53 on Mar 11,2024
->>>>>>> Stashed changes
+# Start time: 10:02:24 on Mar 19,2024
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/uart_controller_fsm.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -377,34 +178,20 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity uart_controller_fsm
 # -- Compiling architecture rtl of uart_controller_fsm
-<<<<<<< Updated upstream
-# End time: 22:08:58 on Mar 06,2024, Elapsed time: 0:00:00
+# End time: 10:02:24 on Mar 19,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 22:08:58 on Mar 06,2024
-=======
-# End time: 11:16:53 on Mar 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 11:16:53 on Mar 11,2024
->>>>>>> Stashed changes
+# Start time: 10:02:24 on Mar 19,2024
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/vhdl_hex2sevseg.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity vhdl_hex2sevseg
 # -- Compiling architecture comb of vhdl_hex2sevseg
-<<<<<<< Updated upstream
-# End time: 22:08:58 on Mar 06,2024, Elapsed time: 0:00:00
+# End time: 10:02:24 on Mar 19,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 22:08:58 on Mar 06,2024
-=======
-# End time: 11:16:53 on Mar 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 11:16:54 on Mar 11,2024
->>>>>>> Stashed changes
+# Start time: 10:02:24 on Mar 19,2024
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/infrastructure.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -412,34 +199,61 @@ do ../compile.do
 # -- Loading package NUMERIC_STD
 # -- Compiling entity infrastructure
 # -- Compiling architecture infra_arch of infrastructure
-<<<<<<< Updated upstream
-# End time: 22:08:58 on Mar 06,2024, Elapsed time: 0:00:00
+# End time: 10:02:25 on Mar 19,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 22:08:58 on Mar 06,2024
-=======
-# End time: 11:16:54 on Mar 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 11:16:54 on Mar 11,2024
->>>>>>> Stashed changes
+# Start time: 10:02:25 on Mar 19,2024
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/uart_top.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity uart_top
 # -- Compiling architecture uart_arch of uart_top
-<<<<<<< Updated upstream
-# End time: 22:08:58 on Mar 06,2024, Elapsed time: 0:00:00
+# End time: 10:02:25 on Mar 19,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 22:08:58 on Mar 06,2024
-=======
-# End time: 11:16:54 on Mar 11,2024, Elapsed time: 0:00:00
+# Start time: 10:02:25 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2s_master.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity i2s_master
+# -- Compiling architecture top of i2s_master
+# End time: 10:02:26 on Mar 19,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 11:16:54 on Mar 11,2024
->>>>>>> Stashed changes
+# Start time: 10:02:26 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2s_frame_generator.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity i2s_frame_generator
+# -- Compiling architecture str of i2s_frame_generator
+# End time: 10:02:26 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:02:26 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/path_control.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity path_control
+# -- Compiling architecture arch of path_control
+# End time: 10:02:26 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:02:26 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/uni_shiftreg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity uni_shiftreg
+# -- Compiling architecture str of uni_shiftreg
+# End time: 10:02:27 on Mar 19,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:02:27 on Mar 19,2024
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/synthi_top.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -448,17 +262,10 @@ do ../compile.do
 # -- Loading package reg_table_pkg
 # -- Compiling entity synthi_top
 # -- Compiling architecture struct of synthi_top
-<<<<<<< Updated upstream
-# End time: 22:08:58 on Mar 06,2024, Elapsed time: 0:00:00
+# End time: 10:02:27 on Mar 19,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 22:08:58 on Mar 06,2024
-=======
-# End time: 11:16:54 on Mar 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 11:16:55 on Mar 11,2024
->>>>>>> Stashed changes
+# Start time: 10:02:27 on Mar 19,2024
 # vcom -reportprogress 300 -2008 -explicit -work work ../../../source/synthi_top_tb.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -470,20 +277,15 @@ do ../compile.do
 # -- Loading package user_driver_pkg
 # -- Compiling entity synthi_top_tb
 # -- Compiling architecture struct of synthi_top_tb
-<<<<<<< Updated upstream
-# ** Warning: ../../../source/synthi_top_tb.vhd(289): (vcom-1049) Actual for generic "verbose" depends on value of signal "verbose".
-# End time: 22:08:58 on Mar 06,2024, Elapsed time: 0:00:00
+# ** Warning: ../../../source/synthi_top_tb.vhd(183): (vcom-1049) Actual for generic "verbose" depends on value of signal "verbose".
+# End time: 10:02:28 on Mar 19,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 1
 # vsim -voptargs="+acc" -t 1ns -lib work work.synthi_top_tb 
-# Start time: 22:08:58 on Mar 06,2024
-=======
-# End time: 11:16:55 on Mar 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vsim -voptargs="+acc" -t 1ns -lib work work.synthi_top_tb 
-# Start time: 11:16:55 on Mar 11,2024
->>>>>>> Stashed changes
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Start time: 10:02:28 on Mar 19,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Note: (vopt-143) Recognized 1 FSM in architecture body "i2c_master(rtl)".
 # ** Note: (vopt-143) Recognized 1 FSM in architecture body "codec_controller(rtl)".
+# ** Note: (vopt-143) Recognized 1 FSM in architecture body "uart_controller_fsm(rtl)".
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -509,18 +311,11 @@ do ../compile.do
 # Loading work.output_register(rtl)#1
 # Loading work.codec_controller(rtl)#1
 # Loading work.i2c_master(rtl)#1
-<<<<<<< Updated upstream
+# Loading work.i2s_master(top)#1
+# Loading work.uni_shiftreg(str)#1
+# Loading work.i2s_frame_generator(str)#1
+# Loading work.path_control(arch)#1
 # Loading work.i2c_slave_bfm(bfm)#1
-=======
->>>>>>> Stashed changes
-# ** Warning: (vsim-8683) Uninitialized out port /synthi_top_tb/DUT/AUD_DACDAT has no driver.
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized out port /synthi_top_tb/DUT/AUD_BCLK has no driver.
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized out port /synthi_top_tb/DUT/AUD_DACLRCK has no driver.
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized out port /synthi_top_tb/DUT/AUD_ADCLRCK has no driver.
-# This port will contribute value (U) to the signal network.
 # ** Warning: (vsim-8683) Uninitialized out port /synthi_top_tb/DUT/LEDR_1 has no driver.
 # This port will contribute value (U) to the signal network.
 # ** Warning: (vsim-8683) Uninitialized out port /synthi_top_tb/DUT/LEDR_2 has no driver.
@@ -539,6 +334,10 @@ do ../compile.do
 # This port will contribute value (U) to the signal network.
 # ** Warning: (vsim-8683) Uninitialized out port /synthi_top_tb/DUT/LEDR_9 has no driver.
 # This port will contribute value (U) to the signal network.
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/i2s_master_1/i2s_frame_generator_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/i2s_master_1/i2s_frame_generator_1
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/codec_controller_1
 # ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
@@ -556,30 +355,1052 @@ do ../compile.do
 # ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
 #    Time: 0 ns  Iteration: 1  Instance: /synthi_top_tb/DUT/uart_top_1/bit_counter_inst1
 # LOGIC HAS BEEN RESET FOR 640 ns
-<<<<<<< Updated upstream
-# HEX VALUE 00000007 APPLIED to DUT
-# ** Fatal: (vsim-3421) Value 10 is out of range 0 to 9.
-#    Time: 1534790 ns  Iteration: 5  Process: /synthi_top_tb/DUT/codec_controller_1/fsm_out_logic File: ../../../source/codec_controller.vhd Line: 120
-# Fatal error in Process fsm_out_logic at ../../../source/codec_controller.vhd line 120
-# 
-# HDL call sequence:
-# Stopped at ../../../source/codec_controller.vhd 120 Process fsm_out_logic
-# 
-# End time: 22:15:00 on Mar 06,2024, Elapsed time: 0:06:02
-# Errors: 1, Warnings: 22
-=======
-# ** Error: NO MATCHING COMMAND FOUND IN 'testcase.dat' AT LINE: 32
-#    Time: 640 ns  Iteration: 0  Instance: /synthi_top_tb
+# HEX VALUE 00000002 APPLIED to DUT
 # SIMULATED FOR 0001F000 CLOCKS
-# ** Error: NO MATCHING COMMAND FOUND IN 'testcase.dat' AT LINE: 34
-#    Time: 2540160 ns  Iteration: 0  Instance: /synthi_top_tb
-# ** Error: NO MATCHING COMMAND FOUND IN 'testcase.dat' AT LINE: 35
-#    Time: 2540160 ns  Iteration: 0  Instance: /synthi_top_tb
-# ** Error: NO MATCHING COMMAND FOUND IN 'testcase.dat' AT LINE: 36
-#    Time: 2540160 ns  Iteration: 0  Instance: /synthi_top_tb
+# 00000017 RETURNED FROM DUT, O.K. 
+# 00000017 RETURNED FROM DUT, O.K. 
+# 0000007F RETURNED FROM DUT, O.K. 
+# 0000007F RETURNED FROM DUT, O.K. 
+# 00000012 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000002 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000001 RETURNED FROM DUT, O.K. 
+# 11223344 WRITTEN TO I2S BUS(CODEC ANALOG OUT) 
+# ERROR:CODEC RECEIVED WRONG AUDIO DATA 00000000 EXPECTED 11223344
+# LOGIC HAS BEEN RESET FOR 640 ns
+# HEX VALUE 00000001 APPLIED to DUT
+# SIMULATED FOR 0001F000 CLOCKS
+# ERROR: COMPARE FAILED. SIGNALS RETURNED 0000000F SIGNALS EXPECTED 00000017
+# ERROR: COMPARE FAILED. SIGNALS RETURNED 0000000F SIGNALS EXPECTED 00000017
+# ERROR: COMPARE FAILED. SIGNALS RETURNED 00000079 SIGNALS EXPECTED 0000007D
+# ERROR: COMPARE FAILED. SIGNALS RETURNED 00000079 SIGNALS EXPECTED 0000007D
+# 0000000A RETURNED FROM DUT, O.K. 
+# 00000008 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000002 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000001 RETURNED FROM DUT, O.K. 
+# LOGIC HAS BEEN RESET FOR 640 ns
+# HEX VALUE 00000003 APPLIED to DUT
+# SIMULATED FOR 0001F000 CLOCKS
+# 0000000F RETURNED FROM DUT, O.K. 
+# 0000000F RETURNED FROM DUT, O.K. 
+# 00000079 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 0000000A RETURNED FROM DUT, O.K. 
+# 00000008 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000002 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000001 RETURNED FROM DUT, O.K. 
+# LOGIC HAS BEEN RESET FOR 640 ns
+# HEX VALUE 00000005 APPLIED to DUT
+# SIMULATED FOR 0001F000 CLOCKS
+# 0000000F RETURNED FROM DUT, O.K. 
+# 0000000F RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000079 RETURNED FROM DUT, O.K. 
+# 0000000A RETURNED FROM DUT, O.K. 
+# 00000008 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000002 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000001 RETURNED FROM DUT, O.K. 
+# LOGIC HAS BEEN RESET FOR 640 ns
+# HEX VALUE 00000007 APPLIED to DUT
+# SIMULATED FOR 0001F000 CLOCKS
+# 0000000F RETURNED FROM DUT, O.K. 
+# 0000000F RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 0000000A RETURNED FROM DUT, O.K. 
+# 00000008 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000002 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000001 RETURNED FROM DUT, O.K. 
+# ERRORS IN SIMULATION: Simulation found 5 failures 
+# Break in Subprogram end_simulation at ../../support/simulation_pkg.vhd line 95
+do ../compile.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:04:13 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../support/simulation_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Compiling package simulation_pkg
+# -- Compiling package body simulation_pkg
+# -- Loading package simulation_pkg
+# End time: 10:04:13 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:04:13 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../support/standard_driver_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Loading package simulation_pkg
+# -- Compiling package standard_driver_pkg
+# -- Compiling package body standard_driver_pkg
+# -- Loading package standard_driver_pkg
+# End time: 10:04:13 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:04:14 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../support/user_driver_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Loading package simulation_pkg
+# -- Compiling package user_driver_pkg
+# -- Compiling package body user_driver_pkg
+# -- Loading package user_driver_pkg
+# End time: 10:04:14 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:04:14 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/reg_table_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling package reg_table_pkg
+# End time: 10:04:14 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:04:14 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/codec_controller.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package reg_table_pkg
+# -- Compiling entity codec_controller
+# -- Compiling architecture rtl of codec_controller
+# End time: 10:04:15 on Mar 19,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:04:15 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2c_master.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity i2c_master
+# -- Compiling architecture rtl of i2c_master
+# End time: 10:04:15 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:04:15 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2c_slave_bfm.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity i2c_slave_bfm
+# -- Compiling architecture bfm of i2c_slave_bfm
+# End time: 10:04:15 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:04:15 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/baud_tick.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity baud_tick
+# -- Compiling architecture rtl of baud_tick
+# End time: 10:04:16 on Mar 19,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:04:16 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/bit_counter.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity bit_counter
+# -- Compiling architecture rtl of bit_counter
+# End time: 10:04:16 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:04:16 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/clock_sync.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity clock_sync
+# -- Compiling architecture rtl of clock_sync
+# End time: 10:04:16 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:04:16 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/flanken_detekt_vhdl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity flanken_detekt_vhdl
+# -- Compiling architecture rtl of flanken_detekt_vhdl
+# End time: 10:04:17 on Mar 19,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:04:17 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/modulo_divider.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity modulo_divider
+# -- Compiling architecture rtl of modulo_divider
+# ** Warning: ../../../source/modulo_divider.vhd(33): (vcom-1013) Subtype of "ieee.NUMERIC_STD.UNSIGNED" depends on value of signal "width".
+# End time: 10:04:17 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:04:17 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/output_register.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity output_register
+# -- Compiling architecture rtl of output_register
+# End time: 10:04:17 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:04:18 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/shiftreg_uart.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity shiftreg_uart
+# -- Compiling architecture rtl of shiftreg_uart
+# End time: 10:04:18 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:04:18 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/signal_checker.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity signal_checker
+# -- Compiling architecture rtl of signal_checker
+# End time: 10:04:18 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:04:18 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/uart_controller_fsm.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity uart_controller_fsm
+# -- Compiling architecture rtl of uart_controller_fsm
+# End time: 10:04:19 on Mar 19,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:04:19 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/vhdl_hex2sevseg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity vhdl_hex2sevseg
+# -- Compiling architecture comb of vhdl_hex2sevseg
+# End time: 10:04:19 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:04:19 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/infrastructure.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity infrastructure
+# -- Compiling architecture infra_arch of infrastructure
+# End time: 10:04:20 on Mar 19,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:04:20 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/uart_top.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity uart_top
+# -- Compiling architecture uart_arch of uart_top
+# End time: 10:04:20 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:04:20 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2s_master.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity i2s_master
+# -- Compiling architecture top of i2s_master
+# End time: 10:04:20 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:04:20 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2s_frame_generator.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity i2s_frame_generator
+# -- Compiling architecture str of i2s_frame_generator
+# End time: 10:04:20 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:04:20 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/path_control.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity path_control
+# -- Compiling architecture arch of path_control
+# End time: 10:04:21 on Mar 19,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:04:21 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/uni_shiftreg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity uni_shiftreg
+# -- Compiling architecture str of uni_shiftreg
+# End time: 10:04:21 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:04:21 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/synthi_top.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package reg_table_pkg
+# -- Compiling entity synthi_top
+# -- Compiling architecture struct of synthi_top
+# End time: 10:04:21 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:04:21 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/synthi_top_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Loading package simulation_pkg
+# -- Loading package standard_driver_pkg
+# -- Loading package user_driver_pkg
+# -- Compiling entity synthi_top_tb
+# -- Compiling architecture struct of synthi_top_tb
+# ** Warning: ../../../source/synthi_top_tb.vhd(183): (vcom-1049) Actual for generic "verbose" depends on value of signal "verbose".
+# End time: 10:04:22 on Mar 19,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 1
+# End time: 10:04:25 on Mar 19,2024, Elapsed time: 0:01:57
+# Errors: 0, Warnings: 20
+# vsim -voptargs="+acc" -t 1ns -lib work work.synthi_top_tb 
+# Start time: 10:04:25 on Mar 19,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading std.env(body)
+# Loading work.simulation_pkg(body)
+# Loading work.standard_driver_pkg(body)
+# Loading work.user_driver_pkg(body)
+# Loading work.synthi_top_tb(struct)#1
+# Loading work.reg_table_pkg
+# Loading work.synthi_top(struct)#1
+# Loading work.infrastructure(infra_arch)#1
+# Loading work.modulo_divider(rtl)#1
+# Loading work.clock_sync(rtl)#1
+# Loading work.signal_checker(rtl)#1
+# Loading work.uart_top(uart_arch)#1
+# Loading work.flanken_detekt_vhdl(rtl)#1
+# Loading work.vhdl_hex2sevseg(comb)#1
+# Loading work.baud_tick(rtl)#1
+# Loading work.bit_counter(rtl)#1
+# Loading work.uart_controller_fsm(rtl)#1
+# Loading work.shiftreg_uart(rtl)#1
+# Loading work.output_register(rtl)#1
+# Loading work.codec_controller(rtl)#1
+# Loading work.i2c_master(rtl)#1
+# Loading work.i2s_master(top)#1
+# Loading work.uni_shiftreg(str)#1
+# Loading work.i2s_frame_generator(str)#1
+# Loading work.path_control(arch)#1
+# Loading work.i2c_slave_bfm(bfm)#1
+# ** Warning: (vsim-8683) Uninitialized out port /synthi_top_tb/DUT/LEDR_1 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /synthi_top_tb/DUT/LEDR_2 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /synthi_top_tb/DUT/LEDR_3 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /synthi_top_tb/DUT/LEDR_4 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /synthi_top_tb/DUT/LEDR_5 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /synthi_top_tb/DUT/LEDR_6 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /synthi_top_tb/DUT/LEDR_7 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /synthi_top_tb/DUT/LEDR_8 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /synthi_top_tb/DUT/LEDR_9 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/i2s_master_1/i2s_frame_generator_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/i2s_master_1/i2s_frame_generator_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/codec_controller_1
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/uart_top_1/bit_counter_inst1
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/uart_top_1/baud_tick_inst1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/infrastructure_1/signal_checker_1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/infrastructure_1/signal_checker_1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/infrastructure_1/signal_checker_1
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /synthi_top_tb/DUT/uart_top_1/baud_tick_inst1
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /synthi_top_tb/DUT/uart_top_1/bit_counter_inst1
+# LOGIC HAS BEEN RESET FOR 640 ns
+# HEX VALUE 00000002 APPLIED to DUT
+# SIMULATED FOR 0001F000 CLOCKS
+# 00000017 RETURNED FROM DUT, O.K. 
+# 00000017 RETURNED FROM DUT, O.K. 
+# 0000007F RETURNED FROM DUT, O.K. 
+# 0000007F RETURNED FROM DUT, O.K. 
+# 00000012 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000002 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000001 RETURNED FROM DUT, O.K. 
+# 11223344 WRITTEN TO I2S BUS(CODEC ANALOG OUT) 
+# ERROR:CODEC RECEIVED WRONG AUDIO DATA 00000000 EXPECTED 11223344
+# LOGIC HAS BEEN RESET FOR 640 ns
+# HEX VALUE 00000001 APPLIED to DUT
+# SIMULATED FOR 0001F000 CLOCKS
+# ERROR: COMPARE FAILED. SIGNALS RETURNED 0000000F SIGNALS EXPECTED 00000017
+# ERROR: COMPARE FAILED. SIGNALS RETURNED 0000000F SIGNALS EXPECTED 00000017
+# ERROR: COMPARE FAILED. SIGNALS RETURNED 00000079 SIGNALS EXPECTED 0000007D
+# ERROR: COMPARE FAILED. SIGNALS RETURNED 00000079 SIGNALS EXPECTED 0000007D
+# 0000000A RETURNED FROM DUT, O.K. 
+# 00000008 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000002 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000001 RETURNED FROM DUT, O.K. 
+# LOGIC HAS BEEN RESET FOR 640 ns
+# HEX VALUE 00000003 APPLIED to DUT
+# SIMULATED FOR 0001F000 CLOCKS
+# 0000000F RETURNED FROM DUT, O.K. 
+# 0000000F RETURNED FROM DUT, O.K. 
+# 00000079 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 0000000A RETURNED FROM DUT, O.K. 
+# 00000008 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000002 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000001 RETURNED FROM DUT, O.K. 
+# LOGIC HAS BEEN RESET FOR 640 ns
+# HEX VALUE 00000005 APPLIED to DUT
+# SIMULATED FOR 0001F000 CLOCKS
+# 0000000F RETURNED FROM DUT, O.K. 
+# 0000000F RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000079 RETURNED FROM DUT, O.K. 
+# 0000000A RETURNED FROM DUT, O.K. 
+# 00000008 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000002 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000001 RETURNED FROM DUT, O.K. 
+# LOGIC HAS BEEN RESET FOR 640 ns
+# HEX VALUE 00000007 APPLIED to DUT
+# SIMULATED FOR 0001F000 CLOCKS
+# 0000000F RETURNED FROM DUT, O.K. 
+# 0000000F RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 0000000A RETURNED FROM DUT, O.K. 
+# 00000008 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000002 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000001 RETURNED FROM DUT, O.K. 
+# ERRORS IN SIMULATION: Simulation found 5 failures 
+# Break in Subprogram end_simulation at ../../support/simulation_pkg.vhd line 95
+add wave -position end  sim:/synthi_top_tb/DUT/path_control_1/adcdat_pl_i
+add wave -position end  sim:/synthi_top_tb/DUT/path_control_1/adcdat_pr_i
+add wave -position end  sim:/synthi_top_tb/DUT/path_control_1/dacdat_pl_o
+add wave -position end  sim:/synthi_top_tb/DUT/path_control_1/dacdat_pr_o
+do ../compile.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:20:15 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../support/simulation_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Compiling package simulation_pkg
+# -- Compiling package body simulation_pkg
+# -- Loading package simulation_pkg
+# End time: 10:20:15 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:20:15 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../support/standard_driver_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Loading package simulation_pkg
+# -- Compiling package standard_driver_pkg
+# -- Compiling package body standard_driver_pkg
+# -- Loading package standard_driver_pkg
+# End time: 10:20:16 on Mar 19,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:20:16 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../support/user_driver_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Loading package simulation_pkg
+# -- Compiling package user_driver_pkg
+# -- Compiling package body user_driver_pkg
+# -- Loading package user_driver_pkg
+# End time: 10:20:16 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:20:16 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/reg_table_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling package reg_table_pkg
+# End time: 10:20:17 on Mar 19,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:20:17 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/codec_controller.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package reg_table_pkg
+# -- Compiling entity codec_controller
+# -- Compiling architecture rtl of codec_controller
+# End time: 10:20:17 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:20:17 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2c_master.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity i2c_master
+# -- Compiling architecture rtl of i2c_master
+# End time: 10:20:17 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:20:18 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2c_slave_bfm.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity i2c_slave_bfm
+# -- Compiling architecture bfm of i2c_slave_bfm
+# End time: 10:20:18 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:20:18 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/baud_tick.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity baud_tick
+# -- Compiling architecture rtl of baud_tick
+# End time: 10:20:18 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:20:18 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/bit_counter.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity bit_counter
+# -- Compiling architecture rtl of bit_counter
+# End time: 10:20:19 on Mar 19,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:20:19 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/clock_sync.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity clock_sync
+# -- Compiling architecture rtl of clock_sync
+# End time: 10:20:19 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:20:19 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/flanken_detekt_vhdl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity flanken_detekt_vhdl
+# -- Compiling architecture rtl of flanken_detekt_vhdl
+# End time: 10:20:19 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:20:20 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/modulo_divider.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity modulo_divider
+# -- Compiling architecture rtl of modulo_divider
+# ** Warning: ../../../source/modulo_divider.vhd(33): (vcom-1013) Subtype of "ieee.NUMERIC_STD.UNSIGNED" depends on value of signal "width".
+# End time: 10:20:20 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:20:20 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/output_register.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity output_register
+# -- Compiling architecture rtl of output_register
+# End time: 10:20:20 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:20:21 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/shiftreg_uart.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity shiftreg_uart
+# -- Compiling architecture rtl of shiftreg_uart
+# End time: 10:20:21 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:20:21 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/signal_checker.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity signal_checker
+# -- Compiling architecture rtl of signal_checker
+# End time: 10:20:21 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:20:21 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/uart_controller_fsm.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity uart_controller_fsm
+# -- Compiling architecture rtl of uart_controller_fsm
+# End time: 10:20:22 on Mar 19,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:20:22 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/vhdl_hex2sevseg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity vhdl_hex2sevseg
+# -- Compiling architecture comb of vhdl_hex2sevseg
+# End time: 10:20:22 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:20:22 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/infrastructure.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity infrastructure
+# -- Compiling architecture infra_arch of infrastructure
+# End time: 10:20:22 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:20:22 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/uart_top.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity uart_top
+# -- Compiling architecture uart_arch of uart_top
+# End time: 10:20:23 on Mar 19,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:20:23 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2s_master.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity i2s_master
+# -- Compiling architecture top of i2s_master
+# End time: 10:20:23 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:20:23 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/i2s_frame_generator.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity i2s_frame_generator
+# -- Compiling architecture str of i2s_frame_generator
+# End time: 10:20:23 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:20:24 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/path_control.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity path_control
+# -- Compiling architecture arch of path_control
+# End time: 10:20:24 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:20:24 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/uni_shiftreg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity uni_shiftreg
+# -- Compiling architecture str of uni_shiftreg
+# End time: 10:20:24 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:20:24 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/synthi_top.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package reg_table_pkg
+# -- Compiling entity synthi_top
+# -- Compiling architecture struct of synthi_top
+# End time: 10:20:25 on Mar 19,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:20:25 on Mar 19,2024
+# vcom -reportprogress 300 -2008 -explicit -work work ../../../source/synthi_top_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Loading package simulation_pkg
+# -- Loading package standard_driver_pkg
+# -- Loading package user_driver_pkg
+# -- Compiling entity synthi_top_tb
+# -- Compiling architecture struct of synthi_top_tb
+# ** Warning: ../../../source/synthi_top_tb.vhd(183): (vcom-1049) Actual for generic "verbose" depends on value of signal "verbose".
+# End time: 10:20:25 on Mar 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# End time: 10:20:30 on Mar 19,2024, Elapsed time: 0:16:05
+# Errors: 0, Warnings: 20
+# vsim -voptargs="+acc" -t 1ns -lib work work.synthi_top_tb 
+# Start time: 10:20:30 on Mar 19,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading std.env(body)
+# Loading work.simulation_pkg(body)
+# Loading work.standard_driver_pkg(body)
+# Loading work.user_driver_pkg(body)
+# Loading work.synthi_top_tb(struct)#1
+# Loading work.reg_table_pkg
+# Loading work.synthi_top(struct)#1
+# Loading work.infrastructure(infra_arch)#1
+# Loading work.modulo_divider(rtl)#1
+# Loading work.clock_sync(rtl)#1
+# Loading work.signal_checker(rtl)#1
+# Loading work.uart_top(uart_arch)#1
+# Loading work.flanken_detekt_vhdl(rtl)#1
+# Loading work.vhdl_hex2sevseg(comb)#1
+# Loading work.baud_tick(rtl)#1
+# Loading work.bit_counter(rtl)#1
+# Loading work.uart_controller_fsm(rtl)#1
+# Loading work.shiftreg_uart(rtl)#1
+# Loading work.output_register(rtl)#1
+# Loading work.codec_controller(rtl)#1
+# Loading work.i2c_master(rtl)#1
+# Loading work.i2s_master(top)#1
+# Loading work.uni_shiftreg(str)#1
+# Loading work.i2s_frame_generator(str)#1
+# Loading work.path_control(arch)#1
+# Loading work.i2c_slave_bfm(bfm)#1
+# ** Warning: (vsim-8683) Uninitialized out port /synthi_top_tb/DUT/LEDR_1 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /synthi_top_tb/DUT/LEDR_2 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /synthi_top_tb/DUT/LEDR_3 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /synthi_top_tb/DUT/LEDR_4 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /synthi_top_tb/DUT/LEDR_5 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /synthi_top_tb/DUT/LEDR_6 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /synthi_top_tb/DUT/LEDR_7 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /synthi_top_tb/DUT/LEDR_8 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /synthi_top_tb/DUT/LEDR_9 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/i2s_master_1/i2s_frame_generator_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/i2s_master_1/i2s_frame_generator_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/codec_controller_1
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/uart_top_1/bit_counter_inst1
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/uart_top_1/baud_tick_inst1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/infrastructure_1/signal_checker_1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/infrastructure_1/signal_checker_1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/infrastructure_1/signal_checker_1
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /synthi_top_tb/DUT/uart_top_1/baud_tick_inst1
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /synthi_top_tb/DUT/uart_top_1/bit_counter_inst1
+# LOGIC HAS BEEN RESET FOR 640 ns
+# HEX VALUE 00000008 APPLIED to DUT
+# SIMULATED FOR 0001F000 CLOCKS
+# 00000017 RETURNED FROM DUT, O.K. 
+# 00000017 RETURNED FROM DUT, O.K. 
+# 0000007F RETURNED FROM DUT, O.K. 
+# 0000007F RETURNED FROM DUT, O.K. 
+# 00000012 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000002 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000001 RETURNED FROM DUT, O.K. 
+# 11223344 WRITTEN TO I2S BUS(CODEC ANALOG OUT) 
+# AUDIO DATA RECEIVED BY CODEC, O.K. 11223344
+# LOGIC HAS BEEN RESET FOR 640 ns
+# HEX VALUE 00000002 APPLIED to DUT
+# SIMULATED FOR 0001F000 CLOCKS
+# 00000017 RETURNED FROM DUT, O.K. 
+# 00000017 RETURNED FROM DUT, O.K. 
+# 0000007F RETURNED FROM DUT, O.K. 
+# 0000007F RETURNED FROM DUT, O.K. 
+# 00000012 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000002 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000001 RETURNED FROM DUT, O.K. 
+# LOGIC HAS BEEN RESET FOR 640 ns
+# HEX VALUE 00000001 APPLIED to DUT
+# SIMULATED FOR 0001F000 CLOCKS
+# ERROR: COMPARE FAILED. SIGNALS RETURNED 0000000F SIGNALS EXPECTED 00000017
+# ERROR: COMPARE FAILED. SIGNALS RETURNED 0000000F SIGNALS EXPECTED 00000017
+# ERROR: COMPARE FAILED. SIGNALS RETURNED 00000079 SIGNALS EXPECTED 0000007D
+# ERROR: COMPARE FAILED. SIGNALS RETURNED 00000079 SIGNALS EXPECTED 0000007D
+# 0000000A RETURNED FROM DUT, O.K. 
+# 00000008 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000002 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000001 RETURNED FROM DUT, O.K. 
+# LOGIC HAS BEEN RESET FOR 640 ns
+# HEX VALUE 00000003 APPLIED to DUT
+# SIMULATED FOR 0001F000 CLOCKS
+# 0000000F RETURNED FROM DUT, O.K. 
+# 0000000F RETURNED FROM DUT, O.K. 
+# 00000079 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 0000000A RETURNED FROM DUT, O.K. 
+# 00000008 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000002 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000001 RETURNED FROM DUT, O.K. 
+# LOGIC HAS BEEN RESET FOR 640 ns
+# HEX VALUE 00000005 APPLIED to DUT
+# SIMULATED FOR 0001F000 CLOCKS
+# 0000000F RETURNED FROM DUT, O.K. 
+# 0000000F RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000079 RETURNED FROM DUT, O.K. 
+# 0000000A RETURNED FROM DUT, O.K. 
+# 00000008 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000002 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000001 RETURNED FROM DUT, O.K. 
+# LOGIC HAS BEEN RESET FOR 640 ns
+# HEX VALUE 00000007 APPLIED to DUT
+do ../restart.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# ** Warning: (vsim-8683) Uninitialized out port /synthi_top_tb/DUT/LEDR_1 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /synthi_top_tb/DUT/LEDR_2 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /synthi_top_tb/DUT/LEDR_3 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /synthi_top_tb/DUT/LEDR_4 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /synthi_top_tb/DUT/LEDR_5 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /synthi_top_tb/DUT/LEDR_6 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /synthi_top_tb/DUT/LEDR_7 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /synthi_top_tb/DUT/LEDR_8 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /synthi_top_tb/DUT/LEDR_9 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/i2s_master_1/i2s_frame_generator_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/i2s_master_1/i2s_frame_generator_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/codec_controller_1
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/uart_top_1/bit_counter_inst1
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/uart_top_1/baud_tick_inst1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/infrastructure_1/signal_checker_1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/infrastructure_1/signal_checker_1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /synthi_top_tb/DUT/infrastructure_1/signal_checker_1
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /synthi_top_tb/DUT/uart_top_1/baud_tick_inst1
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /synthi_top_tb/DUT/uart_top_1/bit_counter_inst1
+# LOGIC HAS BEEN RESET FOR 640 ns
+# HEX VALUE 00000008 APPLIED to DUT
+# SIMULATED FOR 0001F000 CLOCKS
+# 00000017 RETURNED FROM DUT, O.K. 
+# 00000017 RETURNED FROM DUT, O.K. 
+# 0000007F RETURNED FROM DUT, O.K. 
+# 0000007F RETURNED FROM DUT, O.K. 
+# 00000012 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000002 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000001 RETURNED FROM DUT, O.K. 
+# 11223344 WRITTEN TO I2S BUS(CODEC ANALOG OUT) 
+# AUDIO DATA RECEIVED BY CODEC, O.K. 11223344
+# LOGIC HAS BEEN RESET FOR 640 ns
+# HEX VALUE 00000002 APPLIED to DUT
+# SIMULATED FOR 0001F000 CLOCKS
+# 00000017 RETURNED FROM DUT, O.K. 
+# 00000017 RETURNED FROM DUT, O.K. 
+# 0000007F RETURNED FROM DUT, O.K. 
+# 0000007F RETURNED FROM DUT, O.K. 
+# 00000012 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000002 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000001 RETURNED FROM DUT, O.K. 
+# LOGIC HAS BEEN RESET FOR 640 ns
+# HEX VALUE 00000001 APPLIED to DUT
+# SIMULATED FOR 0001F000 CLOCKS
+# 0000000F RETURNED FROM DUT, O.K. 
+# 0000000F RETURNED FROM DUT, O.K. 
+# 00000079 RETURNED FROM DUT, O.K. 
+# 00000079 RETURNED FROM DUT, O.K. 
+# 0000000A RETURNED FROM DUT, O.K. 
+# 00000008 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000002 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000001 RETURNED FROM DUT, O.K. 
+# LOGIC HAS BEEN RESET FOR 640 ns
+# HEX VALUE 00000003 APPLIED to DUT
+# SIMULATED FOR 0001F000 CLOCKS
+# 0000000F RETURNED FROM DUT, O.K. 
+# 0000000F RETURNED FROM DUT, O.K. 
+# 00000079 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 0000000A RETURNED FROM DUT, O.K. 
+# 00000008 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000002 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000001 RETURNED FROM DUT, O.K. 
+# LOGIC HAS BEEN RESET FOR 640 ns
+# HEX VALUE 00000005 APPLIED to DUT
+# SIMULATED FOR 0001F000 CLOCKS
+# 0000000F RETURNED FROM DUT, O.K. 
+# 0000000F RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000079 RETURNED FROM DUT, O.K. 
+# 0000000A RETURNED FROM DUT, O.K. 
+# 00000008 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000002 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000001 RETURNED FROM DUT, O.K. 
+# LOGIC HAS BEEN RESET FOR 640 ns
+# HEX VALUE 00000007 APPLIED to DUT
+# SIMULATED FOR 0001F000 CLOCKS
+# 0000000F RETURNED FROM DUT, O.K. 
+# 0000000F RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 0000000A RETURNED FROM DUT, O.K. 
+# 00000008 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000002 RETURNED FROM DUT, O.K. 
+# 00000000 RETURNED FROM DUT, O.K. 
+# 00000001 RETURNED FROM DUT, O.K. 
 #  CONGRATULATIONS ALL TESTS PASS 
 # Break in Subprogram end_simulation at ../../support/simulation_pkg.vhd line 86
-write format wave -window .main_pane.wave.interior.cs.body.pw.wf C:/Programming/synthi/synthi_project/simulations/synthi_top_tb/modelsim/wave.do
-# End time: 11:19:03 on Mar 11,2024, Elapsed time: 0:02:08
-# Errors: 4, Warnings: 21
->>>>>>> Stashed changes
+# End time: 10:54:18 on Mar 19,2024, Elapsed time: 0:33:48
+# Errors: 0, Warnings: 20

@@ -11,6 +11,7 @@ vcom -2008 -explicit -work work ../../../source/codec_controller.vhd
 vcom -2008 -explicit -work work ../../../source/i2c_master.vhd
 vcom -2008 -explicit -work work ../../../source/i2c_slave_bfm.vhd
 
+
 vcom -2008 -explicit -work work ../../../source/baud_tick.vhd
 vcom -2008 -explicit -work work ../../../source/bit_counter.vhd
 vcom -2008 -explicit -work work ../../../source/clock_sync.vhd
@@ -23,6 +24,12 @@ vcom -2008 -explicit -work work ../../../source/uart_controller_fsm.vhd
 vcom -2008 -explicit -work work ../../../source/vhdl_hex2sevseg.vhd
 vcom -2008 -explicit -work work ../../../source/infrastructure.vhd
 vcom -2008 -explicit -work work ../../../source/uart_top.vhd
+
+
+vcom -2008 -explicit -work work ../../../source/i2s_master.vhd
+vcom -2008 -explicit -work work ../../../source/i2s_frame_generator.vhd
+vcom -2008 -explicit -work work ../../../source/path_control.vhd
+vcom -2008 -explicit -work work ../../../source/uni_shiftreg.vhd
 
 vcom -2008 -explicit -work work ../../../source/synthi_top.vhd
 vcom -2008 -explicit -work work ../../../source/synthi_top_tb.vhd
