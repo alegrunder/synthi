@@ -6,7 +6,7 @@
 -- Author     : grundale
 -- Company    : 
 -- Created    : 2018-03-08
--- Last update: 2024-03-12
+-- Last update: 2024-03-26
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -20,6 +20,7 @@
 -- 2024-02-20  1.1      grundale        modyfied for Lab1
 -- 2024-03-05  1.2      heinipas        added clk_12m
 -- 2024-03-05  2.0      heinipas        added codec_controller and i2c_master
+-- 2024-03-26  2.1      heinipas        added MS2, MS3, MS4 blocks
 -------------------------------------------------------------------------------
 
 library ieee;
@@ -79,21 +80,26 @@ architecture struct of synthi_top is
   -----------------------------------------------------------------------------
   -- Internal signal declarations
   -----------------------------------------------------------------------------
-  signal clk_6m_sig  : std_logic;
-  signal reset_n_sig : std_logic;
-  signal serial_sig  : std_logic;
-  signal write_done  : std_logic;
-  signal ack_error   : std_logic;
-  signal write       : std_logic;
-  signal write_data  : std_logic_vector(15 downto 0);
-  signal adcdat_pl   : std_logic_vector(15 downto 0);
-  signal adcdat_pr   : std_logic_vector(15 downto 0);
-  signal dacdat_pl   : std_logic_vector(15 downto 0);
-  signal dacdat_pr   : std_logic_vector(15 downto 0);
-  signal ws_o_sig    : std_logic;
-  signal step_o_sig  : std_logic;
-  signal dds_l       : std_logic_vector(15 downto 0);
-  signal dds_r       : std_logic_vector(15 downto 0);
+  signal clk_6m_sig       : std_logic;
+  signal reset_n_sig      : std_logic;
+  signal usb_txd_sync_sig : std_logic;
+  signal write_done       : std_logic;
+  signal ack_error        : std_logic;
+  signal write            : std_logic;
+  signal write_data       : std_logic_vector(15 downto 0);
+  signal adcdat_pl        : std_logic_vector(15 downto 0);
+  signal adcdat_pr        : std_logic_vector(15 downto 0);
+  signal dacdat_pl        : std_logic_vector(15 downto 0);
+  signal dacdat_pr        : std_logic_vector(15 downto 0);
+  signal ws_sig           : std_logic;
+  signal step_sig         : std_logic;
+  signal dds_l            : std_logic_vector(15 downto 0);
+  signal dds_r            : std_logic_vector(15 downto 0);
+  signal note_sig         : std_logic_vector(6 downto 0);
+  signal velocity_sig     : std_logic_vector(6 downto 0);
+  signal note_valid_sig   : std_logic;
+  signal rx_data_rdy_sig  : std_logic;
+  signal rx_data_sig      : std_logic_vector(7 downto 0);
 
   -----------------------------------------------------------------------------
   -- Component declarations
@@ -111,7 +117,7 @@ architecture struct of synthi_top is
       );
   end component infrastructure;
 
-  component uart_top is
+  component midi_uart is
     port (
       clk_6m      : in  std_logic;
       reset_n     : in  std_logic;
@@ -121,7 +127,7 @@ architecture struct of synthi_top is
       hex0        : out std_logic_vector(6 downto 0);
       hex1        : out std_logic_vector(6 downto 0)
       );
-  end component uart_top;
+  end component midi_uart;
 
   component codec_controller is
     port (
@@ -171,6 +177,29 @@ architecture struct of synthi_top is
       dacdat_pr_o : out std_logic_vector(15 downto 0));
   end component path_control;
 
+  component tone_generator is
+    port (
+      clk        : in  std_logic;
+      rst_n      : in  std_logic;
+      step_i     : in  std_logic;
+      note_i     : in  std_logic_vector(6 downto 0);
+      velocity_i : in  std_logic_vector(6 downto 0);
+      tone_on_i  : in  std_logic;
+      dds_l_o    : out std_logic_vector(15 downto 0);
+      dds_r_o    : out std_logic_vector(15 downto 0));
+  end component tone_generator;
+
+  component midi_controller is
+    port (
+      clk           : in  std_logic;
+      reset_n       : in  std_logic;
+      rx_data_rdy_i : in  std_logic;
+      rx_data_i     : in  std_logic_vector(7 downto 0);
+      note_valid_o  : out std_logic;
+      note_o        : out std_logic_vector(6 downto 0);
+      velocity_o    : out std_logic_vector(6 downto 0));
+  end component midi_controller;
+
 
 begin
 
@@ -181,9 +210,9 @@ begin
   -----------------------------------------------------------------------------
   -- Concurrent Assignments
   -----------------------------------------------------------------------------
-  AUD_DACLRCK <= ws_o_sig;
-  AUD_ADCLRCK <= ws_o_sig;
-  AUD_BCLK    <= not(clk_6m_sig);   -- invert for I2S
+  AUD_DACLRCK  <= ws_sig;
+  AUD_ADCLRCK  <= ws_sig;
+  AUD_BCLK     <= not(clk_6m_sig);           -- invert for I2S
 
   -----------------------------------------------------------------------------
   -- Instances
@@ -197,18 +226,20 @@ begin
       clk_6m       => clk_6m_sig,
       clk_12m      => AUD_XCK,
       reset_n      => reset_n_sig,
-      usb_txd_sync => serial_sig,
+      usb_txd_sync => usb_txd_sync_sig,
       ledr_0       => LEDR_0
       );
 
-  -- instance "uart_top_1"
-  uart_top_1 : uart_top
+  -- instance "midi_uart_1"
+  midi_uart_1 : midi_uart
     port map (
-      clk_6m    => clk_6m_sig,
-      reset_n   => reset_n_sig,
-      serial_in => serial_sig,
-      hex0      => HEX0,
-      hex1      => HEX1
+      clk_6m      => clk_6m_sig,
+      reset_n     => reset_n_sig,
+      serial_in   => usb_txd_sync_sig,
+      rx_data_rdy => rx_data_rdy_sig,
+      rx_data     => rx_data_sig,
+      hex0        => HEX0,
+      hex1        => HEX1
       );
 
   -- instance "codec_controller_1"
@@ -239,25 +270,52 @@ begin
     port map (
       clk_6m      => clk_6m_sig,
       rst_n       => reset_n_sig,
-      step_o      => step_o_sig,
+      step_o      => step_sig,
       adcdat_pl_o => adcdat_pl,
       adcdat_pr_o => adcdat_pr,
       dacdat_pl_i => dacdat_pl,
       dacdat_pr_i => dacdat_pr,
       dacdat_s_o  => AUD_DACDAT,
-      ws_o        => ws_o_sig,
+      ws_o        => ws_sig,
       adcdat_s_i  => AUD_ADCDAT);
 
   -- instance "path_control_1"
   path_control_1 : path_control
     port map (
       sw_3        => SW(3),
-      dds_l_i     => (others => '0'),
-      dds_r_i     => (others => '0'),
+      dds_l_i     => dds_l,
+      dds_r_i     => dds_r,
       adcdat_pl_i => adcdat_pl,
       adcdat_pr_i => adcdat_pr,
       dacdat_pl_o => dacdat_pl,
       dacdat_pr_o => dacdat_pr);
+
+  -- instance "tone_generator_1"
+  tone_generator_1 : tone_generator
+    port map (
+      clk        => clk_6m_sig,
+      rst_n      => reset_n_sig,
+      step_i     => step_sig,
+      -- note_i     => sw(9 downto 8) & "00000", -- test purposes DDS
+      note_i     => note_sig,
+      -- velocity_i => sw(7 downto 5) & "0000",  -- test purposes DDS
+      velocity_i => velocity_sig,
+      -- tone_on_i  => sw(4),                    -- test purposes DDS
+      tone_on_i  => note_valid_sig,
+      dds_l_o    => dds_l,
+      dds_r_o    => dds_r);
+
+  -- instance "midi_controller_1"
+  midi_controller_1 : midi_controller
+    port map (
+      clk           => clk_6m_sig,
+      reset_n       => reset_n_sig,
+      rx_data_rdy_i => rx_data_rdy_sig,
+      rx_data_i     => rx_data_sig,
+      note_valid_o  => note_valid_sig,
+      note_o        => note_sig,
+      velocity_o    => velocity_sig
+      );
 
 
 end architecture struct;
