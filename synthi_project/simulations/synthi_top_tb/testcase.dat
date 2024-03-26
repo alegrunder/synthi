@@ -28,11 +28,11 @@
 #check_display_hex0 04
 #check_display_hex1 03
 
-
 reset_target        20
 
+# test MS1 default configuration ----------------------------------------------
 set_switches        00 00 00 08 #AD-DA Betrieb
-run_simulation_for  00 01 f0 00
+run_simulation_for  00 01 80 00
 
 check_i2c_reg_0     00 00 00 17
 check_i2c_reg_1     00 00 00 17
@@ -45,30 +45,64 @@ check_i2c_reg_7     00 00 00 02
 check_i2c_reg_8     00 00 00 00
 check_i2c_reg_9     00 00 00 01
 
-
+# tests MS2 -------------------------------------------------------------------
 send_i2s            11 22 33 44
 check_i2s           11 22 33 44
 
-reset_target        20
+# tests MS4 -------------------------------------------------------------------
+# test midi controller single transfer turn on
+uart_send_data 90 
+uart_send_data 18
+uart_send_data 29
+run_simulation_for 00 00 30 00
+check_display_hex0 09
+check_display_hex1 02
+check_display_hex2 08
+check_display_hex3 01
 
-set_switches        00 00 00 02 #AD-DA Betrieb
-run_simulation_for  00 01 f0 00
+# test midi controller single transfer turn off
+uart_send_data 80 
+uart_send_data 3A 
+uart_send_data 4B
+run_simulation_for 00 00 30 00
+check_display_hex0 0B
+check_display_hex1 04
+check_display_hex2 0A
+check_display_hex3 03
 
-check_i2c_reg_0     00 00 00 17
-check_i2c_reg_1     00 00 00 17
-check_i2c_reg_2     00 00 00 7F
-check_i2c_reg_3     00 00 00 7F
-check_i2c_reg_4     00 00 00 12
-check_i2c_reg_5     00 00 00 00
-check_i2c_reg_6     00 00 00 00
-check_i2c_reg_7     00 00 00 02
-check_i2c_reg_8     00 00 00 00
-check_i2c_reg_9     00 00 00 01
+# test midi controller running status
+uart_send_data 90 
+uart_send_data 18
+uart_send_data 29
+uart_send_data 3A 
+uart_send_data 4B
+run_simulation_for 00 00 30 00
+check_display_hex0 0B
+check_display_hex1 04
+check_display_hex2 0A
+check_display_hex3 03
+
+
+# tests for all MS1 configurations --------------------------------------------
+#reset_target        20
+#set_switches        00 00 00 02 #AD-DA Betrieb
+#run_simulation_for  00 01 80 00
+
+#check_i2c_reg_0     00 00 00 17
+#check_i2c_reg_1     00 00 00 17
+#check_i2c_reg_2     00 00 00 7F
+#check_i2c_reg_3     00 00 00 7F
+#check_i2c_reg_4     00 00 00 12
+#check_i2c_reg_5     00 00 00 00
+#check_i2c_reg_6     00 00 00 00
+#check_i2c_reg_7     00 00 00 02
+#check_i2c_reg_8     00 00 00 00
+#check_i2c_reg_9     00 00 00 01
 
 reset_target        20
 
 set_switches        00 00 00 01 #Analog Bypass
-run_simulation_for  00 01 f0 00
+run_simulation_for  00 01 80 00
 
 check_i2c_reg_0     00 00 00 0F
 check_i2c_reg_1     00 00 00 0f
@@ -84,7 +118,7 @@ check_i2c_reg_9     00 00 00 01
 reset_target        20
 
 set_switches        00 00 00 03 #Mute right
-run_simulation_for  00 01 f0 00
+run_simulation_for  00 01 80 00
 
 check_i2c_reg_0     00 00 00 0F
 check_i2c_reg_1     00 00 00 0F
@@ -100,7 +134,7 @@ check_i2c_reg_9     00 00 00 01
 reset_target        20
 
 set_switches        00 00 00 05 #Mute left
-run_simulation_for  00 01 f0 00
+run_simulation_for  00 01 80 00
 
 check_i2c_reg_0     00 00 00 0F
 check_i2c_reg_1     00 00 00 0F
@@ -116,7 +150,7 @@ check_i2c_reg_9     00 00 00 01
 reset_target        20
 
 set_switches        00 00 00 07 #Mute both
-run_simulation_for  00 01 f0 00
+run_simulation_for  00 01 80 00
 
 check_i2c_reg_0     00 00 00 0F
 check_i2c_reg_1     00 00 00 0F

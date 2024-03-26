@@ -57,7 +57,9 @@ entity synthi_top is
     AUD_SDAT : inout std_logic;         -- data  from I2C master block
 
     HEX0   : out std_logic_vector(6 downto 0);  -- output for HEX 0 display
-    HEX1   : out std_logic_vector(6 downto 0);  -- output for HEX 0 display
+    HEX1   : out std_logic_vector(6 downto 0);  -- output for HEX 1 display
+    HEX2   : out std_logic_vector(6 downto 0);  -- output for HEX 2 display
+    HEX3   : out std_logic_vector(6 downto 0);  -- output for HEX 3 display
     LEDR_0 : out std_logic;                     -- red LED
     LEDR_1 : out std_logic;                     -- red LED
     LEDR_2 : out std_logic;                     -- red LED
@@ -97,7 +99,7 @@ architecture struct of synthi_top is
   signal dds_r            : std_logic_vector(15 downto 0);
   signal note_sig         : std_logic_vector(6 downto 0);
   signal velocity_sig     : std_logic_vector(6 downto 0);
-  signal note_valid_sig   : std_logic;
+  signal note_on_sig      : std_logic;
   signal rx_data_rdy_sig  : std_logic;
   signal rx_data_sig      : std_logic_vector(7 downto 0);
 
@@ -195,7 +197,9 @@ architecture struct of synthi_top is
       reset_n       : in  std_logic;
       rx_data_rdy_i : in  std_logic;
       rx_data_i     : in  std_logic_vector(7 downto 0);
-      note_valid_o  : out std_logic;
+      hex2          : out std_logic_vector(6 downto 0);
+      hex3          : out std_logic_vector(6 downto 0);
+      note_on_o     : out std_logic;
       note_o        : out std_logic_vector(6 downto 0);
       velocity_o    : out std_logic_vector(6 downto 0));
   end component midi_controller;
@@ -213,6 +217,7 @@ begin
   AUD_DACLRCK  <= ws_sig;
   AUD_ADCLRCK  <= ws_sig;
   AUD_BCLK     <= not(clk_6m_sig);           -- invert for I2S
+  LEDR_1       <= note_on_sig;
 
   -----------------------------------------------------------------------------
   -- Instances
@@ -301,7 +306,7 @@ begin
       -- velocity_i => sw(7 downto 5) & "0000",  -- test purposes DDS
       velocity_i => velocity_sig,
       -- tone_on_i  => sw(4),                    -- test purposes DDS
-      tone_on_i  => note_valid_sig,
+      tone_on_i  => note_on_sig,
       dds_l_o    => dds_l,
       dds_r_o    => dds_r);
 
@@ -312,7 +317,9 @@ begin
       reset_n       => reset_n_sig,
       rx_data_rdy_i => rx_data_rdy_sig,
       rx_data_i     => rx_data_sig,
-      note_valid_o  => note_valid_sig,
+      hex2          => HEX2,
+      hex3          => HEX3,
+      note_on_o     => note_on_sig,
       note_o        => note_sig,
       velocity_o    => velocity_sig
       );
