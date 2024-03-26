@@ -1,28 +1,31 @@
--- Copyright (C) 2023  Intel Corporation. All rights reserved.
--- Your use of Intel Corporation's design tools, logic functions 
--- and other software and tools, and any partner logic 
--- functions, and any output files from any of the foregoing 
--- (including device programming or simulation files), and any 
--- associated documentation or information are expressly subject 
--- to the terms and conditions of the Intel Program License 
--- Subscription Agreement, the Intel Quartus Prime License Agreement,
--- the Intel FPGA IP License Agreement, or other applicable license
--- agreement, including, without limitation, that your use is for
--- the sole purpose of programming logic devices manufactured by
--- Intel and sold by Intel or its authorized distributors.  Please
--- refer to the applicable agreement for further details, at
--- https://fpgasoftware.intel.com/eula.
-
--- PROGRAM              "Quartus Prime"
--- VERSION              "Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition"
--- CREATED              "Tue Dec  5 15:55:02 2023"
+-------------------------------------------------------------------------------
+-- Title      : midi_uart
+-- Project    : synthi
+-------------------------------------------------------------------------------
+-- File       : midi_uart.vhd
+-- Author     : heinipas
+-- Company    : 
+-- Created    : 2018-03-08
+-- Last update: 2024-03-26
+-- Platform   : 
+-- Standard   : VHDL'08
+-------------------------------------------------------------------------------
+-- Description: UART receiver for MIDI signals
+-------------------------------------------------------------------------------
+-- Copyright (c) 2018 
+-------------------------------------------------------------------------------
+-- Revisions  :
+-- Date        Version  Author          Description
+--             1.0      heinipas
+-- 2024-03-26  1.1      heinipas        renamed uart_top to midi_uart
+-------------------------------------------------------------------------------
 
 library ieee;
 use ieee.std_logic_1164.all;
 
 library work;
 
-entity uart_top is
+entity midi_uart is
   port
     (
       clk_6m      : in  std_logic;
@@ -33,9 +36,9 @@ entity uart_top is
       hex0        : out std_logic_vector(6 downto 0);
       hex1        : out std_logic_vector(6 downto 0)
       );
-end uart_top;
+end midi_uart;
 
-architecture uart_arch of uart_top is
+architecture uart_arch of midi_uart is
 
   component flanken_detekt_vhdl
     port(data_in     : in  std_logic;

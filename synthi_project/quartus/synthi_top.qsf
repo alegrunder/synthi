@@ -793,6 +793,10 @@ set_location_assignment PIN_AA19 -to BT_TXD
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to BT_TXD
 set_location_assignment PIN_Y19 -to BT_RST_N
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to BT_RST_N
+set_global_assignment -name VHDL_FILE ../source/tone_generator.vhd
+set_global_assignment -name VHDL_FILE ../source/tone_gen_pkg.vhd
+set_global_assignment -name VHDL_FILE ../source/midi_uart.vhd
+set_global_assignment -name VHDL_FILE ../source/midi_controller.vhd
 set_global_assignment -name VHDL_FILE ../source/uni_shiftreg.vhd
 set_global_assignment -name VHDL_FILE ../source/i2s_frame_generator.vhd
 set_global_assignment -name VHDL_FILE ../source/path_control.vhd
@@ -806,7 +810,6 @@ set_global_assignment -name VHDL_FILE ../source/modulo_divider.vhd
 set_global_assignment -name VHDL_FILE ../source/infrastructure.vhd
 set_global_assignment -name VHDL_FILE ../source/clock_sync.vhd
 set_global_assignment -name VHDL_FILE ../source/vhdl_hex2sevseg.vhd
-set_global_assignment -name VHDL_FILE ../source/uart_top.vhd
 set_global_assignment -name VHDL_FILE ../source/uart_controller_fsm.vhd
 set_global_assignment -name VHDL_FILE ../source/shiftreg_uart.vhd
 set_global_assignment -name VHDL_FILE ../source/output_register.vhd
