@@ -86,7 +86,7 @@ end process proc_input_comb;
   	IF reset_n = '0' THEN
 		count <= to_unsigned(0,N_CUM); -- convert integer value 0 to unsigned with 4bits
 		
-    ELSIF falling_edge(clk) THEN
+    ELSIF rising_edge(clk) THEN
 		count <= next_count ;
     END IF;
   END PROCESS flip_flops;
