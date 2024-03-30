@@ -296,12 +296,12 @@ begin
       clk        => clk_6m_sig,
       rst_n      => reset_n_sig,
       step_i     => step_sig,
-      -- note_i     => sw(9 downto 8) & "00000", -- test purposes DDS
-      note_i     => note_sig,
-      -- velocity_i => sw(7 downto 5) & "0000",  -- test purposes DDS
-      velocity_i => velocity_sig,
-      -- tone_on_i  => sw(4),                    -- test purposes DDS
-      tone_on_i  => note_valid_sig,
+      note_i     => sw(9 downto 8) & "00000", -- test purposes DDS
+      --note_i     => note_sig,
+      velocity_i => sw(7 downto 5) & "0000",  -- test purposes DDS
+      --velocity_i => velocity_sig,
+      tone_on_i  => sw(4),                    -- test purposes DDS
+      -- tone_on_i  => note_valid_sig,
       dds_l_o    => dds_l,
       dds_r_o    => dds_r);
 

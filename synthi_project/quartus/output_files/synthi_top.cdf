@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(10M50DAF484) Path("C:/Users/heini/Documents/local_Studium/PM2_PR/Github/synthi/synthi_project/quartus/output_files/") File("synthi_top.sof") MfrSpec(OpMask(1));
+		Device PartName(10M50DAF484) Path("C:/Programming/synthi/synthi_project/quartus/output_files/") File("synthi_top.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 
