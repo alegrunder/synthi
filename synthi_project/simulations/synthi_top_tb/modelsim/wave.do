@@ -26,8 +26,11 @@ add wave -noupdate /synthi_top_tb/DUT/AUD_DACDAT
 add wave -noupdate /synthi_top_tb/DUT/AUD_BCLK
 add wave -noupdate /synthi_top_tb/dacdat_check
 add wave -noupdate /synthi_top_tb/DUT/AUD_ADCDAT
+add wave -noupdate -format Analog-Step -height 74 -max 2106.0 -radix decimal /synthi_top_tb/DUT/tone_generator_1/dds_o_LR
+add wave -noupdate -radix decimal /synthi_top_tb/DUT/tone_generator_1/dds_1/count
+add wave -noupdate /synthi_top_tb/DUT/tone_generator_1/dds_1/step_i
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {34710 ns} 0}
+WaveRestoreCursors {{Cursor 1} {25541027 ns} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 311
 configure wave -valuecolwidth 100
@@ -43,4 +46,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ns} {83990 ns}
+WaveRestoreZoom {4306732 ns} {33318329 ns}
