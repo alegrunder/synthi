@@ -102,6 +102,7 @@ architecture struct of synthi_top is
   signal note_on_sig   : std_logic;
   signal rx_data_rdy_sig  : std_logic;
   signal rx_data_sig      : std_logic_vector(7 downto 0);
+  signal control     		: std_logic;
 
   -----------------------------------------------------------------------------
   -- Component declarations
@@ -187,6 +188,7 @@ architecture struct of synthi_top is
       note_i     : in  std_logic_vector(6 downto 0);
       velocity_i : in  std_logic_vector(6 downto 0);
       tone_on_i  : in  std_logic;
+		control	  : in  std_logic; -- used for control commands
       dds_l_o    : out std_logic_vector(15 downto 0);
       dds_r_o    : out std_logic_vector(15 downto 0));
   end component tone_generator;
@@ -200,6 +202,7 @@ architecture struct of synthi_top is
       hex2          : out std_logic_vector(6 downto 0);
       hex3          : out std_logic_vector(6 downto 0);
       note_on_o     : out std_logic;
+		control_o     : out std_logic; -- used for control commands
       note_o        : out std_logic_vector(6 downto 0);
       velocity_o    : out std_logic_vector(6 downto 0));
   end component midi_controller;
@@ -218,6 +221,7 @@ begin
   AUD_ADCLRCK  <= ws_sig;
   AUD_BCLK     <= not(clk_6m_sig);           -- invert for I2S
   LEDR_1       <= note_on_sig;
+  LEDR_2			<= control;
 
   -----------------------------------------------------------------------------
   -- Instances
@@ -307,6 +311,7 @@ begin
       velocity_i => velocity_sig,
       --tone_on_i  => sw(4),                    -- test purposes DDS
       tone_on_i  => note_on_sig,
+		control 		=> control, -- used for control commands
       dds_l_o    => dds_l,
       dds_r_o    => dds_r);
 
@@ -320,6 +325,7 @@ begin
       hex2          => HEX2,
       hex3          => HEX3,
       note_on_o     => note_on_sig,
+		control_o     => control, -- used for control commands
       note_o        => note_sig,
       velocity_o    => velocity_sig
       );

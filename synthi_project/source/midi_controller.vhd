@@ -33,6 +33,7 @@ entity midi_controller is
     hex2          : out std_logic_vector(6 downto 0);
     hex3          : out std_logic_vector(6 downto 0);
     note_on_o     : out std_logic;
+	 control_o     : out std_logic; -- used for control commands
     note_o        : out std_logic_vector(6 downto 0);
     velocity_o    : out std_logic_vector(6 downto 0)
     );
@@ -142,10 +143,13 @@ begin  -- architecture str
   begin  -- process fsm_out_logic
     -- default statements
     note_on_o                   <= '0';
+	 control_o						  <= '0';
     
     -- vereinfachte Logik, andere Steuersignale werden allenfalls nicht richtig erkannt
     if status_reg(6 downto 4) = "001" then
       note_on_o <= '1';
+	 elsif status_reg(6 downto 4) = "011" then -- used for control commands
+		control_o <= '1';
     end if; 
   end process fsm_out_logic;
   
