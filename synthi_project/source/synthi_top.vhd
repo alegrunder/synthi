@@ -6,7 +6,7 @@
 -- Author     : grundale
 -- Company    : 
 -- Created    : 2018-03-08
--- Last update: 2024-03-26
+-- Last update: 2024-04-02
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -32,7 +32,6 @@ library work;
 -------------------------------------------------------------------------------
 
 entity synthi_top is
-
   port (
     CLOCK_50 : in std_logic;            -- DE2 clock from xtal 50MHz
     KEY_0    : in std_logic;            -- DE2 low_active input buttons
@@ -41,6 +40,7 @@ entity synthi_top is
 
     USB_RXD : in std_logic;             -- USB (midi) serial_input
     USB_TXD : in std_logic;             -- USB (midi) serial_output
+    GPIO_26 : in std_logic;             -- MIDI serial input
 
     BT_RXD   : in std_logic;            -- Bluetooth serial_input
     BT_TXD   : in std_logic;            -- Bluetooth serial_output
@@ -85,6 +85,8 @@ architecture struct of synthi_top is
   signal clk_6m_sig       : std_logic;
   signal reset_n_sig      : std_logic;
   signal usb_txd_sync_sig : std_logic;
+  signal midi_sync_sig    : std_logic;
+  signal uart_serial_sig  : std_logic;
   signal write_done       : std_logic;
   signal ack_error        : std_logic;
   signal write            : std_logic;
@@ -99,10 +101,11 @@ architecture struct of synthi_top is
   signal dds_r            : std_logic_vector(15 downto 0);
   signal note_sig         : std_logic_vector(6 downto 0);
   signal velocity_sig     : std_logic_vector(6 downto 0);
-  signal note_on_sig   : std_logic;
+  signal note_on_sig      : std_logic;
   signal rx_data_rdy_sig  : std_logic;
   signal rx_data_sig      : std_logic_vector(7 downto 0);
-  signal control     		: std_logic;
+  signal control          : std_logic;
+  signal baud_rate_sig    : positive;
 
   -----------------------------------------------------------------------------
   -- Component declarations
@@ -112,23 +115,26 @@ architecture struct of synthi_top is
       clock_50     : in  std_logic;
       key_0        : in  std_logic;
       usb_txd      : in  std_logic;
+      midi_i       : in  std_logic;
       clk_6m       : out std_logic;
       clk_12m      : out std_logic;
       reset_n      : out std_logic;
       usb_txd_sync : out std_logic;
+      midi_sync    : out std_logic;
       ledr_0       : out std_logic
       );
   end component infrastructure;
 
   component midi_uart is
     port (
-      clk_6m      : in  std_logic;
-      reset_n     : in  std_logic;
-      serial_in   : in  std_logic;
-      rx_data_rdy : out std_logic;
-      rx_data     : out std_logic_vector(7 downto 0);
-      hex0        : out std_logic_vector(6 downto 0);
-      hex1        : out std_logic_vector(6 downto 0)
+      clk_6m        : in  std_logic;
+      reset_n       : in  std_logic;
+      serial_in     : in  std_logic;
+      baud_rate_i   : in  positive;
+      rx_data_rdy   : out std_logic;
+      rx_data       : out std_logic_vector(7 downto 0);
+      hex0          : out std_logic_vector(6 downto 0);
+      hex1          : out std_logic_vector(6 downto 0)
       );
   end component midi_uart;
 
@@ -188,7 +194,7 @@ architecture struct of synthi_top is
       note_i     : in  std_logic_vector(6 downto 0);
       velocity_i : in  std_logic_vector(6 downto 0);
       tone_on_i  : in  std_logic;
-		control	  : in  std_logic; -- used for control commands
+      control    : in  std_logic;       -- used for control commands
       dds_l_o    : out std_logic_vector(15 downto 0);
       dds_r_o    : out std_logic_vector(15 downto 0));
   end component tone_generator;
@@ -202,11 +208,21 @@ architecture struct of synthi_top is
       hex2          : out std_logic_vector(6 downto 0);
       hex3          : out std_logic_vector(6 downto 0);
       note_on_o     : out std_logic;
-		control_o     : out std_logic; -- used for control commands
+      control_o     : out std_logic;    -- used for control commands
       note_o        : out std_logic_vector(6 downto 0);
       velocity_o    : out std_logic_vector(6 downto 0));
   end component midi_controller;
 
+  component source_select is
+    port (
+      clk         : in std_logic;
+      reset_n     : in std_logic;
+      usb_i       : in  std_logic;
+      midi_i      : in  std_logic;
+      sw_i        : in  std_logic;
+      data_o      : out std_logic;
+      baud_rate_o : out positive);
+  end component source_select;
 
 begin
 
@@ -217,11 +233,11 @@ begin
   -----------------------------------------------------------------------------
   -- Concurrent Assignments
   -----------------------------------------------------------------------------
-  AUD_DACLRCK  <= ws_sig;
-  AUD_ADCLRCK  <= ws_sig;
-  AUD_BCLK     <= not(clk_6m_sig);           -- invert for I2S
-  LEDR_1       <= note_on_sig;
-  LEDR_2			<= control;
+  AUD_DACLRCK <= ws_sig;
+  AUD_ADCLRCK <= ws_sig;
+  AUD_BCLK    <= not(clk_6m_sig);       -- invert for I2S
+  LEDR_1      <= note_on_sig;
+  LEDR_2      <= control;
 
   -----------------------------------------------------------------------------
   -- Instances
@@ -232,10 +248,12 @@ begin
       clock_50     => CLOCK_50,
       key_0        => KEY_0,
       usb_txd      => USB_TXD,
+      midi_i       => GPIO_26,
       clk_6m       => clk_6m_sig,
       clk_12m      => AUD_XCK,
       reset_n      => reset_n_sig,
       usb_txd_sync => usb_txd_sync_sig,
+      midi_sync    => midi_sync_sig,
       ledr_0       => LEDR_0
       );
 
@@ -244,7 +262,8 @@ begin
     port map (
       clk_6m      => clk_6m_sig,
       reset_n     => reset_n_sig,
-      serial_in   => usb_txd_sync_sig,
+      serial_in   => uart_serial_sig,
+      baud_rate_i => baud_rate_sig,
       rx_data_rdy => rx_data_rdy_sig,
       rx_data     => rx_data_sig,
       hex0        => HEX0,
@@ -311,7 +330,7 @@ begin
       velocity_i => velocity_sig,
       --tone_on_i  => sw(4),                    -- test purposes DDS
       tone_on_i  => note_on_sig,
-		control 		=> control, -- used for control commands
+      control    => control,            -- used for control commands
       dds_l_o    => dds_l,
       dds_r_o    => dds_r);
 
@@ -325,10 +344,21 @@ begin
       hex2          => HEX2,
       hex3          => HEX3,
       note_on_o     => note_on_sig,
-		control_o     => control, -- used for control commands
+      control_o     => control,         -- used for control commands
       note_o        => note_sig,
       velocity_o    => velocity_sig
       );
+
+  -- instance "source_select_1"
+  source_select_1: source_select
+    port map (
+      clk          => clk_6m_sig,
+      reset_n      => reset_n_sig,
+      usb_i       => usb_txd_sync_sig,
+      midi_i      => midi_sync_sig,
+      sw_i        => SW(4),
+      data_o      => uart_serial_sig,
+      baud_rate_o => baud_rate_sig);
 
 
 end architecture struct;
