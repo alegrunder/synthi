@@ -31,7 +31,7 @@
 
 reset_target        20
 
-set_switches        00 00 00 08 #AD-DA Betrieb
+set_switches        00 00 00 00 #DDS Betrieb
 run_simulation_for  01 00 00 00
 
 

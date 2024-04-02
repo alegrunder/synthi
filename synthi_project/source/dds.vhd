@@ -35,12 +35,12 @@ entity dds is
     phi_incr_i  : in std_logic_vector(18 downto 0);
     tone_on_i   : in std_logic;
     step_i      : in std_logic;
-	 control	  	 : in std_logic; -- used for control commands
-	 control_reg1 : in std_logic_vector(6 downto 0); -- used for control commands
+    control	  	 : in std_logic; -- used for control commands
+    control_reg1 : in std_logic_vector(6 downto 0); -- used for control commands
     attenu_i    : in std_logic_vector(6 downto 0);
     dds_o       : out std_logic_vector(15 downto 0)
     );
-end entity dds;
+end dds;
 
 architecture dds_arch of dds is
 
@@ -84,10 +84,9 @@ begin  -- architecture dds_arch
 	
 	-- Switching logic
 	if control = '1' then
-		--if control_reg1 = "0001110" then
+		if control_reg1 = "0001110" then
 			Wavetable_switch := to_integer(unsigned(attenu_i));
-			--Wavetable_switch := 96;
-		--end if;
+		end if;
 	end if;
 	
 	if Wavetable_switch < 64 then

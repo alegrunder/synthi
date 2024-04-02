@@ -60,7 +60,8 @@ architecture str of tone_generator is
       reset_n    : in  std_logic;
       phi_incr_i : in  std_logic_vector(18 downto 0);
       tone_on_i  : in  std_logic;
-		control	  : in  std_logic; -- used for control commands
+      control	  : in  std_logic; -- used for control commands
+      control_reg1 : in std_logic_vector(6 downto 0); -- used for control commands
       step_i     : in  std_logic;
       attenu_i   : in  std_logic_vector(6 downto 0);
       dds_o      : out std_logic_vector(15 downto 0));
@@ -83,7 +84,8 @@ dds_r_o <= dds_o_LR;
       phi_incr_i => LUT_midi2dds(to_integer(unsigned(note_i))),
       tone_on_i  => tone_on_i,
       step_i     => step_i,
-		control 	  => control,
+      control 	  => control,
+      control_reg1 => note_i,
       attenu_i   => velocity_i,
       dds_o      => dds_o_LR);
 		
