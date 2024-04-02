@@ -793,6 +793,7 @@ set_location_assignment PIN_AA19 -to BT_TXD
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to BT_TXD
 set_location_assignment PIN_Y19 -to BT_RST_N
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to BT_RST_N
+set_global_assignment -name VHDL_FILE ../source/source_select.vhd
 set_global_assignment -name VHDL_FILE ../source/dds.vhd
 set_global_assignment -name VHDL_FILE ../source/tone_generator.vhd
 set_global_assignment -name VHDL_FILE ../source/tone_gen_pkg.vhd

@@ -37,9 +37,17 @@ add wave -noupdate -expand -group {MIDI Controller} /synthi_top_tb/DUT/midi_cont
 add wave -noupdate -expand -group {MIDI Controller} /synthi_top_tb/DUT/note_on_sig
 add wave -noupdate -expand -group {MIDI Controller} /synthi_top_tb/DUT/note_sig
 add wave -noupdate -expand -group {MIDI Controller} /synthi_top_tb/DUT/velocity_sig
+add wave -noupdate -expand -group {Source Select} -radix decimal /synthi_top_tb/DUT/midi_uart_1/baud_rate_i
+add wave -noupdate -expand -group {Source Select} /synthi_top_tb/DUT/midi_sync_sig
+add wave -noupdate -expand -group {Source Select} /synthi_top_tb/DUT/midi_uart_1/serial_in
+add wave -noupdate -expand -group {Source Select} /synthi_top_tb/DUT/midi_uart_1/falling_pulse
+add wave -noupdate -expand -group {Source Select} /synthi_top_tb/DUT/midi_uart_1/start_pulse
+add wave -noupdate -expand -group {Source Select} /synthi_top_tb/DUT/midi_uart_1/bit_count
+add wave -noupdate -expand -group {Source Select} -radix decimal /synthi_top_tb/DUT/midi_uart_1/baud_tick_inst1/count
+add wave -noupdate -expand -group {Source Select} /synthi_top_tb/DUT/midi_uart_1/tick
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {34710 ns} 0}
-quietly wave cursor active 1
+WaveRestoreCursors {{Cursor 1} {4408273 ns} 0}
+quietly wave cursor active 0
 configure wave -namecolwidth 311
 configure wave -valuecolwidth 100
 configure wave -justifyvalue left
@@ -54,4 +62,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {3792857 ns} {4352884 ns}
+WaveRestoreZoom {2263430 ns} {2266583 ns}

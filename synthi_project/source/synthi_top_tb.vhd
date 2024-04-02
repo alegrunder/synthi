@@ -48,6 +48,7 @@ architecture struct of synthi_top_tb is
       SW          : in    std_logic_vector(9 downto 0);
       USB_RXD     : in    std_logic;
       USB_TXD     : in    std_logic;
+      GPIO_26     : in    std_logic;
       BT_RXD      : in    std_logic;
       BT_TXD      : in    std_logic;
       BT_RST_N    : in    std_logic;
@@ -61,6 +62,8 @@ architecture struct of synthi_top_tb is
       AUD_SDAT    : inout std_logic;
       HEX0        : out   std_logic_vector(6 downto 0);
       HEX1        : out   std_logic_vector(6 downto 0);
+      HEX2        : out   std_logic_vector(6 downto 0);
+      HEX3        : out   std_logic_vector(6 downto 0);
       LEDR_0      : out   std_logic;
       LEDR_1      : out   std_logic;
       LEDR_2      : out   std_logic;
@@ -80,6 +83,7 @@ architecture struct of synthi_top_tb is
   signal SW          : std_logic_vector(9 downto 0);
   signal USB_RXD     : std_logic;
   signal USB_TXD     : std_logic;
+  signal GPIO_26     : std_logic;
   signal BT_RXD      : std_logic;
   signal BT_TXD      : std_logic;
   signal BT_RST_N    : std_logic;
@@ -93,6 +97,8 @@ architecture struct of synthi_top_tb is
   signal AUD_SDAT    : std_logic;
   signal HEX0        : std_logic_vector(6 downto 0);
   signal HEX1        : std_logic_vector(6 downto 0);
+  signal HEX2        : std_logic_vector(6 downto 0);
+  signal HEX3        : std_logic_vector(6 downto 0);
   signal LEDR_0      : std_logic;
   signal LEDR_1      : std_logic;
   signal LEDR_2      : std_logic;
@@ -153,6 +159,7 @@ SW(9 downto 0) <= gpi_signals(9 downto 0);
       SW          => SW,
       USB_RXD     => USB_RXD,
       USB_TXD     => USB_TXD,
+      GPIO_26     => GPIO_26,
       BT_RXD      => BT_RXD,
       BT_TXD      => BT_TXD,
       BT_RST_N    => BT_RST_N,
@@ -166,6 +173,8 @@ SW(9 downto 0) <= gpi_signals(9 downto 0);
       AUD_SDAT    => I2C_SDAT,
       HEX0        => HEX0,
       HEX1        => HEX1,
+      HEX2        => HEX2,
+      HEX3        => HEX3,
       LEDR_0      => LEDR_0,
       LEDR_1      => LEDR_1,
       LEDR_2      => LEDR_2,
@@ -258,14 +267,24 @@ SW(9 downto 0) <= gpi_signals(9 downto 0);
 
        -- add further test commands below here
       elsif cmd.all = "uart_send_data" then
-	      uar_sim(tv, usb_txd);
-
+	      uar_sim(tv, USB_TXD);
+        
+      elsif cmd.all = "midi_send_data" then
+        tv.arg2 := std_logic_vector(to_unsigned(1, 8)); -- baud rate for MIDI
+	      uar_sim(tv, GPIO_26);
+        
       elsif cmd.all = "check_display_hex0" then 
-	      hex_chk(tv, hex0); 
+	      hex_chk(tv, HEX0); 
 	  
       elsif cmd.all = "check_display_hex1" then 
-        hex_chk(tv, hex1);
+        hex_chk(tv, HEX1);
         
+      elsif cmd.all = "check_display_hex2" then 
+        hex_chk(tv, HEX2);
+        
+      elsif cmd.all = "check_display_hex3" then 
+        hex_chk(tv, HEX3);
+     
       elsif cmd.all = "set_switches" then
         gpi_sim(tv, gpi_signals);          
         

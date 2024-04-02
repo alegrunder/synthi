@@ -6,7 +6,7 @@
 -- Author     : grundale
 -- Company    : 
 -- Created    : 2024-02-20
--- Last update: 2024-03-05
+-- Last update: 2024-04-02
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -31,10 +31,12 @@ entity infrastructure is
     clock_50     : in  std_logic;
     key_0        : in  std_logic;
     usb_txd      : in  std_logic;
+    midi_i       : in  std_logic;
     clk_6m       : out std_logic;
     clk_12m      : out std_logic;
     reset_n      : out std_logic;
     usb_txd_sync : out std_logic;
+    midi_sync    : out std_logic;
     ledr_0       : out std_logic
     );
 
@@ -88,6 +90,7 @@ begin  -- architecture infra_arch
       clk     => clock_50,
       clk_6m  => clk_6m_sig,
       clk_12m => clk_12m);
+
   -- instance "clock_sync_1"
   clock_sync_1 : clock_sync
     port map (
@@ -101,6 +104,13 @@ begin  -- architecture infra_arch
       data_in  => usb_txd,
       clk      => clk_6m_sig,
       sync_out => usb_txd_sync);
+
+  -- instance "clock_sync_3"
+  clock_sync_3 : clock_sync
+    port map (
+      data_in  => midi_i,
+      clk      => clk_6m_sig,
+      sync_out => midi_sync);
 
   -- instance "signal_checker_1"
   signal_checker_1 : signal_checker

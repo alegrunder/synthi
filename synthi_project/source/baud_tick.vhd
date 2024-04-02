@@ -22,6 +22,7 @@ entity baud_tick is
     clk           : in  std_logic;  -- Input of entity
     reset_n       : in  std_logic;  -- Input of entity
     start_pulse   : in  std_logic;  -- Input of entity
+    baud_rate_i   : in  positive;  -- Input for baud rate
     tick          : out std_logic   -- Output of entity
   );
 end baud_tick;
@@ -32,9 +33,9 @@ architecture rtl of baud_tick is
   -- Signals & Constants Declaration 
   constant clock_freq  : positive := 6_250_000;  -- Clock in Hz
   constant baud_rate   : positive :=   115_200;  -- Baudrate
-  constant count_width : positive :=         6;  -- 2^6 = 64 (6'250'000 / 115'200 = 54 needed)
-  constant one_period  : unsigned(count_width - 1 downto 0) := to_unsigned(clock_freq / baud_rate, count_width);
-  constant half_period : unsigned(count_width - 1 downto 0) := to_unsigned(clock_freq / baud_rate / 2, count_width);
+  constant count_width : positive :=         8;  -- 2^6 = 64 (6'250'000 / 31'250 = 200 needed)
+  -- constant one_period  : unsigned(count_width - 1 downto 0) := to_unsigned(clock_freq / baud_rate, count_width);
+  -- constant half_period : unsigned(count_width - 1 downto 0) := to_unsigned(clock_freq / baud_rate / 2, count_width);
   signal count, next_count : unsigned(count_width-1 downto 0);
 
 -- Begin Architecture
@@ -43,8 +44,15 @@ begin
   -- Process for combinatorial logic
   ------------------------------------------- 
   comb_logic : process(all)
+    variable one_period  : unsigned(count_width-1 downto 0);
+    variable half_period : unsigned(count_width-1 downto 0);
   begin
-    tick <= '0';  
+    one_period  := to_unsigned(clock_freq / baud_rate_i, count_width);
+    half_period := to_unsigned(clock_freq / baud_rate_i / 2, count_width);
+    
+    -- default Statements
+    tick <= '0';
+    
     if (start_pulse = '1') then  -- first pulse
       next_count <= half_period;
     elsif (count = to_unsigned(0, count_width)) then

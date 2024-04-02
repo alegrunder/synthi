@@ -6,7 +6,7 @@
 -- Author     : heinipas
 -- Company    : 
 -- Created    : 2018-03-08
--- Last update: 2024-03-26
+-- Last update: 2024-04-02
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -31,6 +31,7 @@ entity midi_uart is
       clk_6m      : in  std_logic;
       reset_n     : in  std_logic;
       serial_in   : in  std_logic;
+      baud_rate_i : in  positive;
       rx_data_rdy : out std_logic;
       rx_data     : out std_logic_vector(7 downto 0);
       hex0        : out std_logic_vector(6 downto 0);
@@ -74,6 +75,7 @@ architecture uart_arch of midi_uart is
     port(clk         : in  std_logic;
          reset_n     : in  std_logic;
          start_pulse : in  std_logic;
+         baud_rate_i : in  positive;
          tick        : out std_logic
          );
   end component;
@@ -136,13 +138,20 @@ architecture uart_arch of midi_uart is
   signal hex_lsb_out   : std_logic_vector(3 downto 0);
   signal hex_msb_out   : std_logic_vector(3 downto 0);
   signal parallel_data : std_logic_vector(9 downto 0);
+  signal baud_rate_sig : positive;
 
 
 begin
-  rx_data     <= parallel_data(8 downto 1);
-  rx_data_rdy <= data_valid;
+  -----------------------------------------------------------------------------
+  -- Concurrent Assignments
+  -----------------------------------------------------------------------------
+  rx_data       <= parallel_data(8 downto 1);
+  rx_data_rdy   <= data_valid;
+  baud_rate_sig <= baud_rate_i;
 
-
+  -----------------------------------------------------------------------------
+  -- Instances
+  -----------------------------------------------------------------------------
   flanken_detekt_vhdl_inst1 : flanken_detekt_vhdl
     port map(data_in    => serial_in,
              clock      => clk_6m,
@@ -164,6 +173,7 @@ begin
     port map(clk         => clk_6m,
              reset_n     => reset_n,
              start_pulse => start_pulse,
+             baud_rate_i => baud_rate_sig,
              tick        => tick);
 
 
