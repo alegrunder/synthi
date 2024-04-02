@@ -33,7 +33,7 @@ architecture rtl of baud_tick is
   -- Signals & Constants Declaration 
   constant clock_freq  : positive := 6_250_000;  -- Clock in Hz
   constant baud_rate   : positive :=   115_200;  -- Baudrate
-  constant count_width : positive :=         6;  -- 2^6 = 64 (6'250'000 / 115'200 = 54 needed)
+  constant count_width : positive :=         8;  -- 2^6 = 64 (6'250'000 / 31'250 = 200 needed)
   -- constant one_period  : unsigned(count_width - 1 downto 0) := to_unsigned(clock_freq / baud_rate, count_width);
   -- constant half_period : unsigned(count_width - 1 downto 0) := to_unsigned(clock_freq / baud_rate / 2, count_width);
   signal count, next_count : unsigned(count_width-1 downto 0);
@@ -48,7 +48,7 @@ begin
     variable half_period : unsigned(count_width-1 downto 0);
   begin
     one_period  := to_unsigned(clock_freq / baud_rate_i, count_width);
-    half_period := to_unsigned(clock_freq / baud_rate_i, count_width);
+    half_period := to_unsigned(clock_freq / baud_rate_i / 2, count_width);
     
     -- default Statements
     tick <= '0';

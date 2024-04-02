@@ -228,14 +228,14 @@ package body standard_driver_pkg is
     variable stop_bit    : std_logic := '0';
 
   begin
-    -- arg2 = 1 Baud rate is 32_250 (midi)
+    -- arg2 = 1 Baud rate is 31_250 (midi)
     if tv.arg2 = std_logic_vector(to_unsigned(1, 8)) then
       baud_period := baud_period_31_250;
     else
       baud_period := baud_period_115_200_000;
     end if;
 
-    -- If arg3 is '1' the Stop bit will not be sent corectly
+    -- If arg3 is '1' the Stop bit will not be sent correctly
     if tv.arg3 = std_logic_vector(to_unsigned(1, 8)) then
       stop_bit := '0';
     else

@@ -50,6 +50,9 @@ send_i2s            11 22 33 44
 check_i2s           11 22 33 44
 
 # tests MS4 -------------------------------------------------------------------
+set_switches        00 00 00 18 #AD-DA Betrieb, USB mode
+run_simulation_for 00 00 30 00
+
 # test midi controller single transfer turn on
 uart_send_data 90 
 uart_send_data 18
@@ -65,10 +68,10 @@ uart_send_data 80
 uart_send_data 1F 
 uart_send_data 0E
 run_simulation_for 00 00 30 00
-check_display_hex0 0B
-check_display_hex1 04
-check_display_hex2 0A
-check_display_hex3 03
+check_display_hex0 0E
+check_display_hex1 00
+check_display_hex2 0F
+check_display_hex3 01
 
 # test midi controller running status
 uart_send_data 90 
@@ -77,11 +80,45 @@ uart_send_data 0E
 uart_send_data 20 
 uart_send_data 10
 run_simulation_for 00 00 30 00
-check_display_hex0 0B
-check_display_hex1 04
-check_display_hex2 0A
-check_display_hex3 03
+check_display_hex0 00
+check_display_hex1 01
+check_display_hex2 00
+check_display_hex3 02
 
+set_switches        00 00 00 08 #AD-DA Betrieb, MIDI mode
+run_simulation_for 00 00 30 00
+
+# test midi controller single transfer turn on
+midi_send_data 90
+midi_send_data 18 
+midi_send_data 29
+run_simulation_for 00 00 30 00
+check_display_hex0 09
+check_display_hex1 02
+check_display_hex2 08
+check_display_hex3 01
+
+# test midi controller single transfer turn off
+midi_send_data 80
+midi_send_data 1F
+midi_send_data 0E
+run_simulation_for 00 00 30 00
+check_display_hex0 0E
+check_display_hex1 00
+check_display_hex2 0F
+check_display_hex3 01
+
+# test midi controller running status
+midi_send_data 90
+midi_send_data 1F
+midi_send_data 0E
+midi_send_data 20
+midi_send_data 10
+run_simulation_for 00 00 30 00
+check_display_hex0 00
+check_display_hex1 01
+check_display_hex2 00
+check_display_hex3 02
 
 # tests for all MS1 configurations --------------------------------------------
 #reset_target        20

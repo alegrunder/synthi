@@ -173,6 +173,8 @@ SW(9 downto 0) <= gpi_signals(9 downto 0);
       AUD_SDAT    => I2C_SDAT,
       HEX0        => HEX0,
       HEX1        => HEX1,
+      HEX2        => HEX2,
+      HEX3        => HEX3,
       LEDR_0      => LEDR_0,
       LEDR_1      => LEDR_1,
       LEDR_2      => LEDR_2,
@@ -265,14 +267,24 @@ SW(9 downto 0) <= gpi_signals(9 downto 0);
 
        -- add further test commands below here
       elsif cmd.all = "uart_send_data" then
-	      uar_sim(tv, usb_txd);
-
+	      uar_sim(tv, USB_TXD);
+        
+      elsif cmd.all = "midi_send_data" then
+        tv.arg2 := std_logic_vector(to_unsigned(1, 8)); -- baud rate for MIDI
+	      uar_sim(tv, GPIO_26);
+        
       elsif cmd.all = "check_display_hex0" then 
-	      hex_chk(tv, hex0); 
+	      hex_chk(tv, HEX0); 
 	  
       elsif cmd.all = "check_display_hex1" then 
-        hex_chk(tv, hex1);
+        hex_chk(tv, HEX1);
         
+      elsif cmd.all = "check_display_hex2" then 
+        hex_chk(tv, HEX2);
+        
+      elsif cmd.all = "check_display_hex3" then 
+        hex_chk(tv, HEX3);
+     
       elsif cmd.all = "set_switches" then
         gpi_sim(tv, gpi_signals);          
         
