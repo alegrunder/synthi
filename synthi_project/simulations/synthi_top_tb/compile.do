@@ -31,8 +31,8 @@ vcom -2008 -explicit -work work ../../../source/i2s_frame_generator.vhd
 vcom -2008 -explicit -work work ../../../source/path_control.vhd
 vcom -2008 -explicit -work work ../../../source/uni_shiftreg.vhd
 
-vcom -2008 -explicit -work work ../../../source/dds.vhd
 vcom -2008 -explicit -work work ../../../source/tone_gen_pkg.vhd
+vcom -2008 -explicit -work work ../../../source/dds.vhd
 vcom -2008 -explicit -work work ../../../source/midi_controller.vhd
 vcom -2008 -explicit -work work ../../../source/tone_generator.vhd
 
