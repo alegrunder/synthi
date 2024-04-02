@@ -99,15 +99,15 @@ begin  -- architecture dds_arch
 	-- Attenuation logic:
 	if control = '0' then
 		atte := to_integer(unsigned(attenu_i));
-		
-		case atte is
-			when 0 => dds_o <= std_logic_vector(shift_right(lut_val,3));
-			when 1 => dds_o <= std_logic_vector(shift_right(lut_val,2));
-			when 2 => dds_o <= std_logic_vector(shift_right(lut_val,1));
-			
-			when others => dds_o <= std_logic_vector(lut_val);
-		end case;
 	end if;
+	
+	case atte is
+		when 0 => dds_o <= std_logic_vector(shift_right(lut_val,3));
+		when 1 => dds_o <= std_logic_vector(shift_right(lut_val,2));
+		when 2 => dds_o <= std_logic_vector(shift_right(lut_val,1));
+		
+		when others => dds_o <= std_logic_vector(lut_val);
+	end case;
  end process phase_counter_logic;
 
  proc_input_comb: process (all) is
