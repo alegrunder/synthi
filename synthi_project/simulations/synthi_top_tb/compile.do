@@ -46,4 +46,4 @@ vcom -2008 -explicit -work work ../../../source/synthi_top_tb.vhd
 # run the simulation
 vsim -voptargs=+acc -t 1ns -lib work work.synthi_top_tb
 do ./wave.do
-run 100 ms
+run 1000 ms
