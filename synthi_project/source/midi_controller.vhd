@@ -143,13 +143,13 @@ begin  -- architecture str
   begin  -- process fsm_out_logic
     -- default statements
     note_on_o                   <= '0';
-	 control_o						  <= '0';
+    control_o						  <= '0';
     
     -- vereinfachte Logik, andere Steuersignale werden allenfalls nicht richtig erkannt
     if status_reg(6 downto 4) = "001" then
       note_on_o <= '1';
 	 elsif status_reg(6 downto 4) = "011" then -- used for control commands
-		control_o <= '1';
+      control_o <= '1';
     end if; 
   end process fsm_out_logic;
   
