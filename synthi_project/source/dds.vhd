@@ -59,7 +59,7 @@ begin  -- architecture dds_arch
 	VARIABLE lut_val_rec :   signed(N_AUDIO-1+AVERAGE_BUFFER downto 0);
 	VARIABLE lut_val_saw :   signed(N_AUDIO-1+AVERAGE_BUFFER downto 0);
 	VARIABLE lut_addr :  integer range 0 to L-1;
-	VARIABLE atte :   integer range -64 to 64;
+	VARIABLE atte :   integer range 0 to 15;
 	VARIABLE Wavetable_switch : integer range 127 downto 0; 
  begin
 
@@ -84,7 +84,7 @@ begin  -- architecture dds_arch
 	
 	-- Switching logic
 	if control = '1' then
-		if control_reg1 = "0001110" then
+		if control_reg1 = "0000111" then
 			Wavetable_switch := to_integer(unsigned(attenu_i));
 		end if;
 	end if;
@@ -98,16 +98,27 @@ begin  -- architecture dds_arch
 	
 	-- Attenuation logic:
 	if control = '0' then
-		atte := to_integer(unsigned(attenu_i));
+		atte := to_integer(unsigned(attenu_i(6 downto 3)));
 	end if;
 	
-	case atte is
-		when 0 => dds_o <= std_logic_vector(shift_right(lut_val,3));
-		when 1 => dds_o <= std_logic_vector(shift_right(lut_val,2));
-		when 2 => dds_o <= std_logic_vector(shift_right(lut_val,1));
-		
-		when others => dds_o <= std_logic_vector(lut_val);
-	end case;
+  case atte is
+      when 0 => dds_o <= std_logic_vector(shift_right(lut_val,15));
+      when 1 => dds_o <= std_logic_vector(shift_right(lut_val,14));
+      when 2 => dds_o <= std_logic_vector(shift_right(lut_val,13));
+      when 3 => dds_o <= std_logic_vector(shift_right(lut_val,12));
+      when 4 => dds_o <= std_logic_vector(shift_right(lut_val,11));
+      when 5 => dds_o <= std_logic_vector(shift_right(lut_val,10));
+      when 6 => dds_o <= std_logic_vector(shift_right(lut_val,9));
+      when 7 => dds_o <= std_logic_vector(shift_right(lut_val,8));
+      when 8 => dds_o <= std_logic_vector(shift_right(lut_val,7));
+      when 9 => dds_o <= std_logic_vector(shift_right(lut_val,6));
+      when 10 => dds_o <= std_logic_vector(shift_right(lut_val,5));
+      when 11 => dds_o <= std_logic_vector(shift_right(lut_val,4));
+      when 12 => dds_o <= std_logic_vector(shift_right(lut_val,3));
+      when 13 => dds_o <= std_logic_vector(shift_right(lut_val,2));
+      when 14 => dds_o <= std_logic_vector(shift_right(lut_val,1));
+      when others => dds_o <= std_logic_vector(lut_val);
+    end case;
  end process phase_counter_logic;
 
  proc_input_comb: process (all) is

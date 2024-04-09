@@ -148,8 +148,12 @@ architecture struct of synthi_top_tb is
   signal reg_data_7 : std_logic_vector(31 downto 0);
   signal reg_data_8 : std_logic_vector(31 downto 0);
   signal reg_data_9 : std_logic_vector(31 downto 0);
+  signal led1_reg   : std_logic_vector(31 downto 0) := (others => '0');
+  
 begin  -- architecture struct
-SW(9 downto 0) <= gpi_signals(9 downto 0);
+  SW(9 downto 0) <= gpi_signals(9 downto 0);
+  led1_reg(0)    <= LEDR_1;
+  
   -- component instantiation
   DUT: synthi_top
     port map (
@@ -215,8 +219,6 @@ SW(9 downto 0) <= gpi_signals(9 downto 0);
     variable tv           : test_vect; --stores arguments 1 to 4
     variable lincnt       : integer := 0;  --counts line number in testcase file
     variable fail_counter : integer := 0;--counts failed tests
-
-
 
   begin
     -------------------------------------
@@ -324,6 +326,13 @@ SW(9 downto 0) <= gpi_signals(9 downto 0);
       elsif cmd.all = "send_i2s" then
         i2s_sim(tv, AUD_ADCLRCK,AUD_BCLK, AUD_ADCDAT);
         
+      elsif cmd.all = "check_ledr_1" then
+        -- only pass LSByte in tv.arg1
+        tv.arg4 := tv.arg1; 
+        tv.arg1 := (others => '0');
+        tv.arg2 := (others => '0');
+        tv.arg3 := (others => '0');
+        gpo_chk(tv, led1_reg);
 
       else
         assert false
