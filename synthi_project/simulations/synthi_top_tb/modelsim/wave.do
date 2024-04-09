@@ -35,6 +35,7 @@ add wave -noupdate -expand -group {MIDI Controller} /synthi_top_tb/DUT/rx_data_r
 add wave -noupdate -expand -group {MIDI Controller} /synthi_top_tb/DUT/midi_controller_1/fsm_state
 add wave -noupdate -expand -group {MIDI Controller} /synthi_top_tb/DUT/midi_controller_1/status_reg
 add wave -noupdate -expand -group {MIDI Controller} /synthi_top_tb/DUT/note_on_sig
+add wave -noupdate -expand -group {MIDI Controller} /synthi_top_tb/DUT/LEDR_1
 add wave -noupdate -expand -group {MIDI Controller} /synthi_top_tb/DUT/note_sig
 add wave -noupdate -expand -group {MIDI Controller} /synthi_top_tb/DUT/velocity_sig
 add wave -noupdate -expand -group {Source Select} -radix decimal /synthi_top_tb/DUT/midi_uart_1/baud_rate_i
@@ -46,7 +47,7 @@ add wave -noupdate -expand -group {Source Select} /synthi_top_tb/DUT/midi_uart_1
 add wave -noupdate -expand -group {Source Select} /synthi_top_tb/DUT/midi_uart_1/tick
 add wave -noupdate -expand -group DDS /synthi_top_tb/DUT/tone_generator_1/dds_1/control_reg1
 add wave -noupdate -expand -group DDS /synthi_top_tb/DUT/tone_generator_1/dds_1/attenu_i
-add wave -noupdate -expand -group DDS -format Analog-Step -height 256 -max 32766.999999999996 -min -32768.0 -radix sfixed /synthi_top_tb/DUT/tone_generator_1/dds_1/dds_o
+add wave -noupdate -expand -group DDS -format Analog-Step -height 256 -max 4095.0 -min -4096.0 -radix sfixed /synthi_top_tb/DUT/tone_generator_1/dds_1/dds_o
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {49354310 ns} 0}
 quietly wave cursor active 1
@@ -64,4 +65,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ns} {43868703 ns}
+WaveRestoreZoom {27147124 ns} {27523851 ns}

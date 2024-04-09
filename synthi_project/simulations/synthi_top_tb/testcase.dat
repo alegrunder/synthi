@@ -106,15 +106,30 @@ check_i2s           11 22 33 44
 # tests MS3 --------------------------------------------------------------------
 # set sine wave (instead of square at default zero)
 uart_send_data               B0
-uart_send_data               0E 
-uart_send_data               40 #64 for sine
+uart_send_data               07
+# 64 for sine
+uart_send_data               40
 
-# test midi controller running status
-uart_send_data               90 #note on
-uart_send_data               3C #note 60
-uart_send_data               20 #velocity 32
+# send test tone
+# note on
+uart_send_data               90
+# note 60
+uart_send_data               3C
+# velocity 127
+uart_send_data               7F
 
-run_simulation_for  00 10 00 00
+run_simulation_for  00 08 00 00
+# no check, only watch analog variable dds_o
+
+# send test tone
+# note on
+uart_send_data               90
+# note 60
+uart_send_data               5C
+# velocity 127
+uart_send_data               6F
+
+run_simulation_for  00 04 00 00
 # no check, only watch analog variable dds_o
 
 
@@ -125,23 +140,27 @@ run_simulation_for  00 00 30 00
 
 # test midi controller single transfer turn on
 uart_send_data               90 
-uart_send_data               18
-uart_send_data               29
+uart_send_data               3D
+uart_send_data               30
 run_simulation_for  00 00 30 00
-check_display_hex0           09
-check_display_hex1           02
-check_display_hex2           08
-check_display_hex3           01
+check_display_hex0           00
+check_display_hex1           03
+check_display_hex2           0D
+check_display_hex3           03
+# check note on
+check_ledr_1                 01
 
 # test midi controller single transfer turn off
 uart_send_data               80 
-uart_send_data               1F 
-uart_send_data               0E
+uart_send_data               3D 
+uart_send_data               30
 run_simulation_for  00 00 30 00
-check_display_hex0           0E
-check_display_hex1           00
-check_display_hex2           0F
-check_display_hex3           01
+check_display_hex0           00
+check_display_hex1           03
+check_display_hex2           0D
+check_display_hex3           03
+# check note off
+check_ledr_1                 00
 
 # test midi controller running status
 uart_send_data               90 
@@ -154,29 +173,35 @@ check_display_hex0           00
 check_display_hex1           01
 check_display_hex2           00
 check_display_hex3           02
+# check note on
+check_ledr_1                 01
 
 set_switches        00 00 00 08 #AD-DA Betrieb, MIDI mode
 run_simulation_for  00 00 30 00
 
 # test midi controller single transfer turn on
-midi_send_data               90
-midi_send_data               18 
-midi_send_data               29
+midi_send_data               90 
+midi_send_data               3D
+midi_send_data               30
 run_simulation_for  00 00 30 00
-check_display_hex0           09
-check_display_hex1           02
-check_display_hex2           08
-check_display_hex3           01
+check_display_hex0           00
+check_display_hex1           03
+check_display_hex2           0D
+check_display_hex3           03
+# check note on
+check_ledr_1                 01
 
 # test midi controller single transfer turn off
-midi_send_data               80
-midi_send_data               1F
-midi_send_data               0E
+midi_send_data               80 
+midi_send_data               3D 
+midi_send_data               30
 run_simulation_for  00 00 30 00
-check_display_hex0           0E
-check_display_hex1           00
-check_display_hex2           0F
-check_display_hex3           01
+check_display_hex0           00
+check_display_hex1           03
+check_display_hex2           0D
+check_display_hex3           03
+# check note off
+check_ledr_1                 00
 
 # test midi controller running status
 midi_send_data               90
@@ -189,4 +214,6 @@ check_display_hex0           00
 check_display_hex1           01
 check_display_hex2           00
 check_display_hex3           02
+# check note on
+check_ledr_1                 01
 
