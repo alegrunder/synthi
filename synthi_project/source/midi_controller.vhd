@@ -20,8 +20,9 @@
 -------------------------------------------------------------------------------
 
 library ieee;
-use ieee.std_logic_1164.all;
-
+  use ieee.std_logic_1164.all;
+library work;
+  use work.tone_gen_pkg.all;
 -------------------------------------------------------------------------------
 
 entity midi_controller is
@@ -32,10 +33,9 @@ entity midi_controller is
     rx_data_i     : in  std_logic_vector(7 downto 0);
     hex2          : out std_logic_vector(6 downto 0);
     hex3          : out std_logic_vector(6 downto 0);
-    note_on_o     : out std_logic;
-	 control_o     : out std_logic; -- used for control commands
-    note_o        : out std_logic_vector(6 downto 0);
-    velocity_o    : out std_logic_vector(6 downto 0)
+    note_on_o     : out std_logic_vector(9 downto 0);
+    note_o        : out t_tone_array;
+    velocity_o    : out t_tone_array
     );
 
 end entity midi_controller;
@@ -55,6 +55,11 @@ architecture str of midi_controller is
   signal data1_reg, next_data1_reg   : std_logic_vector(6 downto 0);
   signal data2_reg, next_data2_reg   : std_logic_vector(6 downto 0);
   
+  signal new_data_flag : std_logic := '0';
+  
+  signal reg_tone_on, next_reg_tone_on : std_logic_vector(9 downto 0) ;
+  signal reg_note, next_reg_note : t_tone_array;
+  signal reg_velocity, next_reg_velocity : t_tone_array;
   -----------------------------------------------------------------------------
   -- Component declarations
   -----------------------------------------------------------------------------
@@ -90,6 +95,7 @@ begin  -- architecture str
   begin
     -- default statements (hold current value)
     next_fsm_state <= fsm_state;
+    new_data_flag <= '0';
     
     -- switch fsm_state
     if (rx_data_rdy_i = '1') then
@@ -104,6 +110,7 @@ begin  -- architecture str
             next_fsm_state <= st_wait_data2;
         when st_wait_data2 =>
             next_fsm_state <= st_wait_status;
+            new_data_flag <= '1';
         when others =>
           next_fsm_state <= fsm_state;
       end case;
@@ -132,6 +139,7 @@ begin  -- architecture str
       
       if fsm_state = st_wait_data2 then
         next_data2_reg <= rx_data_i(6 downto 0);
+        -- new_data_flag <= '1';
       end if;
     end if;
   end process reg_logic;
@@ -142,22 +150,23 @@ begin  -- architecture str
   fsm_out_logic : process (all) is
   begin  -- process fsm_out_logic
     -- default statements
-    note_on_o                   <= '0';
-    control_o						  <= '0';
+    -- note_on_o                   <= '0';
+    -- control_o						  <= '0';
     
     -- vereinfachte Logik, andere Steuersignale werden allenfalls nicht richtig erkannt
     if status_reg(6 downto 4) = "001" then
-      note_on_o <= '1';
+      -- note_on_o <= '1';
 	 elsif status_reg(6 downto 4) = "011" then -- used for control commands
-      control_o <= '1';
+      -- control_o <= '1';
     end if; 
   end process fsm_out_logic;
   
   -----------------------------------------------------------------------------
   -- CONCURRENT ASSINGMENTS
   -----------------------------------------------------------------------------
-  note_o <= data1_reg;
-  velocity_o <= data2_reg;
+  -- note_o <= data1_reg;
+  -- velocity_o <= data2_reg;
+  note_on_o(0) <= new_data_flag;
   
   -----------------------------------------------------------------------------
   -- Instances
