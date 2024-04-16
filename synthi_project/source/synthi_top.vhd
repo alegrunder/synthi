@@ -6,7 +6,7 @@
 -- Author     : grundale
 -- Company    : 
 -- Created    : 2018-03-08
--- Last update: 2024-04-02
+-- Last update: 2024-04-16
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -26,8 +26,8 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-use work.reg_table_pkg.all;
 library work;
+use work.tone_gen_pkg.all;
 
 -------------------------------------------------------------------------------
 
@@ -99,13 +99,16 @@ architecture struct of synthi_top is
   signal step_sig         : std_logic;
   signal dds_l            : std_logic_vector(15 downto 0);
   signal dds_r            : std_logic_vector(15 downto 0);
-  signal note_sig         : std_logic_vector(6 downto 0);
-  signal velocity_sig     : std_logic_vector(6 downto 0);
-  signal note_on_sig      : std_logic;
+  signal note_sig         : t_tone_array;
+  signal velocity_sig     : t_tone_array;
+  signal note_on_sig      : std_logic_vector(9 downto 0);
   signal rx_data_rdy_sig  : std_logic;
   signal rx_data_sig      : std_logic_vector(7 downto 0);
-  signal control          : std_logic;
   signal baud_rate_sig    : positive;
+  signal vol_reg_sig      : std_logic_vector(6 downto 0);
+  signal pitch_reg_sig    : std_logic_vector(6 downto 0);
+  signal ctrl_reg_sig     : std_logic_vector(6 downto 0);
+
 
   -----------------------------------------------------------------------------
   -- Component declarations
@@ -127,14 +130,14 @@ architecture struct of synthi_top is
 
   component midi_uart is
     port (
-      clk_6m        : in  std_logic;
-      reset_n       : in  std_logic;
-      serial_in     : in  std_logic;
-      baud_rate_i   : in  positive;
-      rx_data_rdy   : out std_logic;
-      rx_data       : out std_logic_vector(7 downto 0);
-      hex0          : out std_logic_vector(6 downto 0);
-      hex1          : out std_logic_vector(6 downto 0)
+      clk_6m      : in  std_logic;
+      reset_n     : in  std_logic;
+      serial_in   : in  std_logic;
+      baud_rate_i : in  positive;
+      rx_data_rdy : out std_logic;
+      rx_data     : out std_logic_vector(7 downto 0);
+      hex0        : out std_logic_vector(6 downto 0);
+      hex1        : out std_logic_vector(6 downto 0)
       );
   end component midi_uart;
 
@@ -188,16 +191,17 @@ architecture struct of synthi_top is
 
   component tone_generator is
     port (
-	 clk        : in  std_logic;
-    rst_n      : in  std_logic;
-    step_i     : in  std_logic;         -- f_s
-    note_i     : in  t_tone_array;
-    velocity_i : in  t_tone_array;
-    tone_on_i  : in  std_logic_vector(9 downto 0);         -- later a vector
-	 control		: in std_logic;
-    dds_l_o    : out std_logic_vector(15 downto 0);
-    dds_r_o    : out std_logic_vector(15 downto 0)
-    );
+      clk         : in  std_logic;
+      rst_n       : in  std_logic;
+      step_i      : in  std_logic;
+      note_i      : in  t_tone_array;
+      velocity_i  : in  t_tone_array;
+      tone_on_i   : in  std_logic_vector(9 downto 0);
+      vol_reg_i   : in  std_logic_vector(6 downto 0);
+      pitch_reg_i : in  std_logic_vector(6 downto 0);
+      ctrl_reg_i  : in  std_logic_vector(6 downto 0);
+      dds_l_o     : out std_logic_vector(15 downto 0);
+      dds_r_o     : out std_logic_vector(15 downto 0));
   end component tone_generator;
 
   component midi_controller is
@@ -208,16 +212,18 @@ architecture struct of synthi_top is
       rx_data_i     : in  std_logic_vector(7 downto 0);
       hex2          : out std_logic_vector(6 downto 0);
       hex3          : out std_logic_vector(6 downto 0);
-      note_on_o     : out std_logic;
-      control_o     : out std_logic;    -- used for control commands
-      note_o        : out std_logic_vector(6 downto 0);
-      velocity_o    : out std_logic_vector(6 downto 0));
+      note_on_o     : out std_logic_vector(9 downto 0);
+      note_o        : out t_tone_array;
+      velocity_o    : out t_tone_array;
+      vol_reg_o     : out std_logic_vector(6 downto 0);
+      pitch_reg_o   : out std_logic_vector(6 downto 0);
+      ctrl_reg_o    : out std_logic_vector(6 downto 0));
   end component midi_controller;
 
   component source_select is
     port (
-      clk         : in std_logic;
-      reset_n     : in std_logic;
+      clk         : in  std_logic;
+      reset_n     : in  std_logic;
       usb_i       : in  std_logic;
       midi_i      : in  std_logic;
       sw_i        : in  std_logic;
@@ -237,8 +243,7 @@ begin
   AUD_DACLRCK <= ws_sig;
   AUD_ADCLRCK <= ws_sig;
   AUD_BCLK    <= not(clk_6m_sig);       -- invert for I2S
-  LEDR_1      <= note_on_sig;
-  LEDR_2      <= control;
+  LEDR_1      <= note_on_sig(0);
 
   -----------------------------------------------------------------------------
   -- Instances
@@ -322,18 +327,17 @@ begin
   -- instance "tone_generator_1"
   tone_generator_1 : tone_generator
     port map (
-      clk        => clk_6m_sig,
-      rst_n      => reset_n_sig,
-      step_i     => step_sig,
-      --note_i     => sw(9 downto 8) & "00000", -- test purposes DDS
-      note_i     => note_sig,
-      --velocity_i => sw(7 downto 5) & "0000",  -- test purposes DDS
-      velocity_i => velocity_sig,
-      --tone_on_i  => sw(4),                    -- test purposes DDS
-      tone_on_i  => note_on_sig,
-      control    => control,            -- used for control commands
-      dds_l_o    => dds_l,
-      dds_r_o    => dds_r);
+      clk         => clk_6m_sig,
+      rst_n       => reset_n_sig,
+      step_i      => step_sig,
+      note_i      => note_sig,
+      velocity_i  => velocity_sig,
+      tone_on_i   => note_on_sig,
+      vol_reg_i   => vol_reg_sig,
+      pitch_reg_i => pitch_reg_sig,
+      ctrl_reg_i  => ctrl_reg_sig,
+      dds_l_o     => dds_l,
+      dds_r_o     => dds_r);
 
   -- instance "midi_controller_1"
   midi_controller_1 : midi_controller
@@ -345,16 +349,17 @@ begin
       hex2          => HEX2,
       hex3          => HEX3,
       note_on_o     => note_on_sig,
-      control_o     => control,         -- used for control commands
       note_o        => note_sig,
-      velocity_o    => velocity_sig
-      );
+      velocity_o    => velocity_sig,
+      vol_reg_o     => vol_reg_sig,
+      pitch_reg_o   => pitch_reg_sig,
+      ctrl_reg_o    => ctrl_reg_sig);
 
   -- instance "source_select_1"
-  source_select_1: source_select
+  source_select_1 : source_select
     port map (
-      clk          => clk_6m_sig,
-      reset_n      => reset_n_sig,
+      clk         => clk_6m_sig,
+      reset_n     => reset_n_sig,
       usb_i       => usb_txd_sync_sig,
       midi_i      => midi_sync_sig,
       sw_i        => SW(4),
