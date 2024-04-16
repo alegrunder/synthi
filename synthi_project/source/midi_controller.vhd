@@ -18,6 +18,7 @@
 -- Date        Version  Author          Description
 -- 2024-03-26  1.0      heinipas        Created
 -- 2024-04-16  2.0      heinipas        MIDI mehrkanalig
+-- 2024-04-16  2.1      grundale        added feedback note valid for envelope
 -------------------------------------------------------------------------------
 
 library ieee;
@@ -32,6 +33,7 @@ entity midi_controller is
     reset_n       : in  std_logic;
     rx_data_rdy_i : in  std_logic;
     rx_data_i     : in  std_logic_vector(7 downto 0);
+	note_valid_i  : in  std_logic_vector(9 downto 0);
     hex2          : out std_logic_vector(6 downto 0);
     hex3          : out std_logic_vector(6 downto 0);
     note_on_o     : out std_logic_vector(9 downto 0);
@@ -203,12 +205,15 @@ begin  -- architecture str
           if reg_note(i) = data1_reg and reg_note_on(i) = '1' then
             -- Found a matching note
             note_available := '1';
-            if status_reg (6 downto 4) = "000" then
+            if (status_reg(6 downto 4) = "000") then
               -- turn note off
               next_reg_note_on(i) <= '0';
-            elsif status_reg (6 downto 4) = "001" and data2_reg = "00000000" then
+            elsif (status_reg(6 downto 4) = "001" and data2_reg = "0000000") then
               -- running mode turn off (velocity = 0)
               next_reg_note_on(i) <= '0';
+            elsif (status_reg(6 downto 4) = "001") then
+              -- change velocity for a note that is already playing
+              next_reg_velocity(i) <= data2_reg;
             end if;
           end if;
         end loop;
@@ -224,9 +229,10 @@ begin  -- architecture str
           for i in 0 to 9 loop
             -- if the note already written, ignore the remaining loop runs
             if note_written = '0' then
-              -- If a free space is found reg_note_on i ) = '0’) enter the note number and velocity
-              -- or if until the end of the loop no space is found (i=9) overwrite last entry
-              if (reg_note_on(i) = '0' or i = 9) and status_reg(6 downto 4) = "001" then
+              -- If a free space is found reg_note_on(i) = '0' enter the note number and velocity
+			  -- note_valid prevents overwriting a note that is still decaing (envelope)
+			  -- if no space is found, nothing will be written and 11th tone will be discarded
+              if (reg_note_on(i) = '0' and note_valid_i(i) = '0' and status_reg(6 downto 4) = "001") then
                 next_reg_note(i)     <= data1_reg;
                 next_reg_velocity(i) <= data2_reg;
                 next_reg_note_on(i)  <= '1';  -- and set register to valid
@@ -251,15 +257,15 @@ begin  -- architecture str
   ctrl_reg_o  <= ctrl_reg;
 
   -----------------------------------------------------------------------------
-  -- Instances
+  -- Instances for simulation tests
   -----------------------------------------------------------------------------
   vhdl_hex2sevseg_inst1 : vhdl_hex2sevseg
-    port map(data_in => reg_note(0)(3 downto 0),
+    port map(data_in => data1_reg(3 downto 0),
              seg_out => hex2);
 
 
   vhdl_hex2sevseg_inst2 : vhdl_hex2sevseg
-    port map(data_in => ('0' & reg_note(0)(6 downto 4)),
+    port map(data_in => ('0' & data1_reg(6 downto 4)),
              seg_out => hex3);
 
 end architecture str;

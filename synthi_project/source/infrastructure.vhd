@@ -37,7 +37,7 @@ entity infrastructure is
     reset_n      : out std_logic;
     usb_txd_sync : out std_logic;
     midi_sync    : out std_logic;
-    ledr_0       : out std_logic
+    led_usb      : out std_logic
     );
 
 end entity infrastructure;
@@ -118,7 +118,7 @@ begin  -- architecture infra_arch
       clk       => clock_50,
       reset_n   => key_0,
       data_in   => usb_txd,
-      led_blink => ledr_0);
+      led_blink => led_usb);
 
 end architecture infra_arch;
 
