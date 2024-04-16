@@ -70,13 +70,13 @@ architecture str of tone_generator is
       dds_o       : out std_logic_vector(15 downto 0));
   end component dds;
 
-  signal dds_o_LR     : std_logic_vector(15 downto 0);
+  -- signal dds_o_LR     : std_logic_vector(15 downto 0);
   signal sum_reg      : signed(N_AUDIO-1 downto 0);
   signal next_sum_reg : signed(N_AUDIO-1 downto 0);
 
 begin  -- architecture str
-  dds_l_o <= dds_o_LR;
-  dds_r_o <= dds_o_LR;
+  dds_l_o <= std_logic_vector(sum_reg);
+  dds_r_o <= std_logic_vector(sum_reg);
 
   -----------------------------------------------------------------------------
   -- Component instantiations

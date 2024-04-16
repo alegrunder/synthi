@@ -17,6 +17,7 @@
 -- Revisions  :
 -- Date        Version  Author          Description
 -- 2024-03-26  1.0      heinipas        Created
+-- 2024-04-16  2.0      heinipas        MIDI mehrkanalig
 -------------------------------------------------------------------------------
 
 library ieee;
@@ -58,11 +59,14 @@ architecture str of midi_controller is
   signal data1_reg, next_data1_reg   : std_logic_vector(6 downto 0);
   signal data2_reg, next_data2_reg   : std_logic_vector(6 downto 0);
 
-  signal new_data_flag : std_logic := '0';
+  signal new_data_flag, next_new_data_flag : std_logic := '0';
 
-  signal reg_tone_on, next_reg_tone_on   : std_logic_vector(9 downto 0);
+  signal reg_note_on, next_reg_note_on   : std_logic_vector(9 downto 0);
   signal reg_note, next_reg_note         : t_tone_array;
   signal reg_velocity, next_reg_velocity : t_tone_array;
+  signal vol_reg, next_vol_reg           : std_logic_vector(6 downto 0);
+  signal pitch_reg, next_pitch_reg       : std_logic_vector(6 downto 0);
+  signal ctrl_reg, next_ctrl_reg         : std_logic_vector(6 downto 0);
   -----------------------------------------------------------------------------
   -- Component declarations
   -----------------------------------------------------------------------------
@@ -79,15 +83,31 @@ begin  -- architecture str
   flip_flops : process(all)
   begin
     if reset_n = '0' then
-      fsm_state  <= st_wait_status;
-      status_reg <= (others => '0');
-      data1_reg  <= (others => '0');
-      data2_reg  <= (others => '0');
+      fsm_state    <= st_wait_status;
+      status_reg   <= (others => '0');
+      data1_reg    <= (others => '0');
+      data2_reg    <= (others => '0');
+      new_data_flag <= '0';
+      reg_note_on  <= (others => '0');
+      for i in 0 to 9 loop
+        reg_note(i) <= (others => '0');
+        reg_velocity(i) <= (others => '0');
+      end loop;
+      vol_reg      <= "1000000";
+      pitch_reg    <= "1000000";
+      ctrl_reg     <= "1000000";
     elsif rising_edge(clk) then
-      fsm_state  <= next_fsm_state;
-      status_reg <= next_status_reg;
-      data1_reg  <= next_data1_reg;
-      data2_reg  <= next_data2_reg;
+      fsm_state    <= next_fsm_state;
+      status_reg   <= next_status_reg;
+      data1_reg    <= next_data1_reg;
+      data2_reg    <= next_data2_reg;
+      new_data_flag <= next_new_data_flag;
+      reg_note_on  <= next_reg_note_on;
+      reg_note     <= next_reg_note;
+      reg_velocity <= next_reg_velocity;
+      vol_reg      <= next_vol_reg;
+      pitch_reg    <= next_pitch_reg;
+      ctrl_reg     <= next_ctrl_reg;
     end if;
   end process flip_flops;
 
@@ -98,7 +118,6 @@ begin  -- architecture str
   begin
     -- default statements (hold current value)
     next_fsm_state <= fsm_state;
-    new_data_flag  <= '0';
 
     -- switch fsm_state
     if (rx_data_rdy_i = '1') then
@@ -113,7 +132,6 @@ begin  -- architecture str
           next_fsm_state <= st_wait_data2;
         when st_wait_data2 =>
           next_fsm_state <= st_wait_status;
-          new_data_flag  <= '1';
         when others =>
           next_fsm_state <= fsm_state;
       end case;
@@ -126,9 +144,10 @@ begin  -- architecture str
   reg_logic : process (all)
   begin
     -- default statements (hold current value)
-    next_status_reg <= status_reg;
-    next_data1_reg  <= data1_reg;
-    next_data2_reg  <= data2_reg;
+    next_status_reg    <= status_reg;
+    next_data1_reg     <= data1_reg;
+    next_data2_reg     <= data2_reg;
+    next_new_data_flag <= '0';
 
     -- set next value for registers
     if (rx_data_rdy_i = '1') then
@@ -142,45 +161,105 @@ begin  -- architecture str
 
       if fsm_state = st_wait_data2 then
         next_data2_reg <= rx_data_i(6 downto 0);
-      -- new_data_flag <= '1';
+        next_new_data_flag <= '1';
       end if;
     end if;
   end process reg_logic;
 
   -----------------------------------------------------------------------------
-  -- PROCESS FOR OUTPUT-COMB-LOGIC
+  -- PROCESS FOR MIDI-ARRAY-LOGIC
   -----------------------------------------------------------------------------
-  fsm_out_logic : process (all) is
-  begin  -- process fsm_out_logic
+  midi_array_logic : process (all) is
+    variable note_available : std_logic := '0';
+    variable note_written   : std_logic := '0';
+  begin  -- process midi_array_logic
     -- default statements
-    -- note_on_o                   <= '0';
-    -- control_o                                                  <= '0';
+    note_available    := '0';
+    note_written      := '0';
+    next_reg_note_on  <= reg_note_on;
+    next_reg_note     <= reg_note;
+    next_reg_velocity <= reg_velocity;
+    next_vol_reg      <= vol_reg;
+    next_pitch_reg    <= pitch_reg;
+    next_ctrl_reg     <= ctrl_reg;
 
-    -- vereinfachte Logik, andere Steuersignale werden allenfalls nicht richtig erkannt
-    if status_reg(6 downto 4) = "001" then
-    -- note_on_o <= '1';
-    elsif status_reg(6 downto 4) = "011" then  -- used for control commands
-    -- control_o <= '1';
-    end if;
-  end process fsm_out_logic;
+    -- process new midi command
+    if (new_data_flag) then
+      -- command En (pitch wheel)
+      if (status_reg(6 downto 4) = "110") then
+        next_pitch_reg <= data2_reg;
+      -- command Bn 07 (volume)
+      elsif ((status_reg(6 downto 4) = "011") and (data1_reg = "0000111")) then
+        next_vol_reg <= data2_reg;
+      -- command Bn 01 (modulation wheel)
+      elsif ((status_reg(6 downto 4) = "011") and (data1_reg = "0000001")) then
+        next_ctrl_reg <= data2_reg;
+      -- note_on 9n or note_off 8n
+      elsif ((status_reg(6 downto 4) = "001") or (status_reg(6 downto 4) = "000")) then
+        ------------------------------------------------------
+        -- CHECK IF NOTE IS ALREADY ENTERED IN MIDI ARRAY
+        ------------------------------------------------------
+        for i in 0 to 9 loop
+          if reg_note(i) = data1_reg and reg_note_on(i) = '1' then
+            -- Found a matching note
+            note_available := '1';
+            if status_reg (6 downto 4) = "000" then
+              -- turn note off
+              next_reg_note_on(i) <= '0';
+            elsif status_reg (6 downto 4) = "001" and data2_reg = "00000000" then
+              -- running mode turn off (velocity = 0)
+              next_reg_note_on(i) <= '0';
+            end if;
+          end if;
+        end loop;
+
+        -----------------------------------------
+        -- ENTER A NEW NOTE IF STILL EMPTY REGISTERS
+        ------------------------------------------
+        -- If the new note is not in the midi storage array yet, find a free space
+        -- if the valid flag is cleared, the note can be overwritten, at the same time a flag is set to mark that
+        -- the new note has found a place.
+        if note_available = '0' then
+          -- If there is not yet an entry for the note, look for an empty space and write it
+          for i in 0 to 9 loop
+            -- if the note already written, ignore the remaining loop runs
+            if note_written = '0' then
+              -- If a free space is found reg_note_on i ) = '0’) enter the note number and velocity
+              -- or if until the end of the loop no space is found (i=9) overwrite last entry
+              if (reg_note_on(i) = '0' or i = 9) and status_reg(6 downto 4) = "001" then
+                next_reg_note(i)     <= data1_reg;
+                next_reg_velocity(i) <= data2_reg;
+                next_reg_note_on(i)  <= '1';  -- and set register to valid
+                note_written         := '1';  -- flag that note is written to suppress remaining loops
+              end if;
+            end if;
+          end loop;
+        end if;  -- note_available = '0'
+      end if;  -- note_on or note_off
+    end if;  -- new_data_flag
+
+  end process midi_array_logic;
 
   -----------------------------------------------------------------------------
   -- CONCURRENT ASSINGMENTS
   -----------------------------------------------------------------------------
-  -- note_o <= data1_reg;
-  -- velocity_o <= data2_reg;
-  note_on_o(0) <= new_data_flag;
+  note_o      <= reg_note;
+  velocity_o  <= reg_velocity;
+  note_on_o   <= reg_note_on;
+  vol_reg_o   <= vol_reg;
+  pitch_reg_o <= pitch_reg;
+  ctrl_reg_o  <= ctrl_reg;
 
   -----------------------------------------------------------------------------
   -- Instances
   -----------------------------------------------------------------------------
   vhdl_hex2sevseg_inst1 : vhdl_hex2sevseg
-    port map(data_in => data1_reg(3 downto 0),
+    port map(data_in => reg_note(0)(3 downto 0),
              seg_out => hex2);
 
 
   vhdl_hex2sevseg_inst2 : vhdl_hex2sevseg
-    port map(data_in => ('0' & data1_reg(6 downto 4)),
+    port map(data_in => ('0' & reg_note(0)(6 downto 4)),
              seg_out => hex3);
 
 end architecture str;
