@@ -34,22 +34,28 @@ add wave -noupdate -expand -group {MIDI Controller} /synthi_top_tb/DUT/rx_data_s
 add wave -noupdate -expand -group {MIDI Controller} /synthi_top_tb/DUT/rx_data_rdy_sig
 add wave -noupdate -expand -group {MIDI Controller} /synthi_top_tb/DUT/midi_controller_1/fsm_state
 add wave -noupdate -expand -group {MIDI Controller} /synthi_top_tb/DUT/midi_controller_1/status_reg
-add wave -noupdate -expand -group {MIDI Controller} /synthi_top_tb/DUT/note_on_sig
+add wave -noupdate -expand -group {MIDI Controller} /synthi_top_tb/DUT/midi_controller_1/data1_reg
+add wave -noupdate -expand -group {MIDI Controller} /synthi_top_tb/DUT/midi_controller_1/data2_reg
 add wave -noupdate -expand -group {MIDI Controller} /synthi_top_tb/DUT/LEDR_1
-add wave -noupdate -expand -group {MIDI Controller} /synthi_top_tb/DUT/note_sig
-add wave -noupdate -expand -group {MIDI Controller} /synthi_top_tb/DUT/velocity_sig
-add wave -noupdate -expand -group {Source Select} -radix decimal /synthi_top_tb/DUT/midi_uart_1/baud_rate_i
-add wave -noupdate -expand -group {Source Select} /synthi_top_tb/DUT/midi_sync_sig
-add wave -noupdate -expand -group {Source Select} /synthi_top_tb/DUT/midi_uart_1/serial_in
-add wave -noupdate -expand -group {Source Select} /synthi_top_tb/DUT/midi_uart_1/falling_pulse
-add wave -noupdate -expand -group {Source Select} /synthi_top_tb/DUT/midi_uart_1/start_pulse
-add wave -noupdate -expand -group {Source Select} /synthi_top_tb/DUT/midi_uart_1/bit_count
-add wave -noupdate -expand -group {Source Select} /synthi_top_tb/DUT/midi_uart_1/tick
-add wave -noupdate -expand -group DDS /synthi_top_tb/DUT/tone_generator_1/dds_1/control_reg1
-add wave -noupdate -expand -group DDS /synthi_top_tb/DUT/tone_generator_1/dds_1/attenu_i
-add wave -noupdate -expand -group DDS -format Analog-Step -height 256 -max 4095.0 -min -4096.0 -radix sfixed /synthi_top_tb/DUT/tone_generator_1/dds_1/dds_o
+add wave -noupdate -group {Source Select} -radix decimal /synthi_top_tb/DUT/midi_uart_1/baud_rate_i
+add wave -noupdate -group {Source Select} /synthi_top_tb/DUT/midi_sync_sig
+add wave -noupdate -group {Source Select} /synthi_top_tb/DUT/midi_uart_1/serial_in
+add wave -noupdate -group {Source Select} /synthi_top_tb/DUT/midi_uart_1/falling_pulse
+add wave -noupdate -group {Source Select} /synthi_top_tb/DUT/midi_uart_1/start_pulse
+add wave -noupdate -group {Source Select} /synthi_top_tb/DUT/midi_uart_1/bit_count
+add wave -noupdate -group {Source Select} /synthi_top_tb/DUT/midi_uart_1/tick
+add wave -noupdate -expand -group {MIDI poly} /synthi_top_tb/DUT/midi_controller_1/new_data_flag
+add wave -noupdate -expand -group {MIDI poly} /synthi_top_tb/DUT/note_on_sig
+add wave -noupdate -expand -group {MIDI poly} /synthi_top_tb/DUT/note_sig
+add wave -noupdate -expand -group {MIDI poly} /synthi_top_tb/DUT/velocity_sig
+add wave -noupdate -expand -group {MIDI poly} /synthi_top_tb/DUT/midi_controller_1/vol_reg
+add wave -noupdate -expand -group {MIDI poly} /synthi_top_tb/DUT/midi_controller_1/pitch_reg
+add wave -noupdate -expand -group {MIDI poly} /synthi_top_tb/DUT/midi_controller_1/ctrl_reg
+add wave -noupdate -expand -group DDS -format Analog-Step -height 74 -max 4095.0 -min -4096.0 -radix sfixed /synthi_top_tb/DUT/tone_generator_1/dds_inst_gen(0)/inst_dds/dds_o
+add wave -noupdate -expand -group DDS -format Analog-Step -height 74 -max 4095.0 -min -4096.0 -radix sfixed /synthi_top_tb/DUT/tone_generator_1/dds_inst_gen(1)/inst_dds/dds_o
+add wave -noupdate -expand -group DDS -format Analog-Step -height 150 -max 32767.0 -min -32768.0 -radix sfixed /synthi_top_tb/DUT/tone_generator_1/dds_l_o
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {49354310 ns} 0}
+WaveRestoreCursors {{Cursor 1} {19938185 ns} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 384
 configure wave -valuecolwidth 100
@@ -65,4 +71,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {27147124 ns} {27523851 ns}
+WaveRestoreZoom {5095931 ns} {41470777 ns}
