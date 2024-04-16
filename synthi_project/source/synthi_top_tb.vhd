@@ -148,11 +148,11 @@ architecture struct of synthi_top_tb is
   signal reg_data_7 : std_logic_vector(31 downto 0);
   signal reg_data_8 : std_logic_vector(31 downto 0);
   signal reg_data_9 : std_logic_vector(31 downto 0);
-  signal led1_reg   : std_logic_vector(31 downto 0) := (others => '0');
+  signal led_reg    : std_logic_vector(31 downto 0) := (others => '0');
   
 begin  -- architecture struct
   SW(9 downto 0) <= gpi_signals(9 downto 0);
-  led1_reg(0)    <= LEDR_1;
+  led_reg(9 downto 0) <= LEDR_9 & LEDR_8 & LEDR_7 & LEDR_6 & LEDR_5 & LEDR_4 & LEDR_3 & LEDR_2 & LEDR_1 & LEDR_0;
   
   -- component instantiation
   DUT: synthi_top
@@ -326,13 +326,13 @@ begin  -- architecture struct
       elsif cmd.all = "send_i2s" then
         i2s_sim(tv, AUD_ADCLRCK,AUD_BCLK, AUD_ADCDAT);
         
-      elsif cmd.all = "check_ledr_1" then
+      elsif cmd.all = "check_leds" then
         -- only pass LSByte in tv.arg1
         tv.arg4 := tv.arg1; 
         tv.arg1 := (others => '0');
         tv.arg2 := (others => '0');
         tv.arg3 := (others => '0');
-        gpo_chk(tv, led1_reg);
+        gpo_chk(tv, led_reg);
 
       else
         assert false

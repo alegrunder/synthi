@@ -83,7 +83,9 @@ check_i2c_reg_9     00 00 00 01
 
 reset_target                 20
 # test MS1 default configuration -----------------------------------------------
-set_switches        00 00 00 18 #AD-DA Betrieb, USB mode
+
+#AD-DA Betrieb, USB mode
+set_switches        00 00 00 18 
 run_simulation_for  00 01 80 00
 
 check_i2c_reg_0     00 00 00 17
@@ -104,38 +106,35 @@ check_i2s           11 22 33 44
 
 
 # tests MS3 --------------------------------------------------------------------
-# set sine wave (instead of square at default zero)
-uart_send_data               B0
-uart_send_data               07
-# 64 for sine
-uart_send_data               40
 
 # send test tone
 # note on
 uart_send_data               90
 # note 60
-uart_send_data               3C
-# velocity 127
-uart_send_data               7F
-
-run_simulation_for  00 08 00 00
-# no check, only watch analog variable dds_o
-
-# send test tone
-# note on
-uart_send_data               90
-# note 60
-uart_send_data               5C
-# velocity 127
+uart_send_data               56
+# velocity 111
 uart_send_data               6F
 
 run_simulation_for  00 04 00 00
 # no check, only watch analog variable dds_o
 
+# send test tone
+# note on
+uart_send_data               90
+# note 60
+uart_send_data               67
+# velocity 127
+uart_send_data               7F
 
-# tests MS4 --------------------------------------------------------------------
+run_simulation_for  00 02 00 00
+# no check, only watch analog variable dds_o
+
+
+# tests MS4 and MS5 ------------------------------------------------------------
 reset_target                 20
-set_switches        00 00 00 18 #AD-DA Betrieb, USB mode
+
+#AD-DA Betrieb, USB mode
+set_switches        00 00 00 18 
 run_simulation_for  00 00 30 00
 
 # test midi controller single transfer turn on
@@ -147,20 +146,20 @@ check_display_hex0           00
 check_display_hex1           03
 check_display_hex2           0D
 check_display_hex3           03
-# check note on
-check_ledr_1                 01
+# check tone on (ledr_0)
+check_leds                   01
 
 # test midi controller single transfer turn off
 uart_send_data               80 
 uart_send_data               3D 
-uart_send_data               30
+uart_send_data               40
 run_simulation_for  00 00 30 00
 check_display_hex0           00
-check_display_hex1           03
+check_display_hex1           04
 check_display_hex2           0D
 check_display_hex3           03
-# check note off
-check_ledr_1                 00
+# check no tone is on
+check_leds                   00
 
 # test midi controller running status
 uart_send_data               90 
@@ -173,47 +172,71 @@ check_display_hex0           00
 check_display_hex1           01
 check_display_hex2           00
 check_display_hex3           02
-# check note on
-check_ledr_1                 01
+# check two tones are on
+check_leds                   03
 
 set_switches        00 00 00 08 #AD-DA Betrieb, MIDI mode
 run_simulation_for  00 00 30 00
 
-# test midi controller single transfer turn on
+# test midi controller running status
+# turn note 3D on (3rd note in test)
 midi_send_data               90 
 midi_send_data               3D
 midi_send_data               30
+# turn note 1F off in running status
+midi_send_data               1F
+midi_send_data               00
+# change velocity of valid note 20
+midi_send_data               20
+midi_send_data               11
 run_simulation_for  00 00 30 00
-check_display_hex0           00
-check_display_hex1           03
-check_display_hex2           0D
-check_display_hex3           03
-# check note on
-check_ledr_1                 01
+check_display_hex0           01
+check_display_hex1           01
+check_display_hex2           00
+check_display_hex3           02
+# check three tones are on
+check_leds                   06
+
 
 # test midi controller single transfer turn off
 midi_send_data               80 
 midi_send_data               3D 
-midi_send_data               30
+midi_send_data               40
+midi_send_data               80 
+midi_send_data               20 
+midi_send_data               40
 run_simulation_for  00 00 30 00
 check_display_hex0           00
-check_display_hex1           03
-check_display_hex2           0D
-check_display_hex3           03
-# check note off
-check_ledr_1                 00
-
-# test midi controller running status
-midi_send_data               90
-midi_send_data               1F
-midi_send_data               0E
-midi_send_data               20
-midi_send_data               10
-run_simulation_for  00 00 30 00
-check_display_hex0           00
-check_display_hex1           01
+check_display_hex1           04
 check_display_hex2           00
 check_display_hex3           02
-# check note on
-check_ledr_1                 01
+# check all leds off
+check_leds                   00
 
+
+# tests extra features -------------------------------------------------------
+
+#AD-DA Betrieb, USB mode
+set_switches        00 00 00 18 
+run_simulation_for  00 00 30 00
+
+# set max volume
+uart_send_data               B0
+uart_send_data               07
+uart_send_data               7F
+
+# set pitch
+uart_send_data               E0
+uart_send_data               22
+uart_send_data               33
+
+# set waveform wheel
+uart_send_data               B0
+uart_send_data               01
+uart_send_data               60
+
+run_simulation_for  00 00 40 00
+
+# check vol_reg_sig = 7F
+# check pitch_reg_sig = 33
+# check ctrl_reg_sig = 60

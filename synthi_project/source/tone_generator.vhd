@@ -17,6 +17,9 @@
 -- Revisions  :
 -- Date        Version  Author          Description
 -- 2024-03-26  1.0      heinipas        Created
+-- 2024-04-10  2.0      doblesam        implemented tone gen functions
+-- 2024-04-16  2.1      grundale        added note valid feedack for midi ctrl
+-- 2024-04-16  2.2      heinipas        added synchronous note valid feedback
 -------------------------------------------------------------------------------
 
 library ieee;
@@ -29,17 +32,18 @@ use work.tone_gen_pkg.all;
 
 entity tone_generator is
   port (
-    clk         : in  std_logic;
-    rst_n       : in  std_logic;
-    step_i      : in  std_logic;        -- f_s
-    note_i      : in  t_tone_array;
-    velocity_i  : in  t_tone_array;
-    tone_on_i   : in  std_logic_vector(9 downto 0);
-    vol_reg_i   : in  std_logic_vector(6 downto 0);
-    pitch_reg_i : in  std_logic_vector(6 downto 0);
-    ctrl_reg_i  : in  std_logic_vector(6 downto 0);  -- used for control commands
-    dds_l_o     : out std_logic_vector(15 downto 0);
-    dds_r_o     : out std_logic_vector(15 downto 0)
+    clk          : in  std_logic;
+    rst_n        : in  std_logic;
+    step_i       : in  std_logic;        -- f_s
+    note_i       : in  t_tone_array;
+    velocity_i   : in  t_tone_array;
+    tone_on_i    : in  std_logic_vector(9 downto 0);
+    vol_reg_i    : in  std_logic_vector(6 downto 0);
+    pitch_reg_i  : in  std_logic_vector(6 downto 0);
+    ctrl_reg_i   : in  std_logic_vector(6 downto 0);  -- used for control commands
+	note_valid_o : out std_logic_vector(9 downto 0);
+    dds_l_o      : out std_logic_vector(15 downto 0);
+    dds_r_o      : out std_logic_vector(15 downto 0)
     );
 
 end entity tone_generator;
@@ -53,6 +57,7 @@ architecture str of tone_generator is
   -----------------------------------------------------------------------------
   type t_dds_o_array is array (0 to 9) of std_logic_vector(N_AUDIO-1 downto 0);
   signal dds_o_array : t_dds_o_array;
+  signal note_valid, next_note_valid : std_logic_vector(9 downto 0);
   -----------------------------------------------------------------------------
   -- Component declarations
   -----------------------------------------------------------------------------
@@ -75,13 +80,41 @@ architecture str of tone_generator is
   signal next_sum_reg : signed(N_AUDIO-1 downto 0);
 
 begin  -- architecture str
-  dds_l_o <= std_logic_vector(sum_reg);
-  dds_r_o <= std_logic_vector(sum_reg);
 
+  -----------------------------------------------------------------------------
+  -- CONCURRENT ASSINGMENTS
+  -----------------------------------------------------------------------------
+  note_valid_o <= note_valid;
+  dds_l_o      <= std_logic_vector(sum_reg);
+  dds_r_o      <= std_logic_vector(sum_reg);
+  
+  -----------------------------------------------------------------------------
+  -- PROCESS FOR ALL FLIP-FLOPS
+  -----------------------------------------------------------------------------
+  flip_flops : process(all)
+  begin
+    if rst_n = '0' then
+      note_valid <= (others => '0');
+    elsif rising_edge(clk) then
+      note_valid <= next_note_valid;
+    end if;
+  end process flip_flops;
+  
+  -----------------------------------------------------------------------------
+  -- PROCESS FOR COMB-LOGIC 
+  -----------------------------------------------------------------------------
+  comb_logic : process (all)
+  begin
+    -- default statements (hold current value)
+    next_note_valid <= note_valid;
+ 
+    -- set next value for registers
+    next_note_valid <= tone_on_i;
+  end process comb_logic;
+  
   -----------------------------------------------------------------------------
   -- Component instantiations
   -----------------------------------------------------------------------------
-
   -- instance "dds_1"
   dds_inst_gen : for i in 0 to 9 generate
     inst_dds : dds
