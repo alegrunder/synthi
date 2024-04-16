@@ -188,15 +188,16 @@ architecture struct of synthi_top is
 
   component tone_generator is
     port (
-      clk        : in  std_logic;
-      rst_n      : in  std_logic;
-      step_i     : in  std_logic;
-      note_i     : in  std_logic_vector(6 downto 0);
-      velocity_i : in  std_logic_vector(6 downto 0);
-      tone_on_i  : in  std_logic;
-      control    : in  std_logic;       -- used for control commands
-      dds_l_o    : out std_logic_vector(15 downto 0);
-      dds_r_o    : out std_logic_vector(15 downto 0));
+	 clk        : in  std_logic;
+    rst_n      : in  std_logic;
+    step_i     : in  std_logic;         -- f_s
+    note_i     : in  t_tone_array;
+    velocity_i : in  t_tone_array;
+    tone_on_i  : in  std_logic_vector(9 downto 0);         -- later a vector
+	 control		: in std_logic;
+    dds_l_o    : out std_logic_vector(15 downto 0);
+    dds_r_o    : out std_logic_vector(15 downto 0)
+    );
   end component tone_generator;
 
   component midi_controller is
