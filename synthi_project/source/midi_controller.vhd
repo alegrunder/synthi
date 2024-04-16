@@ -83,31 +83,31 @@ begin  -- architecture str
   flip_flops : process(all)
   begin
     if reset_n = '0' then
-      fsm_state    <= st_wait_status;
-      status_reg   <= (others => '0');
-      data1_reg    <= (others => '0');
-      data2_reg    <= (others => '0');
+      fsm_state     <= st_wait_status;
+      status_reg    <= (others => '0');
+      data1_reg     <= (others => '0');
+      data2_reg     <= (others => '0');
       new_data_flag <= '0';
-      reg_note_on  <= (others => '0');
+      reg_note_on   <= (others => '0');
       for i in 0 to 9 loop
-        reg_note(i) <= (others => '0');
+        reg_note(i)     <= (others => '0');
         reg_velocity(i) <= (others => '0');
       end loop;
-      vol_reg      <= "1000000";
-      pitch_reg    <= "1000000";
-      ctrl_reg     <= "1000000";
+      vol_reg   <= "1000000";
+      pitch_reg <= "1000000";
+      ctrl_reg  <= "1000000";
     elsif rising_edge(clk) then
-      fsm_state    <= next_fsm_state;
-      status_reg   <= next_status_reg;
-      data1_reg    <= next_data1_reg;
-      data2_reg    <= next_data2_reg;
+      fsm_state     <= next_fsm_state;
+      status_reg    <= next_status_reg;
+      data1_reg     <= next_data1_reg;
+      data2_reg     <= next_data2_reg;
       new_data_flag <= next_new_data_flag;
-      reg_note_on  <= next_reg_note_on;
-      reg_note     <= next_reg_note;
-      reg_velocity <= next_reg_velocity;
-      vol_reg      <= next_vol_reg;
-      pitch_reg    <= next_pitch_reg;
-      ctrl_reg     <= next_ctrl_reg;
+      reg_note_on   <= next_reg_note_on;
+      reg_note      <= next_reg_note;
+      reg_velocity  <= next_reg_velocity;
+      vol_reg       <= next_vol_reg;
+      pitch_reg     <= next_pitch_reg;
+      ctrl_reg      <= next_ctrl_reg;
     end if;
   end process flip_flops;
 
@@ -160,7 +160,7 @@ begin  -- architecture str
       end if;
 
       if fsm_state = st_wait_data2 then
-        next_data2_reg <= rx_data_i(6 downto 0);
+        next_data2_reg     <= rx_data_i(6 downto 0);
         next_new_data_flag <= '1';
       end if;
     end if;

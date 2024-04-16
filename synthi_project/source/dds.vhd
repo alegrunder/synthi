@@ -91,11 +91,11 @@ begin  -- architecture dds_arch
     -- end if;
 
     Wavetable_switch := to_integer(unsigned(ctrl_reg_i));
-    
+
     if Wavetable_switch < 64 then
-      lut_val := shift_right((lut_val_sin * Wavetable_switch) + (lut_val_rec * (64-Wavetable_switch)),6)(N_AUDIO-1 downto 0);
+      lut_val := shift_right((lut_val_sin * Wavetable_switch) + (lut_val_rec * (64-Wavetable_switch)), 6)(N_AUDIO-1 downto 0);
     else
-      lut_val := shift_right((lut_val_saw * (Wavetable_switch -64)) + (lut_val_sin*(64-(Wavetable_switch -64))),6)(N_AUDIO-1 downto 0);
+      lut_val := shift_right((lut_val_saw * (Wavetable_switch -64)) + (lut_val_sin*(64-(Wavetable_switch -64))), 6)(N_AUDIO-1 downto 0);
     end if;
 
 
@@ -104,7 +104,7 @@ begin  -- architecture dds_arch
     --  atte := to_integer(unsigned(velocity_i(6 downto 3)));
     -- end if;
 
-    atte    := to_integer(unsigned(velocity_i(6 downto 3)));
+    atte := to_integer(unsigned(velocity_i(6 downto 3)));
 
     case atte is
       when 0      => dds_o <= std_logic_vector(shift_right(lut_val, 15));
