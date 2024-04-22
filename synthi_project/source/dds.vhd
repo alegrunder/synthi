@@ -103,6 +103,7 @@ begin  -- architecture dds_arch
     --if control = '0' then
     --  atte := to_integer(unsigned(velocity_i(6 downto 3)));
     -- end if;
+	 
 
     atte := to_integer(unsigned(velocity_i(6 downto 3)));
 
@@ -124,6 +125,9 @@ begin  -- architecture dds_arch
       when 14     => dds_o <= std_logic_vector(shift_right(lut_val, 1));
       when others => dds_o <= std_logic_vector(lut_val);
     end case;
+	 
+	 
+	 dds_o <= std_logic_vector(shift_right(signed(lut_val)* to_signed(to_integer(unsigned(velocity_i)),8),7)(15 downto 0));
   end process phase_counter_logic;
 
   proc_input_comb : process (all) is

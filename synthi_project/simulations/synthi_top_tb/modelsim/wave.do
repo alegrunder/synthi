@@ -21,14 +21,14 @@ add wave -noupdate -expand -group {Codec Controller and I2C} /synthi_top_tb/i2c_
 add wave -noupdate -expand -group {Codec Controller and I2C} /synthi_top_tb/i2c_slave_bfm_1/reg_data7
 add wave -noupdate -expand -group {Codec Controller and I2C} /synthi_top_tb/i2c_slave_bfm_1/reg_data8
 add wave -noupdate -expand -group {Codec Controller and I2C} /synthi_top_tb/i2c_slave_bfm_1/reg_data9
-add wave -noupdate -expand -group I2S /synthi_top_tb/DUT/adcdat_pl
-add wave -noupdate -expand -group I2S /synthi_top_tb/DUT/adcdat_pr
-add wave -noupdate -expand -group I2S /synthi_top_tb/DUT/dacdat_pl
-add wave -noupdate -expand -group I2S /synthi_top_tb/DUT/dacdat_pr
-add wave -noupdate -expand -group I2S /synthi_top_tb/DUT/AUD_DACDAT
-add wave -noupdate -expand -group I2S /synthi_top_tb/DUT/AUD_BCLK
-add wave -noupdate -expand -group I2S /synthi_top_tb/dacdat_check
-add wave -noupdate -expand -group I2S /synthi_top_tb/DUT/AUD_ADCDAT
+add wave -noupdate -group I2S /synthi_top_tb/DUT/adcdat_pl
+add wave -noupdate -group I2S /synthi_top_tb/DUT/adcdat_pr
+add wave -noupdate -group I2S /synthi_top_tb/DUT/dacdat_pl
+add wave -noupdate -group I2S /synthi_top_tb/DUT/dacdat_pr
+add wave -noupdate -group I2S /synthi_top_tb/DUT/AUD_DACDAT
+add wave -noupdate -group I2S /synthi_top_tb/DUT/AUD_BCLK
+add wave -noupdate -group I2S /synthi_top_tb/dacdat_check
+add wave -noupdate -group I2S /synthi_top_tb/DUT/AUD_ADCDAT
 add wave -noupdate -expand -group {MIDI Controller} /synthi_top_tb/DUT/usb_txd_sync_sig
 add wave -noupdate -expand -group {MIDI Controller} /synthi_top_tb/DUT/rx_data_sig
 add wave -noupdate -expand -group {MIDI Controller} /synthi_top_tb/DUT/rx_data_rdy_sig
@@ -52,13 +52,21 @@ add wave -noupdate -expand -group {MIDI poly} /synthi_top_tb/DUT/velocity_sig
 add wave -noupdate -expand -group {MIDI poly} /synthi_top_tb/DUT/midi_controller_1/vol_reg
 add wave -noupdate -expand -group {MIDI poly} /synthi_top_tb/DUT/midi_controller_1/pitch_reg
 add wave -noupdate -expand -group {MIDI poly} /synthi_top_tb/DUT/midi_controller_1/ctrl_reg
-add wave -noupdate -expand -group DDS -format Analog-Step -height 74 -max 4095.0 -min -4096.0 -radix sfixed /synthi_top_tb/DUT/tone_generator_1/dds_inst_gen(0)/inst_dds/dds_o
-add wave -noupdate -expand -group DDS -format Analog-Step -height 74 -max 4095.0 -min -4096.0 -radix sfixed /synthi_top_tb/DUT/tone_generator_1/dds_inst_gen(1)/inst_dds/dds_o
-add wave -noupdate -expand -group DDS -format Analog-Step -height 150 -max 32767.000000000004 -min -32768.0 -radix sfixed /synthi_top_tb/DUT/tone_generator_1/dds_l_o
+add wave -noupdate -expand -group DDS -format Analog-Step -height 150 -max 8192.0 -min -8192.0 -radix sfixed -childformat {{/synthi_top_tb/DUT/tone_generator_1/dds_l_o(15) -radix sfixed} {/synthi_top_tb/DUT/tone_generator_1/dds_l_o(14) -radix sfixed} {/synthi_top_tb/DUT/tone_generator_1/dds_l_o(13) -radix sfixed} {/synthi_top_tb/DUT/tone_generator_1/dds_l_o(12) -radix sfixed} {/synthi_top_tb/DUT/tone_generator_1/dds_l_o(11) -radix sfixed} {/synthi_top_tb/DUT/tone_generator_1/dds_l_o(10) -radix sfixed} {/synthi_top_tb/DUT/tone_generator_1/dds_l_o(9) -radix sfixed} {/synthi_top_tb/DUT/tone_generator_1/dds_l_o(8) -radix sfixed} {/synthi_top_tb/DUT/tone_generator_1/dds_l_o(7) -radix sfixed} {/synthi_top_tb/DUT/tone_generator_1/dds_l_o(6) -radix sfixed} {/synthi_top_tb/DUT/tone_generator_1/dds_l_o(5) -radix sfixed} {/synthi_top_tb/DUT/tone_generator_1/dds_l_o(4) -radix sfixed} {/synthi_top_tb/DUT/tone_generator_1/dds_l_o(3) -radix sfixed} {/synthi_top_tb/DUT/tone_generator_1/dds_l_o(2) -radix sfixed} {/synthi_top_tb/DUT/tone_generator_1/dds_l_o(1) -radix sfixed} {/synthi_top_tb/DUT/tone_generator_1/dds_l_o(0) -radix sfixed}} -subitemconfig {/synthi_top_tb/DUT/tone_generator_1/dds_l_o(15) {-height 15 -radix sfixed} /synthi_top_tb/DUT/tone_generator_1/dds_l_o(14) {-height 15 -radix sfixed} /synthi_top_tb/DUT/tone_generator_1/dds_l_o(13) {-height 15 -radix sfixed} /synthi_top_tb/DUT/tone_generator_1/dds_l_o(12) {-height 15 -radix sfixed} /synthi_top_tb/DUT/tone_generator_1/dds_l_o(11) {-height 15 -radix sfixed} /synthi_top_tb/DUT/tone_generator_1/dds_l_o(10) {-height 15 -radix sfixed} /synthi_top_tb/DUT/tone_generator_1/dds_l_o(9) {-height 15 -radix sfixed} /synthi_top_tb/DUT/tone_generator_1/dds_l_o(8) {-height 15 -radix sfixed} /synthi_top_tb/DUT/tone_generator_1/dds_l_o(7) {-height 15 -radix sfixed} /synthi_top_tb/DUT/tone_generator_1/dds_l_o(6) {-height 15 -radix sfixed} /synthi_top_tb/DUT/tone_generator_1/dds_l_o(5) {-height 15 -radix sfixed} /synthi_top_tb/DUT/tone_generator_1/dds_l_o(4) {-height 15 -radix sfixed} /synthi_top_tb/DUT/tone_generator_1/dds_l_o(3) {-height 15 -radix sfixed} /synthi_top_tb/DUT/tone_generator_1/dds_l_o(2) {-height 15 -radix sfixed} /synthi_top_tb/DUT/tone_generator_1/dds_l_o(1) {-height 15 -radix sfixed} /synthi_top_tb/DUT/tone_generator_1/dds_l_o(0) {-height 15 -radix sfixed}} /synthi_top_tb/DUT/tone_generator_1/dds_l_o
+add wave -noupdate -format Analog-Step -height 74 -max 127.0 -radix unsigned /synthi_top_tb/DUT/tone_generator_1/ADSR_inst_gen(0)/inst_adsr/velocity
+add wave -noupdate /synthi_top_tb/DUT/tone_generator_1/ADSR_inst_gen(0)/inst_adsr/fsm_state
+add wave -noupdate -radix decimal /synthi_top_tb/DUT/tone_generator_1/ADSR_inst_gen(0)/inst_adsr/volume
+add wave -noupdate /synthi_top_tb/DUT/tone_generator_1/ADSR_inst_gen(0)/inst_adsr/tone_on_i
+add wave -noupdate /synthi_top_tb/DUT/tone_generator_1/ADSR_inst_gen(0)/inst_adsr/freq_div
+add wave -noupdate /synthi_top_tb/DUT/tone_generator_1/ADSR_inst_gen(0)/inst_adsr/freq_div
+add wave -noupdate /synthi_top_tb/DUT/tone_generator_1/ADSR_inst_gen(0)/inst_adsr/step_i
+add wave -noupdate -expand /synthi_top_tb/DUT/tone_generator_1/note_valid_o
+add wave -noupdate /synthi_top_tb/DUT/tone_generator_1/note_valid_o
+add wave -noupdate /synthi_top_tb/DUT/tone_generator_1/ADSR_inst_gen(0)/inst_adsr/notNotValid
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {0 ns} 0}
+WaveRestoreCursors {{Cursor 1} {8950150 ns} 0}
 quietly wave cursor active 1
-configure wave -namecolwidth 384
+configure wave -namecolwidth 490
 configure wave -valuecolwidth 100
 configure wave -justifyvalue left
 configure wave -signalnamewidth 0
@@ -72,4 +80,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ns} {30169787 ns}
+WaveRestoreZoom {0 ns} {79085418 ns}
