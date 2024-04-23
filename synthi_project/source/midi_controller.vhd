@@ -33,7 +33,7 @@ entity midi_controller is
     reset_n       : in  std_logic;
     rx_data_rdy_i : in  std_logic;
     rx_data_i     : in  std_logic_vector(7 downto 0);
-	note_valid_i  : in  std_logic_vector(9 downto 0);
+    note_valid_i  : in  std_logic_vector(9 downto 0);
     hex2          : out std_logic_vector(6 downto 0);
     hex3          : out std_logic_vector(6 downto 0);
     note_on_o     : out std_logic_vector(9 downto 0);

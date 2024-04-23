@@ -246,16 +246,16 @@ begin
   AUD_DACLRCK <= ws_sig;
   AUD_ADCLRCK <= ws_sig;
   AUD_BCLK    <= not(clk_6m_sig);       -- invert for I2S
-  LEDR_0      <= note_on_sig(0) or note_valid_sig(0);
-  LEDR_1      <= note_on_sig(1) or note_valid_sig(1);
-  LEDR_2      <= note_on_sig(2) or note_valid_sig(2);
-  LEDR_3      <= note_on_sig(3) or note_valid_sig(3);
-  LEDR_4      <= note_on_sig(4) or note_valid_sig(4);
-  LEDR_5      <= note_on_sig(5) or note_valid_sig(5);
-  LEDR_6      <= note_on_sig(6) or note_valid_sig(6);
-  LEDR_7      <= note_on_sig(7) or note_valid_sig(7);
-  LEDR_8      <= note_on_sig(8) or note_valid_sig(8);
-  LEDR_9      <= note_on_sig(9) or note_valid_sig(9);
+  LEDR_0      <= note_valid_sig(0);
+  LEDR_1      <= note_valid_sig(1);
+  LEDR_2      <= note_valid_sig(2);
+  LEDR_3      <= note_valid_sig(3);
+  LEDR_4      <= note_valid_sig(4);
+  LEDR_5      <= note_valid_sig(5);
+  LEDR_6      <= note_valid_sig(6);
+  LEDR_7      <= note_valid_sig(7);
+  LEDR_8      <= note_valid_sig(8);
+  LEDR_9      <= note_valid_sig(9);
 
   -----------------------------------------------------------------------------
   -- Instances
