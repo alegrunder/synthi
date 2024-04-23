@@ -202,7 +202,7 @@ begin  -- architecture str
         -- CHECK IF NOTE IS ALREADY ENTERED IN MIDI ARRAY
         ------------------------------------------------------
         for i in 0 to 9 loop
-          if reg_note(i) = data1_reg and reg_note_on(i) = '1' then
+          if ((reg_note(i) = data1_reg) and (note_valid_i(i) = '1')) then
             -- Found a matching note
             note_available := '1';
             if (status_reg(6 downto 4) = "000") then
@@ -214,6 +214,7 @@ begin  -- architecture str
             elsif (status_reg(6 downto 4) = "001") then
               -- change velocity for a note that is already playing
               next_reg_velocity(i) <= data2_reg;
+              next_reg_note_on(i)  <= '1';  -- and set register to valid
             end if;
           end if;
         end loop;
@@ -230,9 +231,9 @@ begin  -- architecture str
             -- if the note already written, ignore the remaining loop runs
             if note_written = '0' then
               -- If a free space is found reg_note_on(i) = '0' enter the note number and velocity
-			  -- note_valid prevents overwriting a note that is still decaing (envelope)
-			  -- if no space is found, nothing will be written and 11th tone will be discarded
-              if (reg_note_on(i) = '0' and note_valid_i(i) = '0' and status_reg(6 downto 4) = "001") then
+              -- note_valid prevents overwriting a note that is still decaing (envelope)
+              -- if no space is found, nothing will be written and 11th tone will be discarded
+              if ((reg_note_on(i) = '0') and (note_valid_i(i) = '0') and (status_reg(6 downto 4) = "001")) then
                 next_reg_note(i)     <= data1_reg;
                 next_reg_velocity(i) <= data2_reg;
                 next_reg_note_on(i)  <= '1';  -- and set register to valid

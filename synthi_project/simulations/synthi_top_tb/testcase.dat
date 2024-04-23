@@ -49,6 +49,17 @@ uart_send_data               66
 # velocity 111
 uart_send_data               7F
 
+run_simulation_for  00 04 00 00
+
+uart_send_data               80
+# note 60
+uart_send_data               66
+# velocity 111
+uart_send_data               40
+
+run_simulation_for  00 04 00 00
+
+
 # note on
 uart_send_data               90
 # note 60
