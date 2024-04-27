@@ -194,7 +194,7 @@ begin  -- architecture str
       elsif ((status_reg(6 downto 4) = "011") and (data1_reg = "0000111")) then
         next_vol_reg <= data2_reg;
       -- command Bn 01 (modulation wheel)
-      elsif ((status_reg(6 downto 4) = "011") and (data1_reg = "0000001")) then -- 0000001
+      elsif ((status_reg(6 downto 4) = "011") and (data1_reg = "0000001")) then -- 0000001 --0001110
         next_ctrl_reg <= data2_reg;
       -- note_on 9n or note_off 8n
       elsif ((status_reg(6 downto 4) = "001") or (status_reg(6 downto 4) = "000")) then

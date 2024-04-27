@@ -105,26 +105,26 @@ begin  -- architecture dds_arch
     -- end if;
 	 
 
-    atte := to_integer(unsigned(velocity_i(6 downto 3)));
-
-    case atte is
-      when 0      => dds_o <= std_logic_vector(shift_right(lut_val, 15));
-      when 1      => dds_o <= std_logic_vector(shift_right(lut_val, 14));
-      when 2      => dds_o <= std_logic_vector(shift_right(lut_val, 13));
-      when 3      => dds_o <= std_logic_vector(shift_right(lut_val, 12));
-      when 4      => dds_o <= std_logic_vector(shift_right(lut_val, 11));
-      when 5      => dds_o <= std_logic_vector(shift_right(lut_val, 10));
-      when 6      => dds_o <= std_logic_vector(shift_right(lut_val, 9));
-      when 7      => dds_o <= std_logic_vector(shift_right(lut_val, 8));
-      when 8      => dds_o <= std_logic_vector(shift_right(lut_val, 7));
-      when 9      => dds_o <= std_logic_vector(shift_right(lut_val, 6));
-      when 10     => dds_o <= std_logic_vector(shift_right(lut_val, 5));
-      when 11     => dds_o <= std_logic_vector(shift_right(lut_val, 4));
-      when 12     => dds_o <= std_logic_vector(shift_right(lut_val, 3));
-      when 13     => dds_o <= std_logic_vector(shift_right(lut_val, 2));
-      when 14     => dds_o <= std_logic_vector(shift_right(lut_val, 1));
-      when others => dds_o <= std_logic_vector(lut_val);
-    end case;
+--    atte := to_integer(unsigned(velocity_i(6 downto 3)));
+--
+--    case atte is
+--      when 0      => dds_o <= std_logic_vector(shift_right(lut_val, 15));
+--      when 1      => dds_o <= std_logic_vector(shift_right(lut_val, 14));
+--      when 2      => dds_o <= std_logic_vector(shift_right(lut_val, 13));
+--      when 3      => dds_o <= std_logic_vector(shift_right(lut_val, 12));
+--      when 4      => dds_o <= std_logic_vector(shift_right(lut_val, 11));
+--      when 5      => dds_o <= std_logic_vector(shift_right(lut_val, 10));
+--      when 6      => dds_o <= std_logic_vector(shift_right(lut_val, 9));
+--      when 7      => dds_o <= std_logic_vector(shift_right(lut_val, 8));
+--      when 8      => dds_o <= std_logic_vector(shift_right(lut_val, 7));
+--      when 9      => dds_o <= std_logic_vector(shift_right(lut_val, 6));
+--      when 10     => dds_o <= std_logic_vector(shift_right(lut_val, 5));
+--      when 11     => dds_o <= std_logic_vector(shift_right(lut_val, 4));
+--      when 12     => dds_o <= std_logic_vector(shift_right(lut_val, 3));
+--      when 13     => dds_o <= std_logic_vector(shift_right(lut_val, 2));
+--      when 14     => dds_o <= std_logic_vector(shift_right(lut_val, 1));
+--      when others => dds_o <= std_logic_vector(lut_val);
+--    end case;
 	 
 	 
 	 dds_o <= std_logic_vector(shift_right(signed(lut_val)* to_signed(to_integer(unsigned(velocity_i)),8),7)(15 downto 0));
