@@ -75,13 +75,13 @@ begin  -- architecture dds_arch
 
     -- Rectangle
     if lut_addr > 127 then
-      lut_val_rec := to_signed(4095, N_AUDIO+AVERAGE_BUFFER);
+      lut_val_rec := to_signed(2048, N_AUDIO+AVERAGE_BUFFER);
     else
-      lut_val_rec := to_signed(-4096, N_AUDIO+AVERAGE_BUFFER);
+      lut_val_rec := to_signed(-2048, N_AUDIO+AVERAGE_BUFFER);
     end if;
 
     -- Sawtooth
-    lut_val_saw := to_signed((lut_addr*32)-4095, N_AUDIO+AVERAGE_BUFFER);
+    lut_val_saw := to_signed((lut_addr*16)-2048, N_AUDIO+AVERAGE_BUFFER);
 
     -- Switching logic
     -- if control = '1' then
