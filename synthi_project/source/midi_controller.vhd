@@ -191,7 +191,7 @@ begin  -- architecture str
       if (status_reg(6 downto 4) = "110") then
         next_pitch_reg <= data2_reg;
       -- command Bn 07 (volume)
-      elsif ((status_reg(6 downto 4) = "011") and (data1_reg = "0000111")) then
+      elsif ((status_reg(6 downto 4) = "011") and (data1_reg = "0000111")) then --0000111 --0001111
         next_vol_reg <= data2_reg;
       -- command Bn 01 (modulation wheel)
       elsif ((status_reg(6 downto 4) = "011") and (data1_reg = "0000001")) then -- 0000001 --0001110

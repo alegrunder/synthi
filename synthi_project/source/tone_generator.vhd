@@ -85,16 +85,19 @@ signal next_sum_reg : signed(N_AUDIO-1 downto 0);
 signal final_sum_reg      : signed(N_AUDIO-1 downto 0);
 signal next_final_sum_reg      : signed(N_AUDIO-1 downto 0);
 
-signal dds_signal      : signed(N_AUDIO-1 downto 0);
+signal filtered      : signed(N_AUDIO-1 downto 0);
+signal Volume_adj       : signed(N_AUDIO-1 downto 0);
 
 begin  -- architecture str
 
   -----------------------------------------------------------------------------
   -- CONCURRENT ASSINGMENTS
   -----------------------------------------------------------------------------
+  Volume_adj <= shift_right(signed(filtered)*to_signed(to_integer(unsigned(vol_reg_i)),8),7)(N_AUDIO-1 downto 0);
   
-  dds_l_o      <= std_logic_vector(dds_signal);
-  dds_r_o      <= std_logic_vector(dds_signal);
+  
+  dds_l_o      <= std_logic_vector(Volume_adj);
+  dds_r_o      <= std_logic_vector(Volume_adj);
 
   
 --  -----------------------------------------------------------------------------
@@ -149,9 +152,9 @@ begin  -- architecture str
 		final_sum_reg <= next_final_sum_reg;
 		
 		if LowPassEnable_i ='1' then
-			dds_signal <= final_sum_reg + final_sum_reg + final_sum_reg + final_sum_reg;
+			filtered <= final_sum_reg + final_sum_reg + final_sum_reg + final_sum_reg;
 		else
-			dds_signal <= sum_reg(N_AUDIO-1 downto 0);
+			filtered <= sum_reg(N_AUDIO-1 downto 0);
 		end if;
 		
     end if;
