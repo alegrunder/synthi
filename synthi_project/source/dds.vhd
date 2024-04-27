@@ -133,7 +133,7 @@ begin  -- architecture dds_arch
   proc_input_comb : process (all) is
   begin  -- process proc_input_comb
     if (step_i = '1') then
-      next_count <= count + unsigned(phi_incr_i);
+      next_count <= count + unsigned(phi_incr_i)+ unsigned(pitch_reg_i)*4 - 254;
     else
       next_count <= count;
     end if;

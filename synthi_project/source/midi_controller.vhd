@@ -189,12 +189,13 @@ begin  -- architecture str
     if (new_data_flag) then
       -- command En (pitch wheel)
       if (status_reg(6 downto 4) = "110") then
+		--if ((status_reg(6 downto 4) = "011") and (data1_reg = "0010000")) then -- used for different Midi keyboard dont delete
         next_pitch_reg <= data2_reg;
       -- command Bn 07 (volume)
-      elsif ((status_reg(6 downto 4) = "011") and (data1_reg = "0000111")) then --0000111 --0001111
+      elsif ((status_reg(6 downto 4) = "011") and (data1_reg = "0000111")) then --0000111 --0001111  -- used for different Midi keyboard dont delete
         next_vol_reg <= data2_reg;
       -- command Bn 01 (modulation wheel)
-      elsif ((status_reg(6 downto 4) = "011") and (data1_reg = "0000001")) then -- 0000001 --0001110
+      elsif ((status_reg(6 downto 4) = "011") and (data1_reg = "0000001")) then -- 0000001 --0001110  -- used for different Midi keyboard dont delete
         next_ctrl_reg <= data2_reg;
       -- note_on 9n or note_off 8n
       elsif ((status_reg(6 downto 4) = "001") or (status_reg(6 downto 4) = "000")) then
