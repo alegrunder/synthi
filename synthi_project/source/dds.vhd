@@ -15,8 +15,9 @@
 -- Copyright (c) 2024 
 -------------------------------------------------------------------------------
 -- Revisions  :
--- Date        Version  Author  Description
--- 2024-03-26  1.0      marku   Created
+-- Date        Version  Author    Description
+-- 2024-03-26  1.0      marku     Created
+-- 2024-04-30  2.0      heinipas  removed vol_reg_i
 -------------------------------------------------------------------------------
 
 
@@ -36,7 +37,6 @@ entity dds is
     tone_on_i   : in  std_logic;
     velocity_i  : in  std_logic_vector(6 downto 0);
     step_i      : in  std_logic;
-    vol_reg_i   : in  std_logic_vector(6 downto 0);
     pitch_reg_i : in  std_logic_vector(6 downto 0);
     ctrl_reg_i  : in  std_logic_vector(6 downto 0);
     dds_o       : out std_logic_vector(15 downto 0)
