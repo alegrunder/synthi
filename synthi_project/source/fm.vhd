@@ -133,7 +133,7 @@ begin  -- architecture str
     type t_signed_incr is array (0 to 2) of integer;
     variable var_incr : t_signed_incr;
     variable var_out  : signed(N_AUDIO-1 downto 0);
-    variable var_vel  : integer;
+    variable var_vel  : unsigned(6 downto 0);
     variable var_mod  : integer;
   begin
     -- DEFAULT ASSIGNMENTS
@@ -152,8 +152,8 @@ begin  -- architecture str
     -- fm_amp_i(i) is 4 bits
       -- velocity_adsr_sig(i) <= "1000000";
       --var_vel := (127 * 12 + 1) / 15;
-      var_vel := to_integer(unsigned(velocity_i)) * (to_integer(fm_amp_i(i))+1) / 16;
-      velocity_adsr_sig(i) <= to_unsigned(var_vel, velocity_adsr_sig(i)'length);
+      var_vel := shift_right(unsigned(velocity_i) * (resize(fm_amp_i(i), fm_amp_i(i)'length+1) + 1), fm_amp_i(i)'length)(var_vel'length-1 downto 0);
+      velocity_adsr_sig(i) <= var_vel;
     end loop;
     
     -- INPUT AND OUTPUT SUMS
