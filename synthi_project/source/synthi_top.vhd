@@ -352,7 +352,7 @@ begin
       ctrl_reg_i   => ctrl_reg_sig,
       low_pass_enable_i => SW(5),
       preset_sel_i  => SW(8 downto 6),
-	  note_valid_o => note_valid_sig,
+      note_valid_o => note_valid_sig,
       dds_l_o      => dds_l,
       dds_r_o      => dds_r
     );
@@ -364,7 +364,7 @@ begin
       reset_n       => reset_n_sig,
       rx_data_rdy_i => rx_data_rdy_sig,
       rx_data_i     => rx_data_sig,
-	  note_valid_i  => note_valid_sig,
+      note_valid_i  => note_valid_sig,
       hex2          => HEX2,
       hex3          => HEX3,
       note_on_o     => note_on_sig,

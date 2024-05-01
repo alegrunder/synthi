@@ -60,12 +60,19 @@ architecture str of fm is
   -- Internal signal declarations
   -----------------------------------------------------------------------------
   type t_phi_incr is array (0 to 2) of std_logic_vector(18 downto 0);
+  type t_dds_o_array is array (0 to 9) of std_logic_vector(N_AUDIO-1 downto 0);
 
   signal phi_incr_sig        : t_phi_incr;
   signal tone_on_sig         : std_logic_vector(2 downto 0);
   signal velocity_adsr_sig   : t_fm_adsr;
   signal note_valid_adsr_sig : std_logic_vector(2 downto 0);
 
+  signal dds_o_array  : t_dds_o_array;
+
+  signal sum_sig      : signed(N_AUDIO-1 downto 0);
+  
+  -- feedback factor of modulation output to phi_incr of carrier
+  constant MOD_INTENS : integer := 10;  -- 0 to 10, 10 for control by presets
   -----------------------------------------------------------------------------
   -- Component declarations
   -----------------------------------------------------------------------------
@@ -92,12 +99,7 @@ begin  -- architecture str
   -- CONCURRENT ASSIGNMENTS
   -----------------------------------------------------------------------------
   note_valid_o <= note_valid_adsr_sig(0) or note_valid_adsr_sig(1) or note_valid_adsr_sig(2);
-  phi_incr_sig(0)      <= phi_incr_i;
-  phi_incr_sig(1)      <= phi_incr_i;
-  phi_incr_sig(2)      <= phi_incr_i(18 downto 2) & "00";
-  velocity_adsr_sig(0) <= unsigned(velocity_i);
-  velocity_adsr_sig(1) <= unsigned(velocity_i);
-  velocity_adsr_sig(2) <= unsigned(velocity_i);
+  dds_o <= std_logic_vector(sum_sig);
 
   -----------------------------------------------------------------------------
   -- INSTANCES 
@@ -117,7 +119,7 @@ begin  -- architecture str
         decay_step_i      => fm_decay_i(i),
         release_step_i    => fm_release_i(i),
         sustain_percent_i => fm_sustain_i(i),
-        -- dds_o        => dds_o_array(i),
+        dds_o             => dds_o_array(i),
         note_valid_o      => note_valid_adsr_sig(i));
   end generate ADSR_inst_gen;
 
@@ -126,18 +128,99 @@ begin  -- architecture str
   -- PROCESS FOR COMB-LOGIC 
   -----------------------------------------------------------------------------
   comb_logic : process(all)
+    -- one bit more than phi_incr_i
+    type t_signed_incr is array (0 to 2) of integer;
+    variable var_incr : t_signed_incr;
+    variable var_out  : signed(N_AUDIO-1 downto 0);
+    variable var_vel  : integer;
+    variable var_mod  : integer;
   begin
-    -- default assigments
-    tone_on_sig <= (others => tone_on_i);
+    -- DEFAULT ASSIGNMENTS
     
+    -- TONE_ON_SIG
+    tone_on_sig <= (others => tone_on_i);
     for i in 0 to 2 loop
+      -- switch off all tones, where fm_amp is 0
       if (fm_amp_i(i) = 0) then
         tone_on_sig(i) <= '0';
       end if;
     end loop;
     
+    -- AMPLITUDES
+    for i in 0 to 2 loop
+    -- fm_amp_i(i) is 4 bits
+      -- velocity_adsr_sig(i) <= "1000000";
+      --var_vel := 127 * 12 / 15;
+      var_vel := to_integer(unsigned(velocity_i)) * to_integer(fm_amp_i(i)) / 15;
+      velocity_adsr_sig(i) <= to_unsigned(var_vel, velocity_adsr_sig(i)'length);
+    end loop;
+    
+    -- INPUT AND OUTPUT SUMS
+    -- MODE 0 --------------------------
+    --          [1] [2] [3]
+    --           \   |   /
+    --             [out]
+    -- MODE 1 --------------------------
+    --              [3]
+    --               |
+    --              [2]
+    --               | 
+    --              [1]
+    --               |
+    --             [out]
+    -- MODE 2 --------------------------
+    --            [2]
+    --             | 
+    --            [1] [3]
+    --             \   /
+    --             [out]
+    -- MODE 3 --------------------------
+    --            [2] [3]
+    --             \   /
+    --              [1]
+    --               |
+    --             [out]
+    var_out := (others => '0');
+    -- calculate increments depending on fm_amp_i(i)
+    -- fm_freq_i(i) is 4 bits
+    -- freq = (fm_freq_i(i) + 1) / 2 * base frequency
+    -- fm_freq_i(i) = 0 => 0.5 * base freq
+    -- fm_freq_i(i) = 1 => 1 * base freq
+    -- fm_freq_i(i) = 5 => 3 * base freq
+    for i in 0 to 2 loop
+      var_incr(i) := to_integer(signed(phi_incr_i)) * (to_integer(fm_freq_i(i)) + 1) / 2;
+    end loop;
+    case fm_mode_i is
+      when "00" =>
+        -- no change to increments
+        var_out := signed(dds_o_array(0)) + signed(dds_o_array(1)) + signed(dds_o_array(2));
+      when "01" =>
+        -- mod 3 on 2
+        -- scale to input of 3
+        var_mod := var_incr(2) * to_integer(signed(dds_o_array(2))) * MOD_INTENS / (10 * 4095);
+        var_incr(1) := var_incr(1) + var_mod;
+        -- mod 2 on 1
+        -- scale to input of 2
+        var_mod := var_incr(1) * to_integer(signed(dds_o_array(1))) * MOD_INTENS / (10 * 4095);
+        var_incr(0) := var_incr(0) + var_mod;
+        var_out := signed(dds_o_array(0));                                -- 1 on output
+      when "10" =>
+        -- mod 2 on 1
+        var_mod := to_integer(signed(dds_o_array(1)));
+        var_incr(0) := var_incr(0) + var_incr(0) * var_mod * MOD_INTENS / (10 * 4095);
+        var_out := signed(dds_o_array(0)) + signed(dds_o_array(2));       -- 1 + 3 on otput
+      when others =>
+        -- mod (2+3) on 1
+        var_mod := to_integer(signed(dds_o_array(1))) + to_integer(signed(dds_o_array(2)));
+        var_incr(0) := var_incr(0) + var_incr(0) * var_mod * MOD_INTENS / (10 * 4095);
+        var_out := signed(dds_o_array(0));                                -- 1 on output
+    end case;
+    -- assign variables to signals
+    for i in 0 to 2 loop
+      phi_incr_sig(i) <= std_logic_vector(to_signed(var_incr(i),19));
+    end loop;
+    sum_sig       <= var_out;
   end process comb_logic;
-
 end architecture str;
 
 -------------------------------------------------------------------------------

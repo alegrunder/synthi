@@ -72,12 +72,12 @@ add wave -noupdate -expand -group FM -format Analog-Step -height 74 -max 32766.9
 add wave -noupdate -expand -group FM /synthi_top_tb/DUT/tone_generator_1/fm_inst_gen(0)/inst_fm/note_valid_o
 add wave -noupdate -expand -group FM /synthi_top_tb/DUT/tone_generator_1/fm_inst_gen(0)/inst_fm/ADSR_inst_gen(0)/inst_adsr/fsm_state
 add wave -noupdate -expand -group FM /synthi_top_tb/DUT/tone_generator_1/fm_inst_gen(0)/inst_fm/ADSR_inst_gen(0)/inst_adsr/volume
-add wave -noupdate -expand -group FM -format Analog-Step -height 74 -max 32766.999999999993 -min -32768.0 -radix sfixed /synthi_top_tb/DUT/tone_generator_1/fm_inst_gen(0)/inst_fm/ADSR_inst_gen(0)/inst_adsr/dds_o
+add wave -noupdate -expand -group FM -format Analog-Step -height 74 -max 4095.0 -min -4096.0 -radix sfixed /synthi_top_tb/DUT/tone_generator_1/fm_inst_gen(0)/inst_fm/ADSR_inst_gen(0)/inst_adsr/dds_o
 add wave -noupdate -expand -group FM -radix sfixed /synthi_top_tb/DUT/tone_generator_1/fm_inst_gen(0)/inst_fm/ADSR_inst_gen(0)/inst_adsr/note_valid_o
 add wave -noupdate -expand -group FM /synthi_top_tb/DUT/tone_generator_1/fm_inst_gen(0)/inst_fm/ADSR_inst_gen(0)/inst_adsr/fsm_state
-add wave -noupdate -expand -group FM -format Analog-Step -height 74 -max 32766.999999999993 -min -32768.0 -radix sfixed /synthi_top_tb/DUT/tone_generator_1/fm_inst_gen(0)/inst_fm/ADSR_inst_gen(1)/inst_adsr/dds_o
+add wave -noupdate -expand -group FM -format Analog-Step -height 74 -max 4095.0 -min -4096.0 -radix sfixed /synthi_top_tb/DUT/tone_generator_1/fm_inst_gen(0)/inst_fm/ADSR_inst_gen(1)/inst_adsr/dds_o
 add wave -noupdate -expand -group FM /synthi_top_tb/DUT/tone_generator_1/fm_inst_gen(0)/inst_fm/ADSR_inst_gen(1)/inst_adsr/note_valid_o
-add wave -noupdate -expand -group FM -format Analog-Step -height 74 -max 32766.999999999993 -min -32768.0 -radix sfixed /synthi_top_tb/DUT/tone_generator_1/fm_inst_gen(0)/inst_fm/ADSR_inst_gen(2)/inst_adsr/dds_o
+add wave -noupdate -expand -group FM -format Analog-Step -height 74 -max 4095.0 -min -4096.0 -radix sfixed /synthi_top_tb/DUT/tone_generator_1/fm_inst_gen(0)/inst_fm/ADSR_inst_gen(2)/inst_adsr/dds_o
 add wave -noupdate -expand -group FM /synthi_top_tb/DUT/tone_generator_1/fm_inst_gen(0)/inst_fm/ADSR_inst_gen(2)/inst_adsr/note_valid_o
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {8183031 ns} 0}
@@ -96,4 +96,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {1319820 ns} {14803305 ns}
+WaveRestoreZoom {0 ns} {64736210 ns}

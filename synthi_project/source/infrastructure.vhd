@@ -113,12 +113,12 @@ begin  -- architecture infra_arch
       sync_out => midi_sync);
 
   -- instance "signal_checker_1"
-  signal_checker_1 : signal_checker
-    port map (
-      clk       => clock_50,
-      reset_n   => key_0,
-      data_in   => usb_txd,
-      led_blink => led_usb);
+  -- signal_checker_1 : signal_checker
+  --  port map (
+  --    clk       => clock_50,
+  --    reset_n   => key_0,
+  --    data_in   => usb_txd,
+  --    led_blink => led_usb);
 
 end architecture infra_arch;
 

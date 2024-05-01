@@ -158,17 +158,17 @@ begin  -- architecture str
   -- PROCESS FOR PRESET COMB-LOGIC 
   -----------------------------------------------------------------------------
   comb_in_logic : process(all)
+    variable idx : natural;
   begin
-    -- use presets from presets_pkg
-    
-    -- default statements
-    next_fm_attack <= FM_ATTACK_PRESET(0);
-    next_fm_decay <= FM_DECAY_PRESET(0);
-    next_fm_sustain <= FM_SUSTAIN_PRESET(0);
-    next_fm_release <= FM_RELEASE_PRESET(0);
-    next_fm_freq <= FM_FREQ_PRESET(0);
-    next_fm_amp <= FM_AMP_PRESET(0);
-    next_fm_mode <= FM_MODE_PRESET(0);
+    -- set presets from presets_pkg
+    idx := to_integer(unsigned(preset_sel_i));
+    next_fm_attack  <= FM_ATTACK_PRESET(idx);
+    next_fm_decay   <= FM_DECAY_PRESET(idx);
+    next_fm_sustain <= FM_SUSTAIN_PRESET(idx);
+    next_fm_release <= FM_RELEASE_PRESET(idx);
+    next_fm_freq    <= FM_FREQ_PRESET(idx);
+    next_fm_amp     <= FM_AMP_PRESET(idx);
+    next_fm_mode    <= FM_MODE_PRESET(idx);
   end process comb_in_logic;
   
   -----------------------------------------------------------------------------
