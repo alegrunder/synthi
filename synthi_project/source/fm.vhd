@@ -72,7 +72,8 @@ architecture str of fm is
   signal sum_sig      : signed(N_AUDIO-1 downto 0);
   
   -- feedback factor of modulation output to phi_incr of carrier
-  constant MOD_INTENS : integer := 10;  -- 0 to 10, 10 for control by presets
+  -- constant MOD_INTENS : integer := 10;  -- 0 to 10, 10 for control by presets
+  
   -----------------------------------------------------------------------------
   -- Component declarations
   -----------------------------------------------------------------------------
@@ -150,8 +151,8 @@ begin  -- architecture str
     for i in 0 to 2 loop
     -- fm_amp_i(i) is 4 bits
       -- velocity_adsr_sig(i) <= "1000000";
-      --var_vel := 127 * 12 / 15;
-      var_vel := to_integer(unsigned(velocity_i)) * to_integer(fm_amp_i(i)) / 15;
+      --var_vel := (127 * 12 + 1) / 15;
+      var_vel := to_integer(unsigned(velocity_i)) * (to_integer(fm_amp_i(i))+1) / 16;
       velocity_adsr_sig(i) <= to_unsigned(var_vel, velocity_adsr_sig(i)'length);
     end loop;
     
@@ -190,6 +191,7 @@ begin  -- architecture str
     for i in 0 to 2 loop
       var_incr(i) := to_integer(signed(phi_incr_i)) * (to_integer(fm_freq_i(i)) + 1) / 2;
     end loop;
+    
     case fm_mode_i is
       when "00" =>
         -- no change to increments
@@ -197,26 +199,31 @@ begin  -- architecture str
       when "01" =>
         -- mod 3 on 2
         -- scale to input of 3
-        var_mod := var_incr(2) * to_integer(signed(dds_o_array(2))) * MOD_INTENS / (10 * 4095);
+        var_mod := var_incr(2) * to_integer(signed(dds_o_array(2))) / 4096;
         var_incr(1) := var_incr(1) + var_mod;
         -- mod 2 on 1
         -- scale to input of 2
-        var_mod := var_incr(1) * to_integer(signed(dds_o_array(1))) * MOD_INTENS / (10 * 4095);
+        var_mod := var_incr(1) * to_integer(signed(dds_o_array(1))) / 4096;
         var_incr(0) := var_incr(0) + var_mod;
         var_out := signed(dds_o_array(0));                                -- 1 on output
       when "10" =>
         -- mod 2 on 1
-        var_mod := to_integer(signed(dds_o_array(1)));
-        var_incr(0) := var_incr(0) + var_incr(0) * var_mod * MOD_INTENS / (10 * 4095);
+        var_mod := var_incr(1) * to_integer(signed(dds_o_array(1))) / 4096;
+        var_incr(0) := var_incr(0) + var_mod;
         var_out := signed(dds_o_array(0)) + signed(dds_o_array(2));       -- 1 + 3 on otput
       when others =>
         -- mod (2+3) on 1
-        var_mod := to_integer(signed(dds_o_array(1))) + to_integer(signed(dds_o_array(2)));
-        var_incr(0) := var_incr(0) + var_incr(0) * var_mod * MOD_INTENS / (10 * 4095);
+        var_mod := (var_incr(1) * to_integer(signed(dds_o_array(1))) + var_incr(2) * to_integer(signed(dds_o_array(2)))) / 4096;
+        var_incr(0) := var_incr(0) + var_mod;
         var_out := signed(dds_o_array(0));                                -- 1 on output
     end case;
     -- assign variables to signals
     for i in 0 to 2 loop
+      --if (var_incr(i) < 0) then
+      --  phi_incr_sig(i) <= std_logic_vector(to_unsigned(1,19));
+      --else
+      --  phi_incr_sig(i) <= std_logic_vector(to_unsigned(var_incr(i),19));
+      --end if;
       phi_incr_sig(i) <= std_logic_vector(to_signed(var_incr(i),19));
     end loop;
     sum_sig       <= var_out;
