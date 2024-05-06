@@ -21,6 +21,7 @@
 -- 2024-04-30  2.1      heinipas  changed ADSR params from const. to input,
 --                                setting next_volume to 65535 after ATTACK 
 --                                moved to S_DECAY
+-- 2024-05-06  2.2      heinipas  changed step and freq div constant
 -------------------------------------------------------------------------------
 
 library ieee;
@@ -71,10 +72,12 @@ architecture ADSR_arch of ADSR is
   signal velocity                    : std_logic_vector(6 downto 0);
   signal vel_temp                    : integer range 0 to 127;
 
-  constant FREQ_DIVISION         : natural := 4;
+  constant FREQ_DIVISION         : natural := 15;
   signal freq_div, next_freq_div : integer range 0 to FREQ_DIVISION;
   
-  constant STEP_MULTIPLIER       : natural := 10;  -- adsr step inputs are multiplied with this value
+  constant ATTACK_MULTIPLIER     : natural := 16;   -- adsr attack input is multiplied by this value
+  constant DECAY_MULTIPLIER      : natural := 2;   -- adsr decay input is multiplied by this value
+  constant RELEASE_MULTIPLIER    : natural := 1;   -- adsr release input is multiplied by this value
 
   -----------------------------------------------------------------------------
   -- Component declarations
@@ -126,9 +129,9 @@ begin  -- architecture ADSR_arch
     end if;
 
     -- ADSR steps and levels
-    attack_step  := to_integer(attack_step_i) * STEP_MULTIPLIER;
-    decay_step   := to_integer(decay_step_i) * STEP_MULTIPLIER;
-    release_step := to_integer(release_step_i) * STEP_MULTIPLIER;
+    attack_step  := to_integer(attack_step_i) * ATTACK_MULTIPLIER;
+    decay_step   := to_integer(decay_step_i) * DECAY_MULTIPLIER;
+    release_step := to_integer(release_step_i) * RELEASE_MULTIPLIER;
     sustain_lvl  := to_integer(sustain_percent_i) * 655;  -- DO NOT CHANGE
 
     -----------------------------------------------------------------------

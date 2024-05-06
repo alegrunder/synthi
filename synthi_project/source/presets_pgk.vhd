@@ -72,15 +72,25 @@ package body presets_pkg is
     -- default values
     for i in 0 to 7 loop
       for j in 0 to 2 loop
-          temp(i)(j) := to_unsigned(100, 7);  -- 100
+          temp(i)(j) := to_unsigned(50, 7);  -- 100
       end loop;
     end loop;
-    -- preset 0
+    -- preset 0 - basic sound
     -- preset 1
-    -- preset 2
-    -- preset 3
-    -- preset 4
-    -- preset 5
+    -- preset 2 - organ
+    temp(2)(0) := to_unsigned(100, 7); 
+    temp(2)(1) := to_unsigned(100, 7); 
+    temp(2)(2) := to_unsigned(80 , 7); 
+    -- preset 3 - brass
+    temp(3)(1) := to_unsigned(40, 7);
+    -- preset 4 - bell
+    temp(4)(0) := to_unsigned(127, 7); 
+    temp(4)(1) := to_unsigned(127, 7); 
+    temp(4)(2) := to_unsigned(127, 7); 
+    -- preset 5 - guitar
+    temp(5)(0) := to_unsigned(127, 7); 
+    temp(5)(1) := to_unsigned(127, 7); 
+    temp(5)(2) := to_unsigned(127, 7); 
     -- preset 6
     -- preset 7
     return temp;
@@ -97,15 +107,23 @@ package body presets_pkg is
     -- default values
     for i in 0 to 7 loop
       for j in 0 to 2 loop
-          temp(i)(j) := to_unsigned(8, 7);
+          temp(i)(j) := to_unsigned(50, 7);
       end loop;
     end loop;
-    -- preset 0
+    -- preset 0 - basic sound
     -- preset 1
-    -- preset 2
-    -- preset 3
-    -- preset 4
-    -- preset 5
+    -- preset 2 - organ
+      -- not relevant, as sustain is 100%
+    -- preset 3 - brass
+    temp(3)(2) := to_unsigned(40, 7);
+    -- preset 4 - bell
+    temp(4)(0) := to_unsigned(30, 7);
+    temp(4)(1) := to_unsigned(10, 7);
+    temp(4)(2) := to_unsigned(30, 7);
+    -- preset 5 - guitar
+    temp(5)(0) := to_unsigned(50, 7);
+    temp(5)(1) := to_unsigned(10, 7);
+    temp(5)(2) := to_unsigned(100, 7);
     -- preset 6
     -- preset 7
     return temp;
@@ -125,15 +143,27 @@ package body presets_pkg is
           temp(i)(j) := to_unsigned(50, 7);
       end loop;
     end loop;
-    -- preset 0
+    -- preset 0 - basic sound
     -- preset 1
     temp(1)(0) := to_unsigned(65, 7);
     temp(1)(1) := to_unsigned(70, 7);
     temp(1)(2) := to_unsigned(50, 7);
-    -- preset 2
-    -- preset 3
+    -- preset 2 - organ
+    temp(2)(0) := to_unsigned(100, 7);
+    temp(2)(1) := to_unsigned(100, 7);
+    temp(2)(2) := to_unsigned(100, 7);
+    -- preset 3 - brass
+    temp(3)(0) := to_unsigned(75, 7);
+    temp(3)(1) := to_unsigned(100, 7);
+    temp(3)(2) := to_unsigned(65, 7);
     -- preset 4
-    -- preset 5
+    temp(4)(0) := to_unsigned(1, 7);
+    temp(4)(1) := to_unsigned(1, 7);
+    temp(4)(2) := to_unsigned(1, 7);
+    -- preset 5 - guitar
+    temp(5)(0) := to_unsigned(1, 7);
+    temp(5)(1) := to_unsigned(20, 7);
+    temp(5)(2) := to_unsigned(20, 7);
     -- preset 6
     -- preset 7
     return temp;
@@ -150,15 +180,22 @@ package body presets_pkg is
     -- default values
     for i in 0 to 7 loop
       for j in 0 to 2 loop
-          temp(i)(j) := to_unsigned(8, 7);
+          temp(i)(j) := to_unsigned(50, 7);
       end loop;
     end loop;
-    -- preset 0
+    -- preset 0 - basic sound
+    temp(0)(0) := to_unsigned(50, 7);
     -- preset 1
     -- preset 2
     -- preset 3
-    -- preset 4
-    -- preset 5
+    -- preset 4 - bell
+    temp(4)(0) := to_unsigned(60, 7);
+    temp(4)(1) := to_unsigned(20, 7);
+    temp(4)(2) := to_unsigned(60, 7);
+    -- preset 5 - guitar
+    temp(5)(0) := to_unsigned(60, 7);
+    temp(5)(1) := to_unsigned(60, 7);
+    temp(5)(2) := to_unsigned(30, 7);
     -- preset 6
     -- preset 7
     return temp;
@@ -178,18 +215,30 @@ package body presets_pkg is
     -- default values
     for i in 0 to 7 loop
       temp(i)(0) := to_unsigned(1,4);  -- 1 is base frequency
-      temp(i)(1) := to_unsigned(15,4);  -- 3 * base
-      temp(i)(2) := to_unsigned(15,4);  -- 5 * base
+      temp(i)(1) := to_unsigned(5,4);  -- 3 * base
+      temp(i)(2) := to_unsigned(9,4);  -- 5 * base
     end loop;
-    -- preset 0
+    -- preset 0 - basic sound
     -- preset 1
     temp(1)(0) := to_unsigned(1,4);  -- 1 is base frequency
     temp(1)(1) := to_unsigned(1,4);  -- 4 * base
-    temp(1)(2) := to_unsigned(5,4);  -- 0.5 * base
-    -- preset 2
-    -- preset 3
-    -- preset 4
-    -- preset 5
+    temp(1)(2) := to_unsigned(0,4);  -- 0.5 * base
+    -- preset 2 - organ
+    temp(2)(0) := to_unsigned(0,4);  -- 0.5 * base
+    temp(2)(1) := to_unsigned(3,4);  -- 2 * base
+    temp(2)(2) := to_unsigned(1,4);  -- 1 * base
+    -- preset 3 - brass
+    temp(3)(0) := to_unsigned(1,4);
+    temp(3)(1) := to_unsigned(1,4);
+    temp(3)(2) := to_unsigned(0,4);  -- 0.5 * base
+    -- preset 4 - bell
+    temp(4)(0) := to_unsigned(1,4);
+    temp(4)(1) := to_unsigned(6,4);  -- 3.5 * base
+    temp(4)(2) := to_unsigned(1,4);
+    -- preset 5 - guitar
+    temp(5)(0) := to_unsigned(0,4);  -- 0.5 * base
+    temp(5)(1) := to_unsigned(2,4);  -- 1.5 * base
+    temp(5)(2) := to_unsigned(6,4);  -- 3.5 * base
     -- preset 6
     -- preset 7
     return temp;
@@ -209,15 +258,29 @@ package body presets_pkg is
       temp(i)(1) := to_unsigned(12,4);
       temp(i)(2) := to_unsigned(9,4); 
     end loop;
-    -- preset 0
+    -- preset 0 - basic sound
+    temp(0)(1) := to_unsigned(0,4);     -- no overtone
+    temp(0)(2) := to_unsigned(0,4);     -- no overtone
     -- preset 1
-    temp(1)(0) := to_unsigned(15,4);  -- 15 is max. amplitude
-    temp(1)(1) := to_unsigned(15,4);
-    temp(1)(2) := to_unsigned(10,4); 
-    -- preset 2
-    -- preset 3
-    -- preset 4
-    -- preset 5
+    temp(1)(0) := to_unsigned(15,4);    -- 15 is max. amplitude
+    temp(1)(1) := to_unsigned(8,4);
+    temp(1)(2) := to_unsigned(8,4); 
+    -- preset 2 - organ
+    temp(2)(0) := to_unsigned(7,4);    -- 15 is max. amplitude
+    temp(2)(1) := to_unsigned(7,4);
+    temp(2)(2) := to_unsigned(7,4); 
+    -- preset 3 - brass
+    temp(3)(0) := to_unsigned(14,4);    -- 15 is max. amplitude
+    temp(3)(1) := to_unsigned(12,4);
+    temp(3)(2) := to_unsigned(12,4); 
+    -- preset 4 - bell
+    temp(4)(0) := to_unsigned(15,4);
+    temp(4)(1) := to_unsigned(11,4);
+    temp(4)(2) := to_unsigned(9,4); 
+    -- preset 5 - guitar
+    temp(5)(0) := to_unsigned(15,4);
+    temp(5)(1) := to_unsigned(4,4);
+    temp(5)(2) := to_unsigned(7,4); 
     -- preset 6
     -- preset 7
     return temp;
@@ -231,19 +294,46 @@ package body presets_pkg is
   function mode_preset_init return t_fm_mode is
     variable temp : t_fm_mode;
   begin
+    -- MODE 0 --------------------------
+    --          [1] [2] [3]
+    --           \   |   /
+    --             [out]
+    -- MODE 1 --------------------------
+    --              [3]
+    --               |
+    --              [2]
+    --               | 
+    --              [1]
+    --               |
+    --             [out]
+    -- MODE 2 --------------------------
+    --            [2]
+    --             | 
+    --            [1] [3]
+    --             \   /
+    --             [out]
+    -- MODE 3 --------------------------
+    --            [2] [3]
+    --             \   /
+    --              [1]
+    --               |
+    --             [out]
     -- default values
     for i in 0 to 7 loop
       temp(i) := "00";
     end loop;
     -- preset 0
+    temp(0) := "00";    -- no modulation
     -- preset 1
-    temp(1) := "01";
-    -- preset 2
-    temp(2) := "10";
-    -- preset 3
-    temp(3) := "11";
-    -- preset 4
-    -- preset 5
+    temp(1) := "11";
+    -- preset 2 - organ
+    temp(2) := "00";
+    -- preset 3 - brass
+    temp(3) := "01";
+    -- preset 4 - bell
+    temp(4) := "10";
+    -- preset 5 - guitar
+    temp(5) := "01";
     -- preset 6
     -- preset 7
     return temp;

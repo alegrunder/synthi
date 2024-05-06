@@ -24,7 +24,7 @@ reset_target 20
 # test MS1 default configuration -----------------------------------------------
 
 #AD-DA Betrieb, USB mode
-set_switches        00 00 00 78 
+set_switches        00 00 01 18 
 run_simulation_for  00 01 80 00
 
 check_i2c_reg_0     00 00 00 17

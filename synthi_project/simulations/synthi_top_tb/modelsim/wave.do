@@ -64,7 +64,7 @@ add wave -noupdate -expand -group FM /synthi_top_tb/DUT/tone_generator_1/fm_rele
 add wave -noupdate -expand -group FM /synthi_top_tb/DUT/tone_generator_1/fm_freq
 add wave -noupdate -expand -group FM /synthi_top_tb/DUT/tone_generator_1/fm_amp
 add wave -noupdate -expand -group FM /synthi_top_tb/DUT/tone_generator_1/fm_mode
-add wave -noupdate -expand -group FM /synthi_top_tb/DUT/tone_generator_1/fm_inst_gen(0)/inst_fm/phi_incr_sig
+add wave -noupdate -expand -group FM -radix sfixed -childformat {{/synthi_top_tb/DUT/tone_generator_1/fm_inst_gen(0)/inst_fm/phi_incr_sig(0) -radix sfixed} {/synthi_top_tb/DUT/tone_generator_1/fm_inst_gen(0)/inst_fm/phi_incr_sig(1) -radix sfixed} {/synthi_top_tb/DUT/tone_generator_1/fm_inst_gen(0)/inst_fm/phi_incr_sig(2) -radix sfixed}} -expand -subitemconfig {/synthi_top_tb/DUT/tone_generator_1/fm_inst_gen(0)/inst_fm/phi_incr_sig(0) {-height 15 -radix sfixed} /synthi_top_tb/DUT/tone_generator_1/fm_inst_gen(0)/inst_fm/phi_incr_sig(1) {-height 15 -radix sfixed} /synthi_top_tb/DUT/tone_generator_1/fm_inst_gen(0)/inst_fm/phi_incr_sig(2) {-height 15 -radix sfixed}} /synthi_top_tb/DUT/tone_generator_1/fm_inst_gen(0)/inst_fm/phi_incr_sig
 add wave -noupdate -expand -group FM /synthi_top_tb/DUT/tone_generator_1/fm_inst_gen(0)/inst_fm/tone_on_sig
 add wave -noupdate -expand -group FM /synthi_top_tb/DUT/tone_generator_1/fm_inst_gen(0)/inst_fm/velocity_adsr_sig
 add wave -noupdate -expand -group FM -radix hexadecimal /synthi_top_tb/DUT/tone_generator_1/fm_inst_gen(0)/inst_fm/note_valid_adsr_sig
@@ -76,11 +76,12 @@ add wave -noupdate -expand -group FM -format Analog-Step -height 74 -max 4095.0 
 add wave -noupdate -expand -group FM -radix sfixed /synthi_top_tb/DUT/tone_generator_1/fm_inst_gen(0)/inst_fm/ADSR_inst_gen(0)/inst_adsr/note_valid_o
 add wave -noupdate -expand -group FM /synthi_top_tb/DUT/tone_generator_1/fm_inst_gen(0)/inst_fm/ADSR_inst_gen(0)/inst_adsr/fsm_state
 add wave -noupdate -expand -group FM -format Analog-Step -height 74 -max 4095.0 -min -4096.0 -radix sfixed /synthi_top_tb/DUT/tone_generator_1/fm_inst_gen(0)/inst_fm/ADSR_inst_gen(1)/inst_adsr/dds_o
+add wave -noupdate -expand -group FM -format Analog-Step -height 74 -max 524284.0 -radix unsigned /synthi_top_tb/DUT/tone_generator_1/fm_inst_gen(0)/inst_fm/ADSR_inst_gen(1)/inst_adsr/inst_dds/count
 add wave -noupdate -expand -group FM /synthi_top_tb/DUT/tone_generator_1/fm_inst_gen(0)/inst_fm/ADSR_inst_gen(1)/inst_adsr/note_valid_o
 add wave -noupdate -expand -group FM -format Analog-Step -height 74 -max 4095.0 -min -4096.0 -radix sfixed /synthi_top_tb/DUT/tone_generator_1/fm_inst_gen(0)/inst_fm/ADSR_inst_gen(2)/inst_adsr/dds_o
 add wave -noupdate -expand -group FM /synthi_top_tb/DUT/tone_generator_1/fm_inst_gen(0)/inst_fm/ADSR_inst_gen(2)/inst_adsr/note_valid_o
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {8183031 ns} 0}
+WaveRestoreCursors {{Cursor 1} {3273278 ns} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 531
 configure wave -valuecolwidth 100
@@ -96,4 +97,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ns} {64736210 ns}
+WaveRestoreZoom {900105 ns} {8895670 ns}

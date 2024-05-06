@@ -197,14 +197,14 @@ begin  -- architecture str
         -- no change to increments
         var_out := signed(dds_o_array(0)) + signed(dds_o_array(1)) + signed(dds_o_array(2));
       when "01" =>
-        -- mod 3 on 2
-        -- scale to input of 3
-        var_mod := var_incr(2) * to_integer(signed(dds_o_array(2))) / 4096;
-        var_incr(1) := var_incr(1) + var_mod;
         -- mod 2 on 1
         -- scale to input of 2
         var_mod := var_incr(1) * to_integer(signed(dds_o_array(1))) / 4096;
         var_incr(0) := var_incr(0) + var_mod;
+        -- mod 3 on 2
+        -- scale to input of 3
+        var_mod := var_incr(2) * to_integer(signed(dds_o_array(2))) / 4096;
+        var_incr(1) := var_incr(1) + var_mod;
         var_out := signed(dds_o_array(0));                                -- 1 on output
       when "10" =>
         -- mod 2 on 1
