@@ -76,7 +76,10 @@ package body presets_pkg is
       end loop;
     end loop;
     -- preset 0 - basic sound
-    -- preset 1
+    -- preset 1 - fancy sound
+    temp(1)(0) := to_unsigned(20, 7); 
+    temp(1)(1) := to_unsigned(82, 7); 
+    temp(1)(2) := to_unsigned(90, 7); 
     -- preset 2 - organ
     temp(2)(0) := to_unsigned(100, 7); 
     temp(2)(1) := to_unsigned(100, 7); 
@@ -97,7 +100,11 @@ package body presets_pkg is
     temp(6)(0) := to_unsigned(80, 7); 
     temp(6)(1) := to_unsigned(60, 7); 
     temp(6)(2) := to_unsigned(70, 7); 
-    -- preset 7
+    -- preset 7 - simulation
+    temp(7)(0) := to_unsigned(60, 7); 
+    temp(7)(1) := to_unsigned(80, 7); 
+    temp(7)(2) := to_unsigned(100, 7); 
+    
     return temp;
   end function attack_preset_init;
   
@@ -116,7 +123,10 @@ package body presets_pkg is
       end loop;
     end loop;
     -- preset 0 - basic sound
-    -- preset 1
+    -- preset 1 - fancy sound
+    temp(1)(0) := to_unsigned(10, 7); 
+    temp(1)(1) := to_unsigned(30, 7); 
+    temp(1)(2) := to_unsigned(70, 7); 
     -- preset 2 - organ
       -- not relevant, as sustain is 100%
     -- preset 3 - brass
@@ -126,11 +136,14 @@ package body presets_pkg is
     temp(4)(1) := to_unsigned(10, 7);
     temp(4)(2) := to_unsigned(30, 7);
     -- preset 5 - guitar
-    temp(5)(0) := to_unsigned(50, 7);
-    temp(5)(1) := to_unsigned(10, 7);
-    temp(5)(2) := to_unsigned(100, 7);
+    temp(5)(0) := to_unsigned(20, 7);
+    temp(5)(1) := to_unsigned(40, 7);
+    temp(5)(2) := to_unsigned(40, 7);
     -- preset 6
-    -- preset 7
+    -- preset 7 - simulation
+    temp(7)(0) := to_unsigned(100, 7);
+    temp(7)(1) := to_unsigned(80, 7);
+    temp(7)(2) := to_unsigned(60, 7);
     return temp;
   end function decay_preset_init;
   
@@ -149,10 +162,10 @@ package body presets_pkg is
       end loop;
     end loop;
     -- preset 0 - basic sound
-    -- preset 1
-    temp(1)(0) := to_unsigned(65, 7);
+    -- preset 1 - fancy sound
+    temp(1)(0) := to_unsigned(50, 7);
     temp(1)(1) := to_unsigned(70, 7);
-    temp(1)(2) := to_unsigned(50, 7);
+    temp(1)(2) := to_unsigned(20, 7);
     -- preset 2 - organ
     temp(2)(0) := to_unsigned(100, 7);
     temp(2)(1) := to_unsigned(100, 7);
@@ -166,14 +179,17 @@ package body presets_pkg is
     temp(4)(1) := to_unsigned(1, 7);
     temp(4)(2) := to_unsigned(1, 7);
     -- preset 5 - guitar
-    temp(5)(0) := to_unsigned(1, 7);
+    temp(5)(0) := to_unsigned(10, 7);
     temp(5)(1) := to_unsigned(80, 7);
     temp(5)(2) := to_unsigned(40, 7);
     -- preset 6 - ghost
     temp(6)(0) := to_unsigned(99, 7); 
     temp(6)(1) := to_unsigned(99, 7); 
     temp(6)(2) := to_unsigned(99, 7); 
-    -- preset 7
+    -- preset 7 - simulation
+    temp(7)(0) := to_unsigned(60, 7);
+    temp(7)(1) := to_unsigned(75, 7);
+    temp(7)(2) := to_unsigned(90, 7);
     return temp;
   end function sustain_preset_init;
   
@@ -193,7 +209,10 @@ package body presets_pkg is
     end loop;
     -- preset 0 - basic sound
     temp(0)(0) := to_unsigned(50, 7);
-    -- preset 1
+    -- preset 1 - fancy sound
+    temp(1)(0) := to_unsigned(27, 7);
+    temp(1)(1) := to_unsigned(30, 7);
+    temp(1)(2) := to_unsigned(39, 7);
     -- preset 2
     -- preset 3 - brass
     temp(3)(0) := to_unsigned(80, 7);
@@ -211,7 +230,10 @@ package body presets_pkg is
     temp(6)(0) := to_unsigned(60, 7); 
     temp(6)(1) := to_unsigned(60, 7); 
     temp(6)(2) := to_unsigned(30, 7); 
-    -- preset 7
+    -- preset 7 - simulation
+    temp(7)(0) := to_unsigned(60, 7);
+    temp(7)(1) := to_unsigned(75, 7);
+    temp(7)(2) := to_unsigned(90, 7);
     return temp;
   end function release_preset_init;
   
@@ -235,8 +257,8 @@ package body presets_pkg is
     -- preset 0 - basic sound
     -- preset 1 
     temp(1)(0) := to_unsigned(1,4);  -- 1 is base frequency
-    temp(1)(1) := to_unsigned(1,4);  -- 4 * base
-    temp(1)(2) := to_unsigned(0,4);  -- 0.5 * base
+    temp(1)(1) := to_unsigned(2,4);  -- 1.5 * base
+    temp(1)(2) := to_unsigned(6,4);  -- 3.5 * base
     -- preset 2 - organ
     temp(2)(0) := to_unsigned(0,4);  -- 0.5 * base
     temp(2)(1) := to_unsigned(3,4);  -- 2 * base
@@ -257,7 +279,10 @@ package body presets_pkg is
     temp(6)(0) := to_unsigned(1, 4); 
     temp(6)(1) := to_unsigned(1, 4); 
     temp(6)(2) := to_unsigned(4, 4); -- 2.5 * base
-    -- preset 7
+    -- preset 7 - simulation
+    temp(7)(0) := to_unsigned(1,4);  -- 1 * base
+    temp(7)(1) := to_unsigned(7,4);  -- 4 * base
+    temp(7)(2) := to_unsigned(3,4);  -- 2 * base    
     return temp;
   end function freq_preset_init;
   
@@ -279,9 +304,9 @@ package body presets_pkg is
     temp(0)(1) := to_unsigned(0,4);     -- no overtone
     temp(0)(2) := to_unsigned(0,4);     -- no overtone
     -- preset 1
-    temp(1)(0) := to_unsigned(15,4);    -- 15 is max. amplitude
-    temp(1)(1) := to_unsigned(8,4);
-    temp(1)(2) := to_unsigned(8,4); 
+    temp(1)(0) := to_unsigned(12,4);    -- 15 is max. amplitude
+    temp(1)(1) := to_unsigned(14,4);
+    temp(1)(2) := to_unsigned(15,4); 
     -- preset 2 - organ
     temp(2)(0) := to_unsigned(7,4);    -- 15 is max. amplitude
     temp(2)(1) := to_unsigned(7,4);
@@ -301,8 +326,11 @@ package body presets_pkg is
     -- preset 6 - ghost
     temp(6)(0) := to_unsigned(15, 4); 
     temp(6)(1) := to_unsigned(4, 4); 
-    temp(6)(2) := to_unsigned(11, 4); -- 2.5 * base
-    -- preset 7
+    temp(6)(2) := to_unsigned(11, 4);
+    -- preset 7 - simulation
+    temp(7)(0) := to_unsigned(8,4);
+    temp(7)(1) := to_unsigned(4,4);
+    temp(7)(2) := to_unsigned(6,4); 
     return temp;
   end function amp_preset_init;
   
@@ -345,7 +373,7 @@ package body presets_pkg is
     -- preset 0
     temp(0) := "00";    -- no modulation
     -- preset 1
-    temp(1) := "11";
+    temp(1) := "10";
     -- preset 2 - organ
     temp(2) := "00";
     -- preset 3 - brass
@@ -356,7 +384,8 @@ package body presets_pkg is
     temp(5) := "01";
     -- preset 6 - ghost
     temp(6) := "11";
-    -- preset 7
+    -- preset 7 - simulation
+    temp(7) := "10";
     return temp;
   end function mode_preset_init;
   
