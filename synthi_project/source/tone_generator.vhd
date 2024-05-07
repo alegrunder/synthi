@@ -222,7 +222,7 @@ begin  -- architecture str
       fm_amp <= next_fm_amp;
       fm_mode <= next_fm_mode;
       if low_pass_enable_i = '1' then
-        filtered <= final_sum_reg + final_sum_reg + final_sum_reg + final_sum_reg;
+        filtered <= final_sum_reg + final_sum_reg;
       else
         filtered <= sum_reg(N_AUDIO-1 downto 0);
       end if;
