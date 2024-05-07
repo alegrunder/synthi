@@ -71,8 +71,6 @@ architecture str of fm is
 
   signal sum_sig      : signed(N_AUDIO-1 downto 0);
   
-  -- feedback factor of modulation output to phi_incr of carrier
-  -- constant MOD_INTENS : integer := 10;  -- 0 to 10, 10 for control by presets
   
   -----------------------------------------------------------------------------
   -- Component declarations
@@ -149,9 +147,7 @@ begin  -- architecture str
     
     -- AMPLITUDES
     for i in 0 to 2 loop
-    -- fm_amp_i(i) is 4 bits
-      -- velocity_adsr_sig(i) <= "1000000";
-      --var_vel := (127 * 12 + 1) / 15;
+      -- fm_amp_i(i) is 4 bits
       var_vel := shift_right(unsigned(velocity_i) * (resize(fm_amp_i(i), fm_amp_i(i)'length+1) + 1), fm_amp_i(i)'length)(var_vel'length-1 downto 0);
       velocity_adsr_sig(i) <= var_vel;
     end loop;
@@ -219,14 +215,10 @@ begin  -- architecture str
     end case;
     -- assign variables to signals
     for i in 0 to 2 loop
-      --if (var_incr(i) < 0) then
-      --  phi_incr_sig(i) <= std_logic_vector(to_unsigned(1,19));
-      --else
-      --  phi_incr_sig(i) <= std_logic_vector(to_unsigned(var_incr(i),19));
-      --end if;
+      -- signed, phi increment can be negative
       phi_incr_sig(i) <= std_logic_vector(to_signed(var_incr(i),19));
     end loop;
-    sum_sig       <= var_out;
+    sum_sig <= var_out;
   end process comb_logic;
 end architecture str;
 

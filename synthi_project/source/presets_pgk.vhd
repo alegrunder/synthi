@@ -72,7 +72,7 @@ package body presets_pkg is
     -- default values
     for i in 0 to 7 loop
       for j in 0 to 2 loop
-          temp(i)(j) := to_unsigned(50, 7);  -- 100
+          temp(i)(j) := to_unsigned(50, 7);  -- up to 127
       end loop;
     end loop;
     -- preset 0 - basic sound
@@ -119,7 +119,7 @@ package body presets_pkg is
     -- default values
     for i in 0 to 7 loop
       for j in 0 to 2 loop
-          temp(i)(j) := to_unsigned(50, 7);
+          temp(i)(j) := to_unsigned(50, 7);  -- up to 127
       end loop;
     end loop;
     -- preset 0 - basic sound

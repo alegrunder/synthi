@@ -76,21 +76,15 @@ begin  -- architecture dds_arch
 
     -- Rectangle
     if lut_addr > 127 then
-      lut_val_rec := to_signed(2048, N_AUDIO+AVERAGE_BUFFER);
-    else
       lut_val_rec := to_signed(-2048, N_AUDIO+AVERAGE_BUFFER);
+    else
+      lut_val_rec := to_signed(2048, N_AUDIO+AVERAGE_BUFFER);
     end if;
 
     -- Sawtooth
-    lut_val_saw := to_signed((lut_addr*16)-2048, N_AUDIO+AVERAGE_BUFFER);
+    lut_val_saw := to_signed(2048-(lut_addr*16), N_AUDIO+AVERAGE_BUFFER);
 
     -- Switching logic
-    -- if control = '1' then
-    --  if control_reg1 = "0000111" then
-    --          Wavetable_switch := to_integer(unsigned(attenu_i));
-    --  end if;
-    -- end if;
-
     Wavetable_switch := to_integer(unsigned(ctrl_reg_i));
 
     if Wavetable_switch < 64 then
@@ -99,46 +93,17 @@ begin  -- architecture dds_arch
       lut_val := shift_right((lut_val_saw * (Wavetable_switch -64)) + (lut_val_sin*(64-(Wavetable_switch -64))), 6)(N_AUDIO-1 downto 0);
     end if;
 
-
-    -- Attenuation logic:
-    --if control = '0' then
-    --  atte := to_integer(unsigned(velocity_i(6 downto 3)));
-    -- end if;
-	 
-
---    atte := to_integer(unsigned(velocity_i(6 downto 3)));
---
---    case atte is
---      when 0      => dds_o <= std_logic_vector(shift_right(lut_val, 15));
---      when 1      => dds_o <= std_logic_vector(shift_right(lut_val, 14));
---      when 2      => dds_o <= std_logic_vector(shift_right(lut_val, 13));
---      when 3      => dds_o <= std_logic_vector(shift_right(lut_val, 12));
---      when 4      => dds_o <= std_logic_vector(shift_right(lut_val, 11));
---      when 5      => dds_o <= std_logic_vector(shift_right(lut_val, 10));
---      when 6      => dds_o <= std_logic_vector(shift_right(lut_val, 9));
---      when 7      => dds_o <= std_logic_vector(shift_right(lut_val, 8));
---      when 8      => dds_o <= std_logic_vector(shift_right(lut_val, 7));
---      when 9      => dds_o <= std_logic_vector(shift_right(lut_val, 6));
---      when 10     => dds_o <= std_logic_vector(shift_right(lut_val, 5));
---      when 11     => dds_o <= std_logic_vector(shift_right(lut_val, 4));
---      when 12     => dds_o <= std_logic_vector(shift_right(lut_val, 3));
---      when 13     => dds_o <= std_logic_vector(shift_right(lut_val, 2));
---      when 14     => dds_o <= std_logic_vector(shift_right(lut_val, 1));
---      when others => dds_o <= std_logic_vector(lut_val);
---    end case;
-	 
-	 
-	 dds_o <= std_logic_vector(shift_right(signed(lut_val)* to_signed(to_integer(unsigned(velocity_i)),8),7)(15 downto 0));
+    dds_o <= std_logic_vector(shift_right(signed(lut_val)* to_signed(to_integer(unsigned(velocity_i)),8),7)(15 downto 0));
   end process phase_counter_logic;
 
   proc_input_comb : process (all) is
   begin  -- process proc_input_comb
-    if (step_i = '1') then
-      -- phi_incr_i can be negative, but handle as unsigned to force overflow
-      next_count <= count + unsigned(phi_incr_i) + (unsigned(pitch_reg_i))*4 - 254;
-    else
-      next_count <= count;
-    end if;
+      if (step_i = '1') then
+        -- phi_incr_i can be negative, but handle as unsigned to force overflow
+        next_count <= count + unsigned(phi_incr_i) + (unsigned(pitch_reg_i))*4 - 254;
+      else
+        next_count <= count;
+      end if;
 
   end process proc_input_comb;
 
