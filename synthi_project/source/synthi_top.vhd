@@ -201,10 +201,11 @@ architecture struct of synthi_top is
       vol_reg_i    : in  std_logic_vector(6 downto 0);
       pitch_reg_i  : in  std_logic_vector(6 downto 0);
       ctrl_reg_i   : in  std_logic_vector(6 downto 0);
+          low_pass_enable_i : in  std_logic;
+      preset_sel_i    : in  std_logic_vector(2 downto 0);  -- select presets
 	  note_valid_o : out std_logic_vector(9 downto 0);
       dds_l_o      : out std_logic_vector(15 downto 0);
-      dds_r_o      : out std_logic_vector(15 downto 0);
-		LowPassEnable_i : in std_logic);
+      dds_r_o      : out std_logic_vector(15 downto 0));
   end component tone_generator;
 
   component midi_controller is
@@ -349,10 +350,12 @@ begin
       vol_reg_i    => vol_reg_sig,
       pitch_reg_i  => pitch_reg_sig,
       ctrl_reg_i   => ctrl_reg_sig,
-	  note_valid_o => note_valid_sig,
+      low_pass_enable_i => SW(5),
+      preset_sel_i  => SW(8 downto 6),
+      note_valid_o => note_valid_sig,
       dds_l_o      => dds_l,
-      dds_r_o      => dds_r,
-		LowPassEnable_i => SW(5));
+      dds_r_o      => dds_r
+    );
 
   -- instance "midi_controller_1"
   midi_controller_1 : midi_controller
@@ -361,7 +364,7 @@ begin
       reset_n       => reset_n_sig,
       rx_data_rdy_i => rx_data_rdy_sig,
       rx_data_i     => rx_data_sig,
-	  note_valid_i  => note_valid_sig,
+      note_valid_i  => note_valid_sig,
       hex2          => HEX2,
       hex3          => HEX3,
       note_on_o     => note_on_sig,

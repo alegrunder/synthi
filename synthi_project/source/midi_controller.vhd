@@ -33,7 +33,7 @@ entity midi_controller is
     reset_n       : in  std_logic;
     rx_data_rdy_i : in  std_logic;
     rx_data_i     : in  std_logic_vector(7 downto 0);
-	note_valid_i  : in  std_logic_vector(9 downto 0);
+    note_valid_i  : in  std_logic_vector(9 downto 0);
     hex2          : out std_logic_vector(6 downto 0);
     hex3          : out std_logic_vector(6 downto 0);
     note_on_o     : out std_logic_vector(9 downto 0);
@@ -189,7 +189,7 @@ begin  -- architecture str
     if (new_data_flag) then
       -- command En (pitch wheel)
       if (status_reg(6 downto 4) = "110") then
-		--if ((status_reg(6 downto 4) = "011") and (data1_reg = "0010000")) then -- used for different Midi keyboard dont delete
+      --if ((status_reg(6 downto 4) = "011") and (data1_reg = "0010000")) then -- used for different Midi keyboard dont delete
         next_pitch_reg <= data2_reg;
       -- command Bn 07 (volume)
       elsif ((status_reg(6 downto 4) = "011") and (data1_reg = "0000111")) then --0000111 --0001111  -- used for different Midi keyboard dont delete

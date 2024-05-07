@@ -24,8 +24,7 @@ library ieee;
 
 package tone_gen_pkg is
 
- type t_tone_array is array (0 to 9) of std_logic_vector(6 downto 0) ;
-
+  type t_tone_array is array (0 to 9) of std_logic_vector(6 downto 0);
   
     -------------------------------------------------------------------------------
 	-- TYPES AND CONSTANTS FOR MIDI INTERFACE

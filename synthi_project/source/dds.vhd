@@ -15,8 +15,10 @@
 -- Copyright (c) 2024 
 -------------------------------------------------------------------------------
 -- Revisions  :
--- Date        Version  Author  Description
--- 2024-03-26  1.0      marku   Created
+-- Date        Version  Author    Description
+-- 2024-03-26  1.0      marku     Created
+-- 2024-04-30  2.0      heinipas  removed vol_reg_i
+-- 2024-05-01  2.1      heinipas  changed phi_incr_i to allow negative numbers
 -------------------------------------------------------------------------------
 
 
@@ -36,7 +38,6 @@ entity dds is
     tone_on_i   : in  std_logic;
     velocity_i  : in  std_logic_vector(6 downto 0);
     step_i      : in  std_logic;
-    vol_reg_i   : in  std_logic_vector(6 downto 0);
     pitch_reg_i : in  std_logic_vector(6 downto 0);
     ctrl_reg_i  : in  std_logic_vector(6 downto 0);
     dds_o       : out std_logic_vector(15 downto 0)
@@ -133,7 +134,8 @@ begin  -- architecture dds_arch
   proc_input_comb : process (all) is
   begin  -- process proc_input_comb
     if (step_i = '1') then
-      next_count <= count + unsigned(phi_incr_i)+ unsigned(pitch_reg_i)*4 - 254;
+      -- phi_incr_i can be negative, but handle as unsigned to force overflow
+      next_count <= count + unsigned(phi_incr_i) + (unsigned(pitch_reg_i))*4 - 254;
     else
       next_count <= count;
     end if;

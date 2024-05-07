@@ -3,10 +3,10 @@
 -- Project    : 
 -------------------------------------------------------------------------------
 -- File       : ADSR.vhd
--- Author     :   <marku@LAPTOP-RDI11CTJ>
+-- Author     : doblesam
 -- Company    : 
 -- Created    : 2024-04-16
--- Last update: 2024-04-23
+-- Last update: 2024-04-30
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -15,8 +15,13 @@
 -- Copyright (c) 2024 
 -------------------------------------------------------------------------------
 -- Revisions  :
--- Date        Version  Author  Description
--- 2024-04-16  1.0      marku   Created
+-- Date        Version  Author    Description
+-- 2024-04-16  1.0      marku     Created
+-- 2024-04-30  2.0      heinipas  removed vol_reg_i
+-- 2024-04-30  2.1      heinipas  changed ADSR params from const. to input,
+--                                setting next_volume to 65535 after ATTACK 
+--                                moved to S_DECAY
+-- 2024-05-06  2.2      heinipas  changed step and freq div constant
 -------------------------------------------------------------------------------
 
 library ieee;
@@ -26,19 +31,21 @@ library work;
 use work.tone_gen_pkg.all;
 
 entity ADSR is
-
   port (
-    clk          : in  std_logic;
-    reset_n      : in  std_logic;
-    phi_incr_i   : in  std_logic_vector(18 downto 0);
-    tone_on_i    : in  std_logic;
-    velocity_i   : in  std_logic_vector(6 downto 0);
-    step_i       : in  std_logic;
-    vol_reg_i    : in  std_logic_vector(6 downto 0);
-    pitch_reg_i  : in  std_logic_vector(6 downto 0);
-    ctrl_reg_i   : in  std_logic_vector(6 downto 0);
-    dds_o        : out std_logic_vector(15 downto 0);
-    note_valid_o : out std_logic
+    clk               : in  std_logic;
+    reset_n           : in  std_logic;
+    phi_incr_i        : in  std_logic_vector(18 downto 0);
+    tone_on_i         : in  std_logic;
+    velocity_i        : in  std_logic_vector(6 downto 0);
+    step_i            : in  std_logic;
+    pitch_reg_i       : in  std_logic_vector(6 downto 0);
+    ctrl_reg_i        : in  std_logic_vector(6 downto 0);
+    attack_step_i     : in  unsigned(6 downto 0);
+    decay_step_i      : in  unsigned(6 downto 0);
+    release_step_i    : in  unsigned(6 downto 0);
+    sustain_percent_i : in  unsigned(6 downto 0);  -- max 100
+    dds_o             : out std_logic_vector(15 downto 0);
+    note_valid_o      : out std_logic
     );
 end ADSR;
 
@@ -63,18 +70,14 @@ architecture ADSR_arch of ADSR is
   signal volume, next_volume         : signed(16 downto 0);
   signal note_valid, next_note_valid : std_logic;
   signal velocity                    : std_logic_vector(6 downto 0);
-  signal vel                         : integer range 0 to 127;
+  signal vel_temp                    : integer range 0 to 127;
 
-  constant FREQ_DIVISION         : natural := 4;
+  constant FREQ_DIVISION         : natural := 15;
   signal freq_div, next_freq_div : integer range 0 to FREQ_DIVISION;
-
-  constant ATTACK_STEP  : natural := 1000;
-  constant DECAY_STEP   : natural := 80;
-  constant RELEASE_STEP : natural := 20;
-
-  constant SUSTAIN_LEVEL_PROZENT : natural := 10;  -- max 100
-
-  constant SUSTAIN_LEVEL : natural := SUSTAIN_LEVEL_PROZENT*655;  -- DO NOT CHANGE
+  
+  constant ATTACK_MULTIPLIER     : natural := 16;   -- adsr attack input is multiplied by this value
+  constant DECAY_MULTIPLIER      : natural := 2;   -- adsr decay input is multiplied by this value
+  constant RELEASE_MULTIPLIER    : natural := 1;   -- adsr release input is multiplied by this value
 
   -----------------------------------------------------------------------------
   -- Component declarations
@@ -87,7 +90,6 @@ architecture ADSR_arch of ADSR is
       tone_on_i   : in  std_logic;
       velocity_i  : in  std_logic_vector(6 downto 0);
       step_i      : in  std_logic;
-      vol_reg_i   : in  std_logic_vector(6 downto 0);
       pitch_reg_i : in  std_logic_vector(6 downto 0);
       ctrl_reg_i  : in  std_logic_vector(6 downto 0);
       dds_o       : out std_logic_vector(15 downto 0));
@@ -103,7 +105,6 @@ begin  -- architecture ADSR_arch
       tone_on_i   => note_valid,        --tone_on_i,
       velocity_i  => velocity,
       step_i      => step_i,
-      vol_reg_i   => vol_reg_i,
       pitch_reg_i => pitch_reg_i,
       ctrl_reg_i  => ctrl_reg_i,
       dds_o       => dds_o);
@@ -113,11 +114,12 @@ begin  -- architecture ADSR_arch
   -- Process for combinational logic
   -------------------------------------------------------------------------------
   logic_proc : process(all)
+    variable attack_step, decay_step, release_step, sustain_lvl : natural;
   begin
     -----------------------------------------------------------------------
     -- Default Statement, mostly keep current value
     -----------------------------------------------------------------------
-    next_fsm_state <= fsm_state;
+    next_fsm_state  <= fsm_state;
     next_volume     <= volume;
     next_note_valid <= note_valid;
     next_freq_div   <= freq_div;
@@ -125,6 +127,12 @@ begin  -- architecture ADSR_arch
     if (freq_div < FREQ_DIVISION) then
       next_freq_div <= freq_div + 1;
     end if;
+
+    -- ADSR steps and levels
+    attack_step  := to_integer(attack_step_i) * ATTACK_MULTIPLIER;
+    decay_step   := to_integer(decay_step_i) * DECAY_MULTIPLIER;
+    release_step := to_integer(release_step_i) * RELEASE_MULTIPLIER;
+    sustain_lvl  := to_integer(sustain_percent_i) * 655;  -- DO NOT CHANGE
 
     -----------------------------------------------------------------------
     -- State Machine
@@ -145,10 +153,9 @@ begin  -- architecture ADSR_arch
         if (tone_on_i = '0') then
           next_fsm_state <= S_RELEASE;
         elsif (volume < 0) then
-          next_volume    <= to_signed(65535, 17);
           next_fsm_state <= S_DECAY;
         else
-          next_volume <= volume + ATTACK_STEP;
+          next_volume <= volume + attack_step;
         end if;
 
       --------------------------------------------------------------------
@@ -156,10 +163,12 @@ begin  -- architecture ADSR_arch
         --------------------------------------------------------------------
         if (tone_on_i = '0') then
           next_fsm_state <= S_RELEASE;
-        elsif (volume < SUSTAIN_LEVEL) and (volume > 0) then
+        elsif (volume < sustain_lvl) and (volume > 0) then
           next_fsm_state <= S_SUSTAIN;
+        elsif (volume < 0) then
+          next_volume <= to_signed(65535, 17);
         else
-          next_volume <= volume - DECAY_STEP;
+          next_volume <= volume - decay_step;
         end if;
 
       --------------------------------------------------------------------
@@ -172,7 +181,7 @@ begin  -- architecture ADSR_arch
       --------------------------------------------------------------------
       when S_RELEASE =>
         --------------------------------------------------------------------
-        next_volume <= volume - RELEASE_STEP;
+        next_volume <= volume - release_step;
         if (tone_on_i = '1') then
           next_fsm_state <= S_ATTACK;
         elsif (volume < 0) then         --check on overflow
@@ -187,8 +196,8 @@ begin  -- architecture ADSR_arch
   -- CONCURRENT ASSINGMENTS
   -----------------------------------------------------------------------------
   note_valid_o <= note_valid;
-  vel      <= to_integer(shift_right(unsigned(abs(volume)), 9));
-  velocity <= std_logic_vector(shift_right(to_unsigned(vel, 7) * unsigned(velocity_i), 7)(6 downto 0));
+  vel_temp     <= to_integer(shift_right(unsigned(abs(volume)), 9));
+  velocity     <= std_logic_vector(shift_right(to_unsigned(vel_temp, 7) * unsigned(velocity_i), 7)(6 downto 0));
 
   -----------------------------------------------------------------------------
   -- PROCESS FOR ALL FLIP-FLOPS
