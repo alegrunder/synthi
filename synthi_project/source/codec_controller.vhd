@@ -1,17 +1,17 @@
 --------------------------------------------------------------------
 --
--- Project     : Audio_Synth
+-- Project     : Synthi Pro
 --
 -- File Name   : codec_controller.vhd
 -- Description : Controller to define Audio Codec Configuration via I2C
 --                                      
--- Features:    Der Baustein wartet bis das reset_n signal inaktiv wird.
---              Danach sendet dieser Codec Konfigurierungsdaten an
---              den Baustein i2c_Master
+-- Features    : Der Baustein wartet bis das reset_n signal inaktiv wird.
+--               Danach sendet dieser Codec Konfigurierungsdaten an
+--               den Baustein i2c_Master
 --                              
 --------------------------------------------------------------------
 -- Change History
--- Date       | Name     |Modification
+-- Date       | Name     | Modification
 --------------|----------|------------------------------------------
 -- 2019-03-07 | gelk     | Prepared template for students
 -- 2024-03-05 | heinipas | beautify template
@@ -24,33 +24,33 @@ use ieee.numeric_std.all;
 library work;
 use work.reg_table_pkg.all;
 
-
 entity codec_controller is
-
   port (
     mode         : in  std_logic_vector(2 downto 0);  -- Inputs to choose Audio_MODE
-    write_done_i : in  std_logic;       -- Input from i2c register write_done
-    ack_error_i  : in  std_logic;       -- Inputs to check the transmission
+    write_done_i : in  std_logic;                     -- Input from i2c register write_done
+    ack_error_i  : in  std_logic;                     -- Inputs to check the transmission
     clk          : in  std_logic;
     reset_n      : in  std_logic;
-    write_o      : out std_logic;       -- Output to i2c to start transmission 
+    write_o      : out std_logic;                     -- Output to i2c to start transmission 
     write_data_o : out std_logic_vector(15 downto 0)  -- Data_Output
     );
 end codec_controller;
 
 
+-------------------------------------------
 -- Architecture Declaration
 -------------------------------------------
 architecture rtl of codec_controller is
--- Signals & Constants Declaration
--------------------------------------------
-  type fsm_type is (st_idle, st_wait_write, st_state_end);  -- state machine
-                                                            -- type definition
+  -------------------------------------------
+  -- Signals & Constants Declaration
+  -------------------------------------------
+  type fsm_type is (st_idle, st_wait_write, st_state_end);  -- state machine type definition
   signal fsm_state, next_fsm_state : fsm_type;
 
   constant width           : positive := 4;  -- counter from 0...9 => 4 bits
   signal count, next_count : unsigned(width-1 downto 0);
 
+-------------------------------------------
 -- Begin Architecture
 -------------------------------------------
 begin
@@ -88,7 +88,7 @@ begin
           if count >= 9 then
             next_fsm_state <= st_state_end;
           else
-            next_count <= count + 1;
+            next_count     <= count + 1;
             next_fsm_state <= st_idle;
           end if;
         end if;
@@ -110,10 +110,10 @@ begin
     case fsm_state is
       when st_idle =>
         write_o <= '1';
-      --when st_wait_write =>
-        -- generate data for I2C (select corresponding value from array)
       when others => null;
     end case;
+    
+    -- generate data for I2C (select corresponding value from array)
     case mode is
       when "001"  => write_data_o <= "000" & std_logic_vector(count) & C_W8731_ANALOG_BYPASS(to_integer(count));
       when "101"  => write_data_o <= "000" & std_logic_vector(count) & C_W8731_ANALOG_MUTE_LEFT(to_integer(count));
@@ -123,8 +123,7 @@ begin
     end case;
   end process fsm_out_logic;
 
-
-
+-------------------------------------------
 -- End Architecture 
 ------------------------------------------- 
 end rtl;

@@ -1,33 +1,35 @@
 -------------------------------------------------------------------------------
 -- Title      : fm block
--- Project    : 
+-- Project    : Synthi Pro
 -------------------------------------------------------------------------------
 -- File       : fm.vhd
 -- Author     : heinipas
 -- Company    : 
 -- Created    : 2024-04-30
--- Last update: 2024-04-30
+-- Last update: 2024-05-28
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
--- Description: 
+-- Description: FM synthesis in different modes depending on fm presets
 -------------------------------------------------------------------------------
 -- Copyright (c) 2024 
 -------------------------------------------------------------------------------
 -- Revisions  :
 -- Date        Version  Author          Description
 -- 2024-04-30  1.0      heinipas        Created
+-- 2024-05-28  1.1      heinipas        beautified
 -------------------------------------------------------------------------------
 
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 library work;
-use work.tone_gen_pkg.all;
-use work.presets_pkg.all;
+use work.tone_gen_pkg.all;  -- package containing some type definitions
+use work.presets_pkg.all;               -- package containing presets
 
--------------------------------------------------------------------------------
-
+--------------------------------------------------
+-- entity declaration
+--------------------------------------------------
 entity fm is
 
   port (
@@ -39,39 +41,40 @@ entity fm is
     step_i       : in  std_logic;
     pitch_reg_i  : in  std_logic_vector(6 downto 0);
     ctrl_reg_i   : in  std_logic_vector(6 downto 0);
-    fm_attack_i  : in  t_fm_adsr;
-    fm_decay_i   : in  t_fm_adsr;
-    fm_sustain_i : in  t_fm_adsr;
-    fm_release_i : in  t_fm_adsr;
-    fm_amp_i     : in  t_fm_amp_frq;
-    fm_freq_i    : in  t_fm_amp_frq;
-    fm_mode_i    : in  std_logic_vector(1 downto 0);
+    fm_attack_i  : in  t_fm_adsr;                     -- selected preset
+    fm_decay_i   : in  t_fm_adsr;                     -- selected preset
+    fm_sustain_i : in  t_fm_adsr;                     -- selected preset
+    fm_release_i : in  t_fm_adsr;                     -- selected preset
+    fm_amp_i     : in  t_fm_amp_frq;                  -- selected preset
+    fm_freq_i    : in  t_fm_amp_frq;                  -- selected preset
+    fm_mode_i    : in  std_logic_vector(1 downto 0);  -- selected preset
     dds_o        : out std_logic_vector(15 downto 0);
     note_valid_o : out std_logic
     );
-
 end entity fm;
 
--------------------------------------------------------------------------------
-
+--------------------------------------------------
+-- architecture declaration
+--------------------------------------------------
 architecture str of fm is
-
   -----------------------------------------------------------------------------
   -- Internal signal declarations
   -----------------------------------------------------------------------------
+  -- type for phi_incr
   type t_phi_incr is array (0 to 2) of std_logic_vector(18 downto 0);
-  type t_dds_o_array is array (0 to 9) of std_logic_vector(N_AUDIO-1 downto 0);
+  -- type for dds outputs
+  type t_dds_o_array is array (0 to 2) of std_logic_vector(N_AUDIO-1 downto 0);
 
   signal phi_incr_sig        : t_phi_incr;
   signal tone_on_sig         : std_logic_vector(2 downto 0);
   signal velocity_adsr_sig   : t_fm_adsr;
   signal note_valid_adsr_sig : std_logic_vector(2 downto 0);
 
-  signal dds_o_array  : t_dds_o_array;
+  signal dds_o_array : t_dds_o_array;
 
-  signal sum_sig      : signed(N_AUDIO-1 downto 0);
-  
-  
+  signal sum_sig : signed(N_AUDIO-1 downto 0);
+
+
   -----------------------------------------------------------------------------
   -- Component declarations
   -----------------------------------------------------------------------------
@@ -93,12 +96,16 @@ architecture str of fm is
       note_valid_o      : out std_logic);
   end component ADSR;
 
-begin  -- architecture str
+--------------------------------------------------
+-- architecture begin
+--------------------------------------------------
+begin
   -----------------------------------------------------------------------------
   -- CONCURRENT ASSIGNMENTS
   -----------------------------------------------------------------------------
+  -- note_valid_o is OR of all DDS-blocks
   note_valid_o <= note_valid_adsr_sig(0) or note_valid_adsr_sig(1) or note_valid_adsr_sig(2);
-  dds_o <= std_logic_vector(sum_sig);
+  dds_o        <= std_logic_vector(sum_sig);
 
   -----------------------------------------------------------------------------
   -- INSTANCES 
@@ -122,12 +129,11 @@ begin  -- architecture str
         note_valid_o      => note_valid_adsr_sig(i));
   end generate ADSR_inst_gen;
 
-
   -----------------------------------------------------------------------------
   -- PROCESS FOR COMB-LOGIC 
   -----------------------------------------------------------------------------
-  comb_logic : process(all)
-    -- one bit more than phi_incr_i
+  fm_logic : process(all)
+    -- one bit more needed than phi_incr_i
     type t_signed_incr is array (0 to 2) of integer;
     variable var_incr : t_signed_incr;
     variable var_out  : signed(N_AUDIO-1 downto 0);
@@ -135,7 +141,7 @@ begin  -- architecture str
     variable var_mod  : integer;
   begin
     -- DEFAULT ASSIGNMENTS
-    
+
     -- TONE_ON_SIG
     tone_on_sig <= (others => tone_on_i);
     for i in 0 to 2 loop
@@ -144,14 +150,15 @@ begin  -- architecture str
         tone_on_sig(i) <= '0';
       end if;
     end loop;
-    
+
     -- AMPLITUDES
     for i in 0 to 2 loop
       -- fm_amp_i(i) is 4 bits
-      var_vel := shift_right(unsigned(velocity_i) * (resize(fm_amp_i(i), fm_amp_i(i)'length+1) + 1), fm_amp_i(i)'length)(var_vel'length-1 downto 0);
+      -- (velocity_i * fm_amp_i) >> 4
+      var_vel              := shift_right(unsigned(velocity_i) * (resize(fm_amp_i(i), fm_amp_i(i)'length+1) + 1), fm_amp_i(i)'length)(var_vel'length-1 downto 0);
       velocity_adsr_sig(i) <= var_vel;
     end loop;
-    
+
     -- INPUT AND OUTPUT SUMS
     -- MODE 0 --------------------------
     --          [1] [2] [3]
@@ -178,7 +185,6 @@ begin  -- architecture str
     --               |
     --             [out]
     var_out := (others => '0');
-    -- calculate increments depending on fm_amp_i(i)
     -- fm_freq_i(i) is 4 bits
     -- freq = (fm_freq_i(i) + 1) / 2 * base frequency
     -- fm_freq_i(i) = 0 => 0.5 * base freq
@@ -187,7 +193,7 @@ begin  -- architecture str
     for i in 0 to 2 loop
       var_incr(i) := to_integer(signed(phi_incr_i)) * (to_integer(fm_freq_i(i)) + 1) / 2;
     end loop;
-    
+
     case fm_mode_i is
       when "00" =>
         -- no change to increments
@@ -195,31 +201,34 @@ begin  -- architecture str
       when "01" =>
         -- mod 2 on 1
         -- scale to input of 2
-        var_mod := var_incr(1) * to_integer(signed(dds_o_array(1))) / 4096;
+        var_mod     := var_incr(1) * to_integer(signed(dds_o_array(1))) / 4096;
         var_incr(0) := var_incr(0) + var_mod;
         -- mod 3 on 2
         -- scale to input of 3
-        var_mod := var_incr(2) * to_integer(signed(dds_o_array(2))) / 4096;
+        var_mod     := var_incr(2) * to_integer(signed(dds_o_array(2))) / 4096;
         var_incr(1) := var_incr(1) + var_mod;
-        var_out := signed(dds_o_array(0));                                -- 1 on output
+        -- 1 on output
+        var_out     := signed(dds_o_array(0));
       when "10" =>
         -- mod 2 on 1
-        var_mod := var_incr(1) * to_integer(signed(dds_o_array(1))) / 4096;
+        var_mod     := var_incr(1) * to_integer(signed(dds_o_array(1))) / 4096;
         var_incr(0) := var_incr(0) + var_mod;
-        var_out := signed(dds_o_array(0)) + signed(dds_o_array(2));       -- 1 + 3 on otput
+        -- 1 + 3 on otput
+        var_out     := signed(dds_o_array(0)) + signed(dds_o_array(2));
       when others =>
         -- mod (2+3) on 1
-        var_mod := (var_incr(1) * to_integer(signed(dds_o_array(1))) + var_incr(2) * to_integer(signed(dds_o_array(2)))) / 4096;
+        var_mod     := (var_incr(1) * to_integer(signed(dds_o_array(1))) + var_incr(2) * to_integer(signed(dds_o_array(2)))) / 4096;
         var_incr(0) := var_incr(0) + var_mod;
-        var_out := signed(dds_o_array(0));                                -- 1 on output
+        -- 1 on output
+        var_out     := signed(dds_o_array(0));
     end case;
     -- assign variables to signals
     for i in 0 to 2 loop
-      -- signed, phi increment can be negative
-      phi_incr_sig(i) <= std_logic_vector(to_signed(var_incr(i),19));
+      -- var_incr is signed, phi_incr can be negative
+      phi_incr_sig(i) <= std_logic_vector(to_signed(var_incr(i), 19));
     end loop;
+    -- assign output to signal
     sum_sig <= var_out;
-  end process comb_logic;
-end architecture str;
+  end process fm_logic;
 
--------------------------------------------------------------------------------
+end architecture str;

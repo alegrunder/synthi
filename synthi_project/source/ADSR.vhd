@@ -1,12 +1,12 @@
 -------------------------------------------------------------------------------
 -- Title      : ADSR
--- Project    : 
+-- Project    : Synthi Pro
 -------------------------------------------------------------------------------
 -- File       : ADSR.vhd
 -- Author     : doblesam
 -- Company    : 
 -- Created    : 2024-04-16
--- Last update: 2024-04-30
+-- Last update: 2024-05-28
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -16,7 +16,7 @@
 -------------------------------------------------------------------------------
 -- Revisions  :
 -- Date        Version  Author    Description
--- 2024-04-16  1.0      marku     Created
+-- 2024-04-16  1.0      doblesam  Created
 -- 2024-04-30  2.0      heinipas  removed vol_reg_i
 -- 2024-04-30  2.1      heinipas  changed ADSR params from const. to input,
 --                                setting next_volume to 65535 after ATTACK 
@@ -40,10 +40,10 @@ entity ADSR is
     step_i            : in  std_logic;
     pitch_reg_i       : in  std_logic_vector(6 downto 0);
     ctrl_reg_i        : in  std_logic_vector(6 downto 0);
-    attack_step_i     : in  unsigned(6 downto 0);
-    decay_step_i      : in  unsigned(6 downto 0);
-    release_step_i    : in  unsigned(6 downto 0);
-    sustain_percent_i : in  unsigned(6 downto 0);  -- max 100
+    attack_step_i     : in  unsigned(6 downto 0);             -- 0 ... 127
+    decay_step_i      : in  unsigned(6 downto 0);             -- 0 ... 127
+    release_step_i    : in  unsigned(6 downto 0);             -- 0 ... 127
+    sustain_percent_i : in  unsigned(6 downto 0);             -- max 100
     dds_o             : out std_logic_vector(15 downto 0);
     note_valid_o      : out std_logic
     );
@@ -74,10 +74,10 @@ architecture ADSR_arch of ADSR is
 
   constant FREQ_DIVISION         : natural := 15;
   signal freq_div, next_freq_div : integer range 0 to FREQ_DIVISION;
-  
-  constant ATTACK_MULTIPLIER     : natural := 16;   -- adsr attack input is multiplied by this value
-  constant DECAY_MULTIPLIER      : natural := 2;   -- adsr decay input is multiplied by this value
-  constant RELEASE_MULTIPLIER    : natural := 1;   -- adsr release input is multiplied by this value
+
+  constant ATTACK_MULTIPLIER  : natural := 16;  -- adsr attack input is multiplied by this value
+  constant DECAY_MULTIPLIER   : natural := 2;   -- adsr decay input is multiplied by this value
+  constant RELEASE_MULTIPLIER : natural := 1;   -- adsr release input is multiplied by this value
 
   -----------------------------------------------------------------------------
   -- Component declarations
@@ -102,7 +102,7 @@ begin  -- architecture ADSR_arch
       clk         => clk,
       reset_n     => reset_n,
       phi_incr_i  => phi_incr_i,
-      tone_on_i   => note_valid,        --tone_on_i,
+      tone_on_i   => note_valid,     -- replaces tone_on_i,
       velocity_i  => velocity,
       step_i      => step_i,
       pitch_reg_i => pitch_reg_i,

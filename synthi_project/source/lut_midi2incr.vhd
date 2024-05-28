@@ -1,12 +1,12 @@
 -------------------------------------------------------------------------------
 -- Title      : LUT MIDI to DDS increment
--- Project    : Synthi
+-- Project    : Synthi Pro
 -------------------------------------------------------------------------------
 -- File       : lut_midi2incr.vhd
 -- Author     : heinipas
 -- Company    : 
 -- Created    : 2024-05-01
--- Last update: 2024-05-01
+-- Last update: 2024-05-28
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------

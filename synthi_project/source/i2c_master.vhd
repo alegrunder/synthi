@@ -1,5 +1,5 @@
 -------------------------------------------------------------------------------
--- Project     : audio_top
+-- Project     : Synthi Pro
 -- Description : i2c interface to initialize audio codec WM8731
 --
 --               sda_io is bidirectional: 

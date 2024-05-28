@@ -18,17 +18,13 @@ entity clock_sync is
        );
 end clock_sync;
 
-
--- Architecture Declaration 
+-- Architecture Declaration
 architecture rtl of clock_sync is
-
-  -- Signals & Constants Declaration 
+  -- Signals & Constants Declaration
   signal q_0, q_1 : std_logic := '0';
-
 
 -- Begin Architecture
 begin
-
   -------------------------------------------
   -- Process for registers (flip-flops)
   -------------------------------------------
@@ -45,6 +41,5 @@ begin
   -- Concurrent Assignments  
   -------------------------------------------
   sync_out <= q_1;
-
 
 end rtl;
