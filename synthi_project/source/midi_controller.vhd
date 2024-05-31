@@ -1,16 +1,16 @@
 -------------------------------------------------------------------------------
 -- Title      : MIDI Controller
--- Project    : synthi
+-- Project    : Synthi Pro
 -------------------------------------------------------------------------------
 -- File       : midi_controller.vhd
 -- Author     : heinipas
 -- Company    : 
 -- Created    : 2024-03-26
--- Last update: 2024-04-16
+-- Last update: 2024-05-31
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
--- Description: 
+-- Description: receives from uart_midi, stores and control notes and commands
 -------------------------------------------------------------------------------
 -- Copyright (c) 2024 
 -------------------------------------------------------------------------------
@@ -19,14 +19,15 @@
 -- 2024-03-26  1.0      heinipas        Created
 -- 2024-04-16  2.0      heinipas        MIDI mehrkanalig
 -- 2024-04-16  2.1      grundale        added feedback note valid for envelope
+-- 2024-05-31  2.2      heinipas        beautified
 -------------------------------------------------------------------------------
 
 library ieee;
 use ieee.std_logic_1164.all;
 library work;
 use work.tone_gen_pkg.all;
--------------------------------------------------------------------------------
 
+-------------------------------------------------------------------------------
 entity midi_controller is
   port (
     clk           : in  std_logic;
@@ -37,8 +38,8 @@ entity midi_controller is
     hex2          : out std_logic_vector(6 downto 0);
     hex3          : out std_logic_vector(6 downto 0);
     note_on_o     : out std_logic_vector(9 downto 0);
-    note_o        : out t_tone_array;
-    velocity_o    : out t_tone_array;
+    note_o        : out t_tone_array;   -- defined in tone_gen_pkg
+    velocity_o    : out t_tone_array;   -- defined in tone_gen_pkg
     vol_reg_o     : out std_logic_vector(6 downto 0);
     pitch_reg_o   : out std_logic_vector(6 downto 0);
     ctrl_reg_o    : out std_logic_vector(6 downto 0)
@@ -49,12 +50,10 @@ end entity midi_controller;
 -------------------------------------------------------------------------------
 
 architecture str of midi_controller is
-
   -----------------------------------------------------------------------------
   -- Internal signal declarations
   -----------------------------------------------------------------------------
-  type fsm_type is (st_wait_status, st_wait_data1, st_wait_data2);  -- state machine
-                                        -- type definition
+  type fsm_type is (st_wait_status, st_wait_data1, st_wait_data2);  -- state machine type definition
   signal fsm_state, next_fsm_state : fsm_type;
 
   signal status_reg, next_status_reg : std_logic_vector(6 downto 0);
@@ -69,6 +68,7 @@ architecture str of midi_controller is
   signal vol_reg, next_vol_reg           : std_logic_vector(6 downto 0);
   signal pitch_reg, next_pitch_reg       : std_logic_vector(6 downto 0);
   signal ctrl_reg, next_ctrl_reg         : std_logic_vector(6 downto 0);
+
   -----------------------------------------------------------------------------
   -- Component declarations
   -----------------------------------------------------------------------------
@@ -79,6 +79,16 @@ architecture str of midi_controller is
   end component;
 
 begin  -- architecture str
+  -----------------------------------------------------------------------------
+  -- CONCURRENT ASSINGMENTS
+  -----------------------------------------------------------------------------
+  note_o      <= reg_note;
+  velocity_o  <= reg_velocity;
+  note_on_o   <= reg_note_on;
+  vol_reg_o   <= vol_reg;
+  pitch_reg_o <= pitch_reg;
+  ctrl_reg_o  <= ctrl_reg;
+
   --------------------------------------------------
   -- PROCESS FOR ALL FLIP-FLOPS
   --------------------------------------------------
@@ -95,9 +105,9 @@ begin  -- architecture str
         reg_note(i)     <= (others => '0');
         reg_velocity(i) <= (others => '0');
       end loop;
-      vol_reg   <= "1000000";
-      pitch_reg <= "1000000";
-      ctrl_reg  <= "1000000";
+      vol_reg   <= "1000000";           -- default value 0x40
+      pitch_reg <= "1000000";           -- default value 0x40
+      ctrl_reg  <= "1000000";           -- default value 0x40
     elsif rising_edge(clk) then
       fsm_state     <= next_fsm_state;
       status_reg    <= next_status_reg;
@@ -189,13 +199,13 @@ begin  -- architecture str
     if (new_data_flag) then
       -- command En (pitch wheel)
       if (status_reg(6 downto 4) = "110") then
-      --if ((status_reg(6 downto 4) = "011") and (data1_reg = "0010000")) then -- used for different Midi keyboard dont delete
+        --if ((status_reg(6 downto 4) = "011") and (data1_reg = "0010000")) then -- used for different Midi keyboard, dont delete
         next_pitch_reg <= data2_reg;
       -- command Bn 07 (volume)
-      elsif ((status_reg(6 downto 4) = "011") and (data1_reg = "0000111")) then --0000111 --0001111  -- used for different Midi keyboard dont delete
+      elsif ((status_reg(6 downto 4) = "011") and (data1_reg = "0000111")) then  -- 0001111 used for different Midi keyboard, dont delete
         next_vol_reg <= data2_reg;
       -- command Bn 01 (modulation wheel)
-      elsif ((status_reg(6 downto 4) = "011") and (data1_reg = "0000001")) then -- 0000001 --0001110  -- used for different Midi keyboard dont delete
+      elsif ((status_reg(6 downto 4) = "011") and (data1_reg = "0000001")) then  -- 0001110 used for different Midi keyboard, dont delete
         next_ctrl_reg <= data2_reg;
       -- note_on 9n or note_off 8n
       elsif ((status_reg(6 downto 4) = "001") or (status_reg(6 downto 4) = "000")) then
@@ -249,23 +259,12 @@ begin  -- architecture str
   end process midi_array_logic;
 
   -----------------------------------------------------------------------------
-  -- CONCURRENT ASSINGMENTS
-  -----------------------------------------------------------------------------
-  note_o      <= reg_note;
-  velocity_o  <= reg_velocity;
-  note_on_o   <= reg_note_on;
-  vol_reg_o   <= vol_reg;
-  pitch_reg_o <= pitch_reg;
-  ctrl_reg_o  <= ctrl_reg;
-
-  -----------------------------------------------------------------------------
   -- Instances for simulation tests
   -----------------------------------------------------------------------------
+  -- show data1_reg on HEX3..2
   vhdl_hex2sevseg_inst1 : vhdl_hex2sevseg
     port map(data_in => data1_reg(3 downto 0),
              seg_out => hex2);
-
-
   vhdl_hex2sevseg_inst2 : vhdl_hex2sevseg
     port map(data_in => ('0' & data1_reg(6 downto 4)),
              seg_out => hex3);

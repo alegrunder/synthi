@@ -1,22 +1,24 @@
 -------------------------------------------------------------------------------
 -- Title      : presets_pkg
--- Project    : Synthi
+-- Project    : Synthi Pro
 -------------------------------------------------------------------------------
 -- File       : presets_pkg.vhd
 -- Author     : heinipas
 -- Company    : 
 -- Created    : 2024-04-30
--- Last update: 2024-04-30
+-- Last update: 2024-05-31
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
--- Description: 
+-- Description: Set 8 preset here, for every preset three tones
 -------------------------------------------------------------------------------
 -- Copyright (c) 2024 
 -------------------------------------------------------------------------------
 -- Revisions  :
 -- Date        Version  Author          Description
 -- 2024-04-30  1.0      heinipas        Created
+-- 2024-04-30  2.0      grundale        Presets defined
+-- 2024-05-31  2.1      heinipas        beautified
 -------------------------------------------------------------------------------
 
 library ieee;
@@ -27,108 +29,115 @@ use ieee.numeric_std.all;
 -- Package  Declaration
 -------------------------------------------------------------------------------
 package presets_pkg is
-  type t_fm_adsr is array (0 to 2) of unsigned(6 downto 0);
-  type t_fm_amp_frq is array (0 to 2) of unsigned(3 downto 0);
-  type t_fm_adsr_preset is array (0 to 7) of t_fm_adsr;
-  type t_fm_amp_frq_preset is array (0 to 7) of t_fm_amp_frq;
-  type t_fm_mode is array (0 to 7) of std_logic_vector(1 downto 0);
-  
+  -------------------------------------------------------------------------------
+  -- TYPE DEFINITION
+  -------------------------------------------------------------------------------
+  type t_fm_adsr is array (0 to 2) of unsigned(6 downto 0);         -- e.g. 3 tones: e.g. Attack params
+  type t_fm_amp_frq is array (0 to 2) of unsigned(3 downto 0);      -- e.g. 3 tones: e.g. Amp params
+  type t_fm_adsr_preset is array (0 to 7) of t_fm_adsr;             -- e.g. 8 presets * 3 tones: e.g. Attack params
+  type t_fm_amp_frq_preset is array (0 to 7) of t_fm_amp_frq;       -- e.g. 8 presets * 3 tones: e.g. Amp params
+  type t_fm_mode is array (0 to 7) of std_logic_vector(1 downto 0); -- 8 presets: Mode
+
   -------------------------------------------------------------------------------
   -- PRESET CONSTANTS (INIT FUNCTIONS SEE BELOW)
   -------------------------------------------------------------------------------
   function attack_preset_init return t_fm_adsr_preset;
   constant FM_ATTACK_PRESET : t_fm_adsr_preset;
-  
+
   function decay_preset_init return t_fm_adsr_preset;
   constant FM_DECAY_PRESET : t_fm_adsr_preset;
-  
+
   function sustain_preset_init return t_fm_adsr_preset;
   constant FM_SUSTAIN_PRESET : t_fm_adsr_preset;
-  
+
   function release_preset_init return t_fm_adsr_preset;
   constant FM_RELEASE_PRESET : t_fm_adsr_preset;
-  
+
   function freq_preset_init return t_fm_amp_frq_preset;
   constant FM_FREQ_PRESET : t_fm_amp_frq_preset;
-  
+
   function amp_preset_init return t_fm_amp_frq_preset;
   constant FM_AMP_PRESET : t_fm_amp_frq_preset;
-  
+
   function mode_preset_init return t_fm_mode;
   constant FM_MODE_PRESET : t_fm_mode;
-  
+
 end package presets_pkg;
 
 -------------------------------------------------------------------------------
--- Package  Body
+-- PACKAGE BODY (INIT FUNCTIONS)
 -------------------------------------------------------------------------------
 package body presets_pkg is
   -------------------------------------------------------------------------------
-  -- ATTACK
+  -- ATTACK 
   -------------------------------------------------------------------------------
   function attack_preset_init return t_fm_adsr_preset is
     variable temp : t_fm_adsr_preset;
   begin
+    -- range: 0 ... 127
+
     -- default values
     for i in 0 to 7 loop
       for j in 0 to 2 loop
-          temp(i)(j) := to_unsigned(50, 7);  -- up to 127
+        temp(i)(j) := to_unsigned(50, 7);  -- up to 127
       end loop;
     end loop;
     -- preset 0 - basic sound
     -- preset 1 - fancy sound
-    temp(1)(0) := to_unsigned(20, 7); 
-    temp(1)(1) := to_unsigned(82, 7); 
-    temp(1)(2) := to_unsigned(90, 7); 
+    temp(1)(0) := to_unsigned(20, 7);
+    temp(1)(1) := to_unsigned(82, 7);
+    temp(1)(2) := to_unsigned(90, 7);
     -- preset 2 - organ
-    temp(2)(0) := to_unsigned(100, 7); 
-    temp(2)(1) := to_unsigned(100, 7); 
-    temp(2)(2) := to_unsigned(80 , 7); 
+    temp(2)(0) := to_unsigned(100, 7);
+    temp(2)(1) := to_unsigned(100, 7);
+    temp(2)(2) := to_unsigned(80, 7);
     -- preset 3 - brass
-    temp(3)(0) := to_unsigned(100, 7); 
+    temp(3)(0) := to_unsigned(100, 7);
     temp(3)(1) := to_unsigned(40, 7);
-    temp(3)(2) := to_unsigned(100, 7); 
+    temp(3)(2) := to_unsigned(100, 7);
     -- preset 4 - bell
-    temp(4)(0) := to_unsigned(127, 7); 
-    temp(4)(1) := to_unsigned(127, 7); 
-    temp(4)(2) := to_unsigned(127, 7); 
+    temp(4)(0) := to_unsigned(127, 7);
+    temp(4)(1) := to_unsigned(127, 7);
+    temp(4)(2) := to_unsigned(127, 7);
     -- preset 5 - guitar
-    temp(5)(0) := to_unsigned(127, 7); 
-    temp(5)(1) := to_unsigned(127, 7); 
-    temp(5)(2) := to_unsigned(127, 7); 
+    temp(5)(0) := to_unsigned(127, 7);
+    temp(5)(1) := to_unsigned(127, 7);
+    temp(5)(2) := to_unsigned(127, 7);
     -- preset 6 - ghost
-    temp(6)(0) := to_unsigned(80, 7); 
-    temp(6)(1) := to_unsigned(60, 7); 
-    temp(6)(2) := to_unsigned(70, 7); 
+    temp(6)(0) := to_unsigned(80, 7);
+    temp(6)(1) := to_unsigned(60, 7);
+    temp(6)(2) := to_unsigned(70, 7);
     -- preset 7 - simulation
-    temp(7)(0) := to_unsigned(60, 7); 
-    temp(7)(1) := to_unsigned(80, 7); 
-    temp(7)(2) := to_unsigned(100, 7); 
-    
+    temp(7)(0) := to_unsigned(60, 7);
+    temp(7)(1) := to_unsigned(80, 7);
+    temp(7)(2) := to_unsigned(100, 7);
+
     return temp;
   end function attack_preset_init;
-  
+
   constant FM_ATTACK_PRESET : t_fm_adsr_preset := attack_preset_init;
-  
+
   -------------------------------------------------------------------------------
   -- DECAY
   -------------------------------------------------------------------------------
   function decay_preset_init return t_fm_adsr_preset is
     variable temp : t_fm_adsr_preset;
   begin
+    -- range: 0 ... 127
+
     -- default values
     for i in 0 to 7 loop
       for j in 0 to 2 loop
-          temp(i)(j) := to_unsigned(50, 7);  -- up to 127
+        temp(i)(j) := to_unsigned(50, 7);  -- up to 127
       end loop;
     end loop;
     -- preset 0 - basic sound
     -- preset 1 - fancy sound
-    temp(1)(0) := to_unsigned(10, 7); 
-    temp(1)(1) := to_unsigned(30, 7); 
-    temp(1)(2) := to_unsigned(70, 7); 
+    temp(1)(0) := to_unsigned(10, 7);
+    temp(1)(1) := to_unsigned(30, 7);
+    temp(1)(2) := to_unsigned(70, 7);
     -- preset 2 - organ
-      -- not relevant, as sustain is 100%
+    -- not relevant, as sustain is 100%
     -- preset 3 - brass
     temp(3)(2) := to_unsigned(20, 7);
     -- preset 4 - bell
@@ -146,19 +155,21 @@ package body presets_pkg is
     temp(7)(2) := to_unsigned(60, 7);
     return temp;
   end function decay_preset_init;
-  
+
   constant FM_DECAY_PRESET : t_fm_adsr_preset := decay_preset_init;
-  
+
   -------------------------------------------------------------------------------
   -- SUSTAIN
   -------------------------------------------------------------------------------
   function sustain_preset_init return t_fm_adsr_preset is
     variable temp : t_fm_adsr_preset;
   begin
+    -- range: 0 ... 100
+
     -- default values
     for i in 0 to 7 loop
       for j in 0 to 2 loop
-          temp(i)(j) := to_unsigned(50, 7);
+        temp(i)(j) := to_unsigned(50, 7);
       end loop;
     end loop;
     -- preset 0 - basic sound
@@ -183,16 +194,16 @@ package body presets_pkg is
     temp(5)(1) := to_unsigned(80, 7);
     temp(5)(2) := to_unsigned(40, 7);
     -- preset 6 - ghost
-    temp(6)(0) := to_unsigned(99, 7); 
-    temp(6)(1) := to_unsigned(99, 7); 
-    temp(6)(2) := to_unsigned(99, 7); 
+    temp(6)(0) := to_unsigned(99, 7);
+    temp(6)(1) := to_unsigned(99, 7);
+    temp(6)(2) := to_unsigned(99, 7);
     -- preset 7 - simulation
     temp(7)(0) := to_unsigned(60, 7);
     temp(7)(1) := to_unsigned(75, 7);
     temp(7)(2) := to_unsigned(90, 7);
     return temp;
   end function sustain_preset_init;
-  
+
   constant FM_SUSTAIN_PRESET : t_fm_adsr_preset := sustain_preset_init;
 
   -------------------------------------------------------------------------------
@@ -201,10 +212,12 @@ package body presets_pkg is
   function release_preset_init return t_fm_adsr_preset is
     variable temp : t_fm_adsr_preset;
   begin
+    -- range: 0 ... 127
+
     -- default values
     for i in 0 to 7 loop
       for j in 0 to 2 loop
-          temp(i)(j) := to_unsigned(50, 7);
+        temp(i)(j) := to_unsigned(50, 7);
       end loop;
     end loop;
     -- preset 0 - basic sound
@@ -227,16 +240,16 @@ package body presets_pkg is
     temp(5)(1) := to_unsigned(50, 7);
     temp(5)(2) := to_unsigned(30, 7);
     -- preset 6 - ghost
-    temp(6)(0) := to_unsigned(60, 7); 
-    temp(6)(1) := to_unsigned(60, 7); 
-    temp(6)(2) := to_unsigned(30, 7); 
+    temp(6)(0) := to_unsigned(60, 7);
+    temp(6)(1) := to_unsigned(60, 7);
+    temp(6)(2) := to_unsigned(30, 7);
     -- preset 7 - simulation
     temp(7)(0) := to_unsigned(60, 7);
     temp(7)(1) := to_unsigned(75, 7);
     temp(7)(2) := to_unsigned(90, 7);
     return temp;
   end function release_preset_init;
-  
+
   constant FM_RELEASE_PRESET : t_fm_adsr_preset := release_preset_init;
 
   -------------------------------------------------------------------------------
@@ -245,47 +258,48 @@ package body presets_pkg is
   function freq_preset_init return t_fm_amp_frq_preset is
     variable temp : t_fm_amp_frq_preset;
   begin
+    -- range: 0 .. 15
     -- freq = (value + 1) / 2 * base frequency
     -- 0.5 ... 8 * base frequency
-    
+
     -- default values
     for i in 0 to 7 loop
-      temp(i)(0) := to_unsigned(1,4);  -- 1 is base frequency
-      temp(i)(1) := to_unsigned(5,4);  -- 3 * base
-      temp(i)(2) := to_unsigned(9,4);  -- 5 * base
+      temp(i)(0) := to_unsigned(1, 4);  -- 1 is base frequency
+      temp(i)(1) := to_unsigned(5, 4);  -- 3 * base
+      temp(i)(2) := to_unsigned(9, 4);  -- 5 * base
     end loop;
     -- preset 0 - basic sound
     -- preset 1 
-    temp(1)(0) := to_unsigned(1,4);  -- 1 is base frequency
-    temp(1)(1) := to_unsigned(2,4);  -- 1.5 * base
-    temp(1)(2) := to_unsigned(6,4);  -- 3.5 * base
+    temp(1)(0) := to_unsigned(1, 4);    -- 1 is base frequency
+    temp(1)(1) := to_unsigned(2, 4);    -- 1.5 * base
+    temp(1)(2) := to_unsigned(6, 4);    -- 3.5 * base
     -- preset 2 - organ
-    temp(2)(0) := to_unsigned(0,4);  -- 0.5 * base
-    temp(2)(1) := to_unsigned(3,4);  -- 2 * base
-    temp(2)(2) := to_unsigned(1,4);  -- 1 * base
+    temp(2)(0) := to_unsigned(0, 4);    -- 0.5 * base
+    temp(2)(1) := to_unsigned(3, 4);    -- 2 * base
+    temp(2)(2) := to_unsigned(1, 4);    -- 1 * base
     -- preset 3 - brass
-    temp(3)(0) := to_unsigned(1,4);
-    temp(3)(1) := to_unsigned(2,4);  -- 1.5 * base
-    temp(3)(2) := to_unsigned(0,4);  -- 0.5 * base
+    temp(3)(0) := to_unsigned(1, 4);
+    temp(3)(1) := to_unsigned(2, 4);    -- 1.5 * base
+    temp(3)(2) := to_unsigned(0, 4);    -- 0.5 * base
     -- preset 4 - bell
-    temp(4)(0) := to_unsigned(1,4);
-    temp(4)(1) := to_unsigned(6,4);  -- 3.5 * base
-    temp(4)(2) := to_unsigned(1,4);
+    temp(4)(0) := to_unsigned(1, 4);
+    temp(4)(1) := to_unsigned(6, 4);    -- 3.5 * base
+    temp(4)(2) := to_unsigned(1, 4);
     -- preset 5 - guitar
-    temp(5)(0) := to_unsigned(1,4);  -- 1 * base
-    temp(5)(1) := to_unsigned(2,4);  -- 1.5 * base
-    temp(5)(2) := to_unsigned(6,4);  -- 3.5 * base
+    temp(5)(0) := to_unsigned(1, 4);    -- 1 * base
+    temp(5)(1) := to_unsigned(2, 4);    -- 1.5 * base
+    temp(5)(2) := to_unsigned(6, 4);    -- 3.5 * base
     -- preset 6 - ghost
-    temp(6)(0) := to_unsigned(1, 4); 
-    temp(6)(1) := to_unsigned(1, 4); 
-    temp(6)(2) := to_unsigned(4, 4); -- 2.5 * base
+    temp(6)(0) := to_unsigned(1, 4);
+    temp(6)(1) := to_unsigned(1, 4);
+    temp(6)(2) := to_unsigned(4, 4);    -- 2.5 * base
     -- preset 7 - simulation
-    temp(7)(0) := to_unsigned(1,4);  -- 1 * base
-    temp(7)(1) := to_unsigned(7,4);  -- 4 * base
-    temp(7)(2) := to_unsigned(3,4);  -- 2 * base    
+    temp(7)(0) := to_unsigned(1, 4);    -- 1 * base
+    temp(7)(1) := to_unsigned(7, 4);    -- 4 * base
+    temp(7)(2) := to_unsigned(3, 4);    -- 2 * base    
     return temp;
   end function freq_preset_init;
-  
+
   constant FM_FREQ_PRESET : t_fm_amp_frq_preset := freq_preset_init;
 
   -------------------------------------------------------------------------------
@@ -294,48 +308,53 @@ package body presets_pkg is
   function amp_preset_init return t_fm_amp_frq_preset is
     variable temp : t_fm_amp_frq_preset;
   begin
+    -- 0 ... 15
+    -- volume of Attack-Peak in case of tone block
+    -- modulation depth in case of fm-modulator block
+    -- turn block off with 0
+
     -- default values
     for i in 0 to 7 loop
-      temp(i)(0) := to_unsigned(15,4);  -- 15 is max. amplitude
-      temp(i)(1) := to_unsigned(12,4);
-      temp(i)(2) := to_unsigned(9,4); 
+      temp(i)(0) := to_unsigned(15, 4);
+      temp(i)(1) := to_unsigned(12, 4);
+      temp(i)(2) := to_unsigned(9, 4);
     end loop;
     -- preset 0 - basic sound
-    temp(0)(1) := to_unsigned(0,4);     -- no overtone
-    temp(0)(2) := to_unsigned(0,4);     -- no overtone
+    temp(0)(1) := to_unsigned(0, 4);    -- no overtone
+    temp(0)(2) := to_unsigned(0, 4);    -- no overtone
     -- preset 1
-    temp(1)(0) := to_unsigned(12,4);    -- 15 is max. amplitude
-    temp(1)(1) := to_unsigned(14,4);
-    temp(1)(2) := to_unsigned(15,4); 
+    temp(1)(0) := to_unsigned(12, 4);
+    temp(1)(1) := to_unsigned(14, 4);
+    temp(1)(2) := to_unsigned(15, 4);
     -- preset 2 - organ
-    temp(2)(0) := to_unsigned(7,4);    -- 15 is max. amplitude
-    temp(2)(1) := to_unsigned(7,4);
-    temp(2)(2) := to_unsigned(7,4); 
+    temp(2)(0) := to_unsigned(7, 4);
+    temp(2)(1) := to_unsigned(7, 4);
+    temp(2)(2) := to_unsigned(7, 4);
     -- preset 3 - brass
-    temp(3)(0) := to_unsigned(14,4);    -- 15 is max. amplitude
-    temp(3)(1) := to_unsigned(12,4);
-    temp(3)(2) := to_unsigned(12,4); 
+    temp(3)(0) := to_unsigned(14, 4);
+    temp(3)(1) := to_unsigned(12, 4);
+    temp(3)(2) := to_unsigned(12, 4);
     -- preset 4 - bell
-    temp(4)(0) := to_unsigned(15,4);
-    temp(4)(1) := to_unsigned(11,4);
-    temp(4)(2) := to_unsigned(9,4); 
+    temp(4)(0) := to_unsigned(15, 4);
+    temp(4)(1) := to_unsigned(11, 4);
+    temp(4)(2) := to_unsigned(9, 4);
     -- preset 5 - guitar
-    temp(5)(0) := to_unsigned(15,4);
-    temp(5)(1) := to_unsigned(4,4);
-    temp(5)(2) := to_unsigned(8,4); 
+    temp(5)(0) := to_unsigned(15, 4);
+    temp(5)(1) := to_unsigned(4, 4);
+    temp(5)(2) := to_unsigned(8, 4);
     -- preset 6 - ghost
-    temp(6)(0) := to_unsigned(15, 4); 
-    temp(6)(1) := to_unsigned(4, 4); 
+    temp(6)(0) := to_unsigned(15, 4);
+    temp(6)(1) := to_unsigned(4, 4);
     temp(6)(2) := to_unsigned(11, 4);
     -- preset 7 - simulation
-    temp(7)(0) := to_unsigned(8,4);
-    temp(7)(1) := to_unsigned(4,4);
-    temp(7)(2) := to_unsigned(6,4); 
+    temp(7)(0) := to_unsigned(8, 4);
+    temp(7)(1) := to_unsigned(4, 4);
+    temp(7)(2) := to_unsigned(6, 4);
     return temp;
   end function amp_preset_init;
-  
+
   constant FM_AMP_PRESET : t_fm_amp_frq_preset := amp_preset_init;
-  
+
   -------------------------------------------------------------------------------
   -- FM MODE
   -------------------------------------------------------------------------------
@@ -371,7 +390,7 @@ package body presets_pkg is
       temp(i) := "00";
     end loop;
     -- preset 0
-    temp(0) := "00";    -- no modulation
+    temp(0) := "00";                    -- no modulation
     -- preset 1
     temp(1) := "10";
     -- preset 2 - organ
@@ -388,7 +407,7 @@ package body presets_pkg is
     temp(7) := "10";
     return temp;
   end function mode_preset_init;
-  
+
   constant FM_MODE_PRESET : t_fm_mode := mode_preset_init;
 
 end package body presets_pkg;

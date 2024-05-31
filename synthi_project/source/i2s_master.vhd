@@ -1,5 +1,5 @@
 --------------------------------------------------------------------
--- Project     : PM2 Synthi
+-- Project     : PM2 Synthi Pro
 --
 -- File Name   : i2s_master.vhd
 -- Description : Konvertiert die seriellen i2s Daten in ein paralleles signal

@@ -12,6 +12,7 @@
 -- 24.02.15 | dqtm     | simplified names of register indexes
 -- 03.03.15 | gelk     | adapted sampling rate to 48 khz
 -- 04.03.15 | gelk     | also analog loop with 48 khz sampling rate
+-- xx.03.24 | heinipas | changed volume parameters
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------------------

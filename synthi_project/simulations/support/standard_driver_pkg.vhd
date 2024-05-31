@@ -6,7 +6,7 @@
 -- Author     : Hans-Joachim Gelke
 -- Company    : 
 -- Created    : 2018-10-21
--- Last update: 2019-2-13
+-- Last update: 2024-05-31
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -18,6 +18,7 @@
 -- Date        Version  Author  Description
 -- 2019-02-13  1.0      Hans-Joachim    Created
 -- 2019-03-03  1.1      Hans-Joachim    Extended timing for i2C simulation
+-- 2024-04-xx  1.2      grundale        extended uar_sim for two baud rates
 -------------------------------------------------------------------------------
 
 library ieee;
@@ -420,11 +421,11 @@ package body standard_driver_pkg is
     codec_mode       <= tv.arg1(2 downto 0);
     wait for 8*tv.clock_period;
 
-    codec_initialize <= '0'; -- activate initialize signal
-    wait for 4*tv.clock_period; --for one 12.5MHz cycle
+    codec_initialize <= '0';            -- activate initialize signal
+    wait for 4*tv.clock_period;         --for one 12.5MHz cycle
     codec_initialize <= '1';
 
-    wait for 48000 * tv.clock_period; -- Run simulation to the end
+    wait for 48000 * tv.clock_period;   -- Run simulation to the end
 
   end procedure ini_cod;
 

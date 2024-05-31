@@ -1,5 +1,5 @@
 --
--- Project     : DT Miniprojekt
+-- Project     : Synthi Pro
 --
 -- File Name   : bit_counter.vhd
 -- Description : counts number of received bits  
@@ -11,28 +11,29 @@
 -- 28.11.23 | grundale | file created
 -- 05.12.23 | heinipas | make start_pulse synchronous 
 --------------------------------------------------------------------
- 
+
 -- Library & Use Statements
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
- 
+
 -- Entity Declaration
 entity bit_counter is
   port(
-    clk           : in  std_logic;                      -- Input of entity
-    reset_n       : in  std_logic;                      -- Input of entity
-    baud_tick     : in  std_logic;                      -- Input of entity
-    start_pulse   : in  std_logic;                      -- Input of entity
-    bit_count     : out std_logic_vector(3 downto 0));  -- Outputs of entity
+    clk         : in  std_logic;                    -- Input of entity
+    reset_n     : in  std_logic;                    -- Input of entity
+    baud_tick   : in  std_logic;                    -- Input of entity
+    start_pulse : in  std_logic;                    -- Input of entity
+    bit_count   : out std_logic_vector(3 downto 0)  -- Outputs of entity
+    );
 end bit_counter;
- 
+
 -- Architecture Declaration
 architecture rtl of bit_counter is
   -- Signals & Constants Declaration
-  constant count_width : positive := 4;  
+  constant count_width     : positive := 4;
   signal count, next_count : unsigned(count_width-1 downto 0);
- 
+
 -- Begin Architecture
 begin
   -------------------------------------------
@@ -48,8 +49,8 @@ begin
       next_count <= count;
     end if;
   end process comb_logic;
- 
- 
+
+
   -------------------------------------------
   -- Process for registers (flip-flops)
   -------------------------------------------
@@ -61,13 +62,13 @@ begin
       count <= next_count;
     end if;
   end process flip_flops;
- 
+
   -------------------------------------------
   -- Concurrent Assignements  
   -- e.g. Assign outputs from intermediate signals
   -------------------------------------------
   -- convert count from unsigned to std_logic (output data-type)
   bit_count <= std_logic_vector(count);
- 
+
 -- End Architecture
 end rtl;

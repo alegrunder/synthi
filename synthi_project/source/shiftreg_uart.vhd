@@ -7,10 +7,11 @@
 --
 --------------------------------------------------------------------
 -- Change History
--- Date     |Name      |Modification
+-- Date     |Name      | Modification
 ------------|----------|--------------------------------------------
 -- 28.11.23 | grundale | file created
 -- 05.12.23 | grundale | functionality implemented
+-- 31.05.24 | heinipas | beautified
 --------------------------------------------------------------------
 
 -- Library & Use Statements
@@ -20,7 +21,7 @@ use ieee.std_logic_1164.all;
 -- Entity Declaration 
 entity shiftreg_uart is
   generic (
-    width : positive := 10);          -- start + 8 data + stop
+    width : positive := 10);            -- start + 8 data + stop
   port(clk, reset_n : in  std_logic;
        shift_enable : in  std_logic;
        serial_in    : in  std_logic;
@@ -46,7 +47,7 @@ begin
   begin
     if shift_enable = '1' then
       next_shiftreg <= (serial_in & shiftreg(width-1 downto 1));  -- shift direction towards LSB
-    else 
+    else
       next_shiftreg <= shiftreg;
     end if;
   end process shift_comb;
@@ -67,7 +68,7 @@ begin
   -- CONCURRENT ASSIGNMENTS
   --------------------------------------------------
   parallel_out <= shiftreg;
-  
+
 -- End Architecture 
 ------------------------------------------- 
 end rtl;

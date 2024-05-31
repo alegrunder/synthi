@@ -22,10 +22,10 @@ entity flanken_detekt_vhdl is
 end flanken_detekt_vhdl;
 
 
--- Architecture Declaration 
+-- Architecture Declaration
 architecture rtl of flanken_detekt_vhdl is
 
-  -- Signals & Constants Declaration 
+  -- Signals & Constants Declaration
   signal q1 : std_logic;
   signal q2 : std_logic;
 

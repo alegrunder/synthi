@@ -1,12 +1,12 @@
 -------------------------------------------------------------------------------
 -- Title      : midi_uart
--- Project    : synthi
+-- Project    : Synthi Pro
 -------------------------------------------------------------------------------
 -- File       : midi_uart.vhd
 -- Author     : heinipas
 -- Company    : 
 -- Created    : 2018-03-08
--- Last update: 2024-04-02
+-- Last update: 2024-05-31
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -18,11 +18,11 @@
 -- Date        Version  Author          Description
 --             1.0      heinipas
 -- 2024-03-26  1.1      heinipas        renamed uart_top to midi_uart
+-- 2024-05-31  1.2      heinipas        beautified
 -------------------------------------------------------------------------------
 
 library ieee;
 use ieee.std_logic_1164.all;
-
 library work;
 
 entity midi_uart is
@@ -41,6 +41,9 @@ end midi_uart;
 
 architecture uart_arch of midi_uart is
 
+  -----------------------------------------------------------------------------
+  -- Component declarations
+  -----------------------------------------------------------------------------
   component flanken_detekt_vhdl
     port(data_in     : in  std_logic;
          clock       : in  std_logic;

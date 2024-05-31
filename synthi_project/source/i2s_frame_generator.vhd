@@ -1,12 +1,12 @@
 -------------------------------------------------------------------------------
 -- Title      : I2S Frame Generator
--- Project    : PM2 Synthi
+-- Project    : PM2 Synthi Pro
 -------------------------------------------------------------------------------
 -- File       : i2s_frame_generator.vhd
 -- Author     : heinipas
 -- Company    : 
 -- Created    : 2024-03-12
--- Last update: 2024-03-12
+-- Last update: 2024-05-28
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -17,6 +17,7 @@
 -- Revisions  :
 -- Date        Version  Author          Description
 -- 2024-03-12  1.0      heinipas        Created
+-- 2024-05-28  1.1      heinipas        beautified
 -------------------------------------------------------------------------------
 
 library ieee;
@@ -24,9 +25,7 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 -------------------------------------------------------------------------------
-
 entity i2s_frame_generator is
-
   port (
     clk_6m  : in  std_logic;
     rst_n   : in  std_logic;
@@ -38,21 +37,14 @@ entity i2s_frame_generator is
 end entity i2s_frame_generator;
 
 -------------------------------------------------------------------------------
-
 architecture str of i2s_frame_generator is
-
   -----------------------------------------------------------------------------
   -- Internal signal declarations
   -----------------------------------------------------------------------------
   constant width                       : positive := 7;  -- 0..127 is 7 bits
   signal bit_counter, next_bit_counter : unsigned(width-1 downto 0);
 
-  -----------------------------------------------------------------------------
-  -- Component declarations
-  -----------------------------------------------------------------------------
-
 begin  -- architecture str
-
   --------------------------------------------------
   -- PROCESS FOR COMBINATORIAL LOGIC
   --------------------------------------------------
@@ -73,7 +65,7 @@ begin  -- architecture str
     end if;
 
     -- condition load, shift_l, shift_r
-    case to_integer(bit_counter) is     -- must convert to integer for such conditions
+    case to_integer(bit_counter) is  -- must convert to integer for such conditions
       when 0 =>
         load <= '1';
       when 1 to 16 =>
@@ -97,5 +89,4 @@ begin  -- architecture str
   end process flip_flops;
 
 end architecture str;
-
 -------------------------------------------------------------------------------

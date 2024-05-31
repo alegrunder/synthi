@@ -6,7 +6,7 @@
 -- Author     : grundale
 -- Company    : 
 -- Created    : 2024-02-20
--- Last update: 2024-04-02
+-- Last update: 2024-05-28
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -18,6 +18,8 @@
 -- Date        Version  Author     Description
 -- 2024-02-20  1.0      grundale   Created
 -- 2024-03-05  1.1      heinipas   added clk_12m for modulo divider
+-- 2024-05-28  1.2      heinipas   added clock_sync_3, removed signal_checker
+--                                 and led_usb
 -------------------------------------------------------------------------------
 
 library ieee;
@@ -36,8 +38,7 @@ entity infrastructure is
     clk_12m      : out std_logic;
     reset_n      : out std_logic;
     usb_txd_sync : out std_logic;
-    midi_sync    : out std_logic;
-    led_usb      : out std_logic
+    midi_sync    : out std_logic
     );
 
 end entity infrastructure;
@@ -45,7 +46,6 @@ end entity infrastructure;
 -------------------------------------------------------------------------------
 
 architecture infra_arch of infrastructure is
-
   -----------------------------------------------------------------------------
   -- Internal signal declarations
   -----------------------------------------------------------------------------
@@ -54,7 +54,6 @@ architecture infra_arch of infrastructure is
   -----------------------------------------------------------------------------
   -- Component declarations
   -----------------------------------------------------------------------------
-
   component modulo_divider is
     port (
       clk     : in  std_logic;
@@ -68,13 +67,6 @@ architecture infra_arch of infrastructure is
       clk      : in  std_logic;
       sync_out : out std_logic);
   end component clock_sync;
-
-  component signal_checker is
-    port (
-      clk, reset_n : in  std_logic;
-      data_in      : in  std_logic;
-      led_blink    : out std_logic);
-  end component signal_checker;
 
 begin  -- architecture infra_arch
 
@@ -112,14 +104,5 @@ begin  -- architecture infra_arch
       clk      => clk_6m_sig,
       sync_out => midi_sync);
 
-  -- instance "signal_checker_1"
-  -- signal_checker_1 : signal_checker
-  --  port map (
-  --    clk       => clock_50,
-  --    reset_n   => key_0,
-  --    data_in   => usb_txd,
-  --    led_blink => led_usb);
-
 end architecture infra_arch;
-
 -------------------------------------------------------------------------------

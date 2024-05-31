@@ -1,12 +1,12 @@
 -------------------------------------------------------------------------------
 -- Title      : Testbench for design "synthi_top"
--- Project    : 
+-- Project    : Synthi Pro
 -------------------------------------------------------------------------------
 -- File       : synthi_top_tb.vhd
 -- Author     : grundale
 -- Company    : 
 -- Created    : 2024-02-20
--- Last update: 2024-03-19
+-- Last update: 2024-05-31
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -16,7 +16,10 @@
 -------------------------------------------------------------------------------
 -- Revisions  :
 -- Date        Version  Author          Description
--- 2024-02-20  1.0      grundale	Created
+-- 2024-02-20  1.0      grundale        Created
+-- 2024-04-xx  1.1      grundale        added check_leds, check_display_hex2,
+--                                      check_display_hex3, midi_send_data
+-- 2024-05-31  1.2      heinipas        beautified
 -------------------------------------------------------------------------------
 
 library ieee;
@@ -132,30 +135,30 @@ architecture struct of synthi_top_tb is
       reg_data9 : out   std_logic_vector(31 downto 0));
   end component i2c_slave_bfm;
 
-  signal verbose : boolean;
-  signal gpi_signals : std_logic_vector(31 downto 0);
-  signal switch : std_logic_vector(31 downto 0);
+  signal verbose      : boolean;
+  signal gpi_signals  : std_logic_vector(31 downto 0);
+  signal switch       : std_logic_vector(31 downto 0);
   signal dacdat_check : std_logic_vector(31 downto 0);
-  signal I2C_SDAT  : std_logic := 'H';
-  signal I2C_SCLK  : std_logic := 'H';
-  signal reg_data_0 : std_logic_vector(31 downto 0);
-  signal reg_data_1 : std_logic_vector(31 downto 0);
-  signal reg_data_2 : std_logic_vector(31 downto 0);
-  signal reg_data_3 : std_logic_vector(31 downto 0);
-  signal reg_data_4 : std_logic_vector(31 downto 0);
-  signal reg_data_5 : std_logic_vector(31 downto 0);
-  signal reg_data_6 : std_logic_vector(31 downto 0);
-  signal reg_data_7 : std_logic_vector(31 downto 0);
-  signal reg_data_8 : std_logic_vector(31 downto 0);
-  signal reg_data_9 : std_logic_vector(31 downto 0);
-  signal led_reg    : std_logic_vector(31 downto 0) := (others => '0');
-  
+  signal I2C_SDAT     : std_logic                     := 'H';
+  signal I2C_SCLK     : std_logic                     := 'H';
+  signal reg_data_0   : std_logic_vector(31 downto 0);
+  signal reg_data_1   : std_logic_vector(31 downto 0);
+  signal reg_data_2   : std_logic_vector(31 downto 0);
+  signal reg_data_3   : std_logic_vector(31 downto 0);
+  signal reg_data_4   : std_logic_vector(31 downto 0);
+  signal reg_data_5   : std_logic_vector(31 downto 0);
+  signal reg_data_6   : std_logic_vector(31 downto 0);
+  signal reg_data_7   : std_logic_vector(31 downto 0);
+  signal reg_data_8   : std_logic_vector(31 downto 0);
+  signal reg_data_9   : std_logic_vector(31 downto 0);
+  signal led_reg      : std_logic_vector(31 downto 0) := (others => '0');
+
 begin  -- architecture struct
-  SW(9 downto 0) <= gpi_signals(9 downto 0);
+  SW(9 downto 0)      <= gpi_signals(9 downto 0);
   led_reg(9 downto 0) <= LEDR_9 & LEDR_8 & LEDR_7 & LEDR_6 & LEDR_5 & LEDR_4 & LEDR_3 & LEDR_2 & LEDR_1 & LEDR_0;
-  
+
   -- component instantiation
-  DUT: synthi_top
+  DUT : synthi_top
     port map (
       CLOCK_50    => CLOCK_50,
       KEY_0       => KEY_0,
@@ -190,8 +193,8 @@ begin  -- architecture struct
       LEDR_8      => LEDR_8,
       LEDR_9      => LEDR_9);
 
-    -- instance "i2c_slave_bfm_1"
-    i2c_slave_bfm_1: i2c_slave_bfm
+  -- instance "i2c_slave_bfm_1"
+  i2c_slave_bfm_1 : i2c_slave_bfm
     generic map (
       verbose => verbose)
     port map (
@@ -214,11 +217,11 @@ begin  -- architecture struct
     -- at a time, parsing the line to get the values and
     -- expected result.
 
-    variable cmd          : line;  --stores test command
-    variable line_in      : line; --stores the to be processed line     
-    variable tv           : test_vect; --stores arguments 1 to 4
+    variable cmd          : line;       --stores test command
+    variable line_in      : line;       --stores the to be processed line     
+    variable tv           : test_vect;  --stores arguments 1 to 4
     variable lincnt       : integer := 0;  --counts line number in testcase file
-    variable fail_counter : integer := 0;--counts failed tests
+    variable fail_counter : integer := 0;  --counts failed tests
 
   begin
     -------------------------------------
@@ -267,68 +270,68 @@ begin  -- architecture struct
       elsif cmd.all = "run_simulation_for" then
         run_sim(tv);
 
-       -- add further test commands below here
+      -- add further test commands below here
       elsif cmd.all = "uart_send_data" then
-	      uar_sim(tv, USB_TXD);
-        
+        uar_sim(tv, USB_TXD);
+
       elsif cmd.all = "midi_send_data" then
-        tv.arg2 := std_logic_vector(to_unsigned(1, 8)); -- baud rate for MIDI
-	      uar_sim(tv, GPIO_26);
-        
-      elsif cmd.all = "check_display_hex0" then 
-	      hex_chk(tv, HEX0); 
-	  
-      elsif cmd.all = "check_display_hex1" then 
+        tv.arg2 := std_logic_vector(to_unsigned(1, 8));  -- baud rate for MIDI
+        uar_sim(tv, GPIO_26);
+
+      elsif cmd.all = "check_display_hex0" then
+        hex_chk(tv, HEX0);
+
+      elsif cmd.all = "check_display_hex1" then
         hex_chk(tv, HEX1);
-        
-      elsif cmd.all = "check_display_hex2" then 
+
+      elsif cmd.all = "check_display_hex2" then
         hex_chk(tv, HEX2);
-        
-      elsif cmd.all = "check_display_hex3" then 
+
+      elsif cmd.all = "check_display_hex3" then
         hex_chk(tv, HEX3);
-     
+
       elsif cmd.all = "set_switches" then
-        gpi_sim(tv, gpi_signals);          
-        
+        gpi_sim(tv, gpi_signals);
+
       elsif cmd.all = "check_i2c_reg_0" then
-        gpo_chk(tv,reg_data_0);
+        gpo_chk(tv, reg_data_0);
 
       elsif cmd.all = "check_i2c_reg_1" then
-        gpo_chk(tv,reg_data_1);
-      
+        gpo_chk(tv, reg_data_1);
+
       elsif cmd.all = "check_i2c_reg_2" then
-        gpo_chk(tv,reg_data_2);
-    
+        gpo_chk(tv, reg_data_2);
+
       elsif cmd.all = "check_i2c_reg_3" then
-        gpo_chk(tv,reg_data_3);
+        gpo_chk(tv, reg_data_3);
 
       elsif cmd.all = "check_i2c_reg_4" then
-        gpo_chk(tv,reg_data_4);
+        gpo_chk(tv, reg_data_4);
 
       elsif cmd.all = "check_i2c_reg_5" then
-        gpo_chk(tv,reg_data_5);
+        gpo_chk(tv, reg_data_5);
 
       elsif cmd.all = "check_i2c_reg_6" then
-        gpo_chk(tv,reg_data_6);
+        gpo_chk(tv, reg_data_6);
 
       elsif cmd.all = "check_i2c_reg_7" then
-        gpo_chk(tv,reg_data_7);
+        gpo_chk(tv, reg_data_7);
 
       elsif cmd.all = "check_i2c_reg_8" then
-        gpo_chk(tv,reg_data_8);
+        gpo_chk(tv, reg_data_8);
 
       elsif cmd.all = "check_i2c_reg_9" then
-        gpo_chk(tv,reg_data_9);
+        gpo_chk(tv, reg_data_9);
 
       elsif cmd.all = "check_i2s" then
-        i2s_chk(tv,AUD_DACLRCK,AUD_BCLK,AUD_DACDAT,dacdat_check);
-        
+        i2s_chk(tv, AUD_DACLRCK, AUD_BCLK, AUD_DACDAT, dacdat_check);
+
       elsif cmd.all = "send_i2s" then
-        i2s_sim(tv, AUD_ADCLRCK,AUD_BCLK, AUD_ADCDAT);
-        
+        i2s_sim(tv, AUD_ADCLRCK, AUD_BCLK, AUD_ADCDAT);
+
       elsif cmd.all = "check_leds" then
         -- only pass LSByte in tv.arg1
-        tv.arg4 := tv.arg1; 
+        tv.arg4 := tv.arg1;
         tv.arg1 := (others => '0');
         tv.arg2 := (others => '0');
         tv.arg3 := (others => '0');
@@ -339,16 +342,16 @@ begin  -- architecture struct
           report "NO MATCHING COMMAND FOUND IN 'testcase.dat' AT LINE: "& integer'image(lincnt)
           severity error;
       end if;
-      
-      
-      if tv.fail_flag = true then --count failures in tests
+
+
+      if tv.fail_flag = true then       --count failures in tests
         fail_counter := fail_counter + 1;
       else fail_counter := fail_counter;
       end if;
 
-    end loop; --finished processing command line
+    end loop;  --finished processing command line
 
-    wait; -- to avoid infinite loop simulator warning
+    wait;  -- to avoid infinite loop simulator warning
 
   end process;
 
@@ -363,7 +366,7 @@ begin  -- architecture struct
 
 
 
-  
+
 
 end architecture struct;
 

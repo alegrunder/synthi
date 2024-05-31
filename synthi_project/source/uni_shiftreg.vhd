@@ -1,12 +1,12 @@
 -------------------------------------------------------------------------------
 -- Title      : Universal Shift Register
--- Project    : PM2 Synthi
+-- Project    : PM2 Synthi Pro
 -------------------------------------------------------------------------------
 -- File       : uni_shiftreg.vhd
 -- Author     : heinipas
 -- Company    : 
 -- Created    : 2024-03-12
--- Last update: 2024-03-12
+-- Last update: 2024-05-31
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -17,6 +17,7 @@
 -- Revisions  :
 -- Date        Version  Author          Description
 -- 2024-03-12  1.0      heinipas        Created
+-- 2024-05-31  1.1      heinipas        beautified
 -------------------------------------------------------------------------------
 
 library ieee;
@@ -36,8 +37,8 @@ entity uni_shiftreg is
     ser_in  : in  std_logic;
     enable  : in  std_logic;
     ser_out : out std_logic;
-    par_out : out std_logic_vector(width-1 downto 0));
-
+    par_out : out std_logic_vector(width-1 downto 0)
+    );
 end entity uni_shiftreg;
 
 -------------------------------------------------------------------------------
