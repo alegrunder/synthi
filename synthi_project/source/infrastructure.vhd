@@ -19,6 +19,7 @@
 -- 2024-02-20  1.0      grundale   Created
 -- 2024-03-05  1.1      heinipas   added clk_12m for modulo divider
 -- 2024-05-28  1.2      heinipas   added clock_sync_3, removed signal_checker
+--                                 and led_usb
 -------------------------------------------------------------------------------
 
 library ieee;
@@ -37,8 +38,7 @@ entity infrastructure is
     clk_12m      : out std_logic;
     reset_n      : out std_logic;
     usb_txd_sync : out std_logic;
-    midi_sync    : out std_logic;
-    led_usb      : out std_logic
+    midi_sync    : out std_logic
     );
 
 end entity infrastructure;
@@ -67,13 +67,6 @@ architecture infra_arch of infrastructure is
       clk      : in  std_logic;
       sync_out : out std_logic);
   end component clock_sync;
-
-  component signal_checker is
-    port (
-      clk, reset_n : in  std_logic;
-      data_in      : in  std_logic;
-      led_blink    : out std_logic);
-  end component signal_checker;
 
 begin  -- architecture infra_arch
 

@@ -1,4 +1,4 @@
-  -------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 -- Title      : synthi_top
 -- Project    : synthi
 -------------------------------------------------------------------------------
@@ -6,7 +6,7 @@
 -- Author     : grundale
 -- Company    : 
 -- Created    : 2018-03-08
--- Last update: 2024-04-16
+-- Last update: 2024-05-31
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -21,6 +21,7 @@
 -- 2024-03-05  1.2      heinipas        added clk_12m
 -- 2024-03-05  2.0      heinipas        added codec_controller and i2c_master
 -- 2024-03-26  2.1      heinipas        added MS2, MS3, MS4 blocks
+-- 2024-05-31  2.2      heinipas        beautified, LED's show only note_valid
 -------------------------------------------------------------------------------
 
 library ieee;
@@ -84,27 +85,33 @@ architecture struct of synthi_top is
   -----------------------------------------------------------------------------
   signal clk_6m_sig       : std_logic;
   signal reset_n_sig      : std_logic;
+  -- serial input, source_select
   signal usb_txd_sync_sig : std_logic;
   signal midi_sync_sig    : std_logic;
-  signal uart_serial_sig  : std_logic;
+  signal uart_serial_sig  : std_logic;  -- output of source_select, input uart_midi
+  signal baud_rate_sig    : positive;
+  -- codec controller
   signal write_done       : std_logic;
   signal ack_error        : std_logic;
-  signal write            : std_logic;
+  signal write_sig        : std_logic;
   signal write_data       : std_logic_vector(15 downto 0);
+  -- i2s   
   signal adcdat_pl        : std_logic_vector(15 downto 0);
   signal adcdat_pr        : std_logic_vector(15 downto 0);
   signal dacdat_pl        : std_logic_vector(15 downto 0);
   signal dacdat_pr        : std_logic_vector(15 downto 0);
   signal ws_sig           : std_logic;
   signal step_sig         : std_logic;
+  -- tone_generator output, path_control input
   signal dds_l            : std_logic_vector(15 downto 0);
   signal dds_r            : std_logic_vector(15 downto 0);
-  signal note_sig         : t_tone_array;
-  signal velocity_sig     : t_tone_array;
-  signal note_on_sig      : std_logic_vector(9 downto 0);
+  -- uart_midi --> midi_controller
   signal rx_data_rdy_sig  : std_logic;
   signal rx_data_sig      : std_logic_vector(7 downto 0);
-  signal baud_rate_sig    : positive;
+  -- midi_controller <-> tone_generator
+  signal note_sig         : t_tone_array;  -- defined in tone_gen_pkg
+  signal velocity_sig     : t_tone_array;  -- defined in tone_gen_pkg
+  signal note_on_sig      : std_logic_vector(9 downto 0);
   signal vol_reg_sig      : std_logic_vector(6 downto 0);
   signal pitch_reg_sig    : std_logic_vector(6 downto 0);
   signal ctrl_reg_sig     : std_logic_vector(6 downto 0);
@@ -124,8 +131,7 @@ architecture struct of synthi_top is
       clk_12m      : out std_logic;
       reset_n      : out std_logic;
       usb_txd_sync : out std_logic;
-      midi_sync    : out std_logic;
-      led_usb      : out std_logic
+      midi_sync    : out std_logic
       );
   end component infrastructure;
 
@@ -181,7 +187,7 @@ architecture struct of synthi_top is
 
   component path_control is
     port (
-      sw_3        : in  std_logic;
+      sw_i        : in  std_logic;
       dds_l_i     : in  std_logic_vector(15 downto 0);
       dds_r_i     : in  std_logic_vector(15 downto 0);
       adcdat_pl_i : in  std_logic_vector(15 downto 0);
@@ -192,20 +198,20 @@ architecture struct of synthi_top is
 
   component tone_generator is
     port (
-      clk          : in  std_logic;
-      rst_n        : in  std_logic;
-      step_i       : in  std_logic;
-      note_i       : in  t_tone_array;
-      velocity_i   : in  t_tone_array;
-      tone_on_i    : in  std_logic_vector(9 downto 0);
-      vol_reg_i    : in  std_logic_vector(6 downto 0);
-      pitch_reg_i  : in  std_logic_vector(6 downto 0);
-      ctrl_reg_i   : in  std_logic_vector(6 downto 0);
-          low_pass_enable_i : in  std_logic;
-      preset_sel_i    : in  std_logic_vector(2 downto 0);  -- select presets
-	  note_valid_o : out std_logic_vector(9 downto 0);
-      dds_l_o      : out std_logic_vector(15 downto 0);
-      dds_r_o      : out std_logic_vector(15 downto 0));
+      clk               : in  std_logic;
+      rst_n             : in  std_logic;
+      step_i            : in  std_logic;
+      note_i            : in  t_tone_array;
+      velocity_i        : in  t_tone_array;
+      tone_on_i         : in  std_logic_vector(9 downto 0);
+      vol_reg_i         : in  std_logic_vector(6 downto 0);
+      pitch_reg_i       : in  std_logic_vector(6 downto 0);
+      ctrl_reg_i        : in  std_logic_vector(6 downto 0);
+      low_pass_enable_i : in  std_logic;
+      preset_sel_i      : in  std_logic_vector(2 downto 0);  -- select presets
+      note_valid_o      : out std_logic_vector(9 downto 0);
+      dds_l_o           : out std_logic_vector(15 downto 0);
+      dds_r_o           : out std_logic_vector(15 downto 0));
   end component tone_generator;
 
   component midi_controller is
@@ -214,7 +220,7 @@ architecture struct of synthi_top is
       reset_n       : in  std_logic;
       rx_data_rdy_i : in  std_logic;
       rx_data_i     : in  std_logic_vector(7 downto 0);
-	  note_valid_i  : in  std_logic_vector(9 downto 0);
+      note_valid_i  : in  std_logic_vector(9 downto 0);
       hex2          : out std_logic_vector(6 downto 0);
       hex3          : out std_logic_vector(6 downto 0);
       note_on_o     : out std_logic_vector(9 downto 0);
@@ -248,16 +254,16 @@ begin
   AUD_DACLRCK <= ws_sig;
   AUD_ADCLRCK <= ws_sig;
   AUD_BCLK    <= not(clk_6m_sig);       -- invert for I2S
-  LEDR_0      <= note_on_sig(0) or note_valid_sig(0);
-  LEDR_1      <= note_on_sig(1) or note_valid_sig(1);
-  LEDR_2      <= note_on_sig(2) or note_valid_sig(2);
-  LEDR_3      <= note_on_sig(3) or note_valid_sig(3);
-  LEDR_4      <= note_on_sig(4) or note_valid_sig(4);
-  LEDR_5      <= note_on_sig(5) or note_valid_sig(5);
-  LEDR_6      <= note_on_sig(6) or note_valid_sig(6);
-  LEDR_7      <= note_on_sig(7) or note_valid_sig(7);
-  LEDR_8      <= note_on_sig(8) or note_valid_sig(8);
-  LEDR_9      <= note_on_sig(9) or note_valid_sig(9);
+  LEDR_0      <= note_valid_sig(0);
+  LEDR_1      <= note_valid_sig(1);
+  LEDR_2      <= note_valid_sig(2);
+  LEDR_3      <= note_valid_sig(3);
+  LEDR_4      <= note_valid_sig(4);
+  LEDR_5      <= note_valid_sig(5);
+  LEDR_6      <= note_valid_sig(6);
+  LEDR_7      <= note_valid_sig(7);
+  LEDR_8      <= note_valid_sig(8);
+  LEDR_9      <= note_valid_sig(9);
 
   -----------------------------------------------------------------------------
   -- Instances
@@ -274,7 +280,6 @@ begin
       reset_n      => reset_n_sig,
       usb_txd_sync => usb_txd_sync_sig,
       midi_sync    => midi_sync_sig
-      --led_usb      => LEDR_0
       );
 
   -- instance "midi_uart_1"
@@ -298,7 +303,7 @@ begin
       ack_error_i  => ack_error,
       clk          => clk_6m_sig,
       reset_n      => reset_n_sig,
-      write_o      => write,
+      write_o      => write_sig,
       write_data_o => write_data);
 
   -- instance "i2c_master_1"
@@ -306,7 +311,7 @@ begin
     port map (
       clk          => clk_6m_sig,
       reset_n      => reset_n_sig,
-      write_i      => write,
+      write_i      => write_sig,
       write_data_i => write_data,
       sda_io       => AUD_SDAT,
       scl_o        => AUD_SCLK,
@@ -330,7 +335,7 @@ begin
   -- instance "path_control_1"
   path_control_1 : path_control
     port map (
-      sw_3        => SW(3),
+      sw_i        => SW(3),
       dds_l_i     => dds_l,
       dds_r_i     => dds_r,
       adcdat_pl_i => adcdat_pl,
@@ -341,21 +346,21 @@ begin
   -- instance "tone_generator_1"
   tone_generator_1 : tone_generator
     port map (
-      clk          => clk_6m_sig,
-      rst_n        => reset_n_sig,
-      step_i       => step_sig,
-      note_i       => note_sig,
-      velocity_i   => velocity_sig,
-      tone_on_i    => note_on_sig,
-      vol_reg_i    => vol_reg_sig,
-      pitch_reg_i  => pitch_reg_sig,
-      ctrl_reg_i   => ctrl_reg_sig,
+      clk               => clk_6m_sig,
+      rst_n             => reset_n_sig,
+      step_i            => step_sig,
+      note_i            => note_sig,
+      velocity_i        => velocity_sig,
+      tone_on_i         => note_on_sig,
+      vol_reg_i         => vol_reg_sig,
+      pitch_reg_i       => pitch_reg_sig,
+      ctrl_reg_i        => ctrl_reg_sig,
       low_pass_enable_i => SW(5),
-      preset_sel_i  => SW(8 downto 6),
-      note_valid_o => note_valid_sig,
-      dds_l_o      => dds_l,
-      dds_r_o      => dds_r
-    );
+      preset_sel_i      => SW(8 downto 6),
+      note_valid_o      => note_valid_sig,
+      dds_l_o           => dds_l,
+      dds_r_o           => dds_r
+      );
 
   -- instance "midi_controller_1"
   midi_controller_1 : midi_controller
@@ -384,7 +389,6 @@ begin
       sw_i        => SW(4),
       data_o      => uart_serial_sig,
       baud_rate_o => baud_rate_sig);
-
 
 end architecture struct;
 

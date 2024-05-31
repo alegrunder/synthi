@@ -1,5 +1,5 @@
 --
--- Project     : DT
+-- Project     : Synthi Pro
 --
 -- File Name   : vhdl_hex2sevseg
 -- Description : 7-seg decoder with mux, lt and blank
@@ -8,12 +8,12 @@
 --
 --------------------------------------------------------------------
 -- Change History
--- Date     |Name      |Modification
+-- Date     |Name      | Modification
 ------------|----------|--------------------------------------------
 -- 15.10.14 |  dqtm    | file created
 -- 15.10.14 |  rosn    | small changes, comments
 -- 11.10.19 |  gelk    | adapted for 2025
-
+-- 31.05.24 | heinipas | beautified
 --------------------------------------------------------------------
 
 -- Library & Use Statements
@@ -23,9 +23,9 @@ use ieee.std_logic_1164.all;
 -- Entity Declaration 
 entity vhdl_hex2sevseg is
   port(
-    data_in    : in  std_logic_vector(3 downto 0);    -- Input of entity
-    seg_out    : out std_logic_vector(6 downto 0)     -- Output of entity
-  );
+    data_in : in  std_logic_vector(3 downto 0);  -- Input of entity
+    seg_out : out std_logic_vector(6 downto 0)   -- Output of entity
+    );
 end vhdl_hex2sevseg;
 
 -- Architecture Declaration
@@ -54,26 +54,26 @@ architecture comb of vhdl_hex2sevseg is
 begin
   -- Process for combinatorial logic
   hex2seven : process (all) is
-    begin
-      case data_in is
-        when x"0" =>  seg_out <= hex0;
-        when x"1" =>  seg_out <= hex1;
-        when x"2" =>  seg_out <= hex2;
-        when x"3" =>  seg_out <= hex3;
-        when x"4" =>  seg_out <= hex4;
-        when x"5" =>  seg_out <= hex5;
-        when x"6" =>  seg_out <= hex6;
-        when x"7" =>  seg_out <= hex7;
-        when x"8" =>  seg_out <= hex8;
-        when x"9" =>  seg_out <= hex9;
-        when x"A" =>  seg_out <= hexA;
-        when x"B" =>  seg_out <= hexB;
-        when x"C" =>  seg_out <= hexC;
-        when x"D" =>  seg_out <= hexD;
-        when x"E" =>  seg_out <= hexE;
-        when x"F" =>  seg_out <= hexF;
-        when others => seg_out <= blk;
-      end case;
+  begin
+    case data_in is
+      when x"0"   => seg_out <= hex0;
+      when x"1"   => seg_out <= hex1;
+      when x"2"   => seg_out <= hex2;
+      when x"3"   => seg_out <= hex3;
+      when x"4"   => seg_out <= hex4;
+      when x"5"   => seg_out <= hex5;
+      when x"6"   => seg_out <= hex6;
+      when x"7"   => seg_out <= hex7;
+      when x"8"   => seg_out <= hex8;
+      when x"9"   => seg_out <= hex9;
+      when x"A"   => seg_out <= hexA;
+      when x"B"   => seg_out <= hexB;
+      when x"C"   => seg_out <= hexC;
+      when x"D"   => seg_out <= hexD;
+      when x"E"   => seg_out <= hexE;
+      when x"F"   => seg_out <= hexF;
+      when others => seg_out <= blk;
+    end case;
   end process hex2seven;
 -- End Architecture 
 end comb;

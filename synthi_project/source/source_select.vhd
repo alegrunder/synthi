@@ -1,12 +1,12 @@
 -------------------------------------------------------------------------------
 -- Title      : Source Select
--- Project    : Synthi
+-- Project    : Synthi Pro
 -------------------------------------------------------------------------------
 -- File       : source_select.vhd
 -- Author     : heinipas
 -- Company    : 
 -- Created    : 2024-04-02
--- Last update: 2024-04-02
+-- Last update: 2024-05-31
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -17,6 +17,7 @@
 -- Revisions  :
 -- Date        Version  Author          Description
 -- 2024-04-02  1.0      heinipas        Created
+-- 2024-05-31  2.2      heinipas        beautified
 -------------------------------------------------------------------------------
 
 library ieee;
@@ -45,7 +46,7 @@ architecture str of source_select is
   -----------------------------------------------------------------------------
   -- Internal signal declarations
   -----------------------------------------------------------------------------
-  constant baud_rate_midi : positive := 31_250;  -- Baudrate MIDI
+  constant baud_rate_midi : positive := 31_250;   -- Baudrate MIDI
   constant baud_rate_usb  : positive := 115_200;  -- Baudrate UART
 
   signal baud_rate, next_baud_rate : positive;
@@ -62,7 +63,7 @@ begin  -- architecture str
   flip_flops : process(all)
   begin
     if reset_n = '0' then
-      baud_rate <= baud_rate_midi;  -- convert integer value 0 to unsigned with 4bits
+      baud_rate <= baud_rate_midi;
       data      <= '1';
     elsif rising_edge(clk) then
       baud_rate <= next_baud_rate;
@@ -80,6 +81,7 @@ begin  -- architecture str
     next_baud_rate <= baud_rate_midi;
     next_data      <= midi_i;
 
+    -- select source: 0=MIDI, 1=USB
     if sw_i = '1' then
       next_baud_rate <= baud_rate_usb;
       next_data      <= usb_i;

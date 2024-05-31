@@ -22,7 +22,6 @@ vcom -2008 -explicit -work work ../../../source/flanken_detekt_vhdl.vhd
 vcom -2008 -explicit -work work ../../../source/modulo_divider.vhd
 vcom -2008 -explicit -work work ../../../source/output_register.vhd
 vcom -2008 -explicit -work work ../../../source/shiftreg_uart.vhd
-vcom -2008 -explicit -work work ../../../source/signal_checker.vhd
 vcom -2008 -explicit -work work ../../../source/uart_controller_fsm.vhd
 vcom -2008 -explicit -work work ../../../source/vhdl_hex2sevseg.vhd
 vcom -2008 -explicit -work work ../../../source/infrastructure.vhd

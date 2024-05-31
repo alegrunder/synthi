@@ -62,6 +62,7 @@ begin
   --------------------------------------------------
   -- take MSB and convert for output data-type
   clk_6m  <= std_logic(count(width-1));
+  -- take one bit below MSB for double frequency
   clk_12m <= std_logic(count(width-2));
 
 
