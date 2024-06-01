@@ -170,7 +170,7 @@ check_display_hex1           01
 check_display_hex2           00
 check_display_hex3           02
 # check two tones are on
-check_leds                   03
+check_leds                   06
 
 # AD-DA Betrieb, MIDI mode
 set_switches        00 00 00 08 
@@ -193,7 +193,7 @@ check_display_hex1           01
 check_display_hex2           00
 check_display_hex3           02
 # check three tones are on
-check_leds                   06
+check_leds                   05
 
 # test midi controller single transfer turn off
 midi_send_data               80 
@@ -242,7 +242,7 @@ reset_target                 20
 set_switches        00 00 01 D8 
 run_simulation_for  00 01 80 00
 
-# note on
+# note on (test tone 1)
 uart_send_data               90
 # note 0x66
 uart_send_data               66
@@ -250,7 +250,7 @@ uart_send_data               66
 uart_send_data               7F
 run_simulation_for  00 04 00 00
 
-# note off
+# note off (test tone 1)
 uart_send_data               80
 # note 0x66
 uart_send_data               66
@@ -258,31 +258,31 @@ uart_send_data               66
 uart_send_data               40
 run_simulation_for  00 08 00 00
 
-# note on
+# note on (test tone 2)
 uart_send_data               90
 # note 0x56
 uart_send_data               56
 # velocity 127
 uart_send_data               7F
 
-# note on
+# note on (test tone 3)
 uart_send_data               90
 # note 0x46
 uart_send_data               46
 # velocity 127
 uart_send_data               7F
-run_simulation_for  00 20 00 00
+run_simulation_for  00 30 00 00
 
 # no check, only watch analog variable dds_o
 
-# note off
+# note off (test tone 2)
 uart_send_data               80
 # note 0x56
 uart_send_data               56
 # velocity 127
 uart_send_data               7F
 
-# note off
+# note off (test tone 3)
 uart_send_data               80
 # note 0x46
 uart_send_data               46

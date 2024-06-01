@@ -44,19 +44,18 @@ add wave -noupdate -group {Source Select} /synthi_top_tb/DUT/midi_uart_1/falling
 add wave -noupdate -group {Source Select} /synthi_top_tb/DUT/midi_uart_1/start_pulse
 add wave -noupdate -group {Source Select} /synthi_top_tb/DUT/midi_uart_1/bit_count
 add wave -noupdate -group {Source Select} /synthi_top_tb/DUT/midi_uart_1/tick
-add wave -noupdate -group {MIDI poly} /synthi_top_tb/DUT/midi_controller_1/new_data_flag
-add wave -noupdate -group {MIDI poly} /synthi_top_tb/DUT/note_on_sig
-add wave -noupdate -group {MIDI poly} /synthi_top_tb/DUT/note_valid_sig
-add wave -noupdate -group {MIDI poly} /synthi_top_tb/DUT/note_sig
-add wave -noupdate -group {MIDI poly} /synthi_top_tb/DUT/velocity_sig
-add wave -noupdate -group {MIDI poly} /synthi_top_tb/DUT/midi_controller_1/vol_reg
-add wave -noupdate -group {MIDI poly} /synthi_top_tb/DUT/midi_controller_1/pitch_reg
-add wave -noupdate -group {MIDI poly} /synthi_top_tb/DUT/midi_controller_1/ctrl_reg
-add wave -noupdate -expand -group DDS -format Analog-Step -height 80 -max 8191.0 -min -8192.0 -radix sfixed /synthi_top_tb/DUT/tone_generator_1/sum_reg
-add wave -noupdate -expand -group DDS -format Analog-Step -height 80 -max 8191.0 -min -8192.0 -radix sfixed /synthi_top_tb/DUT/tone_generator_1/dds_r_o
-add wave -noupdate -expand -group DDS /synthi_top_tb/DUT/tone_generator_1/note_valid_o
-add wave -noupdate -expand -group DDS -radix decimal -childformat {{/synthi_top_tb/DUT/tone_generator_1/final_sum_reg(15) -radix decimal} {/synthi_top_tb/DUT/tone_generator_1/final_sum_reg(14) -radix decimal} {/synthi_top_tb/DUT/tone_generator_1/final_sum_reg(13) -radix decimal} {/synthi_top_tb/DUT/tone_generator_1/final_sum_reg(12) -radix decimal} {/synthi_top_tb/DUT/tone_generator_1/final_sum_reg(11) -radix decimal} {/synthi_top_tb/DUT/tone_generator_1/final_sum_reg(10) -radix decimal} {/synthi_top_tb/DUT/tone_generator_1/final_sum_reg(9) -radix decimal} {/synthi_top_tb/DUT/tone_generator_1/final_sum_reg(8) -radix decimal} {/synthi_top_tb/DUT/tone_generator_1/final_sum_reg(7) -radix decimal} {/synthi_top_tb/DUT/tone_generator_1/final_sum_reg(6) -radix decimal} {/synthi_top_tb/DUT/tone_generator_1/final_sum_reg(5) -radix decimal} {/synthi_top_tb/DUT/tone_generator_1/final_sum_reg(4) -radix decimal} {/synthi_top_tb/DUT/tone_generator_1/final_sum_reg(3) -radix decimal} {/synthi_top_tb/DUT/tone_generator_1/final_sum_reg(2) -radix decimal} {/synthi_top_tb/DUT/tone_generator_1/final_sum_reg(1) -radix decimal} {/synthi_top_tb/DUT/tone_generator_1/final_sum_reg(0) -radix decimal}} -subitemconfig {/synthi_top_tb/DUT/tone_generator_1/final_sum_reg(15) {-height 15 -radix decimal} /synthi_top_tb/DUT/tone_generator_1/final_sum_reg(14) {-height 15 -radix decimal} /synthi_top_tb/DUT/tone_generator_1/final_sum_reg(13) {-height 15 -radix decimal} /synthi_top_tb/DUT/tone_generator_1/final_sum_reg(12) {-height 15 -radix decimal} /synthi_top_tb/DUT/tone_generator_1/final_sum_reg(11) {-height 15 -radix decimal} /synthi_top_tb/DUT/tone_generator_1/final_sum_reg(10) {-height 15 -radix decimal} /synthi_top_tb/DUT/tone_generator_1/final_sum_reg(9) {-height 15 -radix decimal} /synthi_top_tb/DUT/tone_generator_1/final_sum_reg(8) {-height 15 -radix decimal} /synthi_top_tb/DUT/tone_generator_1/final_sum_reg(7) {-height 15 -radix decimal} /synthi_top_tb/DUT/tone_generator_1/final_sum_reg(6) {-height 15 -radix decimal} /synthi_top_tb/DUT/tone_generator_1/final_sum_reg(5) {-height 15 -radix decimal} /synthi_top_tb/DUT/tone_generator_1/final_sum_reg(4) {-height 15 -radix decimal} /synthi_top_tb/DUT/tone_generator_1/final_sum_reg(3) {-height 15 -radix decimal} /synthi_top_tb/DUT/tone_generator_1/final_sum_reg(2) {-height 15 -radix decimal} /synthi_top_tb/DUT/tone_generator_1/final_sum_reg(1) {-height 15 -radix decimal} /synthi_top_tb/DUT/tone_generator_1/final_sum_reg(0) {-height 15 -radix decimal}} /synthi_top_tb/DUT/tone_generator_1/final_sum_reg
-add wave -noupdate -expand -group DDS /synthi_top_tb/DUT/tone_generator_1/next_final_sum_reg
+add wave -noupdate -expand -group {MIDI poly} /synthi_top_tb/DUT/midi_controller_1/new_data_flag
+add wave -noupdate -expand -group {MIDI poly} /synthi_top_tb/DUT/note_on_sig
+add wave -noupdate -expand -group {MIDI poly} /synthi_top_tb/DUT/note_valid_sig
+add wave -noupdate -expand -group {MIDI poly} /synthi_top_tb/DUT/note_sig
+add wave -noupdate -expand -group {MIDI poly} /synthi_top_tb/DUT/velocity_sig
+add wave -noupdate -expand -group {MIDI poly} /synthi_top_tb/DUT/midi_controller_1/vol_reg
+add wave -noupdate -expand -group {MIDI poly} /synthi_top_tb/DUT/midi_controller_1/pitch_reg
+add wave -noupdate -expand -group {MIDI poly} /synthi_top_tb/DUT/midi_controller_1/ctrl_reg
+add wave -noupdate -expand -group {tone generator (DDS)} -format Analog-Step -height 80 -max 4095.0000000000005 -min -4096.0 -radix sfixed /synthi_top_tb/DUT/tone_generator_1/dds_r_o
+add wave -noupdate -expand -group {tone generator (DDS)} /synthi_top_tb/DUT/tone_generator_1/note_valid_o
+add wave -noupdate -expand -group {tone generator (DDS)} -radix decimal -childformat {{/synthi_top_tb/DUT/tone_generator_1/final_sum_reg(15) -radix decimal} {/synthi_top_tb/DUT/tone_generator_1/final_sum_reg(14) -radix decimal} {/synthi_top_tb/DUT/tone_generator_1/final_sum_reg(13) -radix decimal} {/synthi_top_tb/DUT/tone_generator_1/final_sum_reg(12) -radix decimal} {/synthi_top_tb/DUT/tone_generator_1/final_sum_reg(11) -radix decimal} {/synthi_top_tb/DUT/tone_generator_1/final_sum_reg(10) -radix decimal} {/synthi_top_tb/DUT/tone_generator_1/final_sum_reg(9) -radix decimal} {/synthi_top_tb/DUT/tone_generator_1/final_sum_reg(8) -radix decimal} {/synthi_top_tb/DUT/tone_generator_1/final_sum_reg(7) -radix decimal} {/synthi_top_tb/DUT/tone_generator_1/final_sum_reg(6) -radix decimal} {/synthi_top_tb/DUT/tone_generator_1/final_sum_reg(5) -radix decimal} {/synthi_top_tb/DUT/tone_generator_1/final_sum_reg(4) -radix decimal} {/synthi_top_tb/DUT/tone_generator_1/final_sum_reg(3) -radix decimal} {/synthi_top_tb/DUT/tone_generator_1/final_sum_reg(2) -radix decimal} {/synthi_top_tb/DUT/tone_generator_1/final_sum_reg(1) -radix decimal} {/synthi_top_tb/DUT/tone_generator_1/final_sum_reg(0) -radix decimal}} -subitemconfig {/synthi_top_tb/DUT/tone_generator_1/final_sum_reg(15) {-height 15 -radix decimal} /synthi_top_tb/DUT/tone_generator_1/final_sum_reg(14) {-height 15 -radix decimal} /synthi_top_tb/DUT/tone_generator_1/final_sum_reg(13) {-height 15 -radix decimal} /synthi_top_tb/DUT/tone_generator_1/final_sum_reg(12) {-height 15 -radix decimal} /synthi_top_tb/DUT/tone_generator_1/final_sum_reg(11) {-height 15 -radix decimal} /synthi_top_tb/DUT/tone_generator_1/final_sum_reg(10) {-height 15 -radix decimal} /synthi_top_tb/DUT/tone_generator_1/final_sum_reg(9) {-height 15 -radix decimal} /synthi_top_tb/DUT/tone_generator_1/final_sum_reg(8) {-height 15 -radix decimal} /synthi_top_tb/DUT/tone_generator_1/final_sum_reg(7) {-height 15 -radix decimal} /synthi_top_tb/DUT/tone_generator_1/final_sum_reg(6) {-height 15 -radix decimal} /synthi_top_tb/DUT/tone_generator_1/final_sum_reg(5) {-height 15 -radix decimal} /synthi_top_tb/DUT/tone_generator_1/final_sum_reg(4) {-height 15 -radix decimal} /synthi_top_tb/DUT/tone_generator_1/final_sum_reg(3) {-height 15 -radix decimal} /synthi_top_tb/DUT/tone_generator_1/final_sum_reg(2) {-height 15 -radix decimal} /synthi_top_tb/DUT/tone_generator_1/final_sum_reg(1) {-height 15 -radix decimal} /synthi_top_tb/DUT/tone_generator_1/final_sum_reg(0) {-height 15 -radix decimal}} /synthi_top_tb/DUT/tone_generator_1/final_sum_reg
+add wave -noupdate -expand -group {tone generator (DDS)} /synthi_top_tb/DUT/tone_generator_1/next_final_sum_reg
 add wave -noupdate -expand -group FM -expand -group {preset values} /synthi_top_tb/DUT/tone_generator_1/fm_attack
 add wave -noupdate -expand -group FM -expand -group {preset values} /synthi_top_tb/DUT/tone_generator_1/fm_decay
 add wave -noupdate -expand -group FM -expand -group {preset values} /synthi_top_tb/DUT/tone_generator_1/fm_sustain
@@ -85,8 +84,8 @@ add wave -noupdate -expand -group FM -expand -group {FM test tone 2} -format Ana
 add wave -noupdate -expand -group FM -expand -group {FM test tone 2} /synthi_top_tb/DUT/tone_generator_1/fm_inst_gen(1)/inst_fm/ADSR_inst_gen(2)/inst_adsr/fsm_state
 add wave -noupdate -expand -group FM -expand -group {FM test tone 2} -format Analog-Step -height 50 -max 4095.0000000000005 -min -4096.0 -radix sfixed /synthi_top_tb/DUT/tone_generator_1/fm_inst_gen(1)/inst_fm/ADSR_inst_gen(2)/inst_adsr/dds_o
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {186584039 ns} 0}
-quietly wave cursor active 1
+WaveRestoreCursors {{Cursor 1} {291684589 ns} 0} {{Cursor 2} {0 ns} 0}
+quietly wave cursor active 2
 configure wave -namecolwidth 655
 configure wave -valuecolwidth 100
 configure wave -justifyvalue left
@@ -101,4 +100,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ns} {301558185 ns}
+WaveRestoreZoom {0 ns} {291684589 ns}
