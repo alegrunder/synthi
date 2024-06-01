@@ -44,9 +44,13 @@ vcom -2008 -explicit -work work ../../../source/synthi_top.vhd
 vcom -2008 -explicit -work work ../../../source/synthi_top_tb.vhd
 
 
-
-
 # run the simulation
 vsim -voptargs=+acc -t 1ns -lib work work.synthi_top_tb
 do ./wave.do
+
+# ignore warnings for metavalues at startup 
+set NumericStdNoWarnings 1
+run 0 ps
+set NumericStdNoWarnings 0 
+
 run 1000 ms
