@@ -108,9 +108,9 @@ package body presets_pkg is
     temp(6)(1) := to_unsigned(60, 7);
     temp(6)(2) := to_unsigned(70, 7);
     -- preset 7 - simulation
-    temp(7)(0) := to_unsigned(60, 7);
-    temp(7)(1) := to_unsigned(80, 7);
-    temp(7)(2) := to_unsigned(100, 7);
+    temp(7)(0) := to_unsigned(100, 7);
+    temp(7)(1) := to_unsigned(110, 7);
+    temp(7)(2) := to_unsigned(120, 7);
 
     return temp;
   end function attack_preset_init;
@@ -150,9 +150,9 @@ package body presets_pkg is
     temp(5)(2) := to_unsigned(40, 7);
     -- preset 6
     -- preset 7 - simulation
-    temp(7)(0) := to_unsigned(100, 7);
-    temp(7)(1) := to_unsigned(80, 7);
-    temp(7)(2) := to_unsigned(60, 7);
+    temp(7)(0) := to_unsigned(127, 7);
+    temp(7)(1) := to_unsigned(120, 7);
+    temp(7)(2) := to_unsigned(115, 7);
     return temp;
   end function decay_preset_init;
 
@@ -244,9 +244,9 @@ package body presets_pkg is
     temp(6)(1) := to_unsigned(60, 7);
     temp(6)(2) := to_unsigned(30, 7);
     -- preset 7 - simulation
-    temp(7)(0) := to_unsigned(60, 7);
-    temp(7)(1) := to_unsigned(75, 7);
-    temp(7)(2) := to_unsigned(90, 7);
+    temp(7)(0) := to_unsigned(100, 7);
+    temp(7)(1) := to_unsigned(110, 7);
+    temp(7)(2) := to_unsigned(120, 7);
     return temp;
   end function release_preset_init;
 
