@@ -84,8 +84,8 @@ add wave -noupdate -expand -group FM -expand -group {FM test tone 2} -format Ana
 add wave -noupdate -expand -group FM -expand -group {FM test tone 2} /synthi_top_tb/DUT/tone_generator_1/fm_inst_gen(1)/inst_fm/ADSR_inst_gen(2)/inst_adsr/fsm_state
 add wave -noupdate -expand -group FM -expand -group {FM test tone 2} -format Analog-Step -height 50 -max 4095.0000000000005 -min -4096.0 -radix sfixed /synthi_top_tb/DUT/tone_generator_1/fm_inst_gen(1)/inst_fm/ADSR_inst_gen(2)/inst_adsr/dds_o
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {291684589 ns} 0} {{Cursor 2} {0 ns} 0}
-quietly wave cursor active 2
+WaveRestoreCursors
+quietly wave cursor active 0
 configure wave -namecolwidth 655
 configure wave -valuecolwidth 100
 configure wave -justifyvalue left
