@@ -115,7 +115,7 @@ uart_send_data               90
 uart_send_data               3C
 # max velocity
 uart_send_data               7F
-run_simulation_for  00 0E 00 00
+run_simulation_for  00 0F 00 00
 # no check, only watch analog variable dds_o
 
 # note off
@@ -124,7 +124,7 @@ uart_send_data               80
 uart_send_data               3C
 # max velocity
 uart_send_data               00
-run_simulation_for  00 00 30 00
+run_simulation_for  00 0D 80 00
 
 
 # MS4 --------------------------------------------------------------------------
