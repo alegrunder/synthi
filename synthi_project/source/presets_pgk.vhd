@@ -294,9 +294,9 @@ package body presets_pkg is
     temp(6)(1) := to_unsigned(1, 4);
     temp(6)(2) := to_unsigned(4, 4);    -- 2.5 * base
     -- preset 7 - simulation
-    temp(7)(0) := to_unsigned(1, 4);    -- 1 * base
-    temp(7)(1) := to_unsigned(7, 4);    -- 4 * base
-    temp(7)(2) := to_unsigned(3, 4);    -- 2 * base    
+    temp(7)(0) := to_unsigned(3, 4);    -- 2 * base
+    temp(7)(1) := to_unsigned(0, 4);    -- 0.5 * base
+    temp(7)(2) := to_unsigned(1, 4);    -- 1 * base    
     return temp;
   end function freq_preset_init;
 
@@ -347,9 +347,9 @@ package body presets_pkg is
     temp(6)(1) := to_unsigned(4, 4);
     temp(6)(2) := to_unsigned(11, 4);
     -- preset 7 - simulation
-    temp(7)(0) := to_unsigned(8, 4);
-    temp(7)(1) := to_unsigned(4, 4);
-    temp(7)(2) := to_unsigned(6, 4);
+    temp(7)(0) := to_unsigned(7, 4);
+    temp(7)(1) := to_unsigned(15, 4);
+    temp(7)(2) := to_unsigned(8, 4);
     return temp;
   end function amp_preset_init;
 
