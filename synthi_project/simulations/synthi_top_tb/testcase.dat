@@ -235,7 +235,155 @@ run_simulation_for  00 00 40 00
 # check pitch_reg_sig = 33
 # check ctrl_reg_sig = 60
 
+# Wave Table -----------------------------------------
 
+uart_send_data               B0
+uart_send_data               01
+uart_send_data               00
+
+# send test tone
+# note on
+uart_send_data               90
+# note 60
+uart_send_data               66
+# velocity 111
+uart_send_data               7F
+
+run_simulation_for  00 0F 00 00 
+# no check, only watch analog variable dds_o
+
+uart_send_data               B0
+uart_send_data               01
+uart_send_data               08
+run_simulation_for  00 00 10 00
+
+uart_send_data               B0
+uart_send_data               01
+uart_send_data               10
+run_simulation_for  00 00 10 00
+
+uart_send_data               B0
+uart_send_data               01
+uart_send_data               18
+run_simulation_for  00 00 10 00
+
+uart_send_data               B0
+uart_send_data               01
+uart_send_data               20
+run_simulation_for  00 00 10 00
+
+uart_send_data               B0
+uart_send_data               01
+uart_send_data               28
+run_simulation_for  00 00 10 00
+
+uart_send_data               B0
+uart_send_data               01
+uart_send_data               30
+run_simulation_for  00 00 10 00
+
+uart_send_data               B0
+uart_send_data               01
+uart_send_data               38
+run_simulation_for  00 00 10 00
+
+uart_send_data               B0
+uart_send_data               01
+uart_send_data               40
+run_simulation_for  00 00 10 00
+
+uart_send_data               B0
+uart_send_data               01
+uart_send_data               48
+run_simulation_for  00 00 10 00
+
+uart_send_data               B0
+uart_send_data               01
+uart_send_data               50
+run_simulation_for  00 00 10 00
+
+uart_send_data               B0
+uart_send_data               01
+uart_send_data               58
+run_simulation_for  00 00 10 00
+
+uart_send_data               B0
+uart_send_data               01
+uart_send_data               60
+run_simulation_for  00 00 10 00
+
+uart_send_data               B0
+uart_send_data               01
+uart_send_data               68
+run_simulation_for  00 00 10 00
+
+uart_send_data               B0
+uart_send_data               01
+uart_send_data               70
+run_simulation_for  00 00 10 00
+
+uart_send_data               B0
+uart_send_data               01
+uart_send_data               78
+run_simulation_for  00 00 10 00
+
+uart_send_data               B0
+uart_send_data               01
+uart_send_data               7F
+run_simulation_for  00 01 00 00
+
+
+# send test tone
+# note on
+uart_send_data               80
+# note 60
+uart_send_data               66
+# velocity 111
+uart_send_data               7F
+
+run_simulation_for  00 00 10 00
+
+reset_target                 20
+set_switches        00 00 00 18 
+run_simulation_for  00 01 80 00
+
+# Low Pass filter ---------------------------------------
+
+set_switches        00 00 00 38 
+
+# set Waveform to Sawtooth
+uart_send_data               B0
+uart_send_data               01
+uart_send_data               7F 
+
+# note on
+uart_send_data               90
+# note 60 (c', C4)
+uart_send_data               3C
+# max velocity
+uart_send_data               7F
+run_simulation_for  00 0F 00 00
+# no check, only watch analog variable dds_o
+
+# note off
+uart_send_data               80
+# note 60 (c', C4)
+uart_send_data               3C
+# max velocity
+uart_send_data               00
+run_simulation_for  00 0D 80 00
+
+# set Waveform to Sine
+uart_send_data               B0
+uart_send_data               01
+uart_send_data               40
+
+reset_target                 20
+set_switches        00 00 00 18 
+run_simulation_for  00 01 80 00
+
+
+#end
 # FM-Synthesis -----------------------------------------------------------------
 reset_target                 20
 # activate FM-synth preset for simulation
