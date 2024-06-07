@@ -1,6 +1,6 @@
 #-------------------------------------------------------------------------------
-#-- Title      : Template for testcases
-#-- Project    : PM2
+#-- Title      : Testbench for Synthi Pro
+#-- Project    : PM2 Synthi Pro
 #-------------------------------------------------------------------------------
 #-- File       : testcase.dat
 #-- Author     : Hans-Joachim Gelke
@@ -10,13 +10,9 @@
 #-- Platform   : 
 #-- Standard   : VHDL'08
 #-------------------------------------------------------------------------------
-#-- Description: For students as template
+#-- Description: testcases for Synthi Pro
 #-------------------------------------------------------------------------------
 #-- Copyright (c) 2018 - 2021
-#-------------------------------------------------------------------------------
-#-- Revisions  :
-#-- Date        Version  Author  Description
-#-- 2021-02-13  1.0      Hans-Joachim    Created
 #-------------------------------------------------------------------------------
 
 
@@ -84,9 +80,9 @@ check_i2c_reg_9     00 00 00 01
 
 
 # test MS1 default configuration -----------------------------------------------
-# AD-DA Betrieb, USB mode
+# AD-DA Betrieb, digital loop path
 reset_target                 20
-set_switches        00 00 00 18 
+set_switches        00 00 00 08
 run_simulation_for  00 01 80 00
 check_i2c_reg_0     00 00 00 17
 check_i2c_reg_1     00 00 00 17
@@ -108,6 +104,8 @@ run_simulation_for  00 00 80 00
 
 
 # MS3 --------------------------------------------------------------------------
+# AD-DA Betrieb, synthesizer loop path, USB input
+set_switches        00 00 00 10
 # test the DDS sine wave
 # note on
 uart_send_data               90
@@ -131,7 +129,7 @@ run_simulation_for  00 0D 80 00
 # MS5 --------------------------------------------------------------------------
 # AD-DA Betrieb, USB mode
 reset_target                 20
-set_switches        00 00 00 18 
+set_switches        00 00 00 10
 run_simulation_for  00 00 30 00
 
 # test midi controller single transfer turn on
@@ -173,7 +171,7 @@ check_display_hex3           02
 check_leds                   06
 
 # AD-DA Betrieb, MIDI mode
-set_switches        00 00 00 08 
+set_switches        00 00 00 00
 run_simulation_for  00 00 30 00
 
 # test midi controller running status
@@ -213,7 +211,7 @@ check_leds                   00
 
 # volume, pitch and waveform control -------------------------------------------
 # AD-DA Betrieb, USB mode
-set_switches        00 00 00 18 
+set_switches        00 00 00 10
 run_simulation_for  00 00 30 00
 
 # set max volume
@@ -344,12 +342,12 @@ uart_send_data               7F
 run_simulation_for  00 00 10 00
 
 reset_target                 20
-set_switches        00 00 00 18 
+set_switches        00 00 00 10
 run_simulation_for  00 01 80 00
 
 # Low Pass filter ---------------------------------------
 
-set_switches        00 00 00 38 
+set_switches        00 00 00 30
 
 # set Waveform to Sawtooth
 uart_send_data               B0
@@ -379,7 +377,7 @@ uart_send_data               01
 uart_send_data               40
 
 reset_target                 20
-set_switches        00 00 00 18 
+set_switches        00 00 00 10
 run_simulation_for  00 01 80 00
 
 
@@ -387,7 +385,7 @@ run_simulation_for  00 01 80 00
 # FM-Synthesis -----------------------------------------------------------------
 reset_target                 20
 # activate FM-synth preset for simulation
-set_switches        00 00 01 D8 
+set_switches        00 00 01 D0
 run_simulation_for  00 01 80 00
 
 # note on (test tone 1)
